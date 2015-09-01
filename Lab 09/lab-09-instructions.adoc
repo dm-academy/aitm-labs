@@ -1,4 +1,4 @@
-== Lab 10: IT Service Management Suite
+== Lab 09: IT Service Management Suite (Process Management)
 
 This lab will introduce you to a full IT service management suite supporting the ITIL process framework.
 
