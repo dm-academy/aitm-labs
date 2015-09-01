@@ -1,0 +1,86 @@
+= Lab-00 - Course setup
+
+
+
+== Objectives for this lab:
+* Configure your terminal emulator
+* Securely connect to course server via ssh and x-windows
+* Understand Blackboard
+* Collaborate and support each other.
+
+== Prerequisites
+You need access to a Windows, Mac or Linux machine on the St. Thomas network. It can be your machine or one of the machines in the classroom.
+
+=== Tasks:
+
+** Log into discussion board and lecture hall
+** Configuring your machine:
+** Classroom machine: PuTTY should be installed
+** On MacOS, go to Applications|Utilities|Terminal and put it in your Dock.
+** Windows on your laptop: install PuTTY and PuTTYGen
+	* http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
+
+Advanced Windows: install Cygwin for SSH from command line. This allows use of command line SSH from the Windows prompt, and standard OpenSSH tools.
+You may also use TeraTerm, Bitvise, or any other SSH client of your choice. You’re on your own for this.
+
+== Collaborating on Blackboard
+
+== Accessing the course server
+
+=== Configuring SSH
+
+Windows: follow these instructions
+
+http://www.ualberta.ca/CNS/RESEARCH/LinuxClusters/pka-putty.html
+
+Copy the PUBLIC key to your clipboard.
+
+Mac: bring up your Terminal application (under Applications|Utilities). Type:
+
+    $ cd
+    $ ssh-keygen
+    $ cat id_rsa.pub
+
+You will get output like:
+```
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDRycwk4jklWQyzmXi/QtM6ky+85O3C5291GDCOuvzn3Q4t83Sv2wkN69aLhLk53Lfw5SU1unOWb0Cj2xi+El8D5oR+Yncovz53uqSFmiDuHKNH3bQBUS4v15n6AkJ9nqvJtJZ0iuFD1zSlP3JqeSk5e2NPCmqSbWKEOijOsGWeVHxbs2z8I5PcD2Yrd9nDwhpg84eRUHamgZvvDS83lb5A0cUK5lQXr6zinAhWsELtCZCfSOYf5gaL3ADI53hSHekDMeJvK0r+em0NLb9dwSJnJJYBJ+Eb8xhj+hSrw3pkSHGhsPYDth99vkDnPdSQNrNoVhwmJxa3T4sbLy2O+WWn Char@Charless-MacBook-Air.local
+```
+Copy this to your Clipboard (highlight and command-V).
+
+Both PC and Mac, when you have your key copied to the clipboard:
+
+Paste this to the “Access Requests” topic in the discussion board following the example of the “Test Student Access Request,” and an admin will install it on the server in your home directory.
+
+====
+*QUESTION:*
+
+Why didn't I automate this? It would have been a simple script to set it all up in advance. Discuss.
+====
+
+=== Configuring X windows
+
+We will spend some time as a class determining whether and how X-windows is working for you all.
+
+To use X-windows, you need to be logged into seis660 but NOT into a VM.
+
+If you are going to use X-windows, you should log in with the following options if you are on a Mac:
+
+    ssh -XC -c blowfish-cbc,arcfour  yourID@seis660.gps.stthomas.edu
+
+If you are on a PC using Putty or MobaXterm, you will have a checkbox (that may have defaulted to checked) to enable X. You're on your own to figure out compression options.
+
+The extra options are so that X-windows performs better (they make a big difference!)
+
+The quickest test for X-windows is to run the command
+
+    xclock
+
+If it does not work, it may be an issue with X-windows on the client. Macs should have a client already installed, as should the classroom PCs.
+
+If you are using your own PC, you need to install MobaXTerm.
+
+Only one person per team needs to have X-windows working for this lab.
+
+If you have trouble, do not raise your hand. Instead, first ask the question in the chat room.
+
+WHEN you are done with the lab, log into the chat room and discussion board and assist until all of your classmates are done.

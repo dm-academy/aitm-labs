@@ -1,1 +1,7 @@
-Placeholder
+= Learning Linux
+* Log in to seis660.gps.stthomas.edu
+* Log into your account on the server.
+* Run the first 2 Linux tutorials.
+    * http://www.ee.surrey.ac.uk/Teaching/Unix/unix1.html
+    * http://www.ee.surrey.ac.uk/Teaching/Unix/unix2.html
+* Recommended: Run as many of these as you have time for.
