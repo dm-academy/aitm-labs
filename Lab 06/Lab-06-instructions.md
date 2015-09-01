@@ -4,33 +4,11 @@ In this lab, you will assemble into your teams and install the open source monit
 
 YOU WILL BE GRADED ON THIS LAB. It is due by Sunday, March 22.
 
-## Configuring X windows
 
-We will spend some time as a class determining whether and how X-windows is working for you all.
-
-To use X-windows, you need to be logged into seis660 but NOT into a VM.
-
-If you are going to use X-windows, you should log in with the following options if you are on a Mac:
-
-    ssh -XC -c blowfish-cbc,arcfour  yourID@seis660.gps.stthomas.edu
-    
-If you are on a PC using Putty or MobaXterm, you will have a checkbox (that may have defaulted to checked) to enable X. You're on your own to figure out compression options. 
-
-The extra options are so that X-windows performs better (they make a big difference!)
-
-The quickest test for X-windows is to run the command
-
-    xclock
-
-If it does not work, it may be an issue with X-windows on the client. Macs should have a client already installed, as should the classroom PCs.
-
-If you are using your own PC, you need to install MobaXTerm.
-
-Only one person per team needs to have X-windows working for this lab.
 
 > **Some notes on working as a group**
 
-> It is important that you all track what is happening on the console. Take turns operating the keyboard. Each command should be discussed and everyone should be aware that a new command is being issued. It is not acceptable to have the strongest technologist in the group simply do the work. 
+> It is important that you all track what is happening on the console. Take turns operating the keyboard. Each command should be discussed and everyone should be aware that a new command is being issued. It is not acceptable to have the strongest technologist in the group simply do the work.
 
 > Although you will be graded as a group on this assignment, questions regarding it will appear on your individual quizzes and the final. So you need to understand what is being done.
 
@@ -61,11 +39,11 @@ You have a manos and a nervios instance appropriate to your team (each team has 
     vagrant@192.168.33.4X    # for manosXX, X=1-4
     vagrant@192.168.33.5X    # for nerviosXX, X=1-4
 
-First, log into the nervios instance appropriate to your team 
+First, log into the nervios instance appropriate to your team
 
 IMPORTANT: DO NOT USE "vagrant ssh." Instead, log in using ssh:
 
-    ssh vagrant@192.168.33.5X 
+    ssh vagrant@192.168.33.5X
 
 The instructions we will follow this time are at:
 
@@ -77,9 +55,9 @@ Towards the end of the directions, you will see:
 
 *Add Monitoring targets to Nagios server*
 
-At this point, log into manosXX 
+At this point, log into manosXX
 
-    ssh vagrant@192.168.33.4X 
+    ssh vagrant@192.168.33.4X
 
 (again the instance appropriate to your team) and configure it so that it can be monitored by the nagios server.
 
