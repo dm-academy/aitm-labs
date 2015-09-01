@@ -1,2 +1,2 @@
 # aitm-labs
-Labs for The Architecture of IT Management
+Labs for Agile IT Management
