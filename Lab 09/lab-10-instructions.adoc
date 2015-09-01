@@ -1,0 +1,110 @@
+== Lab 10: IT Service Management Suite
+
+This lab will introduce you to a full IT service management suite supporting the ITIL process framework.
+
+Learning objectives:
+
+* Understand how ITSM software is used to support collaborative ITSM processes
+* Document a simulated IT service for your team and execute various ITSM processes against it
+* Consider the implications of this lab in light of other course learnings
+
+=== What is iTOP?
+
+iTop is enterprise software. It consists of many screens that help you add, update, and delete across a complex, shared data model. It is intended as a tool to structure collaboration, in the form of defined processes.
+
+image::itop.png[]
+
+
+=== Getting started
+
+First, ssh with X-windows to seis660.gps.stthomas.edu.
+
+If you are going to use X-windows, you should log in with the following options if you are on a Mac:
+
+    ssh -XC -c blowfish-cbc,arcfour  yourID@seis660.gps.stthomas.edu
+
+If you are on a PC using Putty or MobaXterm, you will have a checkbox (that may have defaulted to checked) to enable X. You're on your own to figure out compression options.
+
+Once logged in, bring up Firefox over X:
+
+    firefox -XC -no-remote &
+
+then, using that Firefox window, log in to:
+
+http://192.168.33.37/itop
+
+Default user name is "admin," no password. (Don't do this in the real world.)
+
+At the same time, using a LOCAL browser (not the Firefox where you have iTOP), go to the iTop documentation at:
+
+https://wiki.openitop.org/doku.php?id=start
+
+=== Scenario
+
+Here is the scenario: you are four teams within a larger organization.
+
+Team 1: customer facing ecommerce site
+
+Team 2: back office supply chain/inventory
+
+Team 3: ERP system
+
+Team 4: infrastructure (data center & end user computing, including email)
+
+**Instructions**
+
+* Set up your teams (we won't use the existing teams in iTOP - however, the existing data may help you understand how to set things up)
+* Name them TeamX where X={1-4}
+** as admin, give each person on your team an ID and password (Configuration Management|Contacts) - use your St. Thomas email ID and no password. (Don't do this in the real world.)
+** assign each to the appropriate team
+
+image::contacts.png[]
+image::person.png[]
+
+.Critical note
+****
+There are dozens of possible screens in iTop, and the lab does not document them all with screenshots. It would start to become very redundant.
+
+You will find that the behavior of iTop is very consistent. You can create, search, modify, and delete objects and their relationships. Feel free to explore and experiment. This is a lab simulation and you cannot damage anything. It will be deleted and recreated at the end of the course.
+
+You can create relationships to things that are not your own. Just don't delete or modify anything someone else has created.
+
+Please, prefix anything you create with "TX" where X is your team name. For example, Team Four might create a server "T4-email-srv" representing their email server.
+
+Refer to the iTop instructions, course readings (especially Betz), and online ITSM/ITIL materials as necessary.
+
+****
+* Set up your configuration items
+** Each team has one application solution running on two physical servers
+*** team 1: "ecom"
+*** team 2: "s-chain"
+*** team 3: "SAP"
+*** team 4: "email"
+
+You should create your application solution as a CI, and create the servers
+
+* Perform the following actions, as many as you have time for:
+** Execute a Change against a CI
+** Initiate and fulfill a service request for access against one of your services, or another team's.
+** Register an Incident against a CI
+** Register a Problem against a CI
+** Set up a new service contract
+** Virtualize your servers
+** Be creative!
+*** Create a new application solution.
+*** Add new, or new kinds, of resources/CIs to your application.
+
+Note, since we do not have actual systems that the CIs are representing (this will change) you do not do anything "real" to resolve an Incident or execute a Change. Simply fill out the form "as if" you have done so.
+
+Discuss:
+
+image::MasterSystemsArch.png[]
+
+* What parts of the reference architecture are fulfilled by this tool?
+
+* What do you think of this tool in light of current industry trends to virtualization and faster cycle times?
+
+Grading:
+
+I will be evaluating each team based on the effort I see in the tool.
+We will walk through each team's efforts next Friday.
