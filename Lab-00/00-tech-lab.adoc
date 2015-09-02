@@ -21,6 +21,7 @@ Same for any other platform.
 
 * The chat room requires an obsolete Java version, so we're not going to use it.
 * The https://blackboard.stthomas.edu/webapps/blackboard/content/launchLink.jsp?course_id=_103740_1&toc_id=_491071_1&mode=cpview&mode=reset[discussion board] will be the main communication channel.
+* Navigate to it and confirm you can read messages. You can https://blackboard.stthomas.edu/webapps/discussionboard/do/forum?action=list_threads&nav=discussion_board&course_id=_103740_1&conf_id=_128825_1&forum_id=_84350_1[post a test message] if you like. 
 
 === Setting up your terminal emulator
 
