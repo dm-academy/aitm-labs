@@ -3,43 +3,52 @@
 In this lab, you will set up the tools and access you need for the rest of the semester.
 
 == Objectives for this lab:
+* Locate and use the Blackboard collaboration tools
 * Configure your terminal emulator
 * Securely connect to course server via ssh and x-windows
-* Understand Blackboard
 * Collaborate and support each other.
 
 == Prerequisites
-You need access to a Windows, Mac or Linux machine on the St. Thomas network. It can be your machine or one of the machines in the classroom.
+You need access to a Windows (7 or greater), Mac OS X (10.9.5 or greater) or Ubuntu Linux machine on the St. Thomas network. It can be your machine or one of the machines in the classroom.
 
-=== Tasks:
+If you want to use a tablet, you are ON YOUR OWN. (It probably could be done - SSH & X clients exist - but I don't have the bandwidth to support it.)
 
-** Log into discussion board and lecture hall
-** Configuring your machine:
-** Classroom machine: PuTTY should be installed
-** On MacOS, go to Applications|Utilities|Terminal and put it in your Dock.
-** Windows on your laptop: install PuTTY and PuTTYGen
-	* http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
+Same for any other platform.
 
-Advanced Windows: install Cygwin for SSH from command line. This allows use of command line SSH from the Windows prompt, and standard OpenSSH tools.
+== Tasks
+
+=== Collaborating on Blackboard
+
+* The chat room requires an obsolete Java version, so we're not going to use it.
+* The https://blackboard.stthomas.edu/webapps/blackboard/content/launchLink.jsp?course_id=_103740_1&toc_id=_491071_1&mode=cpview&mode=reset[discussion board] will be the main communication channel.
+
+=== Setting up your terminal emulator
+
+* Classroom machine: PuTTY should be installed
+* On your MacOS laptop, go to Applications|Utilities|Terminal and put it in your Dock.
+* Windows on your laptop: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html[install PuTTY and PuTTYGen] and make sure you can find the shortcuts.
+
+Advanced Windows (ON YOUR OWN): install Cygwin for SSH from command line. This allows use of command line SSH from the Windows prompt, and standard OpenSSH tools.
+
 You may also use TeraTerm, Bitvise, or any other SSH client of your choice. You’re on your own for this.
-
-== Collaborating on Blackboard
-
-== Accessing the course server
 
 === Configuring SSH
 
-Windows: follow these instructions
+*Windows (both classroom machines and your laptop):* follow these instructions
 
 http://www.ualberta.ca/CNS/RESEARCH/LinuxClusters/pka-putty.html
 
 Copy the PUBLIC key to your clipboard.
 
-Mac: bring up your Terminal application (under Applications|Utilities). Type:
+*Mac:* bring up your Terminal application (under Applications|Utilities). Type:
 
-    $ cd
-    $ ssh-keygen
-    $ cat id_rsa.pub
+ $ cd
+ $ ssh-keygen
+ $ cat id_rsa.pub
+
+====
+NOTE: The "$" above represents the prompt the operating system displays for you. It may have your name or other stuff before it. In rare cases, it might be a different character like "#" or even "&". In any case, you don't type the prompt character.
+====
 
 You will get output like:
 ```
