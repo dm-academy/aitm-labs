@@ -1,4 +1,6 @@
-= Learning Linux
+= Lab 01 Learning Linux
+
+
 * Log in to seis660.gps.stthomas.edu
 * Log into your account on the server.
 * Run the first 2 Linux tutorials.

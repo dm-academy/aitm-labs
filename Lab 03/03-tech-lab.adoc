@@ -1,7 +1,9 @@
-# IT Infrastructure Lab 4 Instructions #
-**Overview** 
+= Lab 03 The core application pipeline
+In this lab, you will work with a basic DevOps application pipeline.
 
-Lab objectives: 
+**Overview**
+
+Lab objectives:
 
 In this lab, you will initialize a Vagrant machine that has been preconfigured as a simple developer workstation with:
 
@@ -17,13 +19,13 @@ You must have completed lab 3 and issued pull requests for me.
 
 **Clone the Calavera project**
 
-Log into the main server via ssh in the usual way. 
+Log into the main server via ssh in the usual way.
 
 Make sure you are in your home directory.
 
     cd ~
 
-Clone the Calavera project (SEIS660 spring 2015 fork). 
+Clone the Calavera project (SEIS660 spring 2015 fork).
 
 ````
 teststu1@seis660:~$ git clone https://github.com/StThomas-SEIS660/Calavera.git
@@ -36,16 +38,16 @@ Resolving deltas: 100% (349/349), done.
 Checking connectivity... done.
 ````
 Change to the Calavera directory:
-    
+
     teststu1@seis660:~$ cd Calavera/
 
 Now, you will see a new Vagrantfile. Have a look at it:
 
     teststu1@seis660:~/Calavera$ more Vagrantfile
-    
+
 (You can hit the space bar to go through it, or q to exit.)
 
-There are a number of machines defined, such as 
+There are a number of machines defined, such as
 
 
 ````
@@ -63,13 +65,13 @@ chef.cookbooks_path = ["./cookbooks/"]
 chef.add_recipe "shared::default"
 chef.add_recipe "git::default"
 chef.add_recipe "localAnt::default"
-chef.add_recipe "java7::default"   
+chef.add_recipe "java7::default"
 chef.add_recipe "tomcat::default"
 chef.add_recipe "shared::_junit"
 chef.add_recipe "manos::default"
 ````
 
-You used a shell provisioner in your previous lab to apply your script to your new VM. But what's this? It's commented out here (the # means that Vagrant won't execute that line). 
+You used a shell provisioner in your previous lab to apply your script to your new VM. But what's this? It's commented out here (the # means that Vagrant won't execute that line).
 
 Instead, we are starting to use Chef. As we discussed in Lecture 03, Chef is a configuration management system. Now, a full treatment of Chef is beyond the scope of this class. However, you should look at a few things. You should still be in your Calavera directory. Run tree:
 
@@ -171,35 +173,35 @@ Hint: if you are using Putty or some other terminal emulator and getting garbage
 
 http://unix.stackexchange.com/questions/61293/how-can-i-change-locale-encoding-to-avoid-getting-weird-characters-in-terminal
 
-This directory structure is the entire Calavera project, which is a simple DevOps simulation that all runs through Vagrant. 
+This directory structure is the entire Calavera project, which is a simple DevOps simulation that all runs through Vagrant.
 
 Again, notice in the Vagrantfile the directives:
 
     manos.vm.provision :chef_zero do |chef|
-    
+
 The above tells Vagrant to use Chef to set up the virtual machine.
 
     chef.cookbooks_path = ["./cookbooks/"]
-    
+
 The above tells Chef where the cookbooks are.
 
 ````
 chef.add_recipe "shared::default"
 chef.add_recipe "git::default"
 chef.add_recipe "localAnt::default"
-chef.add_recipe "java7::default"   
+chef.add_recipe "java7::default"
 chef.add_recipe "tomcat::default"
 chef.add_recipe "shared::_junit"
 chef.add_recipe "manos::default"
 ````
 
-Finally, the above tells Chef to apply a series of recipes from various parts of the tree. These recipes install software and configure the system in various ways. 
+Finally, the above tells Chef to apply a series of recipes from various parts of the tree. These recipes install software and configure the system in various ways.
 
 *Have a look at some of them.*  Use "cat."
 
-The combination of these recipes precisely describes what the virtual machine will look like. If you delete a VM and bring it back up, it should look exactly the same every time. 
+The combination of these recipes precisely describes what the virtual machine will look like. If you delete a VM and bring it back up, it should look exactly the same every time.
 
-Now, the current Vagrantfile is a little dangerous, because if you type "vagrant up" it will try to bring up ALL of the machines. So, I have created a branch in git with a Vagrantfile for just the manos machine. Let's switch to that. 
+Now, the current Vagrantfile is a little dangerous, because if you type "vagrant up" it will try to bring up ALL of the machines. So, I have created a branch in git with a Vagrantfile for just the manos machine. Let's switch to that.
 
 Return to the Calavera base directory and issue the following:
 
@@ -208,12 +210,12 @@ teststu1@seis660:~/Calavera$ cd ~/Calavera/
 teststu1@seis660:~/Calavera$ git checkout Cala-04
 Branch Cala-04 set up to track remote branch Cala-04 from origin.
 Switched to a new branch 'Cala-04'
-teststu1@seis660:~/Calavera$ 
+teststu1@seis660:~/Calavera$
 ````
 Now, do "cat Vagrantfile". You should see that Manos is the only machine left. Vagrant up manos:
 
     teststu1@seis660:~/Calavera$ vagrant up manos
-    
+
 **Important**
 If you get
 ````
@@ -225,8 +227,8 @@ Couldn't open file /home/student/beno6137/Calavera/opscode-ubuntu-14.04a
 you need to export an environment variable. Type
 
     export VAGRANT_HOME=/var/vagrant/.vagrant.d
-    
-and it now should work. 
+
+and it now should work.
 
 Manos comes preconfigured with a running Tomcat instance and a simple test-harness based Java application. You can see it running when you ssh in:
 
@@ -244,7 +246,7 @@ What is "curl"? curl is like a browser for the command line. Because we are not 
 ![<Display Name>](browser2.jpg)
 
 
-Let's look at what goes into making this little app work. First, how did it get there? Exit from your ssh into the VM, if you are still in there. 
+Let's look at what goes into making this little app work. First, how did it get there? Exit from your ssh into the VM, if you are still in there.
 
 You can see the resources used by the application if you go:
 
@@ -262,7 +264,7 @@ cookbooks/manos/
 └── recipes
     └── default.rb
 ````
-    
+
 Now, the cookbook here essentially includes the raw ingredients (the contents of the cookbooks/manos/files directory) as well as the recipes of how to set them up on the VM. Especially, have a look at cookbooks/manos/recipes/default.rb:
 
 ````
@@ -284,7 +286,7 @@ user 'vagrant' do
 end
 
 ["/home/hijo/src/main/config",
- "/home/hijo/src/main/java/biz/calavera", 
+ "/home/hijo/src/main/java/biz/calavera",
  "/home/hijo/src/test/java/biz/calavera",
  "/home/hijo/target/biz/calavera"].each do | name |
 
@@ -300,7 +302,7 @@ end
 file_map = {
   "INTERNAL_gitignore" => "/home/hijo/.gitignore",
  "build.xml" => "/home/hijo/build.xml",
- "web.xml" => "/home/hijo/src/main/config/web.xml", 
+ "web.xml" => "/home/hijo/src/main/config/web.xml",
  "Class1.java" => "/home/hijo/src/main/java/biz/calavera/Class1.java",
  "MainServlet.java" =>  "/home/hijo/src/main/java/biz/calavera/MainServlet.java",
  "TestClass1.java" => "/home/hijo/src/test/java/biz/calavera/TestClass1.java"
@@ -319,11 +321,11 @@ end
 ...
 ````
 
-There is more, but you get the idea. Without going into the Ruby code this is written in (which would be too much detail for this class), this script  is creating a set of directory structures on the new manos VM and populating them with the basic Java and Ant files needed. For example, this command: 
+There is more, but you get the idea. Without going into the Ruby code this is written in (which would be too much detail for this class), this script  is creating a set of directory structures on the new manos VM and populating them with the basic Java and Ant files needed. For example, this command:
 
     "build.xml" => "/home/hijo/build.xml"
-    
-essentially says, take the file called "build.xml" from the files directory on the host, and copy it into /home/hijo/build.xml on the guest. 
+
+essentially says, take the file called "build.xml" from the files directory on the host, and copy it into /home/hijo/build.xml on the guest.
 
 Go back into your manos VM and have a look at the home/hijo directory:
 
@@ -363,9 +365,9 @@ vagrant@manos:~$ tree /home/hijo
 
 ````
 
-That configured directory tree is the outcome of the Chef scripts that were applied when the first Vagrant up was done. But wait, there is more. How is Tomcat actually serving up the servlet? 
+That configured directory tree is the outcome of the Chef scripts that were applied when the first Vagrant up was done. But wait, there is more. How is Tomcat actually serving up the servlet?
 
-Go: 
+Go:
 
 ````
 vagrant@manos:/home/hijo$ tree /var/lib/tomcat6/webapps/ROOT/WEB-INF/
@@ -379,9 +381,9 @@ vagrant@manos:/home/hijo$ tree /var/lib/tomcat6/webapps/ROOT/WEB-INF/
 
 In order for the CalaveraMain.jar file to be served up, it needs to be put in the WEB-INF/lib directory that Tomcat knows about, and the web.xml file needs to be updated as well. How did this happen?
 
-And as a matter of fact, where did that CalaveraMain.jar file come from, anyways? It wasn't part of the files stored in the cookbook...!? Go back and look. 
+And as a matter of fact, where did that CalaveraMain.jar file come from, anyways? It wasn't part of the files stored in the cookbook...!? Go back and look.
 
-This is where the magic of Ant comes in. CalaveraMain.jar is a **compiled and packaged** version of the java classes you see in the java/biz/calavera directory. 
+This is where the magic of Ant comes in. CalaveraMain.jar is a **compiled and packaged** version of the java classes you see in the java/biz/calavera directory.
 
 Back when Java first came out, the developer would have to painstaking compile and package the software by hand, move it manually to the Tomcat directory, and restart Tomcat. But with Ant (and similar tools like Maven), we can do this all automatically. Go:
 
@@ -390,7 +392,7 @@ vagrant@manos:/home/hijo$ sudo ant
 Buildfile: /home/hijo/build.xml
 
 init:
-     [echo] 
+     [echo]
      [echo] 			Computer name is ${my_env.COMPUTERNAME}
      [echo]                         User name is root
      [echo] 			Building from /home/hijo/build.xml
@@ -401,16 +403,16 @@ init:
      [echo] 			Source is ./src/main/java/biz/calavera
      [echo] 			Build target is ./target
      [echo] 			Deployment target is /var/lib/tomcat6/webapps/ROOT/WEB-INF/lib
-     [echo] 		
+     [echo]
 
 compile:
     [javac] Compiling 2 source files to /home/hijo/target
     [javac] Compiling 1 source file to /home/hijo/target
 
 test:
-     [echo] 
+     [echo]
      [echo] 			entering test
-     [echo] 		
+     [echo]
     [junit] Running biz.calavera.TestClass1
     [junit] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.074 sec
 
@@ -421,9 +423,9 @@ deploy:
    [delete] Deleting directory /var/lib/tomcat6/webapps/ROOT/WEB-INF/lib
     [mkdir] Created dir: /var/lib/tomcat6/webapps/ROOT/WEB-INF/lib
      [copy] Copying 1 file to /var/lib/tomcat6/webapps/ROOT/WEB-INF/lib
-     [echo] 
-     [echo] 			Attempting Tomcat restart. 
-     [echo] 		
+     [echo]
+     [echo] 			Attempting Tomcat restart.
+     [echo]
      [exec] The command attribute is deprecated.
      [exec] Please use the executable attribute and nested arg elements.
      [exec]  * Stopping Tomcat servlet engine tomcat6
@@ -434,9 +436,9 @@ deploy:
      [exec]    ...done.
 
 main:
-     [echo]  
+     [echo]
      [echo] 			built and deployed to Tomcat.
-     [echo] 		
+     [echo]
 
 BUILD SUCCESSFUL
 Total time: 8 seconds
@@ -452,14 +454,14 @@ You can see the Ant script at build.xml. Compare that script to the output. It i
 - Moving the jar file to the appropriate Tomcat directory, along with the web.xml configuration file
 - Restarting Tomcat
 
-If you are interested in Ant further, you can see more about it at http://ant.apache.org/. 
+If you are interested in Ant further, you can see more about it at http://ant.apache.org/.
 
 Let's play with the Java a little bit. Go:
 
 ````
-vagrant@manos:/home/hijo$ nano src/main/java/biz/calavera/MainServlet.java 
+vagrant@manos:/home/hijo$ nano src/main/java/biz/calavera/MainServlet.java
 
-  GNU nano 2.2.6                      File: src/main/java/biz/calavera/MainServlet.java                                                            Modified  
+  GNU nano 2.2.6                      File: src/main/java/biz/calavera/MainServlet.java                                                            Modified
 
 package biz.calavera;
 
@@ -471,7 +473,7 @@ import javax.servlet.http.*;
 
 public class MainServlet extends HttpServlet {
         // Import required java libraries
-         
+
           private String message;
 
           public void init() throws ServletException
@@ -491,28 +493,28 @@ public class MainServlet extends HttpServlet {
               // Actual logic goes here.
               PrintWriter out = response.getWriter();
               Class1 oResp = new Class1(message);
-              
+
               out.println(oResp.webMessage());
           }
-          
+
           public void destroy()
           {
               // do nothing.
           }
         }
 ````
-Find the line that says: 
+Find the line that says:
 
     message = "This is a skeleton application-- to explore the end to end Calavera delivery framework."
 
-and change it to 
+and change it to
 
     message = "YourStudentID This is a skeleton application-- to explore the end to end Calavera delivery framework."
 
 Exit nano and run Ant again:
 
     vagrant@manos:/home/hijo$ sudo ant
-    [ same output as before ] 
+    [ same output as before ]
 
 Now try:
 
@@ -527,7 +529,7 @@ vagrant@manos:/home/hijo$ git add src/main/java/biz/calavera/MainServlet.java
 vagrant@manos:/home/hijo$ git commit -m "my local java"
 [master 04ff3cb] my local java
  1 file changed, 1 insertion(+), 1 deletion(-)
-```` 
+````
 Review your change:
 
 
@@ -550,31 +552,31 @@ index 35cdac4..54f2be4 100644
 -             message = "This is a skeleton application-- to explore the end to end Calavera delivery framework.";
 +             message = "YourStudentID This is a skeleton application-- to explore the end to end Calavera delivery framework.";
           }
- 
+
           public void doGet(HttpServletRequest request,
 ````
 
-Now, let's break something. 
+Now, let's break something.
 
-Go: 
+Go:
 
 ````
-vagrant@manos:/home/hijo$ nano src/main/java/biz/calavera/Class1.java 
+vagrant@manos:/home/hijo$ nano src/main/java/biz/calavera/Class1.java
 
-  GNU nano 2.2.6                                 File: src/main/java/biz/calavera/Class1.java                                                                          
+  GNU nano 2.2.6                                 File: src/main/java/biz/calavera/Class1.java
 
 package biz.calavera;
 
 
 public class Class1 {
           String strMsg;
-          
+
           public Class1 (String inString)
           {
                     strMsg = inString;
           }
         public String five()
-        { 
+        {
                 return "five";
         }
 
@@ -587,14 +589,14 @@ public class Class1 {
         }
 ````
 
-Replace 
+Replace
 
     return "five";
 
-with 
+with
 
     return "four";
-    
+
 
 
 Rebuild with ant:
@@ -604,7 +606,7 @@ vagrant@manos:/home/hijo$ sudo ant
 Buildfile: /home/hijo/build.xml
 
 init:
-     [echo] 
+     [echo]
      [echo] 			Computer name is ${my_env.COMPUTERNAME}
      [echo]                         User name is root
      [echo] 			Building from /home/hijo/build.xml
@@ -615,16 +617,16 @@ init:
      [echo] 			Source is ./src/main/java/biz/calavera
      [echo] 			Build target is ./target
      [echo] 			Deployment target is /var/lib/tomcat6/webapps/ROOT/WEB-INF/lib
-     [echo] 		
+     [echo]
 
 compile:
     [javac] Compiling 2 source files to /home/hijo/target
     [javac] Compiling 1 source file to /home/hijo/target
 
 test:
-     [echo] 
+     [echo]
      [echo] 			entering test
-     [echo] 		
+     [echo]
     [junit] Running biz.calavera.TestClass1
     [junit] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.074 sec
 
@@ -648,7 +650,7 @@ junit.framework.AssertionFailedError: five is 5 expected:<f[ive]> but was:<f[our
 	at biz.calavera.TestClass1.testTrue(Unknown Source)
 ````
 
-Notice we can still curl. The broken build was not deployed to the local Tomcat. 
+Notice we can still curl. The broken build was not deployed to the local Tomcat.
 
 ````
 vagrant@manos:/home/hijo$ curl localhost:8080/MainServlet
@@ -658,14 +660,14 @@ vagrant@manos:/home/hijo$ curl localhost:8080/MainServlet
 Let's abandon the changes that broke the build:
 
     vagrant@manos:/home/hijo$ git reset --hard
-    
-This command discards all changes you have not committed. 
-    
-Do 
 
-    cat rc/main/java/biz/calavera/Class1.java 
-    
-and you will see "four" reverted to "five." 
+This command discards all changes you have not committed.
+
+Do
+
+    cat rc/main/java/biz/calavera/Class1.java
+
+and you will see "four" reverted to "five."
 
 Finally, let's go back to the original version without YourStudentID in the message:
 
@@ -683,26 +685,15 @@ Author: Charles Betz <char@calavera.biz>
 
 vagrant@manos:/home/hijo$ git revert 3b810e4
 ````
-You will need to edit the revert message in nano. 
+You will need to edit the revert message in nano.
 
 ````
 [master b66c1c9] Revert "my local java"
  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 
-See that "YourStudentID" is now removed, as we have reverted to the original version of the code. 
+See that "YourStudentID" is now removed, as we have reverted to the original version of the code.
 
-```` 
-vagrant@manos:/home/hijo$ cat src/main/java/biz/calavera/MainServlet.java 
 ````
-
-
-
-
-
-
-
-
-
-
-
+vagrant@manos:/home/hijo$ cat src/main/java/biz/calavera/MainServlet.java
+````

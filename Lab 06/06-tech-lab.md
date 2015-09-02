@@ -1,9 +1,6 @@
 #Lab 06
 
-In this lab, you will assemble into your teams and install the open source monitoring tool Nagios in a client-server configuration.
-
-YOU WILL BE GRADED ON THIS LAB. It is due by Sunday, March 22.
-
+In this lab, you will assemble into your teams and install the open source monitoring tool Nagios in a client-server configuration. You will feedback issues detected in Nagios back into the Kanban system. 
 
 
 > **Some notes on working as a group**

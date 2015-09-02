@@ -1,0 +1,4 @@
+= Lab 05 Work Management: Kanban and advanced git.
+In this lab, you will extend the pipeline to support Kanban work management coupled with advanced git techniques.
+
+Kanban/Scrum story = git branch. 

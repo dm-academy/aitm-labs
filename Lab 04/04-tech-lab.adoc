@@ -1,4 +1,7 @@
-# IT Infrastructure Lab 5 Instructions #
+= Lab 04 Behavior driven development and automated deployment
+In this lab, you will extend the previous application pipeline to include behavior-driven development and automated deployment.
+
+# IT Infrastructure Lab 4 Instructions #
 **Overview**
 
 Lab objectives:
@@ -126,7 +129,7 @@ deploy:
      [exec]    ...done.
 
 main:
-     [echo]  
+     [echo]
      [echo] 			built and deployed to Tomcat.
      [echo]
 
