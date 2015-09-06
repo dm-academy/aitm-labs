@@ -1,0 +1,39 @@
+#!/usr/bin/perl
+# this version only create a list of users and not the input file for newusers
+# assuming final email doesn't have comma
+
+# UNDECLARED VARIABLES very bad
+
+#use Tie::File;
+use String::Random;
+# creates a new users file from a comma delimited list of emails
+# pw_name:pw_passwd:pw_uid:pw_gid:pw_gecos:pw_dir:pw_shell
+
+#read in file
+$filename = $ARGV[0]; 
+open FILE, $filename||die $!;
+$emails=<FILE>;
+close(FILE);
+
+$emails .= ", ";  # add comma/space to last line - kind of lame
+#remove domain, comma, space, add newlines
+$emails =~ s/@.*?, /\n/g;  # could make this more robust
+@arrEmails=split("\n", $emails);
+map ($_ = lc($_), @arrEmails);
+
+open(FILE, "> ~/courseadmin/newusers.txt") || die "can't open output"; 
+print FILE @arrEmails;
+close (FILE);
+
+open(FILE, "> ~/courseadmin/justUserIDs.txt") || die "can't open output"; #for chage loop and 
+#also can be used for deleting users
+@justUserIDs = @arrEmails;
+map ($_ .= "\n", @justUserIDs); # add back newlines
+
+print FILE @justUserIDs;
+close (FILE);
+
+
+
+
+
