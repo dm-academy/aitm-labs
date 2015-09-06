@@ -1,5 +1,6 @@
 #!/usr/bin/perl
-# this version only create a list of users and not the input file for newusers
+# this version only create a list of users from a list of emails (not including quoted names)
+# and not the input file for newusers
 # assuming final email doesn't have comma
 
 # UNDECLARED VARIABLES very bad
@@ -21,11 +22,7 @@ $emails =~ s/@.*?, /\n/g;  # could make this more robust
 @arrEmails=split("\n", $emails);
 map ($_ = lc($_), @arrEmails);
 
-open(FILE, "> ~/courseadmin/newusers.txt") || die "can't open output"; 
-print FILE @arrEmails;
-close (FILE);
-
-open(FILE, "> ~/courseadmin/justUserIDs.txt") || die "can't open output"; #for chage loop and 
+open(FILE, "> /home/char/courseadmin/justUserIDs.txt") || die "can't open output"; #for change loop and 
 #also can be used for deleting users
 @justUserIDs = @arrEmails;
 map ($_ .= "\n", @justUserIDs); # add back newlines

@@ -1,5 +1,7 @@
 #!/usr/bin/perl
 
+## pretty sure this one is obsolete. 
+
 # script takes comma/space delimited email file and generates file suitable for 
 #Linux newusers command.
 # assuming final email doesn't have comma
