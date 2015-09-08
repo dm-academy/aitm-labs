@@ -25,60 +25,101 @@ Same for any other platform.
 
 === Setting up your terminal emulator
 
-* Classroom machine: PuTTY should be installed
+* Classroom machine: PuTTY and PuTTYGen should be installed
+* Windows on your laptop: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html[install PuTTY and PuTTYGen] and make sure you can find the shortcuts. Putting them on your desktop is fine for now.
 * On your MacOS laptop, go to Applications|Utilities|Terminal and put it in your Dock.
-* Windows on your laptop: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html[install PuTTY and PuTTYGen] and make sure you can find the shortcuts.
 
 Advanced Windows (ON YOUR OWN): install Cygwin for SSH from command line. This allows use of command line SSH from the Windows prompt, and standard OpenSSH tools.
 
 You may also use TeraTerm, Bitvise, or any other SSH client of your choice. You’re on your own for this.
 
-=== Configuring SSH
+You will be provided usernames, temporary passwords, and the server name. Use your terminal emulator to log into the server, by entering the server address, your name, and password as appropriate to PuTTy, or by simply going:
 
-*Windows (both classroom machines and your laptop):* follow these instructions
+ > ssh <servername>
+
+on the Mac OS.
+
+Once you have logged in, do not type anything or "move around" in the directory structure. You should be in your home directory in a "clean," newly initialized account. Try:
+
+ $ touch .ssh/authorized_keys
+
+and then, only for Mac users:
+
+ $ exit
+
+(Windows users will need to stay logged in for the next part.)
+
+IMPORTANT: The "$" and ">" above represent the prompt the operating system displays for you. It may have your name or other stuff before it. In rare cases, it might be a different character like "#" or even "&". In any case, you don't type the prompt character.
+
+If there are any errors post them to the discussion room for assistance.
+
+NOTE: You will not be able to login via password after this session. The "cleartext login" functionality in sshd_config will be https://help.ubuntu.com/community/SSH/OpenSSH/Configuring[disabled].
+
+=== Configuring SSH - Windows
+
+*Windows machines (both classroom machines and your laptop):* follow these instructions
 
 http://www.ualberta.ca/CNS/RESEARCH/LinuxClusters/pka-putty.html
 
-Copy the PUBLIC key to your clipboard.
+If you have questions, check the chat room.
 
-*Mac:* bring up your Terminal application (under Applications|Utilities). Type:
+=== Configuring SSH - Mac OS
+
+IMPORTANT: On the Macintosh, be sure you are logged out of the course server. These next commands need to be performed on your local machine, while connected to the network.
+
+If you're not already in it, bring up your Terminal application (under Applications|Utilities). *At the window for your local computer*  type:
 
  $ cd
  $ ssh-keygen
  $ cat id_rsa.pub
 
-====
-NOTE: The "$" above represents the prompt the operating system displays for you. It may have your name or other stuff before it. In rare cases, it might be a different character like "#" or even "&". In any case, you don't type the prompt character.
-====
-
 You will get output like:
 ```
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDRycwk4jklWQyzmXi/QtM6ky+85O3C5291GDCOuvzn3Q4t83Sv2wkN69aLhLk53Lfw5SU1unOWb0Cj2xi+El8D5oR+Yncovz53uqSFmiDuHKNH3bQBUS4v15n6AkJ9nqvJtJZ0iuFD1zSlP3JqeSk5e2NPCmqSbWKEOijOsGWeVHxbs2z8I5PcD2Yrd9nDwhpg84eRUHamgZvvDS83lb5A0cUK5lQXr6zinAhWsELtCZCfSOYf5gaL3ADI53hSHekDMeJvK0r+em0NLb9dwSJnJJYBJ+Eb8xhj+hSrw3pkSHGhsPYDth99vkDnPdSQNrNoVhwmJxa3T4sbLy2O+WWn Char@Charless-MacBook-Air.local
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDRycwk4jklWQyzmXi/QtM6ky+85O3C5291GDCOuvzn3Q4t83Sv2wkN69aLhLk53Lfw5SU1unOWb0Cj2xi+El8D5oR+Yncovz53uqSFmiDuHKNH3bQBUS4v15n6AkJ9nqvJtJZ0iuFD1zSlP3JqeSk5e2NPCmqSbWKEOijOsGWeVHxbs2z8I5PcD2Yrd9nDwhpg84eRUHamgZvvDS83lb5A0cUK5lQXr6zinAhWsELtCZCfSOYf5gaL3ADI53hSHekDMeJvK0r+em0NLb9dwSJnJJYBJ+Eb8xhj+hSrw3pkSHGhsPYDth99vkDnPdSQNrNoVhwmJxa3T4sbLy2O+WWn xxxxxx@xxx..xxx.local
 ```
-Copy this to your Clipboard (highlight and command-V).
+Copy the output to your Clipboard (highlight and Command-C). Log back into the course server with your name and password.
 
-Both PC and Mac, when you have your key copied to the clipboard:
+ $ ssh <servername>
+ [login]
+ > vi .ssh/authorized_keys
 
-Paste this to the “Access Requests” topic in the discussion board following the example of the “Test Student Access Request,” and an admin will install it on the server in your home directory.
+. Press the i key to go into insert mode.
+
+. Paste your key in with Command-V.
+
+. Type Escape
+
+. Type ":wq!"   (NO QUOTES)
+
+. Now, type 'exit'.
+
+You should now be able to log into the server by going
+
+ ssh yourname@servername.domain
+
+and it will NOT require a password, because you are using your key pair to authenticate.
 
 ====
 *QUESTION:*
 
-Why didn't I automate this? It would have been a simple script to set it all up in advance. Discuss.
+Why didn't I automate this? It would have been a simple script to set it all up in advance and provide you all your private keys. Discuss.
 ====
 
 === Configuring X windows
 
 We will spend some time as a class determining whether and how X-windows is working for you all.
 
-To use X-windows, log into seis660.
+NOTE: As of Fall 2015, there is new X-windows software in the lab. We will all be getting familiar with it.
+
+To use X-windows, log into seis660, enabling X windows for the connection.
 
 If you are on a PC using Putty or MobaXterm, you will have a checkbox (that may have defaulted to checked) to enable X. You're on your own to figure out compression options.
 
-If you are going to use X-windows, you should log in with the following options if you are on a Mac:
+You will need to open the X windows client.
+
+Log in with the following options if you are on a Mac:
 
     ssh -XC -c blowfish-cbc,arcfour  yourID@seis660.gps.stthomas.edu
-
 
 The extra options are so that X-windows performs better (they make a big difference!)
 
@@ -86,12 +127,11 @@ The quickest test for X-windows is to run the command
 
     xclock
 
-If it does not work, it may be an issue with X-windows on the client. Macs should have a client already installed, as should the classroom PCs.
+If it does not work, it may be an issue with X-windows on the client. Macs should have a client already installed, as should the classroom PCs. The client will launch automatically on most modern Macs. In some cases, the "Quartz" application needs to be downloaded from the Mac App Store. It should be free.
 
-If you are using your own PC, you need to install MobaXTerm.
+If you are using your own PC, you can install http://wiki.x2go.org/doku.php/doc:installation:x2goclient[X2Go] or MobaXTerm.
 
-Only one person per team needs to have X-windows working for this lab.
 
-If you have trouble, do not raise your hand. Instead, first ask the question in the chat room.
+If you have trouble, do not raise your hand immediately. Instead, first ask the question in the chat room.
 
 WHEN you are done with the lab, log into the chat room and discussion board and assist until all of your classmates are done.
