@@ -111,26 +111,27 @@ We will spend some time as a class determining whether and how X-windows is work
 
 NOTE: As of Fall 2015, there is new X-windows software in the lab. We will all be getting familiar with it.
 
-To use X-windows, log into seis660, enabling X windows for the connection.
+To use X-windows, log into seis660, enabling X windows for the connection, as described in the following.
 
-If you are on a PC using Putty or MobaXterm, you will have a checkbox (that may have defaulted to checked) to enable X. You're on your own to figure out compression options.
+*Windows* If you are on a windows machine using Putty you will have a checkbox (that may have defaulted to checked) to enable X. If someone figures out the compression options, please suggest.
 
-You will need to open the X windows client.
+You may need to open the X windows client.
 
-Log in with the following options if you are on a Mac:
+If you are using your own PC, you can install http://wiki.x2go.org/doku.php/doc:installation:x2goclient[X2Go] or MobaXTerm.
+
+*Mac OS* Log in with the following options if you are on a Mac:
 
     ssh -XC -c blowfish-cbc,arcfour  yourID@seis660.gps.stthomas.edu
 
 The extra options are so that X-windows performs better (they make a big difference!)
 
-The quickest test for X-windows is to run the command
+*All OS* The quickest test for X-windows is to run the command
 
     xclock
 
-If it does not work, it may be an issue with X-windows on the client. Macs should have a client already installed, as should the classroom PCs. The client will launch automatically on most modern Macs. In some cases, the "Quartz" application needs to be downloaded from the Mac App Store. It should be free.
+If it does not work, it may be an issue with X-windows on the client.
 
-If you are using your own PC, you can install http://wiki.x2go.org/doku.php/doc:installation:x2goclient[X2Go] or MobaXTerm.
-
+As of February 2015, Macs no longer are bundled with X. In newer machines, the http://xquartz.macosforge.org/landing/[XQuartz application] needs to be downloaded.
 
 If you have trouble, do not raise your hand immediately. Instead, first ask the question in the chat room.
 
