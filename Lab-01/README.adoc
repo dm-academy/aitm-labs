@@ -1,0 +1,5 @@
+= Lab 00 notes
+
+This lab is a simple, "get them started" lab that nevertheless requires detail orientation. Some of it is specific to the institution, but some is more general (ssh access is a common need.)
+
+I don't like relying on external installation resources but time is pressing. May rewrite them as time permits.
