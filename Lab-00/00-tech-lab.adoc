@@ -41,7 +41,9 @@ on the Mac OS.
 
 Once you have logged in, do not type anything or "move around" in the directory structure. You should be in your home directory in a "clean," newly initialized account. Try:
 
- $ touch .ssh/authorized_keys
+ $ mkdir .ssh
+ $ cd .ssh
+ $ touch authorized_keys
 
 and then, only for Mac users:
 
