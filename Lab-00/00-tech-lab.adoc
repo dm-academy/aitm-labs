@@ -35,7 +35,7 @@ You may also use TeraTerm, Bitvise, or any other SSH client of your choice. Youâ
 
 You will be provided usernames, temporary passwords, and the server name. Use your terminal emulator to log into the server, by entering the server address, your name, and password as appropriate to PuTTy, or by simply going:
 
- > ssh <servername>
+ > ssh <yourStThomasID>@<servername>
 
 on the Mac OS.
 
