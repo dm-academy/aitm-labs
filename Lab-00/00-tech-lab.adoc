@@ -93,7 +93,7 @@ Copy the output to your Clipboard (highlight and Command-C). Log back into the c
 
 . Press the i key to go into insert mode.
 
-. Paste your key with a right click of your mouse. 
+. Paste your key with a right click of your mouse.
 
 . Type Escape
 
@@ -129,7 +129,7 @@ If you are using your own PC, you can install http://wiki.x2go.org/doku.php/doc:
 
 *Mac OS* Log in with the following options if you are on a Mac:
 
-    ssh -XC -c blowfish-cbc,arcfour  yourID@server.domain
+    ssh -XC yourID@server.domain
 
 The extra options are so that X-windows performs better (they make a big difference!)
 
