@@ -69,7 +69,7 @@ IMPORTANT: On the Macintosh, be sure you are logged out of the course server. Th
 
 If you're not already in it, bring up your Terminal application (under Applications|Utilities). *At the window for your local computer*  type:
 
- $ cd
+ $ cd .ssh
  $ ssh-keygen
  $ cat id_rsa.pub
 
