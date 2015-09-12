@@ -71,6 +71,11 @@ If you're not already in it, bring up your Terminal application (under Applicati
 
  $ cd ~/.ssh
  $ ssh-keygen
+
+It will suggest a name, id_rsa; that is fine.
+
+You can enter a blank passphrase. 
+
  $ cat id_rsa.pub
 
 You will get output like:
