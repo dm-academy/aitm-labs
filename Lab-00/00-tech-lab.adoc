@@ -74,7 +74,7 @@ If you're not already in it, bring up your Terminal application (under Applicati
 
 It will suggest a name, id_rsa; that is fine.
 
-You can enter a blank passphrase. 
+You can enter a blank passphrase.
 
  $ cat id_rsa.pub
 
@@ -86,7 +86,10 @@ Copy the output to your Clipboard (highlight and Command-C). Log back into the c
 
  $ ssh <yourStThomasID>@<servername>
  [login]
- > vi .ssh/authorized_keys
+
+ > mkdir ~/.ssh
+ > cd ~/.ssh
+ > vi authorized_keys
 
 . Press the i key to go into insert mode.
 
