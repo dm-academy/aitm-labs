@@ -1,8 +1,9 @@
-= Lab 01 Learning Linux
-
+= Lab 01 (Technical) Learning Linux
 
 * Log into your account on the server.
-* Run the first 2 Linux tutorials.
-    * http://www.ee.surrey.ac.uk/Teaching/Unix/unix1.html
-    * http://www.ee.surrey.ac.uk/Teaching/Unix/unix2.html
-* Recommended: Run as many of these as you have time for.
+* Run these first 2 Linux tutorials.
+    ** http://www.ee.surrey.ac.uk/Teaching/Unix/unix1.html
+    ** http://www.ee.surrey.ac.uk/Teaching/Unix/unix2.html
+* Recommended: Run as many additionally as you have time for.
+
+Post questions to the discussion group. 
