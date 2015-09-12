@@ -123,15 +123,14 @@ To use X-windows, log into seis660, enabling X windows for the connection, as de
 
 *Windows* If you are on a windows machine using Putty you will have a checkbox (that may have defaulted to checked) to enable X. If someone figures out the compression options, please suggest.
 
-Open the X windows client, XMing.
+Open the X windows client, http://sourceforge.net/projects/xming/[XMing] (install if necessary).
 
-If you are using your own PC, you can install http://wiki.x2go.org/doku.php/doc:installation:x2goclient[X2Go] or MobaXTerm.
+If you are using your own PC, you can also install http://wiki.x2go.org/doku.php/doc:installation:x2goclient[X2Go] or MobaXTerm.
 
 *Mac OS* Log in with the following options if you are on a Mac:
 
     ssh -XC yourID@server.domain
 
-The extra options are so that X-windows performs better (they make a big difference!)
 
 *All OS* The quickest test for X-windows is to run the command
 
