@@ -1,5 +1,7 @@
 = Lab 00  Course setup
 
+_Retrospective notes after 2015 fall run: this needs complete QA & cleanup before Spring 2016. Strongly recommend not linking to other resources._
+
 In this lab, you will set up the tools and access you need for the rest of the semester.
 
 == Objectives for this lab:
@@ -89,7 +91,6 @@ Copy the output to your Clipboard (highlight and Command-C). Log back into the c
  $ ssh <yourStThomasID>@<servername>
  [login]
 
- > mkdir ~/.ssh
  > cd ~/.ssh
  > vi authorized_keys
 
