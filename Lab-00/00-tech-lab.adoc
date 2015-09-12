@@ -93,7 +93,7 @@ Copy the output to your Clipboard (highlight and Command-C). Log back into the c
 
 . Press the i key to go into insert mode.
 
-. Paste your key in with Command-V.
+. Paste your key with a right click of your mouse. 
 
 . Type Escape
 
