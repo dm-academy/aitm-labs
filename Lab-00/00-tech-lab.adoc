@@ -129,7 +129,9 @@ Open the X windows client, http://sourceforge.net/projects/xming/[XMing] (instal
 
 If you are using your own PC, you can also install http://wiki.x2go.org/doku.php/doc:installation:x2goclient[X2Go] or MobaXTerm.
 
-*Mac OS* Log in with the following options if you are on a Mac:
+*Mac OS* As of February 2015, Macs no longer are bundled with X. In newer machines, the http://xquartz.macosforge.org/landing/[XQuartz application] X windows client needs to be downloaded and installed on your computer.
+
+Log in to the classroom server with the following options if you are on a Mac:
 
     ssh -XC yourID@server.domain
 
@@ -139,8 +141,6 @@ If you are using your own PC, you can also install http://wiki.x2go.org/doku.php
     xclock
 
 If it does not work, it may be an issue with X-windows on the client.
-
-As of February 2015, Macs no longer are bundled with X. In newer machines, the http://xquartz.macosforge.org/landing/[XQuartz application] needs to be downloaded.
 
 If you have trouble, do not raise your hand immediately. Instead, first ask the question in the chat room.
 
