@@ -15,7 +15,7 @@ In this lab, you will initialize a Vagrant machine that has been preconfigured a
 
 **Prerequisites**
 
-You must have completed lab 3 and issued pull requests for me.
+You must have completed lab 2 and issued pull requests for me.
 
 **Clone the Calavera project**
 
