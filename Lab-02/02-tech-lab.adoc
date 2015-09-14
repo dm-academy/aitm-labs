@@ -301,19 +301,18 @@ DO NOT ATTEMPT to bridge your VM to the external world. It is not hardened and p
 
 For further information, see https://docs.vagrantup.com/.
 
-# IT Infrastructure Lab 3 Instructions #
-**Overview**
+== Infrastructure configuration
 
-In this lab, you will get a very simple introduction to the concept of "infrastructure as code" using shell scripting on your virtual machine in conjunction with Git and Github
+In this part, you will get a very simple introduction to the concept of "infrastructure as code" using shell scripting on your virtual machine in conjunction with Git and Github
 
 **Prerequisites**
 
-Lab 1: You must have configured ssh and run the Linux tutorial (or be comfortable otherwise with Linux command-line tools).
+Lab 00-01: You must have configured ssh and run the Linux tutorial (or be comfortable otherwise with Linux command-line tools).
 
-Lab 2: You must have successfully created your own virtual machine (VM) using Vagrant.
+Lab 02: You must have successfully created your own virtual machine (VM) using Vagrant.
 
 
-## Part 1: Command line operations ##
+=== Command line operations ##
 
 You will do the exercises in this part on your new Vagrant VM.
 
@@ -338,14 +337,13 @@ Install tree
 
     vagrant@precise64~: sudo apt-get install -y tree
 
-> Note, the "-y" is critical, as this makes it possible to script apt-get
+NOTE: The "-y" is critical, as this makes it possible to script apt-get
 
 Use it to inspect your directory structure. It should look like:
 
-````
-vagrant@precise64:~$ tree
+ vagrant@precise64:~$ tree
 
-|-- A
+ |-- A
 |   |-- aa
 |   |-- B
 |   |   `-- bb
@@ -371,7 +369,7 @@ vagrant@precise64:~$ tree
 |   |       `-- kk
 |   `-- I
 |       `-- ii
-````
+
 
 Now, output the tree to a file. How?
 
@@ -383,18 +381,18 @@ Review the text file:
 
 Why did I make the directory structure so detailed? This is typical of setting up infrastructure as code - you need to be able to maintain focus and successfully set up instructions that are both complicated and yet repetitive.
 
-	⁃	If you have developed an approach to "mkdir" and "touch" that you wish to refer to later you should copy it to an external text file (outside of your Vagrant VM).
+If you have developed an approach to "mkdir" and "touch" that you wish to refer to later you should copy it to an external text file (outside of your Vagrant VM).
 
 Exit and destroy your VM.
 
-````
-vagrant@precise64:~$ exit
-YourStudentID@serverXXX:~/vagrant$ vagrant destroy -f
-==> default: Forcing shutdown of VM...
-==> default: Destroying VM and associated drives...
-````
 
-## Part 2: Working with git
+ vagrant@precise64:~$ exit
+ YourStudentID@serverXXX:~/vagrant$ vagrant destroy -f
+ ==> default: Forcing shutdown of VM...
+ ==> default: Destroying VM and associated drives...
+
+
+== Working with git
 
 You will do the exercises in part 2 on the main server, not your VM.
 
@@ -402,8 +400,8 @@ You will do the exercises in part 2 on the main server, not your VM.
 
 Go to http://github.com and set up a user account. You probably do NOT want to use your St. Thomas email address for this (it is unlikely it will be available.)
 
-> Notice that you will have to keep track of TWO IDs and substitute them at appropriate times:
-> YourStudentID and YourGithubID
+NOTE: You will have to keep track of TWO IDs and substitute them at appropriate times:
+YourStudentID and YourGithubID
 
 Skim https://help.github.com/articles/fork-a-repo/ (it's OK if you don't understand it all immediately - just keep following the steps here)
 
@@ -423,18 +421,16 @@ Instead, it should look like this:
 
 Clone the Github repository you forked as Lab-03 to your home directory /home/student/YourID/. Go into it and verify the contents look as below. Notice the username YourID; **this must be replaced with your Github user name**.
 
-````
-YourStudentID@serverXXX:~$ git clone https://github.com/YourGithubID/Lab-03.git
-Cloning into 'Lab-03'...
-remote: Counting objects: 78, done.
-remote: Compressing objects: 100% (60/60), done.
-remote: Total 78 (delta 31), reused 58 (delta 11)
-Unpacking objects: 100% (78/78), done.
-Checking connectivity... done.
-YourStudentID@serverXXX:~$ cd Lab-03/
-YourStudentID@serverXXX:~/Lab-03$ ls
-Lab-03-Instructions.md	LICENSE  README.md  resources  starter.sh  Vagrantfile
-````
+ YourStudentID@serverXXX:~$ git clone https://github.com/YourGithubID/Lab-03.git
+ Cloning into 'Lab-03'...
+ remote: Counting objects: 78, done.
+ remote: Compressing objects: 100% (60/60), done.
+ remote: Total 78 (delta 31), reused 58 (delta 11)
+ Unpacking objects: 100% (78/78), done.
+ Checking connectivity... done.
+ YourStudentID@serverXXX:~$ cd Lab-03/
+ YourStudentID@serverXXX:~/Lab-03$ ls
+ Lab-03-Instructions.md	LICENSE  README.md  resources  starter.sh  Vagrantfile
 
 **Try git out**
 
@@ -459,7 +455,6 @@ Add your file to your git repository
 
 You will get:
 
-````
 [master 312919f] my first commit
  Committer: test <YourStudentID@serverXXX.gps.stthomas.edu>
 Your name and email address were configured automatically based
@@ -473,9 +468,8 @@ After doing this, you may fix the identity used for this commit with:
 
     git commit --amend --reset-author
 
- 1 file changed, 2 insertions(+)
- create mode 100644 YourStudentID-testfile.md
-````
+  1 file changed, 2 insertions(+)
+  create mode 100644 YourStudentID-testfile.md
 
 Disregard the issue with your user name and email for now.
 
@@ -487,37 +481,32 @@ Add "Hello Again" as a second line and exit nano in the usual way.
 
 You have now made a change, relative to what you committed. You can see that change through issuing the command 'git diff':
 
-````
-YourStudentID@serverXXX:~/Lab-03$ git diff
-diff --git a/YourStudentID-testfile.md b/YourStudentID-testfile.md
-index 9801343..fcb9459 100644
---- a/YourStudentID-testfile.md
-+++ b/YourStudentID-testfile.md
-@@ -1,2 +1,3 @@
- Hello World
-+Hello Again
+ YourStudentID@serverXXX:~/Lab-03$ git diff
+ diff --git a/YourStudentID-testfile.md b/YourStudentID-testfile.md
+ index 9801343..fcb9459 100644
+ --- a/YourStudentID-testfile.md
+ +++ b/YourStudentID-testfile.md
+ @@ -1,2 +1,3 @@
+  Hello World
+  +Hello Again
 
-````
 
 We will be covering git in more detail as we go, but this clearly shows that Hello Again has been added.
 
 Commit it again (you only need to add it once):
 
-````
-YourStudentID@serverXXX:~/Lab-03$ git commit YourStudentID-testfile.md -m "second commit"
+ YourStudentID@serverXXX:~/Lab-03$ git commit YourStudentID-testfile.md -m "second commit"
 [master becf9ae] second commit
  Committer: test <YourStudentID@serverXXX.gps.stthomas.edu>
 [ ... email error message ... ]
 
  1 file changed, 1 insertion(+)
-````
 
 Go back into nano and replace "World" with "Mars." Exit nano.
 
 Run git diff again:
 
-````
-YourStudentID@serverXXX:~/Lab-03$ git diff
+ YourStudentID@serverXXX:~/Lab-03$ git diff
 diff --git a/YourStudentID-testfile.md b/YourStudentID-testfile.md
 index fcb9459..dcc7a8e 100644
 --- a/YourStudentID-testfile.md
@@ -527,21 +516,17 @@ index fcb9459..dcc7a8e 100644
 +Hello Mars
  Hello Again
 
-````
 
 Commit it again:
 
-````
-YourStudentID@serverXXX:~/Lab-03$ git commit YourStudentID-testfile.md -m "third commit"
+ YourStudentID@serverXXX:~/Lab-03$ git commit YourStudentID-testfile.md -m "third commit"
 [master d9b8c5d] third commit
  Committer: test <YourStudentID@serverXXX.gps.stthomas.edu>
 [... email error message ...]
  1 file changed, 1 insertion(+)
-````
 
 Now, let's look at our commit history:
 
-````
 
 YourStudentID@serverXXX:~/Lab-03$ git log -p
 
@@ -591,8 +576,7 @@ index 0000000..9801343
 +Hello World
 +
 
-````
-
+ 
 Hit "q" to exit the commit review. (You can keep going back, but then you are getting into earlier commits on the cloned repository that I did while setting it up. More on that later.)
 
 All of these changes have been locally committed to your git instance on your Vagrant virtual machine. Let's send them back up to your fork at Github. You will need to authenticate (we could set up ssh to github, but not right now):
