@@ -93,11 +93,11 @@ Copy the output to your Clipboard (highlight and Command-C). Log back into the c
  > cd ~/.ssh
  > vi authorized_keys
 
-. Press the i key to go into insert mode.
+. Press the i key to go into insert mode. (It should say INSERT at the bottom.)
 
 . Paste your key with a right click of your mouse.
 
-. Type Escape
+. Hit the "ESC" or "Escape" key, which should be at the top left of your keyboard. "INSERT" should disappear.
 
 . Type ":wq!"   (NO QUOTES)
 
