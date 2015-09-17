@@ -1,6 +1,6 @@
-#Lab 06
+= Lab 06 Configuring Nagios monitoring
 
-In this lab, you will assemble into your teams and install the open source monitoring tool Nagios in a client-server configuration. You will feedback issues detected in Nagios back into the Kanban system. 
+In this lab, you will assemble into your teams and install the open source monitoring tool Nagios in a client-server configuration. You will feedback issues detected in Nagios back into the Kanban system.
 
 
 > **Some notes on working as a group**
