@@ -306,10 +306,9 @@ In this part, you will get a very simple introduction to the concept of "infrast
 
 **Prerequisites**
 
-Lab 00-01: You must have configured ssh and run the Linux tutorial (or be comfortable otherwise with Linux command-line tools).
+Lab 00 & 01: You must have configured ssh and run the Linux tutorial (or be comfortable otherwise with Linux command-line tools).
 
 Lab 02: You must have successfully created your own virtual machine (VM) using Vagrant.
-
 
 === Command line operations
 
@@ -332,13 +331,15 @@ Every directory should have a file in it, with the letter of the directory doubl
 
 **Install and use tree**
 
-Install tree
+First, install tree
 
     vagrant@precise64~: sudo apt-get install -y tree
 
 NOTE: The "-y" is critical, as this makes it possible to script apt-get
 
-Use it to inspect your directory structure. It should look like:
+If you get any kind of access or permissions error, please be sure you are in YOUR vagrant machine, not the main course server (where you do not have permissions to install things.) Re-read the above material carefully.
+
+Use tree to inspect your directory structure. It should look like:
 
  vagrant@precise64:~$ tree
 
@@ -384,12 +385,10 @@ If you have developed an approach to "mkdir" and "touch" that you wish to refer 
 
 Exit and destroy your VM.
 
-
  vagrant@precise64:~$ exit
  YourStudentID@serverXXX:~/vagrant$ vagrant destroy -f
  ==> default: Forcing shutdown of VM...
  ==> default: Destroying VM and associated drives...
-
 
 == Working with git
 
@@ -397,16 +396,16 @@ You will do the exercises in part 2 on the main server, not your VM.
 
 **Set up Github.com & fork this lab**
 
-Go to http://github.com and set up a user account. You probably do NOT want to use your St. Thomas email address for this (it is unlikely it will be available.)
+Go to http://github.com and set up a user account. You probably do NOT want to use your St. Thomas email address for this, as your Github account may be an asset throughout your career. Choose a suitably professional user name.
 
 NOTE: You will have to keep track of TWO IDs and substitute them at appropriate times:
-YourStudentID and YourGithubID
+*YourStudentID* and *YourGithubID*
 
 Skim https://help.github.com/articles/fork-a-repo/ (it's OK if you don't understand it all immediately - just keep following the steps here)
 
 Go to https://github.com/StThomas-seis660/Lab-03 and fork the repo. Press the Fork button at top right:
 
-![fork](resources/fork.jpg)
+image::fork.jpg[]
 
 Now, go to your home account on Github and find the URL for the forked repository.
 
