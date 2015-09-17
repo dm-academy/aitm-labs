@@ -2,12 +2,12 @@
 
 In this lab you will learn more about IT infrastructure by running Vagrant and learning basic "infrastructure as code" principles.
 
-==  Running Vagrant on the Course Server #
+==  Running Vagrant on the Course Server
 
 Vagrant is already installed on the SEIS660 course server, but you need to take a few steps before you can use it.
 Assuming you have .ssh configured and have logged in, you should find yourself in your default directory.
 
-Note, in the following instructions when you see teststu1, substitute your user id.
+IMPORTANT: In the following instructions when you see *teststu1*, substitute your user id.
 
 Do not type the "$" symbol - this represents the command prompt you see when you log into Linux. It may also be a "#" or have some directory information in front of it, e.g.
 
@@ -29,7 +29,7 @@ and examine what is in your directory:
 	-rw-r--r--  1 teststu1 student 3760 Feb  8 11:28 .bashrc
 	-rw-r--r--  1 teststu1 student  675 Feb  8 11:28 .ssh
 
-In any command line environment, it is good to run these commands (pwd and ls, or their equivalents) frequently so you maintain situational awareness of where you are and what might be affected by any commands you run.
+In any command line environment, it is good to run these commands (pwd and ls, or their equivalents) frequently so you maintain awareness of where you are and what might be affected by any commands you run.
 
 Now, make a "vagrant" directory:
 
@@ -48,7 +48,7 @@ Type "ls -al" again:
 	-rw-r--r--  1 teststu1 student  675 Feb  8 11:28 .ssh
 	drwxr-xr-x  2 teststu1 student 4096 Feb  8 12:19 vagrant
 
-Confirm that you now have the directory.
+Consistent with the above, confirm that you now have the 'vagrant' directory.
 
 Change to it:
 
@@ -69,16 +69,14 @@ You should see the following:
 
 If you get an error with "vagrant up" like this:
 
-````
-An error occurred while downloading the remote file. The error message, if any, is reproduced below. Please fix this error and try again.
 
+ An error occurred while downloading the remote file. The error message, if any, is reproduced below. Please fix this error and try again.
 
-Couldn't open file /home/student/akou0009/vagrant/precise64
-````
+ Couldn't open file /home/student/akou0009/vagrant/precise64
 
 try
 
-    vagrant box add "precise64" http://files.vagrantup.com/precise64.box
+ vagrant box add "precise64" http://files.vagrantup.com/precise64.box
 
 Now, let's try something that will not work:
 
@@ -105,8 +103,9 @@ What happened? Let's do a little troubleshooting. Unlike a lot of error messages
 
 When you create a new virtual machine with Vagrant and VirtualBox, Vagrant needs to be able to talk to it on your behalf, and uses .ssh for this purpose. Just as we created a private key for you to hold on your laptop, with a matching public key on the server, so you need to have ANOTHER private/public key pair to communicate between your ssh session running directly on seis660, and your new virtual machine. And, because the Vagrant machine is pre-baked (more on this to come), you have to start by using a predefined key pair that comes with Vagrant.
 
-Review the image below. Right-click and open the image below in its own window or tab if it is too small.  ![architecture](Resources/sshDetails.jpg)
+Review the image below. Right-click and open the image below in its own window or tab if it is too small.
 
+image::sshDetails.jpg[]
 
 So, let's copy the key to your own .ssh directory. First, we need to clean up our failed attempt:
 
@@ -312,7 +311,7 @@ Lab 00-01: You must have configured ssh and run the Linux tutorial (or be comfor
 Lab 02: You must have successfully created your own virtual machine (VM) using Vagrant.
 
 
-=== Command line operations ##
+=== Command line operations
 
 You will do the exercises in this part on your new Vagrant VM.
 
@@ -576,7 +575,7 @@ index 0000000..9801343
 +Hello World
 +
 
- 
+
 Hit "q" to exit the commit review. (You can keep going back, but then you are getting into earlier commits on the cloned repository that I did while setting it up. More on that later.)
 
 All of these changes have been locally committed to your git instance on your Vagrant virtual machine. Let's send them back up to your fork at Github. You will need to authenticate (we could set up ssh to github, but not right now):
