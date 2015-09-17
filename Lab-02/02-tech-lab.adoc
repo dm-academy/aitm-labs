@@ -411,11 +411,11 @@ Now, go to your home account on Github and find the URL for the forked repositor
 
 Important: you should NOT be copying this:
 
-    https://github.com/StThomas-seis660/Lab-03
+ https://github.com/StThomas-seis660/Lab-03
 
 Instead, it should look like this:
 
-    https://github.com/YourGithubID/Lab-03
+ https://github.com/YourGithubID/Lab-03
 
 Clone the Github repository you forked as Lab-03 to your home directory /home/student/YourID/. Go into it and verify the contents look as below. Notice the username YourID; **this must be replaced with your Github user name**.
 
