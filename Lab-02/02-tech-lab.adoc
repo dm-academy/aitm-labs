@@ -313,11 +313,13 @@ Lab 02: You must have successfully created your own virtual machine (VM) using V
 
 You will do the exercises in this part on your new Vagrant VM.
 
-Using the skills you learned in the previous lab,  perform the following steps:
+Using the skills you learned in the previous lab (in particular, the mkdir, cd, and touch commands),  perform the following steps:
 
 **Configure a directory structure**
 
-* Directory A should contain directories B, C and D
+* First, create directories A, C, D, and H all at the same level
+
+* Directory A should contain sub-directories named B, C and D
 
 * Directory C should contain directories E and F
 
@@ -325,8 +327,11 @@ Using the skills you learned in the previous lab,  perform the following steps:
 
 * Directory H should contain directories J and K
 
+(Yes, there are two C directories. We'll fix this later.)
 
 Every directory should have a file in it, with the letter of the directory doubled in lower case. E.g., directory A should have aa, F would have ff, etc.
+
+TIP: If you get impatient with how labor intensive this is, look around on the man pages for mkdir and touch. Or google something like "mkdir create many directories at once." Perhaps you can create more than one directory or file at once? Perhaps you could do it all in a couple lines??
 
 **Install and use tree**
 
@@ -334,7 +339,7 @@ First, install tree
 
     vagrant@precise64~: sudo apt-get install -y tree
 
-NOTE: The "-y" is critical, as this makes it possible to script apt-get
+NOTE: The "-y" avoids you having to type "yes" to approve the install. It is critical later, as this makes it possible to script the apt-get command.
 
 If you get any kind of access or permissions error, please be sure you are in YOUR vagrant machine, not the main course server (where you do not have permissions to install things.) Re-read the above material carefully.
 
@@ -368,7 +373,9 @@ Use tree to inspect your directory structure. It should look like:
 |   |       `-- kk
 |   `-- I
 |       `-- ii
+`-- postinstall.sh
 
+If you are in PuTTY and getting garbage characters, google "Garbage Characters in PuTTY" and see if you can figure it out.
 
 Now, output the tree to a file. How?
 
@@ -380,9 +387,9 @@ Review the text file:
 
 Why did I make the directory structure so detailed? This is typical of setting up infrastructure as code - you need to be able to maintain focus and successfully set up instructions that are both complicated and yet repetitive.
 
-If you have developed an approach to "mkdir" and "touch" that you wish to refer to later you should copy it to an external text file (outside of your Vagrant VM).
+IMPORTANT: If you have developed an approach to "mkdir" and "touch" that you wish to refer to later you should copy it to an external text file (outside of your Vagrant VM).
 
-Exit and destroy your VM.
+Exit and destroy your VM. The "-f" flag does it immediatley, without further confirmation.
 
  vagrant@precise64:~$ exit
  YourStudentID@serverXXX:~/vagrant$ vagrant destroy -f
@@ -393,7 +400,7 @@ Exit and destroy your VM.
 
 You will do the exercises in part 2 on the main server, not your VM.
 
-**Set up Github.com & fork this lab**
+**Set up Github.com & fork the sample repo**
 
 Go to http://github.com and set up a user account. You probably do NOT want to use your St. Thomas email address for this, as your Github account may be an asset throughout your career. Choose a suitably professional user name.
 
@@ -402,7 +409,7 @@ NOTE: You will have to keep track of TWO IDs and substitute them at appropriate 
 
 Skim https://help.github.com/articles/fork-a-repo/ (it's OK if you don't understand it all immediately - just keep following the steps here)
 
-Go to https://github.com/StThomas-seis660/Lab-03 and fork the repo. Press the Fork button at top right:
+Go to https://github.com/dm-academy/example and fork the repo. Press the Fork button at top right:
 
 image::fork.jpg[]
 
@@ -410,16 +417,18 @@ Now, go to your home account on Github and find the URL for the forked repositor
 
 Important: you should NOT be copying this:
 
- https://github.com/StThomas-seis660/Lab-03
+ https://github.com/dm-academy/example
 
 Instead, it should look like this:
 
- https://github.com/YourGithubID/Lab-03
+ https://github.com/YourGithubID/example
 
-Clone the Github repository you forked as Lab-03 to your home directory /home/student/YourID/. Go into it and verify the contents look as below. Notice the username YourID; **this must be replaced with your Github user name**.
+Clone the Github repository you forked as Lab-03 to your home directory /home/student/YourID/.
 
- YourStudentID@serverXXX:~$ git clone https://github.com/YourGithubID/Lab-03.git
- Cloning into 'Lab-03'...
+Go into it and verify the contents look as below. Notice the username YourGithubID; **this must be replaced with your Github user name**.
+
+ YourStudentID@serverXXX:~$ git clone  https://github.com/YourGithubID/example
+ Cloning into 'example'...
  remote: Counting objects: 78, done.
  remote: Compressing objects: 100% (60/60), done.
  remote: Total 78 (delta 31), reused 58 (delta 11)
