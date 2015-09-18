@@ -3,9 +3,10 @@
 (120 minutes)
 
 * Log into your account on the server.
-* Run these first 2 Linux tutorials.
+* Go to http://www.ee.surrey.ac.uk/Teaching/Unix/index.html
+* Run at least the first 2 Linux tutorials.
     ** http://www.ee.surrey.ac.uk/Teaching/Unix/unix1.html
     ** http://www.ee.surrey.ac.uk/Teaching/Unix/unix2.html
-* Recommended: Run as many additionally as you have time for.
+* When you are done, run as many additionally as you have time for.
 
-Post questions to the discussion group.
+Post questions to Slack.
