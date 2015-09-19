@@ -66,17 +66,17 @@ You should see the following:
 	`vagrantup.com` for more information on using Vagrant.
 
 
-If you install and run Vagrant locally on your own laptop, you won't need to do this next step.
+NOTE: If you install and run Vagrant locally on your own laptop, you won't need to do this next step (editing the Vagrantfile). The VM image will take some time to download. 
 
 ....
-	YourStudentID@serverXXX:~/vagrant$ nano Vagrantfile
+ YourStudentID@serverXXX:~/vagrant$ nano Vagrantfile
 ....
 
 In the nano text editor, scroll down to the line that says:
 
  config.vm.box = "precise64"
 
-and add the line:
+and after it, add the line:
 
  config.vm.box_url = "/var/vagrant/boxes/precise64.box"
 
