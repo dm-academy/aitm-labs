@@ -675,7 +675,7 @@ Now for the main work of Part 3:
 Starting with starter.sh, write a shell script that automates:
 
 1. the directory creation you did manually in Part 1
-2. tree installation and use.
+2. tree installation
 3. git installation
 
 Review your Unix commands as necessary. The install commands are:
@@ -685,7 +685,7 @@ Review your Unix commands as necessary. The install commands are:
 
   * Use Nano. Notice the shebang (#!/bin/bash) at the top of starter.sh.
 
-  * Name it YourStudentID-Lab03.sh
+  * Name it YourStudentID-Lab02.sh
 
   * You will need to change (chmod) the permissions correctly to run it.
 
