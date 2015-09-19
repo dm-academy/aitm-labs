@@ -1,5 +1,10 @@
 = Lab 00  Course setup
 
+CONTINUOUS IMPROVEMENT FEEDBACK FOR Spring 2015:
+
+* Test this well
+* Provide an overview of the objectives
+* Explain the basic Unix commands when first used
 
 In this lab, you will set up the tools and access you need for the rest of the semester.
 
@@ -145,3 +150,8 @@ If it does not work, it may be an issue with X-windows on the client.
 If you have trouble, do not raise your hand immediately. Instead, first ask the question in the chat room.
 
 WHEN you are done with the lab, log into the chat room and discussion board and assist until all of your classmates are done.
+
+== Common errors
+
+* Instructor creating .ssh directory or authorized_keys as root, with incorrect permissions
+* Student failing to load private key into PuTTY every time (either manually or through correct use of profiles)
