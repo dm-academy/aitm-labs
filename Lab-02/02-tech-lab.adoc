@@ -171,9 +171,15 @@ Last login: Fri Sep 14 06:23:18 2012 from 10.0.2.2
 vagrant@precise64:~$
 ....
 
-Congratulations, you did it! But, what does this all mean?
+If that worked, congratulations, you did it!
 
-You now have your own personal Linux machine, operating within the main course server, on which you are the administrator. You have tremendous freedom to experiment with its configuration. If you damage something, you simply need to exit out to the main server command prompt and run "vagrant destroy." This will erase the machine. You can then run "vagrant up" again and the machine will be restored. Note, if you destroy the VM you will LOSE ALL DATA you have on the machine, unless that data is stored in your ~/vagrant directory.
+But, what does this all mean?
+
+You now have your own personal Linux machine, operating within the main course server, on which you are the administrator. You have tremendous freedom to experiment with its configuration.
+
+If you damage something, you simply need to exit out to the main server command prompt and run "vagrant destroy." This will erase the machine. You can then run "vagrant up" again and the machine will be restored.
+
+IMPORTANT: If you destroy the VM you will LOSE ALL DATA you have on the machine, unless that data is stored in your ~/vagrant directory (which is mapped to your /vagrant directory in the VM).
 
 DO NOT ATTEMPT to bridge your VM to the external world. It is not hardened and possibly vulnerable. As long as you do not mess with the network configuration, you will be fine. In a future lab, you will see how to run Firefox on the course server in a X11 window over ssh on your local machine, so you can safely browse to your VM.
 
@@ -310,6 +316,7 @@ Go to your home directory:
 Clone the Github repository you forked as "example" to your home directory /home/student/YourID/.
 
 ....
+YourStudentID@serverXXX:~$:~$ git clone https://github.com/YourGithubID/example
 Cloning into 'example'...
 remote: Counting objects: 6, done.
 remote: Compressing objects: 100% (3/3), done.
@@ -322,7 +329,7 @@ Go into it and verify the contents look as below. Notice the username YourGithub
 ....
 YourStudentID@serverXXX:~$ cd example/
 test3@serverXXX:~/example$ ls
-2015-09.adoc  README.md
+2015-09.adoc  README.md  starter.sh  Vagrantfile
 ....
 
 **Try git out**
@@ -419,6 +426,8 @@ Commit it again:
 Now, let's look at our commit history:
 
 ....
+ YourStudentID@serverXXX:~/example$ git log
+
 commit 70e21f0719cac5b2e6527ec9cb5ceeaeabb552da
 Author: charles betz <char@erp4it.com>
 Date:   Fri Sep 18 17:35:35 2015 -0500
@@ -465,7 +474,7 @@ index 0000000..557db03
 +Hello World
 ....
 
-Hit "q" to exit the commit review.
+There may be more, reflecting the earlier history of the example repo. Hit "q" to exit the commit review.
 
 All of these changes have been locally committed to your git instance on your Vagrant virtual machine. Let's send them back up to your fork at Github. You will need to authenticate (we could set up ssh to github, but not right now):
 
@@ -498,9 +507,10 @@ There is much to learn about git and this lab is not intended to be a full tutor
 This section will bring together your VM work with git, as you develop a script to automate your activities and commit it to source control.
 
 **Vagrant up from the lab directory**
-We will not vagrant up from your ~/vagrant directory.
 
-Instead, we will vagrant up from your ~/example directory. A Vagrantfile has been placed there with the correct private key location.
+IMPORTANT: We will NOT vagrant up from your ~/vagrant directory. +
+ +
+Instead, we will vagrant up from your ~/example directory. A Vagrantfile has been placed there.
 
 ....
 teststud@serverXXX:~/example$ vagrant up
@@ -512,19 +522,6 @@ Bringing machine 'default' up with 'virtualbox' provider...
 ==> default: Clearing any previously set network interfaces...
 ==> default: Preparing network interfaces based on configuration...
 [more]
-....
-
-You may get the following prompt. It is a bug of some sort I have not been able to figure out. 50 points for anyone who can fix it. Type "vagrant" to move past it:
-
-....
-Text will be echoed in the clear. Please install the HighLine or Termios libraries to suppress echoed text.
-vagrant@127.0.0.1's password:vagrant
-
-[ ... a whole lot of stuff ... ]
-stdin: is not a tty
-==> default: Checking for guest additions in VM...
-==> default: Mounting shared folders...
-    default: /vagrant => /home/student/YourStudentID/example
 ....
 
 **Script your work**
@@ -574,6 +571,8 @@ So:
  vagrant@precise64:/vagrant$ cp starter.sh YourStudentID-Lab02.sh
  vagrant@precise64:/vagrant$ sudo chmod 755 YourStudentID-Lab02.sh
 
+Yes, you can use sudo (administrative privileges) *within your VM.* If you get an error, it means you are likely not in your VM, but back out on the course server.
+
 Remember to substitute your actual ID for "YourStudentID."
 
 ....
@@ -597,6 +596,7 @@ Run the script to confirm you can execute it (it's still empty, and will run fin
 Create your script.
 
     vagrant@XXXXX:~/vagrant$ nano YourStudentID-Lab02.sh
+		_add the necessary commands_
 
 Oops, something seems to be wrong when you run it:
 
@@ -645,7 +645,14 @@ You can also:
 
 if you want to reset your environment completely.
 
-Once you are happy with your script, add and commit locally:
+Once you are happy with your script, tell the new git instance *within your VM* your name & email (you have to do this again, because the VM is a whole new box.)
+
+....
+vagrant@precise64:/vagrant$ git config --global user.email "you@stthomas.edu"
+vagrant@precise64:/vagrant$ git config --global user.name "your name"
+....
+
+Then add and commit locally:
 
 ....
 vagrant@XXXXX:/vagrant$ git add YourStudentID-Lab02.sh
@@ -656,6 +663,8 @@ vagrant@XXXXX:/vagrant$ git commit YourStudentID-Lab02.sh -m "script commit"
  1 file changed, 10 insertions(+)
  create mode 100755 YourStudentID-Lab02.sh
 ....
+
+
 
 In reviewing the directory structure, there are duplicate directories. Also, it is getting messy with three directories at the same level.
 
@@ -743,8 +752,8 @@ YourStudentID@serverXXX:~/example$ cat YourStudentID-Lab02.sh
 
 mkdir -p main/{A/{B,C,D},E/{F,G},H/{I,J/{K,L},M}}
 touch main/{A/{aa,B/bb,C/cc,D/dd},E/{ee,F/ff,G/gg},H/{hh,I/ii,J/{jj,K/kk,L/ll},M/mm}}
-apt-get install tree
-apt-get install git
+apt-get -y install tree
+apt-get -y install git
 ....
 
 **Automate provisioning with Vagrant**
@@ -758,18 +767,70 @@ Edit your Vagrantfile so that it calls your *-Lab02.sh script when you provision
 ....
 Vagrant.configure(2) do |config|
   config.vm.box = "precise64"
-  config.ssh.private_key_path =   "~/.ssh/insecure_private_key"
   config.vm.provision             :shell, path: "./MyStudentID-Lab02.sh"
 end
 ....
 
 Vagrant up your machine and ssh into it, verify that your script has been run.
- 1. Directory "main" properly configured in /vagrant
- 2. git installed (run git --version)
- 3. tree installed
+
+. Directory "main" properly configured in /vagrant
+. git installed (run git --version)
+. tree installed
+
+....
+test4@seis660:~/example$ vagrant ssh
+Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com/
+New release '14.04.3 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+Welcome to your Vagrant-built virtual machine.
+Last login: Fri Sep 14 06:23:18 2012 from 10.0.2.2
+vagrant@precise64:~$ tree
+.
+|-- main
+|   |-- A
+|   |   |-- aa
+|   |   |-- B
+|   |   |   `-- bb
+|   |   |-- C
+|   |   |   `-- cc
+|   |   `-- D
+|   |       `-- dd
+|   |-- E
+|   |   |-- ee
+|   |   |-- F
+|   |   |   `-- ff
+|   |   `-- G
+|   |       `-- gg
+|   `-- H
+|       |-- hh
+|       |-- I
+|       |   `-- ii
+|       |-- J
+|       |   |-- jj
+|       |   |-- K
+|       |   |   `-- kk
+|       |   `-- L
+|       |       `-- ll
+|       `-- M
+|           `-- mm
+`-- postinstall.sh
+
+14 directories, 14 files
+
+vagrant@precise64:~$ git --version
+git version 1.7.9.5
+....
 
 Re-commit your Vagrantfile and push it back to origin.
 
 Issue a pull request for me to review your work.
 
-That is the end of this lab. Congratulations, this was a lot of work. Next week, we will start building a continuous integration pipeline with git, Java, JUnit, Tomcat, and Ant.
+Discuss:
+
+- Why can you commit to git on the VM without initializing the repo there? You had to at least set up your name and email.
+- How are git and tree getting installed, since you don't say "sudo vagrant up"?
+
+That is the end of this lab. Congratulations, this was a lot of work. Next week, we will start working on the the continuous integration pipeline with git, Java, JUnit, Tomcat, and Ant.
