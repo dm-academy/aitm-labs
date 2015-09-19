@@ -57,7 +57,7 @@ Change to it:
 
 Type the following command carefully:
 
-	teststu1@serverXXX:~/vagrant$ vagrant init precise64
+	teststu1@serverXXX:~/vagrant$ vagrant init hashicorp/precise64
 
 You should see the following:
 
@@ -67,7 +67,7 @@ You should see the following:
 	`vagrantup.com` for more information on using Vagrant.
 	teststu1@serverXXX:~/vagrant$
 
-Now, let's try something that will not work. Enter the following command:
+Now, let's try something that may not work. Enter the following command:
 
 	teststu1@serverXXX:~/vagrant$ vagrant up
 
@@ -93,8 +93,8 @@ teststu1@serverXXX:~/vagrant$
 ....
 
 ****
-WARNING: If you get an error when running "vagrant up" that looks like this:
-
+WARNING: If you get an error when running "vagrant up" that looks like this: +
+ +
 ....
 An error occurred while downloading the remote file. The error message, if any, is reproduced below. Please fix this error and try again.
 
