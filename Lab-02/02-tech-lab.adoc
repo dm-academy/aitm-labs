@@ -698,13 +698,13 @@ Review your Unix commands as necessary. The install commands are:
 
 So:
 
- vagrant@precise64:/vagrant$ cp starter.sh YourStudentID-Lab03.sh
- vagrant@precise64:/vagrant$ sudo chmod 755 YourStudentID-Lab03.sh
+ vagrant@precise64:/vagrant$ cp starter.sh YourStudentID-Lab02.sh
+ vagrant@precise64:/vagrant$ sudo chmod 755 YourStudentID-Lab02.sh
 
 Remember to substitute your actual ID for "YourStudentID."
 
 ....
-vagrant@vagrant:/vagrant$ sudo chmod 755 YourStudentID-Lab03.sh
+vagrant@vagrant:/vagrant$ sudo chmod 755 YourStudentID-Lab02.sh
 vagrant@vagrant:/vagrant$ ls -l
 total 44
 -rw-r--r-- 1 vagrant vagrant 14183 Feb 20 15:22 example-Instructions.md
@@ -712,23 +712,23 @@ total 44
 -rw-r--r-- 1 vagrant vagrant    33 Feb 20 15:22 README.md
 drwxr-xr-x 1 vagrant vagrant  4096 Feb 20 15:22 resources
 -rw-r--r-- 1 vagrant vagrant   152 Feb 20 15:22 starter.sh
--rwxr-xr-x 1 vagrant vagrant   152 Feb 20 15:58 YourStudentID-Lab03.sh
+-rwxr-xr-x 1 vagrant vagrant   152 Feb 20 15:58 YourStudentID-Lab02.sh
 -rw-r--r-- 1 vagrant vagrant    24 Feb 20 15:33 YourStudentID-testfile.adoc
 -rw-r--r-- 1 vagrant vagrant   296 Feb 20 15:45 Vagrantfile
 ....
 
 Run the script to confirm you can execute it (it's still empty, and will run fine - it just won't do anything):
 
-    vagrant@XXXXX:~/vagrant$ ./YourStudentID-Lab03.sh  <- notice the "./"
+    vagrant@XXXXX:~/vagrant$ ./YourStudentID-Lab02.sh  <- notice the "./"
 
 Create your script.
 
-    vagrant@XXXXX:~/vagrant$ nano YourStudentID-Lab03.sh
+    vagrant@XXXXX:~/vagrant$ nano YourStudentID-Lab02.sh
 
 Oops, something seems to be wrong when you run it:
 
 ....
-vagrant@XXXXX:/vagrant$ ./YourStudentID-Lab03.sh
+vagrant@XXXXX:/vagrant$ ./YourStudentID-Lab02.sh
 E: Could not open lock file /var/lib/dpkg/lock - open (13: Permission denied)
 E: Unable to lock the administration directory (/var/lib/dpkg/), are you root?
 ....
@@ -736,7 +736,7 @@ E: Unable to lock the administration directory (/var/lib/dpkg/), are you root?
 Because the script has installations in it, you need to run it as superuser:
 
 ....
-vagrant@XXXXX:/vagrant$ sudo ./YourStudentID-Lab03.sh
+vagrant@XXXXX:/vagrant$ sudo ./YourStudentID-Lab02.sh
 Reading package lists... Done
 Building dependency tree
 Reading state information... Done
@@ -775,13 +775,13 @@ if you want to reset your environment completely.
 Once you are happy with your script, add and commit locally:
 
 ....
-vagrant@XXXXX:/vagrant$ git add YourStudentID-Lab03.sh
-vagrant@XXXXX:/vagrant$ git commit YourStudentID-Lab03.sh -m "script commit"
+vagrant@XXXXX:/vagrant$ git add YourStudentID-Lab02.sh
+vagrant@XXXXX:/vagrant$ git commit YourStudentID-Lab02.sh -m "script commit"
 [master b5f0950] script commit
  Committer: vagrant <vagrant@precise64.(none)>
 [email error]
  1 file changed, 10 insertions(+)
- create mode 100755 YourStudentID-Lab03.sh
+ create mode 100755 YourStudentID-Lab02.sh
 ....
 
 In reviewing the directory structure, there are duplicate directories. Also, it is getting messy with three directories at the same level.
@@ -830,7 +830,7 @@ vagrant@vagrant:/vagrant$ tree
 
 Check in and review differences
 
- vagrant@vagrant:/vagrant$ git commit YourStudentID-Lab03.sh -m "2nd script commit"
+ vagrant@vagrant:/vagrant$ git commit YourStudentID-Lab02.sh -m "2nd script commit"
  vagrant@vagrant:/vagrant$ git log -p
 
 *You are now doing "infrastructure as code."* You have automated a complex set of commands, checked them into source control, made significant changes, and checked in again. You can see both versions of your script.
@@ -860,12 +860,12 @@ Exit and vagrant destroy your vm:
 Notice that your script is still in your ~/example directory.
 
 ....
-YourStudentID@serverXXX:~/example$ cat YourStudentID-Lab03.sh
+YourStudentID@serverXXX:~/example$ cat YourStudentID-Lab02.sh
 #!/bin/bash
 # Starter shell script
-# Rename as YourID-Lab03.sh
+# Rename as YourID-Lab02.sh
 # Put commands below
-# To run, type ./YourID-Lab03.sh (you need the "./")
+# To run, type ./YourID-Lab02.sh (you need the "./")
 # It must have permissions starting with a "7"
 
 mkdir -p main/{A/{B,C,D},E/{F,G},H/{I,J/{K,L},M}}
@@ -880,13 +880,13 @@ You should now be on the main server (you have destroyed your VM above).
 
 Add and commit your Vagrantfile to source control (see above).
 
-Edit your Vagrantfile so that it calls your *-Lab03.sh script when you provision the machine. Add the "vm.provision" line, changing MyStudentID to your ID.
+Edit your Vagrantfile so that it calls your *-Lab02.sh script when you provision the machine. Add the "vm.provision" line, changing MyStudentID to your ID.
 
 ....
 Vagrant.configure(2) do |config|
   config.vm.box = "precise64"
   config.ssh.private_key_path =   "~/.ssh/insecure_private_key"
-  config.vm.provision             :shell, path: "./MyStudentID-Lab03.sh"
+  config.vm.provision             :shell, path: "./MyStudentID-Lab02.sh"
 end
 ....
 
