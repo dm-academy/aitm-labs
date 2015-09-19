@@ -778,7 +778,7 @@ Vagrant up your machine and ssh into it, verify that your script has been run.
 . tree installed
 
 ....
-test4@seis660:~/example$ vagrant ssh
+YourStudentID@serverXXX:~/example$ vagrant ssh
 Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic x86_64)
 
  * Documentation:  https://help.ubuntu.com/

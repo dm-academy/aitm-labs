@@ -1,3 +1,22 @@
 = Lab 2 technical notes
 
-Multi-user Vagrant on a server is still an unsolved problem. Running into permissions issues with the /var/vagrant/.vagrant.d/data/lock.fpcollision.lock file, which gets locked by 1 user and then no others can access it.
+Multi-user Vagrant on a server is still an unsolved problem.
+
+Wanted to avoid multiple copies of images so first I set up all students' VAGRANT_HOME the same:
+
+VAGRANT_HOME=/var/vagrant/.vagrant.d
+
+Running into permissions issues with the /var/vagrant/.vagrant.d/data/lock.fpcollision.lock file, which gets locked by 1 user and then no others can access it.
+
+Related links:
+
+* https://github.com/Varying-Vagrant-Vagrants/VVV/issues/362
+* http://stackoverflow.com/questions/27670076/permission-denied-error-for-vagrant
+
+Searching on the Vagrant release notes:
+
+* https://github.com/mitchellh/vagrant/blob/master/CHANGELOG.md
+
+we see "Vagrant locks machine access to one Vagrant process at a time. This will protect against two simultaneous up actions happening on the same environment."
+
+So, went with approach of copying 3 gb file from /var/vagrant/.vagrant.d/boxes to every student's directory. Waste of space, but it works. Looking for ideas. 
