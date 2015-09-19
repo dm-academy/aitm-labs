@@ -614,13 +614,11 @@ If your work is acceptable, I will allow it to be merged back into the main exam
 There is much to learn about git and this lab is not intended to be a full tutorial, but rather means to an end, and a quick flavor of the techniques. We will cover further aspects as necessary.
 
 == Automated provisioning and infrastructure as code
-THIS IS NOT READY
+
 This section will bring together your VM work with git, as you develop a script to automate your activities and commit it to source control.
 
 **Vagrant up from the lab directory**
 We will not vagrant up from your ~/vagrant directory.
-
-
 
 Instead, we will vagrant up from your ~/example directory. A Vagrantfile has been placed there with the correct private key location.
 
@@ -636,7 +634,7 @@ Bringing machine 'default' up with 'virtualbox' provider...
 [more]
 ....
 
-You will get the following prompt. It is a bug of some sort I have not been able to figure out. 50 points for anyone who can fix it. Type "vagrant" to move past it:
+You may get the following prompt. It is a bug of some sort I have not been able to figure out. 50 points for anyone who can fix it. Type "vagrant" to move past it:
 
 ....
 Text will be echoed in the clear. Please install the HighLine or Termios libraries to suppress echoed text.
@@ -656,11 +654,7 @@ Go into your VM:
 ....
 YourStudentID@serverXXX:~/example$ vagrant ssh
 Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic x86_64)
-
- * Documentation:  https://help.ubuntu.com/
-New release '14.04.1 LTS' available.
-Run 'do-release-upgrade' to upgrade to it.
-
+...some stuff
 Welcome to your Vagrant-built virtual machine.
 Last login: Fri Sep 14 06:23:18 2012 from 10.0.2.2
 vagrant@precise64:~$
