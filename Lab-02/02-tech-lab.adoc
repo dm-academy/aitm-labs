@@ -67,37 +67,44 @@ You should see the following:
 	`vagrantup.com` for more information on using Vagrant.
 	teststu1@serverXXX:~/vagrant$
 
-If you get an error with "vagrant up" like this:
-
-
- An error occurred while downloading the remote file. The error message, if any, is reproduced below. Please fix this error and try again.
-
- Couldn't open file /home/student/akou0009/vagrant/precise64
-
-try
-
- vagrant box add "precise64" http://files.vagrantup.com/precise64.box
-
-Now, let's try something that will not work:
+Now, let's try something that will not work. Enter the following command:
 
 	teststu1@serverXXX:~/vagrant$ vagrant up
-	Bringing machine 'default' up with 'virtualbox' provider...
-	==> default: Importing base box 'precise64'...
-	==> default: Matching MAC address for NAT networking...
-	==> default: Setting the name of the VM: vagrant_default_1423420554497_66907
-	==> default: Fixed port collision for 22 => 2222. Now on port 2203.
-	==> default: Clearing any previously set network interfaces...
-	==> default: Preparing network interfaces based on configuration...
-	    default: Adapter 1: nat    ==> default: Forwarding ports...
-	    default: 22 => 2203 (adapter 1)    ==> default: Booting VM...
-	==> default: Waiting for machine to boot. This may take a few minutes...
-	The private key to connect to the machine via SSH must be owned
-	by the user running Vagrant. This is a strict requirement from
-	SSH itself. Please fix the following key to be owned by the user
-	running Vagrant:
 
-	/var/vagrant/.vagrant.d/insecure_private_key
-	teststu1@serverXXX:~/vagrant$
+You should see:
+....
+Bringing machine 'default' up with 'virtualbox' provider...
+==> default: Importing base box 'precise64'...
+==> default: Matching MAC address for NAT networking...
+==> default: Setting the name of the VM: vagrant_default_1423420554497_66907
+==> default: Fixed port collision for 22 => 2222. Now on port 2203.
+==> default: Clearing any previously set network interfaces...
+==> default: Preparing network interfaces based on configuration...
+    default: Adapter 1: nat    ==> default: Forwarding ports...
+    default: 22 => 2203 (adapter 1)    ==> default: Booting VM...
+==> default: Waiting for machine to boot. This may take a few minutes...
+The private key to connect to the machine via SSH must be owned
+by the user running Vagrant. This is a strict requirement from
+SSH itself. Please fix the following key to be owned by the user
+running Vagrant:
+
+/var/vagrant/.vagrant.d/insecure_private_key
+teststu1@serverXXX:~/vagrant$
+....
+
+****
+WARNING: If you get an error when running "vagrant up" that looks like this:
+
+....
+An error occurred while downloading the remote file. The error message, if any, is reproduced below. Please fix this error and try again.
+
+Couldn't open file /home/student/akou0009/vagrant/precise64
+....
+
+Try running this command:
+
+ vagrant box add "precise64" http://files.vagrantup.com/precise64.box
+****
 
 What happened? Let's do a little troubleshooting. Unlike a lot of error messages, this one gives you everything you need to fix the problem. It's an ownership issue with a file called "insecure_private_key" in the directory  /var/vagrant/.vagrant.d/.
 
