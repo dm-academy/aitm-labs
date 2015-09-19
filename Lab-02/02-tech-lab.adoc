@@ -14,7 +14,7 @@ This is a long lab, with the following learning objectives:
 Vagrant is already installed on the serverXXX course server, but you need to take a few steps before you can use it.
 Assuming you have .ssh configured and have logged in, you should find yourself in your default directory.
 
-IMPORTANT: In the following instructions when you see *YourStudentID*, substitute your user id. Where you see "serverXXX," substitute the course servername.
+IMPORTANT: In the following instructions when you see *YourStudentID*, substitute your user id. Where you see *serverXXX*, substitute the course servername.
 
 Do not type the "$" symbol - this represents the command prompt you see when you log into Linux. It may also be a "#" or have some directory information in front of it, e.g.
 
@@ -41,57 +41,11 @@ drwxr-xr-x  2 YourStudentID student 4096 Sep 19 09:50 .ssh
 
 In any command line environment, it is good to run these commands (pwd and ls, or their equivalents) frequently so you maintain awareness of where you are and what might be affected by any commands you run.
 
-First, you need to do some setup work, by copying the virtual machine file to your home directory. This prevents a lengthy download process.
-
-....
-YourStudentID@serverXXX:~$ mkdir -p .vagrant.d/boxes
-YourStudentID@serverXXX:~$ cp -R /var/vagrant/.vagrant.d/boxes/precise64 .vagrant.d/boxes
-....
-
 Now, make a "vagrant" directory:
 
 ....
 YourStudentID@serverXXX:~$ mkdir vagrant
-YourStudentID@serverXXX:~$
 ....
-
-Instead of "ls -al," try "tree -al":
-
-....
-YourStudentID@serverXXX:~$ tree -al
-.
-
-├── .ssh
-│   └── authorized_keys
-├── vagrant
-└── .vagrant.d
-    └── boxes
-        └── precise64
-            └── 0
-                └── virtualbox
-                    ├── box-disk1.vmdk
-                    ├── box.ovf
-                    ├── metadata.json
-                    └── Vagrantfile
-
-10 directories, 13 files
-....
-
-If your directory layout does not look the same as above (particularly the vagrant and .vagrant.d directories) check your work, or ask for assistance. (Don't worry about extra files you may have, but be sure the minimum above is present.)
-
-Try:
-....
-YourStudentID@serverXXX:~$ ls -al .vagrant.d/boxes/precise64/0/virtualbox/
-total 313172
-drwxr-xr-x 2 YourStudentID student      4096 Sep 19 11:37 .
-drwxr-xr-x 3 YourStudentID student      4096 Sep 19 11:37 ..
--rwxr-xr-x 1 YourStudentID student 320654336 Sep 19 11:37 box-disk1.vmdk
--rwxr-xr-x 1 YourStudentID student     14108 Sep 19 11:37 box.ovf
--rwxr-xr-x 1 YourStudentID student        25 Sep 19 11:37 metadata.json
--rwxr-xr-x 1 YourStudentID student       505 Sep 19 11:37 Vagrantfile
-....
-
-Notice the size (320654336) of "box-disk1.vmdk." This is the virtual machine image.  (I'd like to find a smaller one, but it's OK for now.)
 
 Change to your "vagrant" directory:
 
@@ -110,7 +64,23 @@ You should see the following:
 	ready to `vagrant up` your first virtual environment! Please read
 	the comments in the Vagrantfile as well as documentation on
 	`vagrantup.com` for more information on using Vagrant.
-	YourStudentID@serverXXX:~/vagrant$
+
+
+If you install and run Vagrant locally on your own laptop, you won't need to do this next step.
+
+....
+	YourStudentID@serverXXX:~/vagrant$ nano Vagrantfile
+....
+
+In the nano text editor, scroll down to the line that says:
+
+ config.vm.box = "precise64"
+
+and add the line:
+
+ config.vm.box_url = "/var/vagrant/boxes/precise64.box"
+
+Exit nano, saving the file.
 
 Now, cross your fingers and enter the following command:
 
