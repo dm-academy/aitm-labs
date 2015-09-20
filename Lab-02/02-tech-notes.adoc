@@ -1,5 +1,9 @@
 = Lab 2 technical notes
+== Approach
+This is an infrastructure as code lab, but deliberately is restricted to shell scripts. A more advanced variant would of course use a policy-based tool such as chef or puppet, but it does not seem possible to do this in the current constraints of the course. 
 
+
+== Vagrant issues
 Multi-user Vagrant on a server is still an unsolved problem.
 
 Wanted to avoid multiple copies of images so first I set up all students' VAGRANT_HOME the same:
@@ -19,4 +23,4 @@ Searching on the Vagrant release notes:
 
 we see "Vagrant locks machine access to one Vagrant process at a time. This will protect against two simultaneous up actions happening on the same environment."
 
-So, went with approach of copying 3 gb file from /var/vagrant/.vagrant.d/boxes to every student's directory. Waste of space, but it works. Looking for ideas. 
+So, went with approach of copying 3 gb file from /var/vagrant/.vagrant.d/boxes to every student's directory. Waste of space, but it works. Looking for ideas.
