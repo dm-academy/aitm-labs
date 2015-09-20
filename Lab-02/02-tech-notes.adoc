@@ -23,4 +23,4 @@ Searching on the Vagrant release notes:
 
 we see "Vagrant locks machine access to one Vagrant process at a time. This will protect against two simultaneous up actions happening on the same environment."
 
-So, went with approach of copying 3 gb file from /var/vagrant/.vagrant.d/boxes to every student's directory. Waste of space, but it works. Looking for ideas.
+Wound up using the config.vm.box_url parameter. Works.
