@@ -1,6 +1,6 @@
 = Lab 02 IT Infrastructure
 
-In this lab you will learn more about IT infrastructure by running Vagrant and learning basic "infrastructure as code" principles.
+In this lab you will learn about IT infrastructure by running Vagrant and learning basic "infrastructure as code" principles.
 
 This is a long lab, with the following learning objectives:
 
@@ -66,7 +66,7 @@ You should see the following:
 	`vagrantup.com` for more information on using Vagrant.
 
 
-NOTE: If you install and run Vagrant locally on your own laptop, you won't need to do this next step (editing the Vagrantfile). The VM image will take some time to download. 
+NOTE: If you install and run Vagrant locally on your own laptop, you won't need to do this next step (editing the Vagrantfile). The VM image will take some time to download.
 
 ....
  YourStudentID@serverXXX:~/vagrant$ nano Vagrantfile
