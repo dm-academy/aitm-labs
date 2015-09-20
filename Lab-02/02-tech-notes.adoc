@@ -1,6 +1,6 @@
 = Lab 2 technical notes
 == Approach
-This is an infrastructure as code lab, but deliberately is restricted to shell scripts. A more advanced variant would of course use a policy-based tool such as chef or puppet, but it does not seem possible to do this in the current constraints of the course. 
+This is an infrastructure as code lab, but deliberately is restricted to shell scripts. A more advanced variant would of course use a policy-based tool such as chef or puppet, but it does not seem possible to do this in the current constraints of the course.
 
 
 == Vagrant issues
