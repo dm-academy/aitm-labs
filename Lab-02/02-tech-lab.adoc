@@ -173,7 +173,7 @@ Using the skills you learned in the previous lab (in particular, the mkdir, cd, 
 
 **Configure a directory structure**
 
-* First, create directories A, C, D, and H all at the same level
+* First, create directories A, C, and D all at the same level
 
 * Directory A should contain sub-directories named B, C and D
 
