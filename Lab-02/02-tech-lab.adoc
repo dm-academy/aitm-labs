@@ -468,7 +468,7 @@ Go back to your browser and issue a pull request:
 
 image::pull.jpg[]
 
-If your work is acceptable, I will allow it to be merged back into the main example repository (actually the Spring 2015 branch).
+This completes this section. (I am not pulling your work back into the main lab.)
 
 There is much to learn about git and this lab is not intended to be a full tutorial, but rather means to an end, and a quick flavor of the techniques. We will cover further aspects as necessary.
 
