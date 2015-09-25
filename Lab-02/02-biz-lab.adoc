@@ -1,0 +1,12 @@
+= Lab 02 (Business) IT Infrastructure
+
+Consider last week's product idea. Does it have any particular infrastructure needs you can identify, having read this chapter?
+
+Briefly scan and discuss Cloud providers and develop a couple thoughts on their suitability for your product.
+
+* Amazon EC2
+* Google Compute Engine
+* Microsoft Azure
+* Heroku
+* Pivotal & Cloud Foundry
+* Salesforce's Force.com
