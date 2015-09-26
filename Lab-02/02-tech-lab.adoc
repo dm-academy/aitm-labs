@@ -485,6 +485,23 @@ IMPORTANT: We will NOT vagrant up from your ~/vagrant directory. +
  +
 Instead, we will vagrant up from your ~/example directory. A Vagrantfile has been placed there.
 
+As before:
+....
+ YourStudentID@serverXXX:~/vagrant$ nano Vagrantfile
+....
+
+In the nano text editor, scroll down to the line that says:
+
+ config.vm.box = "precise64"
+
+and after it, add the line:
+
+ config.vm.box_url = "/var/vagrant/boxes/precise64.box"
+
+Exit nano, saving the file.
+
+_2016 note: correct Vagrantfile in lab_
+
 ....
 teststud@serverXXX:~/example$ vagrant up
 Bringing machine 'default' up with 'virtualbox' provider...
