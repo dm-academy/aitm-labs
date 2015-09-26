@@ -485,22 +485,6 @@ IMPORTANT: We will NOT vagrant up from your ~/vagrant directory. +
  +
 Instead, we will vagrant up from your ~/example directory. A Vagrantfile has been placed there.
 
-As before:
-....
- YourStudentID@serverXXX:~/vagrant$ nano Vagrantfile
-....
-
-In the nano text editor, scroll down to the line that says:
-
- config.vm.box = "precise64"
-
-and after it, add the line:
-
- config.vm.box_url = "/var/vagrant/boxes/precise64.box"
-
-Exit nano, saving the file.
-
-_2016 note: correct Vagrantfile in lab_
 
 ....
 teststud@serverXXX:~/example$ vagrant up
@@ -586,7 +570,8 @@ Run the script to confirm you can execute it (it's still empty, and will run fin
 Create your script.
 
     vagrant@XXXXX:~/vagrant$ nano YourStudentID-Lab02.sh
-		_add the necessary commands_
+
+_add the necessary commands so that the script does what it needs to do_
 
 Oops, something seems to be wrong when you run it:
 
