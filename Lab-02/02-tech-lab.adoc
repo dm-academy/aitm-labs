@@ -177,9 +177,9 @@ Using the skills you learned in the previous lab (in particular, the mkdir, cd, 
 
 * Directory A should contain sub-directories named B, C and D
 
-* Directory C should contain directories E and F
+* Directory C (the first) should contain directories E and F
 
-* Directory D should contain directories G, H and I
+* Directory D (the first) should contain directories G, H and I
 
 * Directory H should contain directories J and K
 
