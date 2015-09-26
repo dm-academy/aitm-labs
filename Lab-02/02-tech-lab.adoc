@@ -9,7 +9,7 @@ This is a long lab, with the following learning objectives:
 * Learning the basics of Git source control
 * Combining the three previous skills into an automated "infrastructure as code" use case
 
-==  Running Vagrant on the Course Server
+==  1. Running Vagrant on the Course Server
 
 Vagrant is already installed on the serverXXX course server, but you need to take a few steps before you can use it.
 Assuming you have .ssh configured and have logged in, you should find yourself in your default directory.
@@ -155,7 +155,7 @@ WARNING: DO NOT ATTEMPT to bridge your VM to the external world. It is not harde
 
 For further information, see https://docs.vagrantup.com/.
 
-== Infrastructure configuration
+== 2. Infrastructure configuration
 
 In this part, you will get a very simple introduction to the concept of "infrastructure as code" using shell scripting on your virtual machine in conjunction with Git and Github
 
@@ -252,7 +252,7 @@ Exit and destroy your VM. The "-f" flag does it immediatley, without further con
  ==> default: Forcing shutdown of VM...
  ==> default: Destroying VM and associated drives...
 
-== Working with git
+== 3. Working with git
 
 NOTE: You all should get a github ID. If you are working in teams, you have the option of either doing the next section individually, or choosing 1 team member to drive.
 
@@ -475,7 +475,7 @@ This completes this section. (I am not pulling your work back into the main lab.
 
 There is much to learn about git and this lab is not intended to be a full tutorial, but rather means to an end, and a quick flavor of the techniques. We will cover further aspects as necessary.
 
-== Automated provisioning and infrastructure as code
+== 4. Automated provisioning and infrastructure as code
 
 This section will bring together your VM work with git, as you develop a script to automate your activities and commit it to source control.
 
