@@ -1,5 +1,6 @@
 = Lab 02 (Technical) IT Infrastructure
 
+
 In this lab you will learn about IT infrastructure by running Vagrant and learning basic "infrastructure as code" principles.
 
 This is a long lab, with the following learning objectives:
