@@ -33,14 +33,14 @@ and in the Vagrantfile change the machine # and related settings from 40 to the 
 
 You can do this in nano easily:
 
-````
+....
 nano Vagrantfile
   ## file is shown
 Ctrl \
 Enter your search term [press return]
 Enter your replacement term [press return]
 A [to replace all instances]
-````
+....
 Vagrant up!
 
     vagrant up
@@ -62,7 +62,7 @@ Now, unlike your previous manos (Lab 04) this one is empty. There is not yet a J
 
 You should get:
 
-````
+....
 Cloning into 'hijo'...
 The authenticity of host 'cerebro (192.168.33.30)' can't be established.
 ECDSA key fingerprint is 7c:d9:8b:ec:ac:27:b5:f8:2d:2c:ff:e0:11:1e:51:f2.
@@ -73,7 +73,7 @@ remote: Compressing objects: 100% (15/15), done.
 remote: Total 22 (delta 0), reused 0 (delta 0)
 Receiving objects: 100% (22/22), 7.76 KiB | 0 bytes/s, done.
 Checking connectivity... done.
-````
+....
 Go into your new hijo directory and build:
 
     vagrant@manos40:~$ cd hijo
@@ -81,7 +81,7 @@ Go into your new hijo directory and build:
 
 You should get
 
-````
+....
 Buildfile: /home/vagrant/hijo/build.xml
 
 init:
@@ -135,7 +135,7 @@ main:
 
 BUILD SUCCESSFUL
 Total time: 7 seconds
-````
+....
 Check that your development Tomcat server is serving your page:
 
     vagrant@manos40:~/hijo$ curl localhost:8080/MainServlet
@@ -159,7 +159,7 @@ Now let's make a small change:
 
     nano src/main/java/biz/calavera/MainServlet.java
 
-````
+....
    package biz.calavera;
 
    //package test;
@@ -203,7 +203,7 @@ Now let's make a small change:
    	      // do nothing.
    	  }
    	}
-````
+....
 
 There are FOUR places you need to make a small update. They are identified by the comment "## Lab 05 Update."  You can make up whatever you want for your manosXXmsg string as long as it is less than 30 characters.
 
@@ -235,7 +235,7 @@ Now, when you push it to the master, one of two things will happen.
 
 ... you will get this:
 
-````
+....
 vagrant@manos41:~/hijo$ git push origin master
 Counting objects: 15, done.
 Compressing objects: 100% (6/6), done.
@@ -248,7 +248,7 @@ remote: Scheduled polling of hijoInit
 remote: No Git consumers using SCM API plugin for: git@cerebro:/home/hijo.git
 To ssh://cerebro/home/hijo.git
    897638e..5fcfb04  master -> master
-````
+....
 
 If all goes well, Jenkins has now kicked off. If you are doing the lab in class, you can see builds kicking off on the Jenkins dashboard.
 

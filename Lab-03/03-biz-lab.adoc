@@ -1,0 +1,11 @@
+= Lab 03 (Business) Software development as a career
+
+Read some parts of leading geeks/psych of computer programming/etc
+
+do they want to be developers?
+
+infrastructure engineers?
+
+product management?
+
+consumers/stakeholders?

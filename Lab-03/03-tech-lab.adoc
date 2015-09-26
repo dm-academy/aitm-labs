@@ -1,11 +1,12 @@
-= Lab 03 The core application pipeline
-In this lab, you will work with a basic DevOps application pipeline.
+= Lab 03 (Technical) The core application practices
+
 
 **Overview**
 
 Lab objectives:
 
-In this lab, you will initialize a Vagrant machine that has been preconfigured as a simple developer workstation with:
+In this lab, you will work with basic application tools, as an individual developer.
+You will initialize a Vagrant machine that has been preconfigured as a simple developer workstation with:
 
 * Java
 * JUnit
@@ -25,10 +26,10 @@ Make sure you are in your home directory.
 
     cd ~
 
-Clone the Calavera project (SEIS660 spring 2015 fork).
+Clone the Calavera project.
 
 ....
-teststu1@seis660:~$ git clone https://github.com/StThomas-SEIS660/Calavera.git
+YourStudentID@serverXXX:~$ git clone https://github.com/StThomas-serverXXX/Calavera.git
 Cloning into 'Calavera'...
 remote: Counting objects: 841, done.
 remote: Compressing objects: 100% (401/401), done.
@@ -39,11 +40,11 @@ Checking connectivity... done.
 ....
 Change to the Calavera directory:
 
-    teststu1@seis660:~$ cd Calavera/
+    YourStudentID@serverXXX:~$ cd Calavera/
 
 Now, you will see a new Vagrantfile. Have a look at it:
 
-    teststu1@seis660:~/Calavera$ more Vagrantfile
+    YourStudentID@serverXXX:~/Calavera$ more Vagrantfile
 
 (You can hit the space bar to go through it, or q to exit.)
 
@@ -73,10 +74,10 @@ chef.add_recipe "manos::default"
 
 You used a shell provisioner in your previous lab to apply your script to your new VM. But what's this? It's commented out here (the # means that Vagrant won't execute that line).
 
-Instead, we are starting to use Chef. As we discussed in Lecture 03, Chef is a configuration management system. Now, a full treatment of Chef is beyond the scope of this class. However, you should look at a few things. You should still be in your Calavera directory. Run tree:
+Instead, we are starting to use Chef. As mentioned in the  http://dm-academy.github.io/aitm/#_policy_based_approaches[readings for Session 02], Chef is a configuration management system. Now, a full treatment of Chef is beyond the scope of this class. However, you should look at a few things. You should still be in your Calavera directory. Run tree:
 
 ....
-teststu1@seis660:~/Calavera$ tree
+YourStudentID@serverXXX:~/Calavera$ tree
 .
 ├── Berksfile
 ├── cookbooks
@@ -206,15 +207,15 @@ Now, the current Vagrantfile is a little dangerous, because if you type "vagrant
 Return to the Calavera base directory and issue the following:
 
 ....
-teststu1@seis660:~/Calavera$ cd ~/Calavera/
-teststu1@seis660:~/Calavera$ git checkout Cala-04
+YourStudentID@serverXXX:~/Calavera$ cd ~/Calavera/
+YourStudentID@serverXXX:~/Calavera$ git checkout Cala-04
 Branch Cala-04 set up to track remote branch Cala-04 from origin.
 Switched to a new branch 'Cala-04'
-teststu1@seis660:~/Calavera$
+YourStudentID@serverXXX:~/Calavera$
 ....
 Now, do "cat Vagrantfile". You should see that Manos is the only machine left. Vagrant up manos:
 
-    teststu1@seis660:~/Calavera$ vagrant up manos
+    YourStudentID@serverXXX:~/Calavera$ vagrant up manos
 
 **Important**
 If you get
@@ -233,7 +234,7 @@ and it now should work.
 Manos comes preconfigured with a running Tomcat instance and a simple test-harness based Java application. You can see it running when you ssh in:
 
 ....
-teststu1@seis660:~/Calavera$ vagrant ssh
+YourStudentID@serverXXX:~/Calavera$ vagrant ssh
 Welcome to Ubuntu 14.04.2 LTS (GNU/Linux 3.13.0-24-generic x86_64)
 
  * Documentation:  https://help.ubuntu.com/
@@ -251,7 +252,7 @@ Let's look at what goes into making this little app work. First, how did it get 
 You can see the resources used by the application if you go:
 
 ....
-teststu1@seis660:~/Calavera$ tree cookbooks/manos/
+YourStudentID@serverXXX:~/Calavera$ tree cookbooks/manos/
 cookbooks/manos/
 ├── files
 │   ├── build.xml
@@ -268,7 +269,7 @@ cookbooks/manos/
 Now, the cookbook here essentially includes the raw ingredients (the contents of the cookbooks/manos/files directory) as well as the recipes of how to set them up on the VM. Especially, have a look at cookbooks/manos/recipes/default.rb:
 
 ....
-teststu1@seis660:~/Calavera$ cat cookbooks/manos/recipes/default.rb
+YourStudentID@serverXXX:~/Calavera$ cat cookbooks/manos/recipes/default.rb
 # manos-default
 
 # set up developer workstation
@@ -330,7 +331,7 @@ essentially says, take the file called "build.xml" from the files directory on t
 Go back into your manos VM and have a look at the home/hijo directory:
 
 ....
-teststu1@seis660:~/Calavera$ vagrant ssh
+YourStudentID@serverXXX:~/Calavera$ vagrant ssh
 Welcome to Ubuntu 14.04.2 LTS (GNU/Linux 3.13.0-24-generic x86_64)
 
  * Documentation:  https://help.ubuntu.com/
