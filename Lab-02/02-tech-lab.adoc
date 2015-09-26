@@ -449,7 +449,7 @@ index 0000000..557db03
 
 There may be more, reflecting the earlier history of the example repo. Hit "q" to exit the commit review.
 
-All of these changes have been locally committed to your git instance on your Vagrant virtual machine. Let's send them back up to your fork at Github. You will need to authenticate (we could set up ssh to github, but not right now):
+All of these changes have been locally committed to your git instance. Let's send them back up to your fork at Github. You will need to authenticate (we could set up ssh to github, but not right now):
 
 ....
 YourStudentID@serverXXX:~/example$ git push origin master
