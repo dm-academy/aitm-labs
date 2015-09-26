@@ -254,11 +254,13 @@ Exit and destroy your VM. The "-f" flag does it immediatley, without further con
 
 == Working with git
 
+NOTE: You all should get a github ID. If you are working in teams, you have the option of either doing the next section individually, or choosing 1 team member to drive.
+
 You will do the exercises in part 2 on the main server, not your VM (which you have now destroyed, right?).
 
 **Set up Github.com & fork the sample repo**
 
-Go to http://github.com and set up a user account. You probably do NOT want to use your school email account name for this, as your Github account may be an asset throughout your career. *Choose a suitably professional user name.*
+Go to http://github.com and set up a user account (one per individual, even if you are in teams). You probably do NOT want to use your school email account name for this, as your Github account may be an asset throughout your career. *Choose a suitably professional user name.*
 
 NOTE: You will have to keep track of TWO IDs and substitute them at appropriate times:
 *YourStudentID* and *YourGithubID*
