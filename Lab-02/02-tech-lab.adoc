@@ -520,7 +520,7 @@ vagrant@precise64:/vagrant$ ls
 example-Instructions.md  LICENSE  README.md  resources  starter.sh  YourStudentID-testfile.adoc  Vagrantfile
 ....
 
-Now for the main work of Part 3:
+Now for the main work of this section:
 
 Starting with starter.sh, write a shell script that automates:
 
