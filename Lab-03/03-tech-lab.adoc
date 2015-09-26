@@ -18,7 +18,7 @@ You will initialize a Vagrant machine that has been preconfigured as a simple de
 
 You must have completed lab 2 and issued pull requests for me.
 
-**Clone the Calavera project**
+**Clone the Examples repository**
 
 Log into the main server via ssh in the usual way.
 
@@ -170,9 +170,7 @@ YourStudentID@serverXXX:~/Calavera$ tree
 34 directories, 53 files
 ....
 
-Hint: if you are using Putty or some other terminal emulator and getting garbage characters like âââ in your tree, see this:
-
-http://unix.stackexchange.com/questions/61293/how-can-i-change-locale-encoding-to-avoid-getting-weird-characters-in-terminal
+TIP: If you are using Putty or some other terminal emulator and getting garbage characters like âââ in your tree, see http://unix.stackexchange.com/questions/61293/how-can-i-change-locale-encoding-to-avoid-getting-weird-characters-in-terminal[here].
 
 This directory structure is the entire Calavera project, which is a simple DevOps simulation that all runs through Vagrant.
 
