@@ -255,7 +255,11 @@ Exit and destroy your VM. The "-f" flag does it immediatley, without further con
 
 == 3. Working with git
 
-NOTE: You all should get a github ID. If you are working in teams, you have the option of either doing the next section individually, or choosing 1 team member to drive.
+Git is a popular version control system used by software developers and DevOps professionals. One of the key characteristics that sets Git apart from many other version control systems is its distributed nature. Git scales easily from small projects involving a single person all the way up to projects involving a cast of thousands.
+
+We will work with a commercial implementation of the Git platform in this class provided by Github. You can create a free account on Github and host public code repositories, like the one we setup for this lab.
+
+NOTE: Everyone should setup an individual Github account. If you are working in teams, you have the option of either doing the next section individually, or choosing one team member to perform the git forking and cloning tasks.
 
 You will do the exercises in part 2 on the main server, not your VM (which you have now destroyed, right?).
 
@@ -475,6 +479,7 @@ image::pull.jpg[]
 This completes this section. (I am not pulling your work back into the main lab.)
 
 There is much to learn about git and this lab is not intended to be a full tutorial, but rather means to an end, and a quick flavor of the techniques. We will cover further aspects as necessary.
+If you are looking for a short introductory course on git, check out the free online training course at link:http://gitreal.codeschool.com/[Git Real by Code School].
 
 == 4. Automated provisioning and infrastructure as code
 
@@ -512,15 +517,16 @@ Last login: Fri Sep 14 06:23:18 2012 from 10.0.2.2
 vagrant@precise64:~$
 ....
 
-Go to the /vagrant directory. (Not to be confused with /home/vagrant.)
-
-This is important. Your /vagrant directory is linked to the host machine on the outside. In fact, if you examine it, you will realize it is your ~/example directory! You should see your *-testfile.adoc.
+Go to the /vagrant directory on your Vagrant virtual machine and list the files. (Dont get confused with the /home/vagrant directory.)
 
 ....
 vagrant@precise64:~$ cd /vagrant
 vagrant@precise64:/vagrant$ ls
 example-Instructions.md  LICENSE  README.md  resources  starter.sh  YourStudentID-testfile.adoc  Vagrantfile
 ....
+
+If you examine the /vagrant directory, you will realize it has the same contents as your ~/example directory on the class server. In fact, it's the exact same directory! What's going on here? The /vagrant directory in your virtual machine is linked to the ~/example directory on the  host machine (class server). This virtual link provides an easy mechanism to
+share and move files between your virtual machine and the host server. You should see your *-testfile.adoc in the /vagrant directory file listing.
 
 Now for the main work of this section:
 
@@ -530,10 +536,12 @@ Starting with starter.sh, write a shell script that automates:
 2. tree installation
 3. git installation
 
-Review your Unix commands as necessary. The install commands are:
+Before beginning this work, let's review the Linux application installation commands:
 
  apt-get install -y tree
  apt-get install -y git
+
+Here are a couple additional notes to help you create the shell script:
 
   * Use Nano. Notice the shebang (#!/bin/bash) at the top of starter.sh.
 
@@ -541,7 +549,7 @@ Review your Unix commands as necessary. The install commands are:
 
   * You will need to change (chmod) the permissions correctly to run it.
 
-So:
+Start out by copying the starter.sh script to a new file, and then set the file permissions to allow execution.
 
  vagrant@precise64:/vagrant$ cp starter.sh YourStudentID-Lab02.sh
  vagrant@precise64:/vagrant$ sudo chmod 755 YourStudentID-Lab02.sh
@@ -568,11 +576,11 @@ Run the script to confirm you can execute it (it's still empty, and will run fin
 
     vagrant@XXXXX:~/vagrant$ ./YourStudentID-Lab02.sh  <- notice the "./"
 
-Create your script.
+Create your script by adding the commands to the script file using nano.
 
     vagrant@XXXXX:~/vagrant$ nano YourStudentID-Lab02.sh
 
-_add the necessary commands so that the script does what it needs to do_
+_Add the necessary commands so that the script does what it needs to do!_
 
 Oops, something seems to be wrong when you run it:
 
@@ -582,7 +590,7 @@ E: Could not open lock file /var/lib/dpkg/lock - open (13: Permission denied)
 E: Unable to lock the administration directory (/var/lib/dpkg/), are you root?
 ....
 
-Because the script has installations in it, you need to run it as superuser:
+Because the script has commands that initiate software installation in it, you need to run the script as superuser:
 
 ....
 vagrant@XXXXX:/vagrant$ sudo ./YourStudentID-Lab02.sh
@@ -604,31 +612,29 @@ Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
 Setting up tree (1.6.0-1) ...
 ....
 
-Use
+After running your script, you will need to confirm that it setup the required directory structure properly. Run the tree command:
 
  vagrant@XXXXX:/vagrant:/vagrant$ tree
 
-to see your results and "
+Did you see the results you expected? If not, you can issue the command below to remove the directories created by your script. You may need to make changes and execute your script multiple times to perfect it.
 
  vagrant@XXXXX:/vagrant:/vagrant$ rm -rf A C D
 
-to delete the directories if you need to run the script several times to perfect it.
 
-You can also:
+You can also remove the tree and git applications to reset your environment completely using these commands:
 
  vagrant@XXXXX:/vagrant:/vagrant$ sudo apt-get remove git
  vagrant@XXXXX:/vagrant:/vagrant$ sudo apt-get remove tree
 
-if you want to reset your environment completely.
 
-Once you are happy with your script, tell the new git instance *within your VM* your name & email (you have to do this again, because the VM is a whole new box.)
+Once you are happy with your script, tell the new git instance *within your VM* your name & email (you have to do this again, because the VM is a whole new environment.)
 
 ....
 vagrant@precise64:/vagrant$ git config --global user.email "you@stthomas.edu"
 vagrant@precise64:/vagrant$ git config --global user.name "your name"
 ....
 
-Then add and commit locally:
+Then add your new script file to git tracking and commit the file to your local repository:
 
 ....
 vagrant@XXXXX:/vagrant$ git add YourStudentID-Lab02.sh
@@ -640,16 +646,14 @@ vagrant@XXXXX:/vagrant$ git commit YourStudentID-Lab02.sh -m "script commit"
  create mode 100755 YourStudentID-Lab02.sh
 ....
 
-
-
 In reviewing the directory structure, there are duplicate directories. Also, it is getting messy with three directories at the same level.
 
 Fix the directory creation logic so that
 
-1. there are not duplicate C and D directories (you will need to use another letter).
-2. all the directories are inside one called "main"
+1. There are no duplicate C and D directories (you will need to use another letter).
+2. All the directories are inside a single directory called "main".
 
-Run it & confirm it works.
+Run the updated script & confirm it works. You should see a tree output like:
 
 ....
 vagrant@vagrant:/vagrant$ tree
@@ -686,14 +690,14 @@ vagrant@vagrant:/vagrant$ tree
 [more stuff]
 ....
 
-Check in and review differences
+Create a new git commit with your updated script and review the differences with the previous version:
 
  vagrant@vagrant:/vagrant$ git commit YourStudentID-Lab02.sh -m "2nd script commit"
  vagrant@vagrant:/vagrant$ git log -p
 
-*You are now doing "infrastructure as code."* You have automated a complex set of commands, checked them into source control, made significant changes, and checked in again. You can see both versions of your script.
+*You are now doing "infrastructure as code."* You have automated a complex set of commands, checked them into source control, made significant changes, and checked the commands in again. You can see both versions of your script in the git commit logs.
 
-When you are satisfied, push it back into your github remote account.
+When you are satisfied, push your local repository back into your Github account (also known as the origin).
 
 ....
 vagrant@vagrant:/vagrant$ git push origin master
@@ -706,16 +710,16 @@ Total 6 (delta 3), reused 0 (delta 0)
 To https://github.com/YourGithubIDYourGithubID/example.git
    1c23c80..72958e4  master -> master
 ....
-Note, your script is at risk until you do this.
+Note, your script is at risk until you do this because your script only exists on your local hard drive. Pushing your repository up to Github is like making a backup copy of your source files.
 
-Exit and vagrant destroy your vm:
+Exit the Vagrant instance (now back on the class server prompt) and destroy your Vagrant virtual machine:
 
     vagrant@vagrant:/vagrant$ exit
 	logout
 	Connection to 127.0.0.1 closed.
 	YourStudentID@serverXXX:~/example$ vagrant destroy
 
-Notice that your script is still in your ~/example directory.
+Notice that your script is still in your ~/example directory. Again, all files in the /vagrant directory on your virtual machine were mapped to the ~/example directory on the host server.
 
 ....
 YourStudentID@serverXXX:~/example$ cat YourStudentID-Lab02.sh
@@ -738,6 +742,11 @@ You should now be on the main server (you have destroyed your VM above).
 
 Add and commit your Vagrantfile to source control (see above).
 
+....
+YourStudentID@serverXXX:~/example$ git add Vagrantfile
+YourStudentID@serverXXX:~/example$ git commit -m "Vagrantfile commit"
+....
+
 Edit your Vagrantfile so that it calls your *-Lab02.sh script when you provision the machine. Add the "vm.provision" line, changing MyStudentID to your ID.
 
 ....
@@ -747,7 +756,9 @@ Vagrant.configure(2) do |config|
 end
 ....
 
-Vagrant up your machine and ssh into it, verify that your script has been run.
+Vagrant up your machine and ssh into it, verify that your script has been run. What happened here? Vagrant automatically executed your shell script on the new virtual machine after it started up.
+
+Verify that the following tasks were successfully completed on the virtual machine:
 
 . Directory "main" properly configured in /vagrant
 . git installed (run git --version)
@@ -802,11 +813,11 @@ git version 1.7.9.5
 
 Re-commit your Vagrantfile and push it back to origin.
 
-Issue a pull request for me to review your work.
+Finally, issue a pull request for me to review your work.
 
 Discuss:
 
-- Why can you commit to git on the VM without initializing the repo there? You had to at least set up your name and email.
+- Why can you commit to git on the VM without initializing the repo there? You had to at least set up your name and email. Hint: Think about the virtual directory mapping and execute the comand "ls -al" on the /vagrant directory in the VM.
 - How are git and tree getting installed, since you don't say "sudo vagrant up"?
 
 That is the end of this lab. Congratulations, this was a lot of work. Next week, we will start working on the the continuous integration pipeline with git, Java, JUnit, Tomcat, and Ant.
