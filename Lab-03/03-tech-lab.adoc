@@ -288,6 +288,7 @@ vagrant@manos:~$ curl localhost:8080/MainServlet
 <h1>This is a skeleton application-- to explore the end to end Calavera delivery framework.</h1>
 ....
 What is "curl"? curl is like a web browser for the command line.
+For more read @ http://curl.haxx.se/docs/manpage.html
 
 You can also see the same thing from OUTSIDE your virtual machine:
 
@@ -305,12 +306,12 @@ Finally, you can view it in a real browser over X windows.
 
 First, be sure you logged into the server with X enabled. You need to either:
 
-* Check the correct box in Putty
+* Check the box in Putty // For people using xming 6.9 above, there will be enable x11 forwarding checkbox under ssh.
 * go "ssh -X YourStudentID@serverXXX" if you are using your Mac console
 
 At the command line, go:
 ....
-YourStudentID@serverXXX:~$ firefox -no-remote
+YourStudentID@serverXXX:~$ firefox -no-remote "127.0.0.1:2203/MainServlet"
 
 (process:46597): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
 Gtk-Message: Failed to load module "canberra-gtk-module"
@@ -860,7 +861,7 @@ Find the git commit hash associated with your commit, and run the revert command
 vagrant@manos:/home/hijo$ git revert 3b810e4
 ....
 
-NOTE: You will need to edit the revert message in nano. You don't need to change the message, so simply exit nano and save the file.
+NOTE: You will need to edit the revert message in nano. Save and exit.
 
 ....
 [master b66c1c9] Revert "my local java"
@@ -873,6 +874,6 @@ See that "YourStudentID" is now removed, as we have reverted to the original ver
 vagrant@manos:/home/hijo$ cat src/main/java/biz/calavera/MainServlet.java
 ....
 
-Rebuild with ant and check that the original functionality is restored.
+Rebuild with ant and check that the original functionality is restored. Use Curl again.
 
 Congratulations, you have finished another lab. Next up: an end to end DevOps pipeline.
