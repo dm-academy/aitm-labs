@@ -1,2 +1,7 @@
 = Lab 07 IT Organization
-In this lab, which is not a technical lab, you will experiment as a class with various organizational forms. 
+In this lab, which is not a technical lab, you will experiment as a class with various organizational forms.
+
+
+
+
+* http://www.paulglen.com/Downloads/105%20-%20Leading%20Geeks%20Tip%20Sheet.pdf

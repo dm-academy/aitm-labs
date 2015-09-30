@@ -1,22 +1,23 @@
-= Lab 04 Behavior driven development and automated deployment
-In this lab, you will extend the previous application pipeline to include behavior-driven development and automated deployment.
+= Lab 04 End to end DevOps product management
 
-# IT Infrastructure Lab 4 Instructions #
-**Overview**
+== Overview
+
+In this lab, you will extend your development workstation to include an end to end build/integrate/test/package pipeline.
+
+Time permitting, to include behavior-driven development and automated deployment.
 
 Lab objectives:
 Examine the details of an end to end DevOps pipeline and participate in it using your development environment.
+
+You are now in 4 teams, each building a "feature" of the overall system managed throughout the pipeline.
 
 In this lab, you will configure and instantiate your own VM that serves as a distributed development environment. You will change software that other students are also changing at the same time, and see how git is used to manage this.
 
 **In the following material substitute the 2-digit number you receive from the instructor, for XX**
 
-## X-windows setup
-This is an interactive session where we will establish whether it is feasible to support X-windows for everyone. There is too much variation in your clients to publish directions.
+== Clone the lab and vagrant up
 
-## Clone the lab and vagrant up
-
-First, clone the "Lab O5" branch of Calavera thus (DON'T FORGET TO CHANGE XX TO YOUR 2 DIGIT #!):
+First, clone the "Lab O4" branch of Calavera thus (DON'T FORGET TO CHANGE XX TO YOUR 2 DIGIT #!):
 
     cd
     git clone https://github.com/StThomas-SEIS660/Calavera.git -b Lab-05 --single-branch manosXX
@@ -263,36 +264,3 @@ and enter the URL http://127.0.0.1:8133
 If you do not have either of these options, you can query the Jenkins API and at least see if a build has just run. Type
 
     java -jar /mnt/public/jenkins-cli.jar -s http://127.0.0.1:8133/ console hijoInit
-
-
-
-
-**If you are unlucky**
-...you will get something like the following:
-
-We will discuss this in class.
-
-
-===================================================
-
-
-then deploy to production (post to discussion board).
-
-
-=======================
-
-Future:
-
-lab 6: Nagios monitoring
-
-Lab 7: Jira & collab
-
-Lab 8: Project/release mgmt
-
-Lab 9: ITSM
-
-Lab 10: ITSM?
-
-Lab 11: Portfolio
-
-Lab 12: Performance? Simulated outage?
