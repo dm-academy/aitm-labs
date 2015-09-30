@@ -876,4 +876,10 @@ vagrant@manos:/home/hijo$ cat src/main/java/biz/calavera/MainServlet.java
 
 Rebuild with ant and check that the original functionality is restored. Use Curl again.
 
+Exit your VM and destroy it:
+
+ vagrant@manos:exit
+ YourStudentID@serverXXX:~/Calavera$ vagrant destroy manos -f
+
+
 Congratulations, you have finished another lab. Next up: an end to end DevOps pipeline.
