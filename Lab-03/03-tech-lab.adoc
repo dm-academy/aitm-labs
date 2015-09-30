@@ -74,7 +74,7 @@ There are a number of machines defined, such as
 ###############################################################################
 ....
 
-Each section like that defines how Vagrant should bring up a machine and configure it. There are a number of new comamnds we haven't seen before. Let's focus on the following:
+Each section like that defines how Vagrant should bring up a machine and configure it. There are a number of new commands we haven't seen before. Let's focus on the following:
 
 ....
 #manos.vm.provision         :shell, path: "./shell/manos.sh"
@@ -91,13 +91,13 @@ Each section like that defines how Vagrant should bring up a machine and configu
 end
 ....
 
-You used a shell provisioner in your previous lab to apply your script to your new VM. But what's this? In the first line in the example above, it's commented out here (the # means that Vagrant won't execute that line).
+You used a shell provisioner in your previous lab to apply your script to your new VM. But what's this? The first line in the example above is commented out (the # means that Vagrant won't execute that line).
 
-Instead, we are starting to use Chef. As mentioned in the  http://dm-academy.github.io/aitm/#_policy_based_approaches[readings for Session 02], Chef is a configuration management system.
+Rather than using another provisioner to install software on our VM, we are starting to use Chef. As mentioned in the  http://dm-academy.github.io/aitm/#_policy_based_approaches[readings for Session 02], Chef is a configuration management system.
 
 Now, http://searchaws.techtarget.com/definition/Opscode-Chef[read a bit about Chef] and https://docs.chef.io/chef_quick_overview.html[a bit more] before you continue.
 
-Now, a full treatment of Chef is beyond the scope of this class. However, you should look at a few things. You should still be in your Calavera directory. Run tree:
+A full treatment of Chef is beyond the scope of this class. However, you should understand a few things. You should still be in your Calavera directory. Run the tree command:
 
 ....
 YourStudentID@serverXXX:~/Calavera$ tree
@@ -198,11 +198,13 @@ Finally, the above tells Chef to apply a series of recipes from various parts of
 
 *Have a look at some of them.*  Use "cat."
 
+  YourStudentID@serverXXX:~/Calavera$ cat cookbooks/localAnt/recipes/default.rb
+
 The combination of these recipes precisely describes what the virtual machine will look like. If you delete a VM and bring it back up, it should look exactly the same every time.
 
 Now, the current Vagrantfile is a little dangerous, because if you type "vagrant up" it will try to bring up ALL of the machines. So, I have created a branch in git with a Vagrantfile for just the manos machine. Let's switch to that.
 
-Return to the Calavera base directory and issue the following:
+Return to the Calavera base directory and issue the following commands:
 
 ....
 YourStudentID@serverXXX:~/Calavera$ cd ~/Calavera/
@@ -228,7 +230,7 @@ Bringing machine 'manos' up with 'virtualbox' provider...
     [more]
 ....
 
-Now, YOU NEED TO WATCH THE OUTPUT.
+It will take several minutes to launch the new Vagrant instance. In the meantime, YOU NEED TO WATCH THE OUTPUT.
 
 Look for the language "Fixed port collision" in a series like this. THE NUMBERS WILL BE DIFFERENT:
 
@@ -254,7 +256,7 @@ If you miss your port, or can't find it, you will need to do:
 
  vboxmanage list vms
 
-You shuld see output including something like:
+You should see output including something like:
 
 "Calavera_manos_XXXXXXXXXXXXX_XXXXX" {389dab0f-2f52-434e-bf50-c9792c42416a}
 
@@ -270,7 +272,7 @@ NIC 1 Rule(3):   name = tcp8134, protocol = tcp, host ip = , host port = XXXX, g
 
 Copy down the "XXXX."
 
-Now that you have your port 8080 mapping, you can access your VM's web server. Manos comes preconfigured with a running Tomcat instance and a simple test-harness based Java application. You can see it running when you ssh in:
+Once you have your port 8080 mapping and the Vagrant launching process is complete, you can access your VM's web server. Manos comes preconfigured with a running Tomcat instance and a simple test-harness based Java application. You can see it running when you ssh into the VM:
 
 ....
 YourStudentID@serverXXX:~/Calavera$ vagrant ssh manos
@@ -278,10 +280,15 @@ Welcome to Ubuntu 14.04.2 LTS (GNU/Linux 3.13.0-24-generic x86_64)
 
  * Documentation:  https://help.ubuntu.com/
 Last login: Sat Feb 21 22:03:53 2015 from 10.0.2.2
+....
+
+Next, run the curl command pointing at the running web application:
+....
 vagrant@manos:~$ curl localhost:8080/MainServlet
 <h1>This is a skeleton application-- to explore the end to end Calavera delivery framework.</h1>
 ....
-What is "curl"? curl is like a browser for the command line.
+What is "curl"? curl is like a web browser for the command line.
+For more read @ http://curl.haxx.se/docs/manpage.html
 
 You can also see the same thing from OUTSIDE your virtual machine:
 
@@ -293,16 +300,18 @@ test4@seis660:~/Calavera$ curl 127.0.0.1:2203/MainServlet
 <h1>This is a skeleton application-- to explore the end to end Calavera delivery framework.</h1>
 ....
 
+IMPORTANT: Instead of typing 2203 for the port number, you should substitute the port number that 8080 was mapped to by Vagrant.
+
 Finally, you can view it in a real browser over X windows.
 
 First, be sure you logged into the server with X enabled. You need to either:
 
-* Check the right box in Putty
+* Check the box in Putty // For people using xming 6.9 above, there will be enable x11 forwarding checkbox under ssh.
 * go "ssh -X YourStudentID@serverXXX" if you are using your Mac console
 
 At the command line, go:
 ....
-YourStudentID@serverXXX:~$ firefox -no-remote
+YourStudentID@serverXXX:~$ firefox -no-remote "127.0.0.1:2203/MainServlet"
 
 (process:46597): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
 Gtk-Message: Failed to load module "canberra-gtk-module"
@@ -318,7 +327,7 @@ Exit your VM.
 
 == A look at the application
 
-Let's look at what goes into making this little app work. First, how did it get there? Exit from your ssh into the VM, if you are still in there. Be sure you are in the Calavera directory.
+Let's look at what goes into making this little app work. First, how did it get there? If you are still in your VM, exit from the VM back to the classroom server. Be sure you are in the Calavera directory.
 
 You can see the resources used by the application if you go:
 
@@ -410,6 +419,11 @@ Welcome to Ubuntu 14.04.2 LTS (GNU/Linux 3.13.0-24-generic x86_64)
 
  * Documentation:  https://help.ubuntu.com/
 Last login: Sun Feb 22 18:29:29 2015 from 10.0.2.2
+....
+
+Now run the tree command:
+
+....
 vagrant@manos:~$ tree /home/hijo
 /home/hijo
 ├── build.xml
@@ -444,15 +458,15 @@ That configured directory tree is the outcome of the Chef scripts that were appl
 
 Without going deeply into object-oriented programming, this application has three major parts:
 
-. A main class that controls everything (`MainServlet.java`)
+. A main class that controls everything (`MainServlet.java`).
 . A class called `Class1.java` that does 2 things:
 .. Returns a string "five" when you call the `.five` method on the class
 .. Wraps any string with the tags <H1> and </H1>, turning it into an HTML heading 1 string.
-. A test class, `TestClass1.java`, that tests `Class1.java` (but not `MainServlet.java`, just because that gets complicated for a simple exercise like this)
+. A test class, `TestClass1.java`, that tests `Class1.java` (but not `MainServlet.java`, just because that gets complicated for a simple exercise like this).
 
 But wait, there is more. How is Tomcat actually serving up the servlet?
 
-Go:
+Run tree:
 
 ....
 vagrant@manos:/home/hijo$ tree /var/lib/tomcat6/webapps/ROOT/WEB-INF/
@@ -470,7 +484,7 @@ And as a matter of fact, where did that `CalaveraMain.jar` file come from, anywa
 
 This is where the magic of Ant comes in. `CalaveraMain.jar` is a **compiled and packaged** version of the java classes you see in the `java/biz/calavera` directory.
 
-Back when Java first came out, the developer would have to painstaking compile and package the software by hand, move it manually to the Tomcat directory, and restart Tomcat. But with Ant (and similar tools like https://maven.apache.org/[Maven]), we can do this all automatically. Go:
+Back when Java first came out, the developer would have to painstakingly compile and package the software by hand, move it manually to the Tomcat directory, and restart Tomcat. But with Ant (and similar tools like https://maven.apache.org/[Maven]), we can do this all automatically. Go:
 
 ....
 vagrant@manos:~$ cd /home/hijo/
@@ -544,7 +558,7 @@ If you are interested in Ant further, you can see more about it at http://ant.ap
 
 == Changing the application
 
-Let's play with the Java a little bit. Go:
+Let's play with the Java a little bit. Start by editing the MainServlet.java file:
 
 ....
 vagrant@manos:/home/hijo$ nano src/main/java/biz/calavera/MainServlet.java
@@ -612,7 +626,7 @@ Now try:
 
 If you did it correctly, you should see that Tomcat (via curl) is now serving up the change you made. Many automated steps were executed between you making that change and it appearing in curl!
 
-NOTE: You can exit at this point from your VM to the main server, or just open a new session with X enabled, if you want to see this in firefox
+NOTE: You can exit at this point from your VM to the main server, or just open a new session with X enabled, if you want to see this in firefox. Remember to use your specific mapped 8080 port number that Vagrant setup.
 
 
 Let's add it to git:
@@ -700,7 +714,7 @@ e());  // string built correctly
 }
 ....
 
-Go:
+Edit the Class1.java file:
 
 ....
 vagrant@manos:/home/hijo$ nano src/main/java/biz/calavera/Class1.java
@@ -808,11 +822,9 @@ Why did this happen? Go back to the test harness and notice the line:
 
 NOTE: The `//` in the line above indicates a comment in the Java test.
 
-What this says is,
+What this says is there is a method (a command or instruction) on TestClass1 called "five," and in fact if it is called it should (unsurprisingly) return EXACTLY the string "`five`". No more, no less.
 
-there is a method (a command or instruction) on TestClass1 called "five," and in fact if it is called (or invoked) it should (unsurprisingly) return EXACTLY the string "`five`". No more, no less.
-
-In terms of the JUnit test language, the test ASSERTS that the method `five` invoked on the object `this.a` (which was constructed out of Class1, as you can see at the start of the test class), will be EQUAL to "five."
+In terms of the JUnit test language, the test ASSERTS that the method `five` invoked on the object `this.a` (which was constructed out of Class1, as you can see at the start of the test class), will be EQUAL to "five." We purposefully broke the test by telling the method to return "four".
 
 Test driven development is a critically important part of building applications and you are encouraged to deepen your familiarity with it. This is the simplest, most basic discussion imaginable.
 
@@ -841,10 +853,15 @@ commit b45dc90
 Author: Charles Betz <char@calavera.biz>
 
     initial commit
+....
 
+Find the git commit hash associated with your commit, and run the revert command:
+
+....
 vagrant@manos:/home/hijo$ git revert 3b810e4
 ....
-You will need to edit the revert message in nano.
+
+NOTE: You will need to edit the revert message in nano. Save and exit.
 
 ....
 [master b66c1c9] Revert "my local java"
@@ -857,6 +874,6 @@ See that "YourStudentID" is now removed, as we have reverted to the original ver
 vagrant@manos:/home/hijo$ cat src/main/java/biz/calavera/MainServlet.java
 ....
 
-Rebuild with ant and check that the original functionality is restored. 
+Rebuild with ant and check that the original functionality is restored. Use Curl again.
 
 Congratulations, you have finished another lab. Next up: an end to end DevOps pipeline.
