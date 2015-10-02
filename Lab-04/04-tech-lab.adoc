@@ -1,4 +1,4 @@
-= Lab 04 End to end DevOps product management
+= Lab 04 (Technical) End to end DevOps product management
 
 == Overview
 
@@ -6,21 +6,24 @@ In this lab, you will extend your development workstation to include an end to e
 
 Time permitting, to include behavior-driven development and automated deployment.
 
-Lab objectives:
+*Lab objectives:*
+
 Examine the details of an end to end DevOps pipeline and participate in it using your development environment.
 
 You are now in 4 teams, each building a "feature" of the overall system managed throughout the pipeline.
 
-In this lab, you will configure and instantiate your own VM that serves as a distributed development environment. You will change software that other students are also changing at the same time, and see how git is used to manage this.
+In this lab, you will configure and instantiate your own VM that serves as a distributed development environment. You will change software that others on your team are also changing at the same time, and see how git is used to manage this.
 
 **In the following material substitute the 2-digit number you receive from the instructor, for XX**
+
+ [think about http://www.aha.io/]
 
 == Clone the lab and vagrant up
 
 First, clone the "Lab O4" branch of Calavera thus (DON'T FORGET TO CHANGE XX TO YOUR 2 DIGIT #!):
 
-    cd
-    git clone https://github.com/StThomas-SEIS660/Calavera.git -b Lab-05 --single-branch manosXX
+ cd
+ git clone https://github.com/StThomas-SEIS660/Calavera.git -b Lab-05 --single-branch manosXX
 
 What does this do? Git repositories can be branched; a branch is a separate line of development. The Cala-dev branch gives you a single machine Vagrantfile to modify, making things a little easier for you.
 
@@ -75,6 +78,14 @@ remote: Total 22 (delta 0), reused 0 (delta 0)
 Receiving objects: 100% (22/22), 7.76 KiB | 0 bytes/s, done.
 Checking connectivity... done.
 ....
+
+TIP: How does your system know where "cerebro" even is? Try: +
+ +
+ `vagrant@manos40:~ $ cat /etc/hosts`.
+ +
+ +
+ The `hosts` file maps IP addresses to system names. This is preconfigured in the Calavera project.
+
 Go into your new hijo directory and build:
 
     vagrant@manos40:~$ cd hijo
@@ -144,15 +155,17 @@ Check that your development Tomcat server is serving your page:
 
 ## Make a change, build, test, and checkin
 
-Up til now, this should all seem familiar as it is similar to Lab 04. However, you are now in a fully distributed development environment with many others working on the same code base.
+Up til now, this should all seem familiar as it is similar to Lab 03 (except that here, your developer workstation did not have the code base on it; you had to check it out from a central git repository). However, you are now in a fully distributed development environment with many others working on the same code base.
 
-You are going to make a change, test it out locally, commit it to git locally, and then push it to the central repository (cerebro). When you do this, it will trigger a remote build and test, and you will see on the Jenkins dashboard whether it succeeded or failed
+You are going to make a change, test it out locally, commit it to git locally, and then push it to the central repository (cerebro). When you do this, it will trigger a remote build and test, and you will see on the Jenkins dashboard whether it succeeded or failed. You will be doing DevOps!
+
+IMPORTANT: Well, at least, you will be exercising an end to end automated build toolchain. We'll leave it for the purists to argue whether this is "doing DevOps."
 
 The key principle is that you must pull very frequently, especially if you are about to change something becausee you need to be up to date with what others have put in the repository.
 
 You need to perform the next steps in immediate order, so be sure you have some time to work uninterrupted. First, update your repository:
 
-    git pull
+ vagrant@manos40:~/hijo$ git pull
 
 This makes sure that there aren't any changes on cerebro we don't know about.
 
@@ -173,7 +186,7 @@ Now let's make a small change:
    	// Import required java libraries
 
    	  private String message;
-      private String manos41msg;  ## Lab 05 update
+      private String manos41msg;  ## Lab 04 update
 
    	  public void init() throws ServletException
    	  {
@@ -264,3 +277,52 @@ and enter the URL http://127.0.0.1:8133
 If you do not have either of these options, you can query the Jenkins API and at least see if a build has just run. Type
 
     java -jar /mnt/public/jenkins-cli.jar -s http://127.0.0.1:8133/ console hijoInit
+
+
+****
+where to go from here
+
+this is getting complicated
+the idea is one toolchain with mutiple end node dev servers?
+Or everyone logs into a shared dev instance?
+
+First priority: can everyone log into the same manos server? Multi-user Vagrant?
+
+option 1: each team has full control over own local pipeline (1 person's laptop)
+option 2: each team has full control over a distinct pipeline on the server
+option 3: one shared pipeline, but distinct dev instances run on their local laptops
+option 4: one shared pipeline, distinct dev instances on server
+option 5: one shared pipline, one dev server with separate directories
+
+option 5 is simplest
+need to figure out the Tomcat architecture
+I think 5 URLs is simplest
+
+gatito, perrito, horse, goat
+
+how to handle 5 distinct build scripts
+5 distinct components? servlets w/own URLs & subsidiary classes... own directory structure in Tomcat???
+5 distinct repos
+5 distinct githooks
+5 distinct Jenkins jobs
+5 distinct Artifactory packages
+5 distinct Cara jobs...?
+
+OK, before we go down this road we really have to determine that multiple users can access Manos VM
+if not, what to do... probably some damn networking issue.
+
+we have one Jenkins instance
+
+Each feature team is 5 people
+ideally each team would run their own pipeline
+but I don't think we can make this work
+
+that would be
+
+4 teams times 5 VMs??
+
+
+
+Each team is
+
+****
