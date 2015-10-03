@@ -261,7 +261,8 @@ Look for the language "Fixed port collision" in a series like this. THE NUMBERS 
 
 MAKE NOTE OF THE PORT 8080 MAPPING. In the above, it says "Now on port 2203." You will have a DIFFERENT number. Write it down.
 
-If you miss your port, or can't find it, you will need to do:
+****
+ONLY *if you miss your port*, or can't find it, you will need to do:
 
  vboxmanage list vms
 
@@ -280,6 +281,7 @@ NIC 1 Rule(3):   name = tcp8134, protocol = tcp, host ip = , host port = XXXX, g
 ....
 
 Copy down the "XXXX."
+****
 
 Once you have your port 8080 mapping and the Vagrant launching process is complete, you can access your VM's web server. Manos comes preconfigured with a running Tomcat instance and a simple test-harness based Java application. You can see it running when you ssh into the VM:
 
@@ -313,12 +315,16 @@ IMPORTANT: Instead of typing 2203 for the port number, you should substitute the
 
 Finally, you can view it in a real browser over X windows.
 
+NOTE: You may not find much use for X-windows in the outside world, but it is helpful here as it prevents us from worrying about hardening the local Vagrant VMs.
+
 First, be sure you logged into the server with X enabled. You need to either:
 
 * Check the box in Putty // For people using xming 6.9 above, there will be enable x11 forwarding checkbox under ssh.
 * go "ssh -X YourStudentID@serverXXX" if you are using your Mac console
 
-NOTE: You do *not* need Firefox on your local laptop for this to work. You *do* need to have X11 forwarding working, with a local Xwindows display (either check the X11 box in Putty, or do "ssh -X" in Mac). Type "xclock" for a quick test. See https://github.com/dm-academy/aitm-labs/blob/master/Lab-00/00-tech-lab.adoc[Configuring X-Windows] in Lab 00.
+NOTE: You do *not* need Firefox on your local laptop for this to work. You *do* need to have X11 forwarding working, with a local Xwindows display. For example, if XMing is installed, open XLaunch and click through the screens with the defaults. See also https://github.com/dm-academy/aitm-labs/blob/master/Lab-00/00-tech-lab.adoc[Lab 00], Configuring X-Windows. 
+
+Type "xclock" for a quick test. See https://github.com/dm-academy/aitm-labs/blob/master/Lab-00/00-tech-lab.adoc[Configuring X-Windows] in Lab 00.
 
 At the command line, go:
 ....
