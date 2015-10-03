@@ -309,6 +309,8 @@ First, be sure you logged into the server with X enabled. You need to either:
 * Check the box in Putty // For people using xming 6.9 above, there will be enable x11 forwarding checkbox under ssh.
 * go "ssh -X YourStudentID@serverXXX" if you are using your Mac console
 
+NOTE: You do *not* need Firefox on your local laptop for this to work. You *do* need to have X11 forwarding working, with a local Xwindows display (either check the X11 box in Putty, or do "ssh -X" in Mac). Type "xclock" for a quick test. See https://github.com/dm-academy/aitm-labs/blob/master/Lab-00/00-tech-lab.adoc[Configuring X-Windows] in Lab 00.
+
 At the command line, go:
 ....
 YourStudentID@serverXXX:~$ firefox -no-remote "127.0.0.1:2203/MainServlet"
@@ -626,8 +628,7 @@ Now try:
 
 If you did it correctly, you should see that Tomcat (via curl) is now serving up the change you made. Many automated steps were executed between you making that change and it appearing in curl!
 
-NOTE: You can exit at this point from your VM to the main server, or just open a new session with X enabled, if you want to see this in firefox. Remember to use your specific mapped 8080 port number that Vagrant setup.
-
+NOTE: If you want to see this in firefox, just open a *new* ssh session to SEIS660 with X enabled and don't go into your VM. Remember to use your specific mapped 8080 port number that Vagrant setup.
 
 Let's add it to git:
 ....
@@ -855,10 +856,16 @@ Author: Charles Betz <char@calavera.biz>
     initial commit
 ....
 
-Find the git commit hash associated with your commit, and run the revert command:
+Notice in the above the line:
+
+ commit 3b810e4
+
+The string `3b810e4` is the commit hash. https://git-scm.com/book/en/v2/Getting-Started-Git-Basics[More on Git hashing & other topics.]
+
+Find the git commit hash associated with your commit by running `git log --pretty=short --abbrev-commit` as in the example above. Then, run the revert command:
 
 ....
-vagrant@manos:/home/hijo$ git revert 3b810e4
+vagrant@manos:/home/hijo$ git revert <hash>
 ....
 
 NOTE: You will need to edit the revert message in nano. Save and exit.
