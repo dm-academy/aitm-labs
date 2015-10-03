@@ -4,16 +4,19 @@
 
 **Overview**
 
+The purpose of this lab is to give you a realistic, if brief overview of (reasonably) modern application development practices.
+
 Lab objectives:
 
-In this lab, you will work with basic application tools, as an individual developer.
-You will initialize a Vagrant machine that has been preconfigured as a simple developer workstation with:
+In this lab, you will work with basic application tools, as an individual developer. You will see test-driven development in action, in a very simple form, with automated build and deployment to a local Tomcat instance.
 
-* Java
-* JUnit
-* Ant
-* Tomcat
-* git
+You will start by initializing a Vagrant machine that has been preconfigured as a simple developer workstation with:
+
+* https://en.wikipedia.org/wiki/Java_(programming_language)[Java]
+* http://junit.org/[JUnit]
+* http://ant.apache.org/[Ant]
+* http://tomcat.apache.org/[Tomcat]
+* https://git-scm.com/[git]
 
 **Prerequisites**
 
@@ -77,6 +80,12 @@ There are a number of machines defined, such as
 Each section like that defines how Vagrant should bring up a machine and configure it. There are a number of new commands we haven't seen before. Let's focus on the following:
 
 ....
+
+###############################################################################
+###################################    manos     ##############################
+###############################################################################
+
+
 #manos.vm.provision         :shell, path: "./shell/manos.sh"
 
  manos.vm.provision :chef_zero do |chef|
