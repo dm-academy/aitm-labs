@@ -66,7 +66,7 @@ Now, you will see a new Vagrantfile. Have a look at it:
 
     YourStudentID@serverXXX:~/Calavera$ more Vagrantfile
 
-(You can hit the space bar to go through it, or q to exit.)
+(File is lengthy. More only shows you one screen at a time. You can hit the space bar repeatedly to go through it, or q to exit.)
 
 There are a number of machines defined, such as
 
