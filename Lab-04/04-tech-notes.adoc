@@ -10,17 +10,21 @@ The options considered were:
 
 . each team has full control over own local pipeline (e.g. running on that person's laptop or course workstation)
 . each team has full control over a distinct pipeline on the server (each team has own instance of 6 vms, for a total of e.g. 24 for a 4-team class, quite a load on the server)
+.. the other issue with this was encountered Spring 2015 when machines from the various pipelines would disappear, probably due to Vagrant networking issues
+.. this is the preferred mode for Section II however and when the pipeline is switched to Docker we will revisit.
 . one shared pipeline, with different apps having different URLs, but distinct dev instances run on their local laptops
 . one shared pipeline, distinct dev instances on server
-. one shared pipline, one dev server with separate directories
+. one shared pipline, one dev server with separate apps
+.. distinct Tomcat instances
+.. distinct URLs
 
-At this writing it appears simplest to go with the final option: one shared pipeline of 6 virtual boxes on the server, with each team having their own directory and URL(s) for their app.
+Considering final option:
 
 In order to do this with Vagrant (and this is the major compromise) it is necessary for all students to access the Vagrant VMs as a single user, e.g. "public." Each student does `su public`, cds to /home/public/calavera, and then `ssh manos` (or whatever Calavera server they choose).
 
-There is risk here; students would have the permissions to destroy Calavera servers running under public, but we just have to manage this.
+There is risk here; students would have the permissions to modify and destroy Calavera servers running under public, but we just have to manage this. Fortunately, any server can be easily rebuilt.
 
-In order to do this, some brute force configuration is required including the creation of multiple Tomcat directories, etc.
+In order to do this, some brute force configuration is required including the creation of multiple dev directories and Tomcat URL mappings.
 
 "Hijo" will remain the default primary product. For Lab 04 (as being implemented for 4 teams) we will add:
 
@@ -29,30 +33,26 @@ In order to do this, some brute force configuration is required including the cr
 * potro (foal)
 * cabrito (kid, i.e. baby goat)
 
-how to handle 5 distinct build scripts
-5 distinct components? servlets w/own URLs & subsidiary classes... own directory structure in Tomcat???
-5 distinct repos
-5 distinct githooks
-5 distinct Jenkins jobs
-5 distinct Artifactory packages
-5 distinct Cara jobs...?
+This means that we need to handle 5 distinct
 
-OK, before we go down this road we really have to determine that multiple users can access Manos VM
-if not, what to do... probably some damn networking issue.
+* development trees in /home
+* build scripts
+* Tomcat servlets
+* githooks
+* Jenkins jobs
+* Artifactory packages
+* Cara deployments
 
-we have one Jenkins instance
+Here is the core idea for the lab: each team analyzes the reference model that Hijo provides, and replicates it. Worth a try...
 
-Each feature team is 5 people
-ideally each team would run their own pipeline
-but I don't think we can make this work
+trouble is, we wind up with a shared web.xml file for Tomcat. No good, for Section II, as each team is supposed to be independent. so, this resource will need to be restricted to overall Manos configuration and removed from the local team builds.
 
-that would be
+Each student, or subteam of 2 within the larger team, can have their own instance:
 
-4 teams times 5 VMs??
+/home/gatito01 and /home/gatito02, both cloned from /home/gatito on Cerebro - this way they can do true collab dev.
 
+In considering the complexity of retrofitting the entire pipeline with 5 sub-pipelines... this is too much work and complexity. Going to re-visit standing up 4 distinct pipelines on the server, trying different internet & username approaches.
 
-
-Each team is
 
 == helpful links
 
