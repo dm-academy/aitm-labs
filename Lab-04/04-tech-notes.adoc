@@ -1,0 +1,59 @@
+= Lab 04 technical notes
+
+== Approach
+
+Crafting a Vagrant-based end to end DevOps pipeline that can support an entire class turned out to be a nontrivial undertaking, with some initially attempted approaches crashing and burning badly.
+
+Vagrant has certain restrictions, and in particular restricts ssh access to VMs to the user under which they were created. If there are workarounds, I have not been able to find them - suggestions appreciated. So, this lab represents certain compromises.
+
+The options considered were:
+
+. each team has full control over own local pipeline (e.g. running on that person's laptop or course workstation)
+. each team has full control over a distinct pipeline on the server (each team has own instance of 6 vms, for a total of e.g. 24 for a 4-team class, quite a load on the server)
+. one shared pipeline, with different apps having different URLs, but distinct dev instances run on their local laptops
+. one shared pipeline, distinct dev instances on server
+. one shared pipline, one dev server with separate directories
+
+At this writing it appears simplest to go with the final option: one shared pipeline of 6 virtual boxes on the server, with each team having their own directory and URL(s) for their app.
+
+In order to do this with Vagrant (and this is the major compromise) it is necessary for all students to access the Vagrant VMs as a single user, e.g. "public." Each student does `su public`, cds to /home/public/calavera, and then `ssh manos` (or whatever Calavera server they choose).
+
+There is risk here; students would have the permissions to destroy Calavera servers running under public, but we just have to manage this.
+
+In order to do this, some brute force configuration is required including the creation of multiple Tomcat directories, etc.
+
+"Hijo" will remain the default primary product. For Lab 04 (as being implemented for 4 teams) we will add:
+
+* gatito (kitten)
+* perrito (puppy)
+* potro (foal)
+* cabrito (kid, i.e. baby goat)
+
+how to handle 5 distinct build scripts
+5 distinct components? servlets w/own URLs & subsidiary classes... own directory structure in Tomcat???
+5 distinct repos
+5 distinct githooks
+5 distinct Jenkins jobs
+5 distinct Artifactory packages
+5 distinct Cara jobs...?
+
+OK, before we go down this road we really have to determine that multiple users can access Manos VM
+if not, what to do... probably some damn networking issue.
+
+we have one Jenkins instance
+
+Each feature team is 5 people
+ideally each team would run their own pipeline
+but I don't think we can make this work
+
+that would be
+
+4 teams times 5 VMs??
+
+
+
+Each team is
+
+== helpful links
+
+* http://www.cyberciti.biz/cloud-computing/use-vagrant-to-create-small-virtual-lab-on-linux-osx/[How To Use Vagrant To Create Small Virtual Test Lab on a Linux / OS X / MS-Windows]
