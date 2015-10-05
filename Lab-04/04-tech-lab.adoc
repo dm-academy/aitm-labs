@@ -2,34 +2,92 @@
 
 == Overview
 
-In this lab, you will extend your development workstation to include an end to end build/integrate/test/package pipeline.
-
-Time permitting, to include behavior-driven development and automated deployment.
+In this lab, you will work as a team with an end to end DevOps pipeline.
 
 *Lab objectives:*
 
 Examine the details of an end to end DevOps pipeline and participate in it using your development environment.
 
-You are now in 4 teams, each building a "feature" of the overall system managed throughout the pipeline.
+You are now in 4 teams, each building a unique product. Your teams are numbered 1-4.
 
-In this lab, you will configure and instantiate your own VM that serves as a distributed development environment. You will change software that others on your team are also changing at the same time, and see how git is used to manage this.
+You will want two X-enabled sessions into the server. Both should be X-windows enabled (technically only one needs to be, but let's keep it simple.)
 
-**In the following material substitute the 2-digit number you receive from the instructor, for XX**
 
- [think about http://www.aha.io/]
+Four users have been set up:
+
+* public1
+* public2
+* public3
+* public4
+
+The passwords are announced in class. You cannot ssh in as these users. Please do not attempt to configure ssh for them.
+
+Instead, ssh in as yourself with BOTH your sessions, and in ONE session, do
+
+`$ su publicxx`
+
+where xx = 1 through 4, appropriate to your team.
+
+Then:
+
+....
+$ cd ~/Calavera
+$ vagrant ssh manosxx
+....
+
+where "xx" is your team number.
+
+NOTE: While we use 'xx' to represent your team #, there is no leading zero. So, for example, Team 1 would `vagrant ssh manos1`, *not* `manos01`.
+
+Now, before you get hands on, you need to define your team's roles. I suggest, but do not require, the following:
+
+* Product owner (1)
+* Business analyst (1-2)
+* Developer (2 required)
+* QA analyst (1)
+* Tools specialist (1)
+
+Consider taking turns in the roles.
+
+Lab outline:
+
+(optional) Each team reloads their own pipeline... but not all at once.
+
+change & build, confirm local display
+
+Jenkins & Artifactory x-windows
+
+push to master, confirm that Jenkins builds & archives to Artifactory
+
+Deploy to Cara, confirm
+
+Break something
+
+Look at all aspects of the pipeline. It's yours and if you break it we will just rebuild it.
+
+Trace a configuration setting through to the Chef recipe
+
+Start developing a product identity. As a team, develop some simple product ideas. These can be very basic things like:
+
+* Display a mascot or brand for your team
+* Take a person's name and say "Hello" back to them
+* Perform simple math calculations
+
+Take a LIMITED amount of time and come up with 3-5 such features that your developers think they can implement. Recommend doing this mostly through echoing Javascript to the HTML page, but it is up to you if you want to bring in actual Java graphical libraries.
+
+Features must have tests.
+
+
+
+== Optional suggestions
+* Build Calavera on your laptop, suggesting fixes
+
+
 
 == Clone the lab and vagrant up
 
-First, clone the "Lab O4" branch of Calavera thus (DON'T FORGET TO CHANGE XX TO YOUR 2 DIGIT #!):
 
- cd
- git clone https://github.com/StThomas-SEIS660/Calavera.git -b Lab-05 --single-branch manosXX
-
-What does this do? Git repositories can be branched; a branch is a separate line of development. The Cala-dev branch gives you a single machine Vagrantfile to modify, making things a little easier for you.
-
-Review [branching basics](https://www.atlassian.com/git/tutorials/using-branches/) for an overview and [command alternatives](http://stackoverflow.com/questions/1778088/how-to-clone-a-single-branch-in-git) for explanation of the particular command.
-
-cd into the new manosXX directory that was created as a result of the command you just ran
+cd into the new hijo2 directory that was created as a result of the command you just ran
 
     cd manosXX
 
@@ -266,7 +324,9 @@ To ssh://cerebro/home/hijo.git
 
 If all goes well, Jenkins has now kicked off. If you are doing the lab in class, you can see builds kicking off on the Jenkins dashboard.
 
-![](jenkins1.png)
+image::Jenkins.png[]
+
+
 
 If you have X-windows running, you can open a window on the main seis660 server and type:
 
@@ -277,3 +337,14 @@ and enter the URL http://127.0.0.1:8133
 If you do not have either of these options, you can query the Jenkins API and at least see if a build has just run. Type
 
     java -jar /mnt/public/jenkins-cli.jar -s http://127.0.0.1:8133/ console hijoInit
+
+
+
+    First, clone the "Lab O4" branch of Calavera thus (DON'T FORGET TO CHANGE XX TO YOUR 2 DIGIT #!):
+
+     cd
+     git clone https://github.com/StThomas-SEIS660/Calavera.git -b Lab-05 --single-branch manosXX
+
+    What does this do? Git repositories can be branched; a branch is a separate line of development. The Cala-dev branch gives you a single machine Vagrantfile to modify, making things a little easier for you.
+
+    Review [branching basics](https://www.atlassian.com/git/tutorials/using-branches/) for an overview and [command alternatives](http://stackoverflow.com/questions/1778088/how-to-clone-a-single-branch-in-git) for explanation of the particular command.
