@@ -1,6 +1,8 @@
 = Lab 04 (Technical) End to end DevOps-based software product management
 
-== Overview
+== Understand the basic pipeline
+
+=== Overview
 
 In this lab, you will work as a team with an end to end DevOps pipeline.
 
@@ -90,6 +92,8 @@ NOTE: While we use 'xx' to represent your team #, there is no leading zero. So, 
 === Try it out!
 You are going to make a change, test it out locally, commit it to git locally, and then push it to the central repository (cerebro). When you do this, it will trigger a remote build and test, and you will see on the Jenkins dashboard whether it succeeded or failed. You will be doing DevOps!
 
+IMPORTANT: Well, at least, you will be exercising an end to end automated build toolchain. We'll leave it for the purists to argue whether this is "doing DevOps."
+
 Logged in manosxx as publicxx, refer back to lab 03 and change the MainServlet.java message again.
 
 Rebuild the application (`sudo ant`)
@@ -118,6 +122,8 @@ vagrant@manos1:/home/hijo$
 ....
 
 The last command is likely unfamiliar. What is it?
+
+=== Understanding the integrations
 
 Look again at the Calavera architecture:
 
@@ -159,6 +165,8 @@ This bit of code tells git (running on cerebro), *when it detects a new commit t
 
 Discuss with your team what this does and how it works. In particular, review what the hombrosxx server does.
 
+=== A first look at Jenkins
+
 So, when hombrosxx receives the call from the githook, how does it know what to do? Go to your X-windows Firefox, and open the hombros tab with the Jenkins GUI.
 
 image::hijoInitLink.png[]
@@ -189,171 +197,49 @@ Take your time and inspect all the configurations. This pipeline, which is as si
 
 By this point, Jenkins' centrality should be clear. However, on this first pass through the architecture, there is one more step, that of deployment.
 
-At this time, we are not doing full Continuous Deployment in the lab, as it's not clear that this is always a best or desirable practice. You develop on manos, check into cerebro, and if all tests pass you have a newly built package in espina ready for deployment, but the actual deployment still requires one more positive step. Going back to your 
+At this time, we are not doing full Continuous Deployment in the lab, as it's not clear that this is always a best or desirable practice. You develop on manos, check into cerebro, and if all tests pass you have a newly built package in espina ready for deployment, but the actual deployment still requires one more positive step. Going back to your ssh session:
 
-Lab outline:
+....
+ vagrant@manos1:~$ exit
+logout
+Connection to 127.0.0.1 closed.
+public1@seis660:~/Calavera$ vagrant reload --provision cara1
+==> cara1: Loading Berkshelf datafile...
+....
 
-(optional) Each team reloads their own pipeline... but not all at once.
+Usually, vagrant is not used to run production systems, but by typing `vagrant reload --provision` you force chef to check if the deployed packages are up to date. Since you have had (presumably) a successful Jenkins build since the last provisioning, the deployed .jar files on caraxx are *not* up to date, and will be replaced by the most recent files in Artifactory. Go to firefox and check, once the reprovisioning process is complete. The change you made and committed above should now be visible in caraxx, our "production" system.
 
-change & build, confirm local display
+== Further exercises
 
-push to master, confirm that Jenkins builds & archives to Artifactory
+****
+*Instructor's note*
 
-Deploy to Cara, confirm
+We are going to enter into a more creative phase of the class. This class is itself a product and I am looking for feedback on the lab experience and platform. You now have a workable set of tools similar to an industrial environment, and I want to let you determine to some degree what you are interested in.
+****
 
-Break something
+Here are some ideas for the remainder of the evening (please stay for the full class). Think about what you'd like to learn over the next 2-3 labs.
 
-Look at all aspects of the pipeline. It's yours and if you break it we will just rebuild it.
-
-Trace a configuration setting through to the Chef recipe
-
+=== Product suggestions
 Start developing a product identity. As a team, develop some simple product ideas. These can be very basic things like:
 
 * Display a mascot or brand for your team
 * Take a person's name and say "Hello" back to them
 * Perform simple math calculations
 
-Take a LIMITED amount of time and come up with 3-5 such features that your developers think they can implement. Recommend doing this mostly through echoing Javascript to the HTML page, but it is up to you if you want to bring in actual Java graphical libraries.
+Take a LIMITED amount of time and come up with 3-5 such features that your developers think they can implement.
 
-Features must have tests.
+=== Development suggestions
+* Break your build
+* Revert back to a known good version
+* Experiment with Javascript for implementing simple logic on the page
+* Features must have tests.
+* What would it take to set up a database and integrate it with your Java?
 
+IMPORTANT: Any source code you check into local git on manosxx or central git on cerebroxx is not backed up, unless you take steps to do so.
 
-
-== Optional suggestions
-* Build Calavera on your laptop, suggesting fixes
-
-
-
-
-
-IMPORTANT: Well, at least, you will be exercising an end to end automated build toolchain. We'll leave it for the purists to argue whether this is "doing DevOps."
-
-The key principle is that you must pull very frequently, especially if you are about to change something becausee you need to be up to date with what others have put in the repository.
-
-You need to perform the next steps in immediate order, so be sure you have some time to work uninterrupted. First, update your repository:
-
- vagrant@manos40:~/hijo$ git pull
-
-This makes sure that there aren't any changes on cerebro we don't know about.
-
-Now let's make a small change:
-
-    nano src/main/java/biz/calavera/MainServlet.java
-
-....
-   package biz.calavera;
-
-   //package test;
-
-   import java.io.*;
-   import javax.servlet.*;
-   import javax.servlet.http.*;
-
-   public class MainServlet extends HttpServlet {
-   	// Import required java libraries
-
-   	  private String message;
-      private String manos41msg;  ## Lab 04 update
-
-   	  public void init() throws ServletException
-   	  {
-   	      // Edit this message, save the file, and rebuild with Ant
-                 // to see it reflected on the Web page at http://localhost:8081/MainServlet
-   	      message = "This is a skeleton application-- to explore the end to end Calavera delivery framework.";
-                 manos41msg = "ManosXX was here";   ## Lab 05 update
-   	  }
-
-   	  public void doGet(HttpServletRequest request,
-   	                    HttpServletResponse response)
-   	            throws ServletException, IOException
-   	  {
-   	      // Set response content type
-   	      response.setContentType("text/html");
-
-   	      // Actual logic goes here.
-   	      PrintWriter out = response.getWriter();
-                 Class1 oResp = new Class1(message);
-   	      out.println(oResp.webMessage());
-
-                 Class1 oM41Resp = new Class1(manos41msg);     ## Lab 05 update
-                 out.println(oM41Resp.webMessage());       ## Lab 05 update
-   	  }
-
-   	  public void destroy()
-   	  {
-   	      // do nothing.
-   	  }
-   	}
-....
-
-There are FOUR places you need to make a small update. They are identified by the comment "## Lab 05 Update."  You can make up whatever you want for your manosXXmsg string as long as it is less than 30 characters.
-
-Ok, make the updates. Now build and test:
-
-    sudo ant
-    [message as before, unless it fails]
-
-If your build fails, go back and review and fix. Try again until it works.
-
-When your build finally works, you should be able to curl with results like:
-
-    <h1>This is a skeleton application-- to explore the end to end Calavera delivery framework.</h1>
-    <h1>ManosXX was here</h1>
-
-Time is of the essence. Check it in to your local repo:
-
-    git commit -a -m "ManosXX checkin"
-
-and push it to the master:
-
-   git push origin master
-
-(In a real world development, you might have committed it locally many times, but this is compressed.)
-
-Now, when you push it to the master, one of two things will happen.
-
-**If you are lucky**
-
-... you will get this:
-
-....
-vagrant@manos41:~/hijo$ git push origin master
-Counting objects: 15, done.
-Compressing objects: 100% (6/6), done.
-Writing objects: 100% (8/8), 789 bytes | 0 bytes/s, done.
-Total 8 (delta 1), reused 0 (delta 0)
-remote:   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-remote:                                  Dload  Upload   Total   Spent    Left  Speed
-remote: 100   100  100   100    0     0   6406      0 --:--:-- --:--:-- --:--:--  6666
-remote: Scheduled polling of hijoInit
-remote: No Git consumers using SCM API plugin for: git@cerebro:/home/hijo.git
-To ssh://cerebro/home/hijo.git
-   897638e..5fcfb04  master -> master
-....
-
-If all goes well, Jenkins has now kicked off. If you are doing the lab in class, you can see builds kicking off on the Jenkins dashboard.
-
-image::Jenkins.png[]
-
-
-
-If you have X-windows running, you can open a window on the main seis660 server and type:
-
-    firefox -X -no-remote
-
-and enter the URL http://127.0.0.1:8133
-
-If you do not have either of these options, you can query the Jenkins API and at least see if a build has just run. Type
-
-    java -jar /mnt/public/jenkins-cli.jar -s http://127.0.0.1:8133/ console hijoInit
-
-
-
-    First, clone the "Lab O4" branch of Calavera thus (DON'T FORGET TO CHANGE XX TO YOUR 2 DIGIT #!):
-
-     cd
-     git clone https://github.com/StThomas-SEIS660/Calavera.git -b Lab-05 --single-branch manosXX
-
-    What does this do? Git repositories can be branched; a branch is a separate line of development. The Cala-dev branch gives you a single machine Vagrantfile to modify, making things a little easier for you.
-
-    Review [branching basics](https://www.atlassian.com/git/tutorials/using-branches/) for an overview and [command alternatives](http://stackoverflow.com/questions/1778088/how-to-clone-a-single-branch-in-git) for explanation of the particular command.
+=== Toolchain suggestions
+* Look at all aspects of the pipeline. Don't be afraid to experiment. It's yours and if you break it we will just rebuild it.
+* Learn to rebuild part or all of your development pipeline
+* Trace a configuration setting in the pipeline back to the Chef recipe that specified it.
+* Figure out how to replicate any code you write in the pipeline to Github (it is not backed up otherwise).
+* Help the developers set up a database.
