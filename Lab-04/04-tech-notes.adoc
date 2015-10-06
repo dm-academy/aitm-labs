@@ -1,6 +1,14 @@
 = Lab 04 technical notes
 
-== Approach
+This lab relies on the new templated Vagrant file. You need to:
+
+* Clone Calavera
+* Run ./template.sh, passing an argument 1-4 to it
+* vagrant up the corresponding machines, now named cerebro1-4, brazos1-4, etc.
+
+A 48 gb server can run 4 pipelines of 6 machines each.
+
+== Previous notes
 
 Crafting a Vagrant-based end to end DevOps pipeline that can support an entire class turned out to be a nontrivial undertaking, with some initially attempted approaches crashing and burning badly.
 
@@ -10,13 +18,15 @@ The options considered were:
 
 . each team has full control over own local pipeline (e.g. running on that person's laptop or course workstation)
 . each team has full control over a distinct pipeline on the server (each team has own instance of 6 vms, for a total of e.g. 24 for a 4-team class, quite a load on the server)
-.. the other issue with this was encountered Spring 2015 when machines from the various pipelines would disappear, probably due to Vagrant networking issues
+.. the other issue with this was encountered Spring 2015 when machines from the various pipelines would disappear, probably due to Vagrant/Virtualbox networking issues
 .. this is the preferred mode for Section II however and when the pipeline is switched to Docker we will revisit.
 . one shared pipeline, with different apps having different URLs, but distinct dev instances run on their local laptops
 . one shared pipeline, distinct dev instances on server
 . one shared pipline, one dev server with separate apps
 .. distinct Tomcat instances
 .. distinct URLs
+
+Option 2 was finally determined workable.
 
 Considering final option:
 
@@ -47,7 +57,7 @@ Here is the core idea for the lab: each team analyzes the reference model that H
 
 trouble is, we wind up with a shared web.xml file for Tomcat. No good, for Section II, as each team is supposed to be independent. so, this resource will need to be restricted to overall Manos configuration and removed from the local team builds.
 
-Each student, or subteam of 2 within the larger team, can have their own instance:
+Each student, or subteam of 2 within the larger team, would have their own instance:
 
 /home/gatito01 and /home/gatito02, both cloned from /home/gatito on Cerebro - this way they can do true collab dev.
 
