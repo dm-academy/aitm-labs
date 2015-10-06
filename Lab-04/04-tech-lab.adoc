@@ -48,7 +48,7 @@ Enable your local X client if needed (e.g. launch XMing). In one session (as you
 Firefox should open in X. Open four tabs, with the following URLS (substitute the xx as appropriate):
 
 * manosxx:8080/MainServlet
-* hombroxx:8080
+* hombrosxx:8080
 * espinaxx:8081
 ** log into Artifactory with the combination 'admin/password'
 * caraxx:8080/MainServlet
