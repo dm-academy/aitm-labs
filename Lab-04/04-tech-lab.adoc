@@ -26,7 +26,10 @@ Consider taking turns in the roles.
 
 You are now in 4 teams, each building a unique product. Your teams are numbered 1-4.
 
-You will want two X-enabled sessions into the server (technically only one needs to be X enabled, but let's keep it simple).
+You will want two X-enabled sessions into the server (technically only one needs to be X enabled, but let's keep it simple). You will use your 2 sessions in this way:
+
+* Session 1 will be for X-Windows, logged in with your student ID
+* Session 2 will be for command-line operation, `su` logged in as one of the "publicxx" users. 
 
 Four users have been set up:
 
