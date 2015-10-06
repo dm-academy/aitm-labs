@@ -29,7 +29,7 @@ You are now in 4 teams, each building a unique product. Your teams are numbered 
 You will want two X-enabled sessions into the server (technically only one needs to be X enabled, but let's keep it simple). You will use your 2 sessions in this way:
 
 * Session 1 will be for X-Windows, logged in with your student ID
-* Session 2 will be for command-line operation, `su` logged in as one of the "publicxx" users. 
+* Session 2 will be for command-line operation, `su` logged in as one of the "publicxx" users.
 
 Four users have been set up:
 
@@ -50,7 +50,11 @@ In one session (as yourself) do
 
  $ firefox -no-remote
 
-Firefox should open in X. Open four tabs, with the following URLS (substitute the xx as appropriate):
+Firefox should open in X.
+
+WARNING: Firefox is slow over X. Be patient. You probably won't use X much in your career. However, it helps these labs in that the Vagrant VMs are not exposed to the open Internet and therefore do not need to be hardened. 
+
+Open four tabs, with the following URLS (substitute the xx as appropriate):
 
 * manosxx:8080/MainServlet
 * hombrosxx:8080
