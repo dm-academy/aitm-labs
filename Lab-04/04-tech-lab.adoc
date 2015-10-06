@@ -1,4 +1,4 @@
-= Lab 04 (Technical) End to end DevOps product management
+= Lab 04 (Technical) End to end DevOps-based software product management
 
 == Overview
 
@@ -10,8 +10,7 @@ Examine the details of an end to end DevOps pipeline and participate in it using
 
 You are now in 4 teams, each building a unique product. Your teams are numbered 1-4.
 
-You will want two X-enabled sessions into the server. Both should be X-windows enabled (technically only one needs to be, but let's keep it simple.)
-
+You will want two X-enabled sessions into the server (technically only one needs to be X enabled, but let's keep it simple).
 
 Four users have been set up:
 
@@ -22,7 +21,42 @@ Four users have been set up:
 
 The passwords are announced in class. You cannot ssh in as these users. Please do not attempt to configure ssh for them.
 
-Instead, ssh in as yourself with BOTH your sessions, and in ONE session, do
+Instead, ssh in as yourself with BOTH your sessions.
+
+=== X-windows session
+
+Enable your local X client if needed (e.g. launch XMing). In one session (as yourself) do
+
+ $ firefox -no-remote
+
+Firefox should open in X. Open four tabs, with the following URLS (substitute the xx as appropriate):
+
+* manosxx:8080/MainServlet
+* hombroxx:8080
+* espinaxx:8081
+** log into Artifactory with the combination 'admin/password'
+* caraxx:8080/MainServlet
+
+Your tabs should look more or less like these:
+
+image::manos.png[]
+image::hombros.png[]
+image::espina.png[]
+Note that espina has been logged into and the tab switched to Artifacts where you can see the packaged Calavera artifacts.
+
+image::cara.png[]
+
+Compare these to the Calavera architecture:
+
+image::http://dm-academy.github.io/aitm/images/1.03-pipeline.png[]
+
+****
+Discuss: Why don't we open URLs to cerebro and brazos? What happens if you try? Why?
+****
+
+=== Terminal session
+
+In your other session, do
 
 `$ su publicxx`
 
