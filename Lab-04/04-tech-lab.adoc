@@ -94,7 +94,7 @@ You are going to make a change, test it out locally, commit it to git locally, a
 
 IMPORTANT: Well, at least, you will be exercising an end to end automated build toolchain. We'll leave it for the purists to argue whether this is "doing DevOps."
 
-Logged in manosxx as publicxx, refer back to lab 03 and change the MainServlet.java message again.
+Logged in manosxx as publicxx, refer back to https://github.com/dm-academy/aitm-labs/blob/master/Lab-03/03-tech-lab.adoc[lab 03] and change the MainServlet.java message again.
 
 Rebuild the application (`sudo ant`)
 
