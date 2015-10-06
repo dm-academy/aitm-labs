@@ -41,7 +41,9 @@ Instead, ssh in as yourself with BOTH your sessions.
 
 === X-windows session
 
-Enable your local X client if needed (e.g. launch XMing). In one session (as yourself) do
+Enable your local X client if needed (e.g. launch XMing). See https://github.com/dm-academy/aitm-labs/blob/master/Lab-00/00-tech-lab.adoc[Lab 00] for X-windows configuration.
+
+In one session (as yourself) do
 
  $ firefox -no-remote
 
