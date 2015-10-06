@@ -203,7 +203,7 @@ At this time, we are not doing full Continuous Deployment in the lab, as it's no
  vagrant@manos1:~$ exit
 logout
 Connection to 127.0.0.1 closed.
-public1@seis660:~/Calavera$ vagrant reload --provision cara1
+public1@srvXXX:~/Calavera$ vagrant reload --provision cara1
 ==> cara1: Loading Berkshelf datafile...
 ....
 
