@@ -55,7 +55,7 @@ This means that we need to handle 5 distinct
 
 Here is the core idea for the lab: each team analyzes the reference model that Hijo provides, and replicates it. Worth a try...
 
-trouble is, we wind up with a shared web.xml file for Tomcat. No good, for Section II, as each team is supposed to be independent. so, this resource will need to be restricted to overall Manos configuration and removed from the local team builds.
+Trouble is, we wind up with a shared web.xml file for Tomcat. No good, for Section II, as each team is supposed to be independent. so, this resource will need to be restricted to overall Manos configuration and removed from the local team builds.
 
 Each student, or subteam of 2 within the larger team, would have their own instance:
 
@@ -64,6 +64,6 @@ Each student, or subteam of 2 within the larger team, would have their own insta
 In considering the complexity of retrofitting the entire pipeline with 5 sub-pipelines... this is too much work and complexity. Going to re-visit standing up 4 distinct pipelines on the server, trying different internet & username approaches.
 
 
-== helpful links
+== Helpful links
 
 * http://www.cyberciti.biz/cloud-computing/use-vagrant-to-create-small-virtual-lab-on-linux-osx/[How To Use Vagrant To Create Small Virtual Test Lab on a Linux / OS X / MS-Windows]
