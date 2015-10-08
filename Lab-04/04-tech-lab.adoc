@@ -52,9 +52,9 @@ In one session (as yourself) do
 
 Firefox should open in X.
 
-WARNING: Firefox is slow over X. Be patient. You probably won't use X much in your career. However, it helps these labs in that the Vagrant VMs are not exposed to the open Internet and therefore do not need to be hardened. 
+WARNING: Firefox is slow over X. Be patient. You probably won't use X much in your career. However, it helps these labs in that the Vagrant VMs are not exposed to the open Internet and therefore do not need to be hardened.
 
-Open four tabs, with the following URLS (substitute the xx as appropriate):
+Open four tabs, with the following URLS (substitute the xx with your team number):
 
 * manosxx:8080/MainServlet
 * hombrosxx:8080
@@ -81,13 +81,13 @@ Discuss: Why don't we open URLs to cerebro and brazos? What happens if you try? 
 
 === Terminal session
 
-In your other session, do
+In your other session, assume a new user identity by running the command:
 
 `$ su publicxx`
 
 where xx = 1 through 4, appropriate to your team.
 
-Then:
+Then log into your manos vagrant instance:
 
 ....
 $ cd ~/Calavera
@@ -101,9 +101,9 @@ NOTE: While we use 'xx' to represent your team #, there is no leading zero. So, 
 === Try it out!
 You are going to make a change, test it out locally, commit it to git locally, and then push it to the central repository (cerebro). When you do this, it will trigger a remote build and test, and you will see on the Jenkins dashboard whether it succeeded or failed. You will be doing DevOps!
 
-IMPORTANT: Well, at least, you will be exercising an end to end automated build toolchain. We'll leave it for the purists to argue whether this is "doing DevOps."
+IMPORTANT: Well, at least, you will be exercising an end-to-end automated build toolchain. We'll leave it for the purists to argue whether this is "doing DevOps."
 
-Logged in manosxx as publicxx, refer back to https://github.com/dm-academy/aitm-labs/blob/master/Lab-03/03-tech-lab.adoc[lab 03] and change the MainServlet.java message again.
+While logged into manosxx as publicxx, refer back to https://github.com/dm-academy/aitm-labs/blob/master/Lab-03/03-tech-lab.adoc[lab 03] and change the MainServlet.java message by changing the code with a text editor (nano or vi).
 
 Rebuild the application (`sudo ant`)
 
@@ -127,7 +127,6 @@ remote: 100    30  100    30    0     0   1676      0 --:--:-- --:--:-- --:--:--
 remote: Scheduled polling of hijoInit
 To ssh://cerebro1/home/hijo.git
    17751d3..7787dd4  master -> master
-vagrant@manos1:/home/hijo$
 ....
 
 The last command is likely unfamiliar. What is it?
@@ -157,7 +156,6 @@ But the second part is more interesting:
 remote: Scheduled polling of hijoInit
 To ssh://cerebro1/home/hijo.git
    17751d3..7787dd4  master -> master
-vagrant@manos1:/home/hijo$
 ....
 
 What is this? It is a _githook_.
@@ -212,7 +210,7 @@ At this time, we are not doing full Continuous Deployment in the lab, as it's no
  vagrant@manos1:~$ exit
 logout
 Connection to 127.0.0.1 closed.
-public1@srvXXX:~/Calavera$ vagrant reload --provision cara1
+public1@srvXXX:~/Calavera$ vagrant reload --provision caraxx
 ==> cara1: Loading Berkshelf datafile...
 ....
 
