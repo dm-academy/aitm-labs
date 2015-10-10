@@ -453,13 +453,15 @@ and after a few minutes the new production website should appear, identical to t
 Time to define some of your own features! Do 4 more manually and move to the next section.
 
 == Automated Kanban
-Once you have developed at least 5 features with your manual Kanban board, switch to an online SaaS tool. (Consider the section in the AITM test, http://dm-academy.github.io/aitm/#_the_shared_mental_model_of_the_work_to_be_done"[Time and Space Shifting."])
+Once you have developed at least 5 features with your manual Kanban board, switch to an online SaaS tool. (Consider the section in the AITM textbook, http://dm-academy.github.io/aitm/#_the_shared_mental_model_of_the_work_to_be_done"[Time and Space Shifting."])
 
 For the Fall 2015 lab, Teams 1 and 2 will use https://trello.com/[Trello].
 Teams 3 and 4 will use https://tree.taiga.io[Taiga].
 
-Figuring out Cloud-based SaaS is not particularly hard. Therefore, this lab does not provide step by step instructions. For both Taiga and Trello, your team lead should sign up first and create the team, and then invite the other members. I have tested that this works for both systems. Part of the learning in this lab is climbing the learning curve for these applications.
+Figuring out Cloud-based SaaS is not particularly hard. Therefore, this lab does not provide step by step instructions. For both Taiga and Trello, your team lead should sign up first and create the team, and then invite the other members. I have tested that this works for both systems. Part of the learning in this lab is climbing the learning curve for these applications. We will work through any issues in class and I will update the lab with more details if required.
 
-You should then use your manual Kanban board as a basis and adapt the online system for your team.
+Once you are provisioned with the online tool, you should use your manual Kanban board as a basis and adapt the online system for your team.
 
-Discuss: how do you like the manual vs automated kanban approach
+Finally, once you have moved features through the automated tool, discuss: how do you like the manual vs automated kanban approach?
+
+Good job on finishing yet another lab. Next week: operations & monitoring. 
