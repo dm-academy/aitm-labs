@@ -160,7 +160,7 @@ To ssh://cerebro1/home/hijo.git
 
 What is this? It is a _githook_.
 
-We can see the githook on cerebroxx, if we were to log in to it (don't bother right now). If we did so, we could see:
+We can see the githook on cerebroxx, if we were to log in to it (if you want to see this file for yourself, exit manos and go `vagrant ssh cerebroxx`)
 
  $ cat /home/hijo.git/hooks/post-receive
  (some comments)
