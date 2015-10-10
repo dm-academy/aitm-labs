@@ -20,6 +20,8 @@ Using either whiteboards or large Post-it sheets, create a kanban board for your
 
 Each column is "owned" by the appropriate person on your team, from the organizing you did in https://github.com/dm-academy/aitm-labs/blob/master/Lab-04/04-tech-lab.adoc[Lab 04].
 
+Use small Post-its for the features as they move from left to right.
+
 [cols="2*", options="header"]
 |====
 |Kanban column |Owner
@@ -29,7 +31,6 @@ Each column is "owned" by the appropriate person on your team, from the organizi
 |Testing | QA analyst
 |Deployment | Tools specialist
 |====
-
 
 * product owner conceives high level idea
 * ba writes story
@@ -48,7 +49,7 @@ Your stories can be extremely simple. Some good starter examples would be,
 
 You should be using test-driven development however. Here is an example of doing that:
 
-Doing anything more ambitious with the Java (generating Javascript, adding classes, etc) is strictly extra credit. Don't distract yourself with getting too technical. But have fun. At the simplest, you should consider adding AT LEAST 10 additional features (some words and an object value) to the generated web page, considering each one as a feature.
+Doing anything more ambitious with the Java (generating Javascript, adding classes, etc) is strictly extra credit. Don't distract yourself with getting too technical. But have fun. At the simplest, you should consider adding AT LEAST 10 additional features (each at least some words and an object result - see example below) to the generated web page, considering each one as a feature.
 
 Also feel free to visit the other teams and borrow anything interesting they have done.
 
@@ -71,7 +72,6 @@ We have been doing the centralized git workflow. For this lab you are to work wi
 NOTE: We do not have a capability for automated git pull requests within Calavera. (We do not use Github *within* Calavera. We just use plain git.)
 
 Therefore, your pull requests will have to be handled manually in your Kanban workflow. More below.
-
 
 * create an additional repository for the QA person, who becomes the collaborative development partner (like Bill in the web page writeup).
 
@@ -415,7 +415,42 @@ image::QA-display.png[]
 
 When you are satisfied, you can push to master:
 
+....
+vagrant@manos5:/home/QA/hijo$ git checkout master
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+vagrant@manos5:/home/QA/hijo$ git pull
+Already up-to-date.
+vagrant@manos5:/home/QA/hijo$ git pull origin add-numbers
+From ssh://cerebro5/home/hijo
+ * branch            add-numbers -> FETCH_HEAD
+Updating e0fab6d..ba34954
+Fast-forward
+ src/main/java/biz/calavera/Class1.java      | 4 ++++
+ src/main/java/biz/calavera/MainServlet.java | 2 +-
+ src/test/java/biz/calavera/TestClass1.java  | 5 ++++-
+ 3 files changed, 9 insertions(+), 2 deletions(-)
+vagrant@manos5:/home/QA/hijo$ git push origin master
+Total 0 (delta 0), reused 0 (delta 0)
+remote:   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+remote:                                  Dload  Upload   Total   Spent    Left  Speed
+remote: 100    30  100    30    0     0   2109      0 --:--:-- --:--:-- --:--:--  2142
+remote: Scheduled polling of hijoInit
+To ssh://cerebro5/home/hijo.git
+   e0fab6d..ba34954  master -> master
+vagrant@manos5:/home/QA/hijo$
+....
 
+Notice we did a "git pull," that resulted in "Already up-to-date." In a busy development environment, that might easily not be the case.
+
+=== Deploy to production
+The QA person now moves the feature to the tools team. Their job is easy. As publicXX, go:
+
+~/Calavera$ vagrant reload --provision caraxx
+
+and after a few minutes the new production website should appear, identical to the QA screenshot above.
+
+Time to define some of your own features! Do 4 more manually and move to the next section.
 
 == Automated Kanban
 Once you have developed at least 5 features with your manual Kanban board, switch to an online SaaS tool. (Consider the section in the AITM test, http://dm-academy.github.io/aitm/#_the_shared_mental_model_of_the_work_to_be_done"[Time and Space Shifting."])
