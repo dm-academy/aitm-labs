@@ -54,7 +54,7 @@ Firefox should open in X.
 
 WARNING: Firefox is slow over X. Be patient. You probably won't use X much in your career. However, it helps these labs in that the Vagrant VMs are not exposed to the open Internet and therefore do not need to be hardened.
 
-Open four tabs, with the following URLS (substitute the xx as appropriate):
+Open four tabs, with the following URLS (substitute the xx with your team number):
 
 * manosxx:8080/MainServlet
 * hombrosxx:8080
