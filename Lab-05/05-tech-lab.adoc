@@ -1,4 +1,4 @@
-= Lab 05 Work Management: Kanban and advanced git.
+= Lab 05 Work Management: Kanban and further use of git.
 In this lab, you will extend the pipeline to support Kanban work management coupled with further git techniques.
 
 Lab objectives:
@@ -32,12 +32,14 @@ Use small Post-its for the features as they move from left to right.
 |Deployment | Tools specialist
 |====
 
-* product owner conceives high level idea
-* ba writes story
-* developer adds a new feature (addition example)
-* developer asks qa to approve (manual pull request)
-* qa person commits it to master
-* tools person moves it to production (cara reprovision)
+Start with this sequence as a baseline. Understand you may adapt it; please be prepared to share your reasoning if you do.
+
+* Product owner conceives high level idea
+* Business analyst writes story
+* Developer adds a new feature (addition example)
+* Developer asks qa to approve (manual pull request)
+* QA person commits it to master
+* Tools person moves it to production (via cara reprovision)
 
 Your stories can be extremely simple. Some good starter examples would be,
 
@@ -47,11 +49,13 @@ Your stories can be extremely simple. Some good starter examples would be,
 
 "As a user of the website, I want to see the number pi displayed to 10 places so that I may have that knowledge."
 
-You should be using test-driven development however. Here is an example of doing that:
-
 Doing anything more ambitious with the Java (generating Javascript, adding classes, etc) is strictly extra credit. Don't distract yourself with getting too technical. But have fun. At the simplest, you should consider adding AT LEAST 10 additional features (each at least some words and an object result - see example below) to the generated web page, considering each one as a feature.
 
+You should be using test-driven development however. An example of that follows.
+
 Also feel free to visit the other teams and borrow anything interesting they have done.
+
+REQUEST: At this writing, I would appreciate a basic Javascript approach that would allow the web site consumer to enter simple data (integers and strings), in a manner consumable by the supporting Java code.
 
 Do  5 features manually and 5 features with an automated kanban tool.
 
@@ -65,7 +69,7 @@ Read as a team these two sections on git workflows:
 
 * https://www.atlassian.com/git/tutorials/comparing-workflows/centralized-workflow[Centralized Workflow]
 * https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflowtree[Feature Branch Workflow]
-(It is not required to read the further sections on Gitflow or forking workflow.)
+(It is not required to read the further sections on Gitflow or forking workflow, but you may wish to do so for your own professional development. Source workflow is a critical topic for digital organizations and the examples here are only the simplest.)
 
 We have been doing the centralized git workflow. For this lab you are to work with the feature branch workflow approach.
 
@@ -73,15 +77,19 @@ NOTE: We do not have a capability for automated git pull requests within Calaver
 
 Therefore, your pull requests will have to be handled manually in your Kanban workflow. More below.
 
-* create an additional repository for the QA person, who becomes the collaborative development partner (like Bill in the web page writeup).
+=== Identify a new feature
 
-=== Develop a new feature
 
-* create a new feature development branch
+=== Write a new story
 
-* `git checkout -b some-feature master`
 
-(give it a name appropriate to your new feature)
+=== Develop the new feature
+
+
+
+Here we will create a new feature development branch by using the `git checkout -b some-feature master` command.
+
+(You will give your feature a name appropriate to your new feature)
 
 Go:
 
@@ -115,6 +123,8 @@ build.xml  src  target  x
 See how that works? The file "x" is visible in the "add-numbers" branch, but not in the master branch. Delete it:
 
  vagrant@manos5:/home/hijo$ rm x
+
+IMPORTANT: The java files resulting from this lab can be referenced in its https://github.com/dm-academy/aitm-labs/tree/master/Lab-05[Github folder].
 
 Now, let's write a test. (You should always write the test first in test driven development.)
 
@@ -154,7 +164,7 @@ and save. Build it:
  Total time: 1 second
 ....
 
-Unsurprisingly, the build broke. Let's implement the feature:
+Unsurprisingly, the build broke. You wrote a test and no implementation. Let's implement the feature:
 
  vagrant@manos5:/home/hijo$ nano src/main/java/biz/calavera/Class1.java
 
@@ -167,7 +177,7 @@ public int sum(int int1, int int2)
 }
 ....
 
-Exit; you can now `sudo ant` and it should work.
+Exit nano; you can now `sudo ant` and it should work.
 
 Let's display your new functionality to the world:
 
@@ -180,7 +190,9 @@ out.println(oResp.webMessage());
 out.println("I think seven plus six is " + oResp.sum(7,6));
 ....
 
-NOTE: Notice that we tested 5+5, but for the actual application are using 7+6. This is deliberate.
+NOTE: Notice that we tested 5+5, but for the actual application we are using 7+6. This is deliberate.
+
+NOTE: You can keep adding `out.println`("my text") lines to MainServlet.java, in the `public void doGet method`, for new features. They all display on the same page.
 
 Rebuild and redisplay. You should see the phrase,
 
@@ -190,13 +202,17 @@ added to your web page.
 
 Now that it is working, stage and commit the changes:
 
+....
 vagrant@manos5:/home/hijo$ git add . -A
 vagrant@manos5:/home/hijo$ git commit -m "sum feature"
 [add-numbers ba34954] sum feature
  4 files changed, 9 insertions(+), 2 deletions(-)
  delete mode 100644 x
+....
 
 NOTE: `git add . -A` is a lazy way of adding all the files you've worked on in the directory. You also can add them one by one by names (e.g. `git add path/to/myfile.java`) if you are changing several things at once but only want to commit some of them.
+
+*Reminder: the person leading the lab at this point should be the developer.*
 
 If your feature is passing your tests, you can push it to origin, but NOT master. As suggested in the Atlassian web tutorial, push it to your feature branch, in this case "add-numbers":
 
@@ -219,9 +235,12 @@ Now, here is a tricky question.
 
 Look at your Jenkins console. Why didn't the build run? Investigate the hijoInit configuration. Don't move on until you see why.
 
-Developer, take your Kanban task and move it to QA.
+Developer, your Kanban task is now ready for QA - it meets the definition of done. Do not pull anything more into your queue until this task has been pulled ahead. Instead, go help folks downstream clear their lane.
 
 === Test the new feature
+
+NOTE: In this section, we will create an additional repository for the QA person, who becomes the collaborative development partner (like Bill in the Atlassian writeup.
+
 QA, once you have received the task from the developer:
 
 Starting as your public ID, log into manos:
@@ -464,4 +483,4 @@ Once you are provisioned with the online tool, you should use your manual Kanban
 
 Finally, once you have moved features through the automated tool, discuss: how do you like the manual vs automated kanban approach?
 
-Good job on finishing yet another lab. Next week: operations & monitoring. 
+Good job on finishing yet another lab. Next week: operations & monitoring.
