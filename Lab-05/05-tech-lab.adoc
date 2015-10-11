@@ -7,7 +7,6 @@ Lab objectives:
 * Learn the basics of git feature branching workflow.
 * Add at least 10 small features to your product, using your team's agreed end to end workflow.
 
-
 == Manual Kanban
 
 Using either whiteboards or large Post-it sheets, create a kanban board for your team/product. The precise structure is up to you, but it should include:
@@ -41,23 +40,13 @@ Start with this sequence as a baseline. Understand you may adapt it; please be p
 * QA person commits it to master
 * Tools person moves it to production (via cara reprovision)
 
-Your stories can be extremely simple. Some good starter examples would be,
-
-"As a user of the website, I want to see two numbers added together."
-
-"As a user of website, I want to see a greeting that is meaningful so that I know which team's site I am accessing."
-
-"As a user of the website, I want to see the number pi displayed to 10 places so that I may have that knowledge."
-
-Doing anything more ambitious with the Java (generating Javascript, adding classes, etc) is strictly extra credit. Don't distract yourself with getting too technical. But have fun. At the simplest, you should consider adding AT LEAST 10 additional features (each at least some words and an object result - see example below) to the generated web page, considering each one as a feature.
-
-You should be using test-driven development however. An example of that follows.
-
-Also feel free to visit the other teams and borrow anything interesting they have done.
-
-REQUEST: At this writing, I would appreciate a basic Javascript approach that would allow the web site consumer to enter simple data (integers and strings), in a manner consumable by the supporting Java code.
+You are to do this multiple times. Add AT LEAST 10 additional features (each at least some words and an object result - see example below) to the generated web page, considering each one as a feature.
 
 Do  5 features manually and 5 features with an automated kanban tool.
+
+The first time you go through this, the entire team should go through each step, with the appropriate team member leading the activity.
+
+After that, you may be able to accelerate things. This is where some self-organization comes in. Do not use the suggested team structure as a cage. You will find the developers likely have the most work work. How can you all work together to deliver more quickly?
 
 == Git feature branch, with Java example.
 
@@ -78,14 +67,30 @@ NOTE: We do not have a capability for automated git pull requests within Calaver
 Therefore, your pull requests will have to be handled manually in your Kanban workflow. More below.
 
 === Identify a new feature
+Your product feature idea can be extremely simple. Some good starter examples would be,
 
+* Display the team name
+* Add two numbers together
+* Display a given irrational number to 10 places
+
+Write the idea down, with appropriate detail. For this lab, keep it simple. You might want to have two attached sticky notes: one identifying the task, and the other to actually carry the idea to the BA.
+
+Product owner, your Kanban task is now ready for the business analyst - it meets the definition of done. Do not pull anything more into your queue until this task has been pulled ahead. Instead, if it takes them more than a few minutes to pull your task, go help folks downstream clear their lane.
 
 === Write a new story
+As BA, you should formalize the story more:
 
+"As a user of the website, I want to see two numbers added together."
+
+"As a user of website, I want to see a greeting that is meaningful so that I know which team's site I am accessing."
+
+"As a user of the website, I want to see the number pi displayed to 10 places so that I may have that knowledge."
+
+Business analyst, once it is written in this form, your Kanban task is now ready for QA - it meets the definition of done. Do not pull anything more into your queue until this task has been pulled ahead. Instead, go help folks clear their lane.
 
 === Develop the new feature
 
-
+Developer, pull the story from the BA into your queue.
 
 Here we will create a new feature development branch by using the `git checkout -b some-feature master` command.
 
@@ -462,14 +467,30 @@ vagrant@manos5:/home/QA/hijo$
 
 Notice we did a "git pull," that resulted in "Already up-to-date." In a busy development environment, that might easily not be the case.
 
-=== Deploy to production
-The QA person now moves the feature to the tools team. Their job is easy. As publicXX, go:
+****
+*Developers note:*
 
-~/Calavera$ vagrant reload --provision caraxx
+Doing anything more ambitious with the Java (generating Javascript, adding classes, etc) is strictly extra credit. Don't distract yourself with getting too technical. But have fun.
+
+You should continue using test-driven development however.
+
+Also feel free to visit the other teams and borrow anything interesting they have done.
+****
+
+IMPORTANT: At this writing, I would appreciate a basic Javascript approach that would allow the web site consumer to enter simple data (integers and strings), in a manner consumable by the supporting Java code.
+
+QA, your Kanban task is now ready for QA - it meets the definition of done. Do not pull anything more into your queue until this task has been pulled ahead. Instead, go help folks downstream clear their lane.
+
+=== Deploy to production
+The tools team now pulls the task into their queue. Their job is easy. As publicXX, go:
+
+`~/Calavera$ vagrant reload --provision caraxx`
 
 and after a few minutes the new production website should appear, identical to the QA screenshot above.
 
 Time to define some of your own features! Do 4 more manually and move to the next section.
+
+As you move forward with more features, consider that you have all the skills not just for separate dev & QA, but for two different developers as well. You can certainly set up a third directory, e.g/ home/hijo2, in the same was as the QA directory. It's up to you as you self-organize. 
 
 == Automated Kanban
 Once you have developed at least 5 features with your manual Kanban board, switch to an online SaaS tool. (Consider the section in the AITM textbook, http://dm-academy.github.io/aitm/#_the_shared_mental_model_of_the_work_to_be_done"[Time and Space Shifting."])
@@ -477,7 +498,9 @@ Once you have developed at least 5 features with your manual Kanban board, switc
 For the Fall 2015 lab, Teams 1 and 2 will use https://trello.com/[Trello].
 Teams 3 and 4 will use https://tree.taiga.io[Taiga].
 
-Figuring out Cloud-based SaaS is not particularly hard. Therefore, this lab does not provide step by step instructions. For both Taiga and Trello, your team lead should sign up first and create the team, and then invite the other members. I have tested that this works for both systems. Part of the learning in this lab is climbing the learning curve for these applications. We will work through any issues in class and I will update the lab with more details if required.
+The Cloud-based SaaS sites have extensive instructions and do their best to make it easy. Therefore, this lab does not provide step by step instructions. For both Taiga and Trello, your team lead should sign up first and create the team, and then invite the other members. I have tested that this works for both systems.
+
+Part of the learning in this lab is climbing the learning curve for these applications. We will work through any issues in class and I will update the lab with more details if required.
 
 Once you are provisioned with the online tool, you should use your manual Kanban board as a basis and adapt the online system for your team.
 
