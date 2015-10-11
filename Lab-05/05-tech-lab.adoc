@@ -184,6 +184,8 @@ public int sum(int int1, int int2)
 
 Exit nano; you can now `sudo ant` and it should work.
 
+NOTE: Experienced people will note that the MainServlet java class is not being tested. This is possible, but gets complex - see http://stackoverflow.com/questions/12945907/how-to-mock-the-httpservletrequest and related links.
+
 Let's display your new functionality to the world:
 
  nano src/main/java/biz/calavera/MainServlet.java
@@ -244,7 +246,7 @@ Developer, your Kanban task is now ready for QA - it meets the definition of don
 
 === Test the new feature
 
-NOTE: In this section, we will create an additional repository for the QA person, who becomes the collaborative development partner (like Bill in the Atlassian writeup.
+NOTE: In this section, we will create an additional repository for the QA person, who becomes the collaborative development partner (like Bill in the Atlassian writeup).
 
 QA, once you have received the task from the developer:
 
