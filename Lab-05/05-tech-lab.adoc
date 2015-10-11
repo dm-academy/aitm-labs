@@ -490,7 +490,7 @@ and after a few minutes the new production website should appear, identical to t
 
 Time to define some of your own features! Do 4 more manually and move to the next section.
 
-As you move forward with more features, consider that you have all the skills not just for separate dev & QA, but for two different developers as well. You can certainly set up a third directory, e.g/ home/hijo2, in the same was as the QA directory. It's up to you as you self-organize. 
+As you move forward with more features, consider that you have all the skills not just for separate dev & QA, but for two different developers as well. You can certainly set up a third directory, e.g/ home/hijo2, in the same was as the QA directory. It's up to you as you self-organize.
 
 == Automated Kanban
 Once you have developed at least 5 features with your manual Kanban board, switch to an online SaaS tool. (Consider the section in the AITM textbook, http://dm-academy.github.io/aitm/#_the_shared_mental_model_of_the_work_to_be_done"[Time and Space Shifting."])
@@ -504,6 +504,17 @@ Part of the learning in this lab is climbing the learning curve for these applic
 
 Once you are provisioned with the online tool, you should use your manual Kanban board as a basis and adapt the online system for your team.
 
+There are many ways you might automate the interaction of the kanban tool, git, Slack, and other parts of the pipeline. At a minimum, you should be using the Kanban tool to communicate the branch ID. Some tools automatically generate a new branch when the developer pulls the story.
+
 Finally, once you have moved features through the automated tool, discuss: how do you like the manual vs automated kanban approach?
+
+== Optional: saving your code to Github
+Anything you develop on the course server is subject to deletion. (I will try to give warning.) If you want to save anything, save it to your Github account. The instructions are here:
+
+https://help.github.com/articles/adding-a-remote/
+
+You will need to name your remote something *other* than "origin," e.g. "my-lab-05."
+
+Note that you can save work in this way to more than one team member's account.
 
 Good job on finishing yet another lab. Next week: operations & monitoring.

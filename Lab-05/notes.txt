@@ -1,7 +1,0 @@
-
-
-consider setting up class taiga http://taigaio.github.io/taiga-doc/dist/setup-alternatives.html
-
-Kanbanery was ruled out because the free version only allows 2 team members
-
-Asana was considered but it's not a board
