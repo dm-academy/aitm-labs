@@ -492,7 +492,7 @@ and after a few minutes the new production website should appear, identical to t
 
 Time to define some of your own features! Do 4 more manually and move to the next section.
 
-As you move forward with more features, consider that you have all the skills not just for separate dev & QA, but for two different developers as well. You can certainly set up a third directory, e.g/ home/hijo2, in the same was as the QA directory. It's up to you as you self-organize.
+As you move forward with more features, consider that you have all the skills not just for separate dev & QA, but for two different developers as well. You can certainly set up a third directory, e.g/ home/hijo2, in the same way as the QA directory. It's up to you as you self-organize.
 
 == Automated Kanban
 Once you have developed at least 5 features with your manual Kanban board, switch to an online SaaS tool. (Consider the section in the AITM textbook, http://dm-academy.github.io/aitm/#_the_shared_mental_model_of_the_work_to_be_done"[Time and Space Shifting."])
