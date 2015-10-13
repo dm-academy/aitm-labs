@@ -56,8 +56,8 @@ You need to elaborate your git branching strategy so that features have their ow
 
 Read as a team these two sections on git workflows:
 
-* https://www.atlassian.com/git/tutorials/comparing-workflows/centralized-workflow[Centralized Workflow]
-* https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflowtree[Feature Branch Workflow]
+* https://www.atlassian.com/git/tutorials/comparing-workflows/centralized-workflow[Centralized Workflow, Feature Branch Workflow]
+
 (It is not required to read the further sections on Gitflow or forking workflow, but you may wish to do so for your own professional development. Source workflow is a critical topic for digital organizations and the examples here are only the simplest.)
 
 We have been doing the centralized git workflow. For this lab you are to work with the feature branch workflow approach.
