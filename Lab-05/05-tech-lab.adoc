@@ -82,7 +82,7 @@ Product owner, your Kanban task is now ready for the business analyst - it meets
 === Write a new story
 As BA, you should formalize the story more:
 
-"As a user of the website, I want to see two numbers added together."
+"As a user of the website, I want to see two numbers added together so that I have that information."
 
 "As a user of website, I want to see a greeting that is meaningful so that I know which team's site I am accessing."
 
