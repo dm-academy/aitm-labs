@@ -376,6 +376,7 @@ public class Class1 {
 		return int1+int2;
 	  }
 
+
         }
 ....
 
