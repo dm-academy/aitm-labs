@@ -482,7 +482,7 @@ Also feel free to visit the other teams and borrow anything interesting they hav
 
 IMPORTANT: At this writing, I would appreciate a basic Javascript approach that would allow the web site consumer to enter simple data (integers and strings), in a manner consumable by the supporting Java code.
 
-QA, your Kanban task is now ready for QA - it meets the definition of done. Do not pull anything more into your queue until this task has been pulled ahead. Instead, go help folks downstream clear their lane.
+QA, your Kanban task is now ready for deployment - it meets the definition of done. Do not pull anything more into your queue until this task has been pulled ahead. Instead, go help folks downstream clear their lane.
 
 === Deploy to production
 The tools team now pulls the task into their queue. Their job is easy. As publicXX, go:
