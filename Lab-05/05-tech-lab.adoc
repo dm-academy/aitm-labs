@@ -349,8 +349,7 @@ Ah, the developer said  I needed to be on the add-numbers branch.
 vagrant@manos5:/home/QA/hijo$ git checkout add-numbers
 Branch add-numbers set up to track remote branch add-numbers from origin.
 Switched to a new branch 'add-numbers'
-vagrant@manos5:/home/QA/hijo$ cat hijo/src/main/java/biz/calavera/Class1.java
-cat: hijo/src/main/java/biz/calavera/Class1.java: No such file or directory
+
 vagrant@manos5:/home/QA/hijo$ cat src/main/java/biz/calavera/Class1.java
 package biz.calavera;
 
