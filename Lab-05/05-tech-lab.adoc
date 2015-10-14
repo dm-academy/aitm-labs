@@ -7,6 +7,8 @@ Lab objectives:
 * Learn the basics of git feature branching workflow.
 * Add at least 10 small features to your product, using your team's agreed end to end workflow.
 
+As in https://github.com/dm-academy/aitm-labs/blob/master/Lab-04/04-tech-lab.adoc[Lab 04], it is recommended you have 2 terminal sessions open, one for X windows, the other for product development.
+
 == Manual Kanban
 
 Using either whiteboards or large Post-it sheets, create a kanban board for your team/product. The precise structure is up to you, but it should include:
