@@ -140,6 +140,7 @@ In nano, at the end of the code but *before the last brace "}"*, add
 ....
 public void testSum() {
                 assertEquals("two numbers sum OK", 10, this.a.sum(5, 5));
+              }
 ....
 
 and save. Build it:
