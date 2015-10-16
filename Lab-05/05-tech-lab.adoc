@@ -102,7 +102,7 @@ Go:
 
  :~/Calavera$ vagrant ssh manos5
  vagrant@manos5:~$ cd /home/hijo
- vagrant@manos5:/home/hijo$ git checkout -b add-numbers master
+ vagrant@manos5:/home/hijo$ git checkout -b feature/add-numbers master
  Switched to a new branch 'add-numbers'
 
 You have added a new branch and switched to it. You can test this:

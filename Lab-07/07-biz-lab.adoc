@@ -1,7 +1,28 @@
 = Lab 07 IT Organization
 In this lab, which is not a technical lab, you will experiment as a class with various organizational forms.
 
-
-
-
 * http://www.paulglen.com/Downloads/105%20-%20Leading%20Geeks%20Tip%20Sheet.pdf
+
+Some visual cue for identity - hats, headbands, something
+
+== Form 1: product orientation
+
+* Product owners (4)
+* Devs (8)
+* QA (4)
+* Ops (4)
+
+== Form 2: functional hierarchy
+
+* Sponsors (4)
+* PMs (2)
+* BAs (2)
+* Dev (6)
+* QA (4)
+* Eng/Ops (3)
+
+== Form 3: holacracy? 
+product but Eng/Ops is shared
+
+
+In each form, add 2 more features to each product.

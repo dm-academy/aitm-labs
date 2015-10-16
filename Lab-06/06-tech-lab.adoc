@@ -1,91 +1,142 @@
 = Lab 06 Configuring Nagios monitoring
 
-In this lab, you will assemble into your teams and install the open source monitoring tool Nagios in a client-server configuration. You will feedback issues detected in Nagios back into the Kanban system.
+== Introduction
+In this lab, you will assemble into your teams and install the open source monitoring tool Nagios in a client-server configuration.
 
+The objectives of this lab are to gain a basic understanding of monitoring tools and techniques, and further develop your systems management skills through installing and configuring a distributed Linux system with *less prescriptive guidance than you have had to date.* This lab is much more about what, not how.
 
-> **Some notes on working as a group**
+IMPORTANT: This lab may take you more than this class time. Use Slack to continue collaborating as a team. Do NOT let one person carry the load. All should be involved. Senior people, please keep your team involved.
 
-> It is important that you all track what is happening on the console. Take turns operating the keyboard. Each command should be discussed and everyone should be aware that a new command is being issued. It is not acceptable to have the strongest technologist in the group simply do the work.
+== Getting started
+****
+*Some notes on working as a group*
 
-> Although you will be graded as a group on this assignment, questions regarding it will appear on your individual quizzes and the final. So you need to understand what is being done.
+It is important that you all track what is happening on the console. Take turns operating the keyboard. Each command should be discussed and everyone should be aware that a new command is being issued. It is not acceptable to have the strongest technologist in the group simply do the work.
 
-## Getting started
+Although you will be graded as a group on this assignment, questions regarding it will appear on your individual quizzes and the final. It is possible that the next quiz will have some very deep dive questions on this lab. So you need to understand what is being done.
+****
 
-Four pairs of virtual machines have been created:
-````
-manos01, nervios01
-manos02, nervios02
-manos03, nervios03
-manos04, nervios04
-````
+NOTE: The names nervios and Nagios are confusingly similar. Nagios is the open source monitoring software; nervios is the server. I do this deliberately because you will encounter similar situations in the real world, and you need to be careful and precise in your thoughts.
 
-The machines all have the LAMP stack already installed, so you don't need to do that.
+You have a new machine in your pipeline, "nerviosxx" where xx = your team number.
 
 The goal is to
 
+* install the LAMP stack
 * install the Nagios server on your nervios instance
 * install the Nagios agent on your manos instance
-* configure Nagios to monitor your manos instance
-* confirm that manos is being monitored
-* test monitoring by halting manos and observing the result
+* configure Nagios to monitor your pipeline
+* confirm that the pipeline is being monitored
+* test monitoring by halting one or more servers and observing the result
+* expand monitoring to cover Apache Tomcat on the caraxx server, and Jenkins on hombrosxx..
+* test the expanded monitoring
 
-## Steps
+=== Steps
+It is *strongly recommended* you read this entire lab before starting it.
 
-You have a manos and a nervios instance appropriate to your team (each team has a number 1-4)
-
-    vagrant@192.168.33.4X    # for manosXX, X=1-4
-    vagrant@192.168.33.5X    # for nerviosXX, X=1-4
-
-First, log into the nervios instance appropriate to your team
-
-IMPORTANT: DO NOT USE "vagrant ssh." Instead, log in using ssh:
-
-    ssh vagrant@192.168.33.5X
+You have a nerviosxx instance appropriate to your team (each team has a number 1-4).
 
 The instructions we will follow this time are at:
 
 http://www.unixmen.com/install-configure-nagios-4-ubuntu-14-1014-04/
 
+Notice that this script in turn points to a LAMP installation.
+
 At this point, you should have the command line skills to install and configure nagios based on these directions, which will not be repeated or elaborated here.
+
+At your own option, you may choose to use the "nervios.sh" script you will find at _____. You should examine this script carefully and compare it to the online directions. This script is not a "lights-out" script; you will need to select various options. In particular you will need to select some passwords, which can be simple ones. We will be tearing these pipelines down and they are only available from inside the main course server, which is externally secured.
+
+I used this script and successfully set up Nagios on October 11-13, wiped that instance, and tested it again from scratch on October 16. _I offer no guarantees that it will work for you._
+
+ there is one key option they need to select
 
 Towards the end of the directions, you will see:
 
-*Add Monitoring targets to Nagios server*
+ Add Monitoring targets to Nagios server
 
-At this point, log into manosXX
+At this point, log into caraxx
 
-    ssh vagrant@192.168.33.4X
+vagrant ssh caraxx
 
-(again the instance appropriate to your team) and configure it so that it can be monitored by the nagios server.
+Continuing with the online directions, you will then make a final configuration file change on nervios and restart nagios.
 
-You will then make a final configuration file change on nervios and restart nagios. If you have followed the instructions correctly, it should start monitoring your manos instance.
+****
+*Host IPs*
+
+You will need these.
+....
+10.xx.0.10   cerebroxx
+10.xx.0.11   brazosxx
+10.xx.0.12   espinaxx
+10.xx.0.13   hombrosxx
+10.xx.0.14   manosxx
+10.xx.0.15   caraxx
+10.xx.0.16   nerviosxx
+....
+Again, do not use a leading '0'.
+****
+
+=== Wiping and re-loading the nervios server
+If your installation is fighting you, don't try to "fix" it. Servers are cattle, not pets. Go:
+
+ vagrant destroy nerviosxx -f
+ vagrant up nerviosxx
+
+and start over from scratch. Trust me, it will be quicker.
+
+=== Viewing Nagios
+
+If you have followed the instructions correctly, it should start monitoring your cara instance.
 
 You can log in and see your nagios instance by opening a new ssh session into seis660 (NOT your VM!!) and typing
 
     firefox -X -no-remote
 
-The URL is http://192.168.33.5X/nagios
+The URL is http://10.xx.0.16/nagios
 
-Note that you need to change "5X" appropriately, as above.
+Note that you need to change "xx" appropriately, as above.
 
 From the main Nagios screen, click on the "Hosts" link to the right. You should see a screen with two hosts, like this:
 
-![](nagios1.png)
+image::nagios1.png[]
 
-Take a screen shot and save.
+(It's an older screenshot showing manos being monitored; if you have followed directions the second line will be caraxx.)
 
-Test that your monitoring is working correctly by going back into your MANOS VM (192.168.33.4X) and issuing the command
+Take a screen shot and post to Slack.
 
-    sudo halt
+Test that your monitoring is working correctly by exiting your VM and issuing:
+
+ vagrant suspend caraXX
 
 replacing the XX as appropriate for your team.
 
 In 5 minutes, you should see an error on the web portal, like this:
 
-![](nagios2.png)
+image::nagios2.png[]
 
 Take a screen shot; combine it with your previous screen shot (e.g. in Powerpoint or as a PDF) and post to Blackboard.
 
-If you wish, ask the instructor to restart your machine and observe the result. (Not required.)
+Restart cara (vagrant up caraxx.) Confirm that monitoring shows it is up.
+
+You can change the speed with which Nagios detects a down server through a parameter change. Research the instructions and do so.
+
+Now, configure monitoring for the rest of your pipeline. Note that nervios already monitors itself.
+
+When you are done, post a screenshot of your pipeline being monitored to Slack.
+
+== Monitor services
+
+Pinging servers to be sure they are up is a start, but we also need to monitor what they are doing. Reviewing the Nagios instructions, configure service monitoring for:
+
+* SSH on all servers
+* Tomcat on manos and cara
+* Jenkins on hombros
+* Artifactory on espina
+
+Git on cerebro is extra credit, 10 points if you figure it out.
+
+We are not going to monitor services on brazos. Discuss why that might be in your team. We'll talk about it towards the end of class (please remind me).
+
+Post a screen shot to Slack showing the services being monitored.
 
 You are now complete.

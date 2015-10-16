@@ -1,2 +1,7 @@
 = Lab 08: Project Management
+
 http://www.aha.io/
+
+backlog mgmt
+obstacle clearing
+dependency management
