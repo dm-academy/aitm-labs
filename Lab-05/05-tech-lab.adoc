@@ -38,7 +38,7 @@ Start with this sequence as a baseline. Understand you may adapt it; please be p
 * Product owner conceives high level idea
 * Business analyst writes story
 * Developer adds a new feature (addition example)
-* Developer asks qa to approve (manual pull request)
+* Developer asks QA to approve (manual pull request)
 * QA person commits it to master
 * Tools person moves it to production (via cara reprovision)
 
@@ -48,7 +48,7 @@ Do  5 features manually and 5 features with an automated kanban tool.
 
 The first time you go through this, the entire team should go through each step, with the appropriate team member leading the activity.
 
-After that, you may be able to accelerate things. This is where some self-organization comes in. Do not use the suggested team structure as a cage. You will find the developers likely have the most work work. How can you all work together to deliver more quickly?
+After that, you may be able to accelerate things. This is where some self-organization comes in. Do not use the suggested team structure as a cage. You will find the developers likely have the most work. How can you all work together to deliver features more quickly?
 
 == Git feature branch, with Java example.
 
@@ -60,16 +60,15 @@ Read as a team these two sections on git workflows:
 
 * https://www.atlassian.com/git/tutorials/comparing-workflows/centralized-workflow[Centralized Workflow]
 * https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow[Feature Branch Workflow]
-(It is not required to read the further sections on Gitflow or forking workflow, but you may wish to do so for your own professional development. Source workflow is a critical topic for digital organizations and the examples here are only the simplest.)
+(It is not required to read the further sections on Gitflow or forking workflow, but you may wish to do so for your own professional development. Source workflow is a critical topic for development organizations and the examples here are only the simplest.)
 
 We have been doing the centralized git workflow. For this lab you are to work with the feature branch workflow approach.
 
 NOTE: We do not have a capability for automated git pull requests within Calavera. (We do not use Github *within* Calavera. We just use plain git.)
-
 Therefore, your pull requests will have to be handled manually in your Kanban workflow. More below.
 
 === Identify a new feature
-Your product feature idea can be extremely simple. Some good starter examples would be,
+Your product feature idea can be extremely simple. Some good starter examples would be:
 
 * Display the team name
 * Add two numbers together
@@ -251,9 +250,8 @@ Developer, your Kanban task is now ready for QA - it meets the definition of don
 
 NOTE: In this section, we will create an additional repository for the QA person, who becomes the collaborative development partner (like Bill in the Atlassian writeup).
 
-QA, once you have received the task from the developer:
+QA, once you have received the task from the developer, log into manos (appending the server name with your public ID):
 
-Starting as your public ID, log into manos:
 
  :~/Calavera$ vagrant ssh manos5
 
