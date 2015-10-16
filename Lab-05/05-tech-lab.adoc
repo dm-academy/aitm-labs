@@ -491,7 +491,7 @@ The tools team now pulls the task into their queue. Their job is easy. As public
 
 and after a few minutes the new production website should appear, identical to the QA screenshot above.
 
-Time to define some of your own features! Do 4 more manually and move to the next section.
+Time to define some of your own features! Do 1-2 more manually and move to the next section.
 
 As you move forward with more features, consider that you have all the skills not just for separate dev & QA, but for two different developers as well. You can certainly set up a third directory, e.g/ home/hijo2, in the same way as the QA directory. It's up to you as you self-organize.
 
