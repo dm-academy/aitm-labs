@@ -102,7 +102,7 @@ Go:
  :~/Calavera$ vagrant ssh manos5
  vagrant@manos5:~$ cd /home/hijo
  vagrant@manos5:/home/hijo$ git checkout -b feature/add-numbers master
- Switched to a new branch 'add-numbers'
+ Switched to a new branch 'feature/add-numbers'
 
 You have added a new branch and switched to it. You can test this:
 
@@ -110,7 +110,7 @@ You have added a new branch and switched to it. You can test this:
 vagrant@manos5:/home/hijo$ touch x
 vagrant@manos5:/home/hijo$ git add x
 vagrant@manos5:/home/hijo$ git commit -m "testing new branch"
-[add-numbers 3437d8e] testing new branch
+[feature/add-numbers 3437d8e] testing new branch
  1 file changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 x
 vagrant@manos5:/home/hijo$ ls
@@ -119,14 +119,14 @@ vagrant@manos5:/home/hijo$ git checkout master
 Switched to branch 'master'
 vagrant@manos5:/home/hijo$ ls
 build.xml  src  target
-vagrant@manos5:/home/hijo$ git checkout add-numbers
-Switched to branch 'add-numbers'
+vagrant@manos5:/home/hijo$ git checkout feature/add-numbers
+Switched to branch 'feature/add-numbers'
 vagrant@manos5:/home/hijo$ ls
 build.xml  src  target  x
 
 ....
 
-See how that works? The file "x" is visible in the "add-numbers" branch, but not in the master branch. Delete it:
+See how that works? The file "x" is visible in the "feature/add-numbers" branch, but not in the master branch. Delete it:
 
  vagrant@manos5:/home/hijo$ rm x
 
@@ -214,7 +214,7 @@ Now that it is working, stage and commit the changes:
 ....
 vagrant@manos5:/home/hijo$ git add . -A
 vagrant@manos5:/home/hijo$ git commit -m "sum feature"
-[add-numbers ba34954] sum feature
+[feature/add-numbers ba34954] sum feature
  4 files changed, 9 insertions(+), 2 deletions(-)
  delete mode 100644 x
 ....
@@ -223,10 +223,10 @@ NOTE: `git add . -A` is a lazy way of adding all the files you've worked on in t
 
 *Reminder: the person leading the lab at this point should be the developer.*
 
-If your feature is passing your tests, you can push it to origin, but NOT master. As suggested in the Atlassian web tutorial, push it to your feature branch, in this case "add-numbers":
+If your feature is passing your tests, you can push it to origin, but NOT master. As suggested in the Atlassian web tutorial, push it to your feature branch, in this case "feature/add-numbers":
 
 ....
-vagrant@manos5:/home/hijo$ git push origin add-numbers
+vagrant@manos5:/home/hijo$ git push origin feature/add-numbers
 Counting objects: 29, done.
 Compressing objects: 100% (10/10), done.
 Writing objects: 100% (17/17), 1.34 KiB | 0 bytes/s, done.
@@ -236,7 +236,7 @@ remote:                                  Dload  Upload   Total   Spent    Left  
 remote: 100    30  100    30    0     0   1918      0 --:--:-- --:--:-- --:--:--  2000
 remote: Scheduled polling of hijoInit
 To ssh://cerebro5/home/hijo.git
- * [new branch]      add-numbers -> add-numbers
+ * [new branch]      feature/add-numbers -> feature/add-numbers
 vagrant@manos5:/home/hijo$
 ....
 
@@ -335,20 +335,20 @@ Ok, we're on the master branch. What other branches are there?
 vagrant@manos5:/home/QA/hijo$ git show-branch -a
 * [master] initial commit
  ! [origin/HEAD] initial commit
-  ! [origin/add-numbers] sum feature
+  ! [origin/feature/add-numbers] sum feature
    ! [origin/master] initial commit
 ----
-  +  [origin/add-numbers] sum feature
-  +  [origin/add-numbers^] testing new branch
+  +  [origin/feature/add-numbers] sum feature
+  +  [origin/feature/add-numbers^] testing new branch
 *+++ [master] initial commit
 ....
 
-Ah, the developer said  I needed to be on the add-numbers branch.
+Ah, the developer said  I needed to be on the feature/add-numbers branch.
 
 ....
-vagrant@manos5:/home/QA/hijo$ git checkout add-numbers
-Branch add-numbers set up to track remote branch add-numbers from origin.
-Switched to a new branch 'add-numbers'
+vagrant@manos5:/home/QA/hijo$ git checkout feature/add-numbers
+Branch feature/add-numbers set up to track remote branch feature/add-numbers from origin.
+Switched to a new branch 'feature/add-numbers'
 
 vagrant@manos5:/home/QA/hijo$ cat src/main/java/biz/calavera/Class1.java
 package biz.calavera;
@@ -387,7 +387,7 @@ Thinking of yourself as the QA person, execute the following tests:
 Review the code changes they have made. Go:
 
 ....
-vagrant@manos5:/home/QA/hijo$ git diff master add-numbers src/main/java/biz/calavera/Class1.java
+vagrant@manos5:/home/QA/hijo$ git diff master feature/add-numbers src/main/java/biz/calavera/Class1.java
 diff --git a/src/main/java/biz/calavera/Class1.java b/src/main/java/biz/calavera/Class1.java
 index ff93f47..9484653 100644
 --- a/src/main/java/biz/calavera/Class1.java
@@ -448,9 +448,9 @@ Switched to branch 'master'
 Your branch is up-to-date with 'origin/master'.
 vagrant@manos5:/home/QA/hijo$ git pull
 Already up-to-date.
-vagrant@manos5:/home/QA/hijo$ git pull origin add-numbers
+vagrant@manos5:/home/QA/hijo$ git pull origin feature/add-numbers
 From ssh://cerebro5/home/hijo
- * branch            add-numbers -> FETCH_HEAD
+ * branch            feature/add-numbers -> FETCH_HEAD
 Updating e0fab6d..ba34954
 Fast-forward
  src/main/java/biz/calavera/Class1.java      | 4 ++++
