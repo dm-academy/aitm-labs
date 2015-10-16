@@ -42,9 +42,9 @@ Start with this sequence as a baseline. Understand you may adapt it; please be p
 * QA person commits it to master
 * Tools person moves it to production (via cara reprovision)
 
-You are to do this multiple times. Add AT LEAST 10 additional features (each at least some words and an object result - see example below) to the generated web page, considering each one as a feature.
+You are to do this multiple times. Add 3-5 additional features (each at least some words and an object result - see example below) to the generated web page, considering each one as a feature.
 
-Do  5 features manually and 5 features with an automated kanban tool.
+Do  2-3 features manually and 2-3 features with an automated kanban tool.
 
 The first time you go through this, the entire team should go through each step, with the appropriate team member leading the activity.
 
