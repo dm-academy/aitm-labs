@@ -1,5 +1,24 @@
 = Lab 06 Configuring Nagios monitoring
 
+== For lab testers:
+There should be a clean nerviosxx instance in your appropriate directory. We really don't want 2 people trying to do this at once on the same pipeline. I will manage for this.
+
+Run the instructions and give me feedback. It's overkill to do all the hosts and services.
+
+When you are done:
+
+Vagrant ssh into whatever *clients* (NOT nerviosXX) you configured and do:
+
+ sudo apt-get remove nagios-nrpe-server nagios-plugins
+ exit
+
+In the Calavera directory for the pipeline, go:
+
+ vagrant destroy nerviosxx -f
+ vagrant up nervios xx     # don't worry about Chef run list warning.
+
+Thanks!
+
 == Introduction
 In this cumulative lab, you will assemble into your teams and install the open source monitoring tool Nagios in a client-server configuration.
 
@@ -238,22 +257,3 @@ It is always good to dig around in the lab folder and see what else may be there
 ****
 
 You are now complete with the first half of the course. The second half will be less technical. Congratulations. Be sure to review this lab thoroughly for the quiz, which will be difficult.
-
-== For lab testers:
-There should be a clean nerviosxx instance in your appropriate directory. We really don't want 2 people trying to do this at once on the same pipeline. I will manage for this.
-
-Run the instructions and give me feedback. It's overkill to do all the hosts and services.
-
-When you are done:
-
-Vagrant ssh into whatever *clients* (NOT nerviosXX) you configured and do:
-
- sudo apt-get remove nagios-nrpe-server nagios-plugins
- exit
-
-In the Calavera directory for the pipeline, go:
-
- vagrant destroy nerviosxx -f
- vagrant up nervios xx
-
-Thanks!
