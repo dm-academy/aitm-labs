@@ -64,11 +64,13 @@ If you can't `cd /home/nerviosxx/cookbooks/nerviosxx/files/`, something is wrong
 
 You should examine this script carefully and compare it to the online directions. This script is not a "lights-out" script; you will need to select various options.
 
- In particular you will need to select some passwords, which can be simple ones,  or even blank. *MAKE NOTE OF ALL YOUR PASSWORDS*. We will be tearing these pipelines down and they are only available from inside the main course server, which is externally secured.
+I used this script and successfully set up Nagios on October 11-13, wiped that instance, and tested it again from scratch on October 16-17. _I offer no guarantees that it will work for you._
 
- NOTE: You *must* `sudo` the script.
+In particular you will need to select some passwords, which can be simple ones,  or even blank. *MAKE NOTE OF ALL YOUR PASSWORDS*. We will be tearing these pipelines down and they are only available from inside the main course server, which is externally secured.
 
- What does it mean if you get permission denied when you try to execute the script? There are at least two possible reasons. Search previous labs if you get this.
+NOTE: You *must* `sudo` the script.
+
+What does it mean if you get permission denied when you try to execute the script? There are at least two possible reasons. Search previous labs if you get this.
 
 Whether you follow the instructions manually or run the script, here are the of interactive prompts in the install process:
 
@@ -86,9 +88,7 @@ WARNING: This is a sandbox system, well contained inside a hardened environment,
 
 The script shows you the minimum of what needs to be done. There are various tests and optional features it does not do.
 
-I used this script and successfully set up Nagios on October 11-13, wiped that instance, and tested it again from scratch on October 16-17. _I offer no guarantees that it will work for you._
-
-The script is done when you see:
+If you used the script, the install is done when you see:
 
 ....
 To activate the new configuration, you need to run:
@@ -100,11 +100,13 @@ To activate the new configuration, you need to run:
 Starting nagios: done.
 ....
 
-At this point, you are at the point of the instructions that say:
+== Configure monitoring
+
+At this point, you have either run the script or done the installation manually. You are at the point of the instructions that say:
 
 *Access Nagios Web Interface*
 
-From this point, follow the script manually. Now is the time to open a second X window, if you have not already done so. Remember that you access Firefox from the main server, not from inside your VM.
+From this point, follow the instructions. Now is the time to open a second X window, if you have not already done so. Remember that you access Firefox from the main server, not from inside your VM.
 
 You can log in and see your nagios instance by opening a new ssh session into seis660 (NOT your VM!!) and typing
 
