@@ -160,7 +160,7 @@ You will need these.
 Again, do not use a leading '0'.
 ****
 
-I chose the Unixmen tutorial because it was a little more user friendly. The nagios quickstart is here and you should familiarize yourself with its documentation.
+I chose the Unixmen tutorial because it was a little more user friendly. The nagios quickstart is https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/quickstart-ubuntu.html[here] and you should familiarize yourself with its documentation.
 
 IMPORTANT: You need to substitute your target server name and IP in the configuration. *Will not work* if you use the default values suggested online.
 
