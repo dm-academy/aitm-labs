@@ -229,7 +229,7 @@ Stop Tomcat on cara or manos, and take a screenshot showing that the service is 
 
 We are not going to monitor services on brazos. Discuss why that might be in your team. We'll talk about it towards the end of class (please remind me).
 
-Post a screen shot to Slack showing the services being monitored.
+Post a screen shot to https://seis660.slack.com/messages/lab-06/[Slack] showing the services being monitored.
 
 ****
 *HINT*
