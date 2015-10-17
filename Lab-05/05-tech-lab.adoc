@@ -1,4 +1,7 @@
 = Lab 05 Work Management: Kanban and further use of git.
+
+ [Continuous improvement from fall 2015: this lab would really benefit from a visual workflow of the branching/merging and more detailed explanation of the git pull request aspects from dev to QA.]
+
 In this lab, you will extend the pipeline to support Kanban work management coupled with further git techniques.
 
 Lab objectives:
@@ -96,6 +99,8 @@ Developer, pull the story from the BA into your queue.
 Here we will create a new feature development branch by using the `git checkout -b some-feature master` command.
 
 (You will give your feature a name appropriate to your new feature)
+
+NOTE: A common mistake is to `su publicxx` but then not change to the new home directory. `cd` should always be the next command you execute after `su` for these labs. You do *not* want to remain in your student home directory.
 
 Go:
 
