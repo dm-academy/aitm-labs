@@ -1,6 +1,6 @@
 = Lab 05 Work Management: Kanban and further use of git.
 
- [Continuous improvement from fall 2015: this lab would really benefit from a visual workflow of the branching/merging and more detailed explanation of the git pull request aspects from dev to QA.]
+_Continuous improvement from fall 2015: this lab would really benefit from a visual workflow of the branching/merging and more detailed explanation of the git pull request aspects from dev to QA._
 
 In this lab, you will extend the pipeline to support Kanban work management coupled with further git techniques.
 
