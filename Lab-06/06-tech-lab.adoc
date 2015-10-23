@@ -63,6 +63,7 @@ You have a nerviosxx instance appropriate to your team (each team has a number 1
 
 * `Su` to publicxx.
 * `cd` to public's home directory
+* `cd` to Calavera
 * `vagrant ssh` to nerviosxx.
 
 The instructions we will follow this time are at:
