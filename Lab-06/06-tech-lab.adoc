@@ -61,7 +61,7 @@ WARNING: READ THIS ENTIRE LAB CAREFULLY BEFORE STARTING. IF YOU JUST LAUNCH INTO
 
 You have a nerviosxx instance appropriate to your team (each team has a number 1-4).
 
-* `Su` to publicss.
+* `Su` to publicxx.
 * `cd` to public's home directory
 * `vagrant ssh` to nerviosxx.
 
@@ -93,7 +93,7 @@ NOTE: You *must* `sudo` the script.
 
 What does it mean if you get permission denied when you try to execute the script? There are at least two possible reasons. Search previous labs if you get this.
 
-Whether you follow the instructions manually or run the script, here are the of interactive prompts in the install process:
+Whether you follow the instructions manually or run the script, here are the interactive prompts in the install process:
 
 . mysql-server password first request (can be blank)
 . mysql-server password second request (can be blank)
@@ -162,7 +162,7 @@ You will need these.
 Again, do not use a leading '0'.
 ****
 
-I chose the Unixmen tutorial because it was a little more user friendly. The nagios quickstart is here and you should familiarize yourself with its documentation.
+I chose the Unixmen tutorial because it was a little more user friendly. The nagios quickstart is https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/quickstart-ubuntu.html[here] and you should familiarize yourself with its documentation.
 
 IMPORTANT: You need to substitute your target server name and IP in the configuration. *Will not work* if you use the default values suggested online.
 
