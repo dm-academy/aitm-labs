@@ -72,7 +72,7 @@ http://www.unixmen.com/install-configure-nagios-4-ubuntu-14-1014-04/
 
 Notice that this script in turn points to a LAMP installation.
 
-WARNING: If you follow the LAMP installation, do NOT install both mysql and mariadb. This means there is a long section in the instructions you just ignore. I have tested only with mysql; recommend you use that.
+WARNING: If you follow the LAMP installation, do NOT install mariadb. This means there is a long section in the instructions you just ignore. I have tested the lab only with mysql, so I recommend you use that.
 
 At this point, you should have the command line skills to install and configure nagios based on these directions, which will not be repeated or elaborated here.
 
@@ -134,9 +134,12 @@ You can log in and see your nagios instance by opening a new ssh session into se
 
     firefox -X -no-remote
 
-The URL is http://10.xx.0.16/nagios
+When the browser window appears, type in the URL: http://10.xx.0.16/nagios
 
-Note that you need to change "xx" appropriately, as above.
+  Login: nagiosadmin
+  Password: public
+
+NOTE: Note that you need to change "xx" appropriately, as above.
 
 You will then get to a section that says:
 
