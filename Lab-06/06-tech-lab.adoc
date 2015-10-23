@@ -138,6 +138,8 @@ The URL is http://10.xx.0.16/nagios
 
 Note that you need to change "xx" appropriately, as above.
 
+You will then get to a section that says:
+
 *Add Monitoring targets to Nagios server*
 
 Exit nervios xx and log into caraxx.
@@ -145,7 +147,7 @@ Exit nervios xx and log into caraxx.
  exit
  vagrant ssh caraxx
 
-Continuing with the online directions, you will then make a final configuration file change on nervios (look for point in instructions that says *go back to your Nagios server*) and restart nagios.
+Continuing with the online directions, you will then make a final configuration file change by ssh'ing back into nervios (look for point in instructions that says *go back to your Nagios server*) and restart nagios.
 
 ****
 *Host IPs*
