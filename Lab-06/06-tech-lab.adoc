@@ -202,7 +202,7 @@ In 5 minutes, you should see an error on the web portal, like this:
 
 image::nagios2.png[]
 
-Take a screen shot; combine it with your previous screen shot (e.g. in Powerpoint or as a PDF) and post to Blackboard.
+Take a screen shot; combine it with your previous screen shot (e.g. in Powerpoint or as a PDF) and post to https://seis660.slack.com/messages/lab-06[Slack].
 
 Restart cara (vagrant up caraxx.) Confirm that monitoring shows it is up.
 
