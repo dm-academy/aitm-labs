@@ -28,6 +28,8 @@ This is (probably) your final hands-on lab directly using Linux in such a detail
 
 IMPORTANT: This lab may take you more than this class time. Use Slack to continue collaborating as a team. Do NOT let one person carry the load. All should be involved. Senior people, please keep your team involved.
 
+IMPORTANT: As will be repeated below, you can either run an automated script or follow manual steps to do this lab.
+
 == Getting started
 ****
 *Some notes on working as a group*
