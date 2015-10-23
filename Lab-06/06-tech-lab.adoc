@@ -149,6 +149,8 @@ Exit nervios xx and log into caraxx.
 
 Continuing with the online directions, you will then make a final configuration file change by ssh'ing back into nervios (look for point in instructions that says *go back to your Nagios server*) and restart nagios.
 
+NOTE: Technically, with this version of the lab, you do not need to install the agent on cara or any other server. I am leaving this in, however, as future versions of the lab *will* include agent-based monitoring. 
+
 ****
 *Host IPs*
 
@@ -170,7 +172,7 @@ I chose the Unixmen tutorial because it was a little more user friendly. The nag
 IMPORTANT: You need to substitute your target server name and IP in the configuration. *Will not work* if you use the default values suggested online.
 
 === Wiping and re-loading the nervios server
-If your installation is fighting you, don't try to "fix" it. Servers are cattle, not pets. Go:
+If your installation is fighting you, don't try to "fix" it. Servers are http://www.lauradhamilton.com/servers-pets-versus-cattle[cattle, not pets]. Go:
 
  vagrant destroy nerviosxx -f
  vagrant up nerviosxx
@@ -260,5 +262,7 @@ Post a screen shot to https://seis660.slack.com/messages/lab-06/[Slack] showing 
 
 It is always good to dig around in the lab folder and see what else may be there to assist you. But if you didn't read the lab entirely at first per the instructions, you might have done more work than you needed.
 ****
+
+
 
 You are now complete with the first half of the course. The second half will be less technical. Congratulations. Be sure to review this lab thoroughly for the quiz, which will be difficult.
