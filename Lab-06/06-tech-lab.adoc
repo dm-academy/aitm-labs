@@ -78,7 +78,7 @@ At this point, you should have the command line skills to install and configure 
 
 *At your own option*, you may choose to use the https://github.com/dm-academy/Calavera/blob/master/cookbooks/nervios/files/nervios.sh[nervios.sh] script, which installs both LAMP and Nagios. On your nerviosxx instance, you will find this script at
 
- /home/nerviosxx/cookbooks/nerviosxx/files/nervios.sh
+ /home/nerviosxx/cookbooks/nervios/files/nervios.sh
 
 (You really didn't want to install everything manually and then find out there was  a nice script, did you?)
 
