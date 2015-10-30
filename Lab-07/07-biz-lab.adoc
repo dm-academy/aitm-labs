@@ -1,25 +1,19 @@
 = Lab 07 IT Organization
 In this lab, which is not a technical lab, you will experiment as a class with various organizational forms.
 
-Some visual cue for identity - hats, headbands, something
+The purpose of this lab is to understand through practical experience concepts including:
 
-== Form 1: functional hierarchy
+* matrix management
+* product teams
+* functional specialization
+* organizational culture
+* styles of work
 
-* Sponsors (4)
-* PMs (2)
-* BAs (2)
-* Dev (6)
-* QA (4)
-* Eng/Ops (3)
+There will be 4 teams:
 
-== Form 2: product orientation
+Product team 1	1 & 2 story buildings
+Product team 2	Commercial & civil buildings
+Product team 3	Infrastructure
+Product team 4	Vehicles
 
-* Product owners (4)
-* Devs (8)
-* QA (4)
-* Ops (4)
-
-== Form 3: holacracy?
-product but Eng/Ops is shared
-
-In each form, add 2 more features to each product.
+Stay in your groupings from previous. No need to re-form.
