@@ -3,7 +3,9 @@
 Assume your startup has been acquired by a larger company, and through a series of re-organizations they've made you an "offer you can't refuse" to help implement an ERP system. The project is a new kind of work for you; it is waterfall, not Agile, primarily because you don't need to develop new software, but rather configure a vendor supplied package. At least, that is the theory.
 
 
-IMPORTANT: This is a highly experimental, first generation lab. It's not clear how much it is reasonable to expect in an 3 hour lab intended to introduce project management. I look forward to having class discussion on how the lab can be improved.
+IMPORTANT: This is a highly experimental, first generation lab. It's not clear how much it is reasonable to expect in an 3 hour lab intended to introduce project management. I don't know how detailed/prescriptive to be, either.
+
+I look forward to having class discussion on how the lab can be improved.
 
 == Learning objectives
 
@@ -17,7 +19,6 @@ In this lab, we will attempt to demonstrate:
 * the intersection of product management and project management, and the influence of Agile
 
 == The premise
-
 
 The lab is based on a "project" of four "sub-projects" that will have some interdependencies.
 
@@ -41,7 +42,7 @@ The tentative plan is as follows:
 |Jan-Feb |Vision, charter, and requirements
 |March-June|Core technical platform
 |March-Sep|Business configuration
-|Oct-Dec|Global deployment
+|May-Dec|Global deployment
 |===
 
 Notice that there is overlap between the "Core technical platform" and the "Business configuration" activities. It is assumed that research and requirements gathering can be accomplished before the platform is physically acquired and installed.
@@ -56,10 +57,10 @@ You all will remain in your teams of 5-6 people. Each SEIS660 team will be respo
 
 *Within each class team*, the roles will be structured in the following way:
 
-PMO Lead represents the the Project Management Office, responsible for the overall program vision,  integration of the sub-team plans, and reporting status to leadership.
-Technical Lead represents the Technical Architecture team, responsible for the core system: hardware, software, configuration, and deployment
-Process Lead represents the Process team, responsible for understanding business requirements
-The Change lead represents the Organizational Change Management team, responsible for rollout, training, organizational communication.
+* *PMO Lead* represents the the Project Management Office, responsible for the overall program vision,  integration of the sub-team plans, and reporting status to leadership.
+* *Technical Lead* represents the Technical Architecture team, responsible for the core system: hardware, software, configuration, and deployment
+* *Process Lead* represents the Process team, responsible for understanding business requirements
+* The *Change Lead* represents the Organizational Change Management team, responsible for rollout, training, organizational communication.
 
 There are only four roles, so you will be able to have one or two people float in response to demand.
 
@@ -73,18 +74,87 @@ First, as a team read https://en.wikipedia.org/wiki/Enterprise_resource_planning
 
 Note that for a variety of reasons, your company has opted to host the ERP system internally. This means that your technical team needs to handle asset acquisition, data center capacity, network capacity, SAN sizing, and so forth. The ERP vendor will be able to provide guidance on much of this, based on the anticipated workload.
 
+=== Vision, charter, and requirements
+You do not need to write a vision, charter, and requirements spec. You need to document the plan to deliver them. How long do you think you will need for each of these?
 
+=== Core technical platform
+The core technical platform plan at a minimum should include the following tasks:
+
+* Hardware general design
+** Select ERP product
+** Select supporting software (database, middleware, batch scheduler, OS, hypervisor if used)
+** Size and select hardware
+** Size SAN
+** Get hardware acquisition approval (milestone)
+
+* Software & platform detailed design
+** ERP core installation
+** Database detailed design
+** SAN detailed design
+
+* Hardware implementation
+** Order hardware
+** Receive hardware
+** Install hardware
+** Configure hardware
+
+=== Business configuration
+* Determine business requirements
+* Identify key master data sets
+* Identify necessary data cleanup/reconciliation work
+* Identify regionalization issues
+* Identify necessary process variations due to local conditions
+* Convert master data sets
+
+* Determine reporting requirements
+* Build and test reports
+
+=== Global deployment
+==== Technical deployment (starts in May)
+
+* Operations architecture
+** Production scheduling
+** Define backup strategy
+** Define support teams and escalations
+
+==== End user rollout (starts in Oct)
+
+* Develop training materials
+* Train the trainers
+* Train the users
+* System cutover 12/1/2015
 
 == Approach
 
 The objective is not to get a perfect project plan. For a system of this scale, that would require days or weeks of effort by experienced professionals.
 
-
-
 At least at first, breadth is better than depth. That is, it is better to have a high level plan for all of the project, than a detailed plan for one section with the rest left completely undone.
 
-You should develop your project with a top-down approach, and make liberal use of "TBD" placeholders. It is perfectly acceptable to have tasks such as "Further develop project plan to detailed task level"  HOWEVER, that placeholder task SHOULD have a "done by" date you are managing to!
+You should develop your project with a top-down approach, and make liberal use of "TBD" placeholders. It is perfectly acceptable to have tasks such as "Further develop project plan to detailed task level"  HOWEVER, that placeholder task SHOULD have a "done by" date you are managing to! You need the details by the time the work commences.
 
+You should be tracking the dependencies between the various tasks. I am not telling you what they are; you should carefully discuss them on your team - this is a key part of the learning for this lab.
+
+Finally, you need to identify the skills and resources you will need. Consider the above requirements, and consult the Skills Framework for the Information Age:
+
+http://www.sfia-online.org/en/sfia-6/skills/skills-home
+
+You will need to set up a personal, free account. Do so now.
+
+Don't go crazy, but identify about 10-15 skills you need and enter them in your project plan.
+
+Now, because all 4 teams are using the same list of skills and people, each team should preface its data with its team number - e.g. "01-Database Administration" would indicate that Team 01 sees Database Administration as a primary skill.
+
+To add workers/resources to the project, you need to use a dummy email address and check the box to NOT email. I recommend email addresses and names of the form:
+
+xx-tim@seis660.com, xx-tim
+
+where xx is your team #.
+
+You can add skills to individuals by "add related" on either the skill or individual page.
+
+You should add hourly rates to individuals. When you combine an individual with an hourly rate with a given task duration, you can start to develop a project budget. Go to Reports|Cost & Revenue Forecast All Projects.
+
+Populate your project with a sufficient number of tasks and people to consume 80% of the budget. Keep the other 20% in reserve. I will be monitoring and intervening as we go, and the project will progress throughout the hour.
 
 == other tools considered
 http://www.aha.io/
