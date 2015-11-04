@@ -70,7 +70,10 @@ All of you now have access to the Clarizen online (SaaS) project management tool
 == Project details
 NOTE: This is the part of the lab that requires much further development. I do not want to start off too detailed, however.
 
-First, as a team read https://en.wikipedia.org/wiki/Enterprise_resource_planning[Wikipedia on ERP.]
+First, as a team read
+
+* https://en.wikipedia.org/wiki/Enterprise_resource_planning[Wikipedia on ERP]
+* http://txprojectone.org/documents/ERP_Advisory_Council_Report.pdf[State of Texas ERP plan]
 
 Note that for a variety of reasons, your company has opted to host the ERP system internally. This means that your technical team needs to handle asset acquisition, data center capacity, network capacity, SAN sizing, and so forth. The ERP vendor will be able to provide guidance on much of this, based on the anticipated workload.
 
