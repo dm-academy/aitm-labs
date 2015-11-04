@@ -1,7 +1,90 @@
 = Lab 08: Project Management
 
-http://www.aha.io/
+Assume your startup has been acquired by a larger company, and through a series of re-organizations they've made you an "offer you can't refuse" to help implement an ERP system. The project is a new kind of work for you; it is waterfall, not Agile, primarily because you don't need to develop new software, but rather configure a vendor supplied package. At least, that is the theory.
 
-backlog mgmt
-obstacle clearing
-dependency management
+
+IMPORTANT: This is a highly experimental, first generation lab. It's not clear how much it is reasonable to expect in an 3 hour lab intended to introduce project management. I look forward to having class discussion on how the lab can be improved.
+
+== Learning objectives
+
+The purpose of this lab is to teach you the fundamentals of project management through use of an online tool.
+
+In this lab, we will attempt to demonstrate:
+
+* the creation of a detailed project plan, including timelines, resources, and costs
+* the tracking of execution against that plan
+* the various forms of uncertainty that can arise and how to handle them
+* the intersection of product management and project management, and the influence of Agile
+
+== The premise
+
+
+The lab is based on a "project" of four "sub-projects" that will have some interdependencies.
+
+The basic objective of the program is to implement a large scale Enterprise Resource Planning system for a manufacturing supply chain. (It is modeled on the typical activities and methods of systems integrators such as Accenture or IBM Global Services.)
+
+The four sub-projects are:
+
+* Vision, charter, and requirements
+* Core technical platform
+* Business configuration
+* Global deployment
+
+The project is scheduled to start 1/1/2016, and must be finished by 12/31/2016 without fail.
+
+It has a $35 million budget.
+
+The tentative plan is as follows:
+
+|===
+|Period | Task
+|Jan-Feb |Vision, charter, and requirements
+|March-June|Core technical platform
+|March-Sep|Business configuration
+|Oct-Dec|Global deployment
+|===
+
+Notice that there is overlap between the "Core technical platform" and the "Business configuration" activities. It is assumed that research and requirements gathering can be accomplished before the platform is physically acquired and installed.
+
+Notice that this project involves relatively little "development" per se, as the ERP system is more of a configurable framework. However, there will be some needs to customize screens and build reports.
+
+In general, this is a classic "waterfall" project that can (mostly) be understood in advance.
+
+== Team approach
+
+You all will remain in your teams of 5-6 people. Each SEIS660 team will be responsible for developing one version of the project plan.
+
+*Within each class team*, the roles will be structured in the following way:
+
+PMO Lead represents the the Project Management Office, responsible for the overall program vision,  integration of the sub-team plans, and reporting status to leadership.
+Technical Lead represents the Technical Architecture team, responsible for the core system: hardware, software, configuration, and deployment
+Process Lead represents the Process team, responsible for understanding business requirements
+The Change lead represents the Organizational Change Management team, responsible for rollout, training, organizational communication.
+
+There are only four roles, so you will be able to have one or two people float in response to demand.
+
+== Setup
+All of you now have access to the Clarizen online (SaaS) project management tool. Each team has had its own project created.
+
+== Project details
+NOTE: This is the part of the lab that requires much further development. I do not want to start off too detailed, however.
+
+First, as a team read https://en.wikipedia.org/wiki/Enterprise_resource_planning[Wikipedia on ERP.]
+
+Note that for a variety of reasons, your company has opted to host the ERP system internally. This means that your technical team needs to handle asset acquisition, data center capacity, network capacity, SAN sizing, and so forth. The ERP vendor will be able to provide guidance on much of this, based on the anticipated workload.
+
+
+
+== Approach
+
+The objective is not to get a perfect project plan. For a system of this scale, that would require days or weeks of effort by experienced professionals.
+
+
+
+At least at first, breadth is better than depth. That is, it is better to have a high level plan for all of the project, than a detailed plan for one section with the rest left completely undone.
+
+You should develop your project with a top-down approach, and make liberal use of "TBD" placeholders. It is perfectly acceptable to have tasks such as "Further develop project plan to detailed task level"  HOWEVER, that placeholder task SHOULD have a "done by" date you are managing to!
+
+
+== other tools considered
+http://www.aha.io/
