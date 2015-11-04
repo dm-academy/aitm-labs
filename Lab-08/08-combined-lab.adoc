@@ -77,6 +77,8 @@ First, as a team read
 
 Note that for a variety of reasons, your company has opted to host the ERP system internally. This means that your technical team needs to handle asset acquisition, data center capacity, network capacity, SAN sizing, and so forth. The ERP vendor will be able to provide guidance on much of this, based on the anticipated workload.
 
+The sections below are intended as a start, but not comprehensive. You can and should do some online research (e.g. Google "Sample ERP implementation plan") for further details. 
+
 === Vision, charter, and requirements
 You do not need to write a vision, charter, and requirements spec. You need to document the plan to deliver them. How long do you think you will need for each of these?
 
