@@ -170,3 +170,11 @@ Populate your project with a sufficient number of tasks and people to consume 80
 
 == other tools considered
 http://www.aha.io/
+
+
+== Clarizen admin notes
+
+* projects need to be made active
+* users cannot be external, they need to be BOTH admin and superuser
+* then they should be able to create tasks and see each other's tasks
+* and also create people
