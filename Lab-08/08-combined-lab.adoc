@@ -178,3 +178,12 @@ http://www.aha.io/
 * users cannot be external, they need to be BOTH admin and superuser
 * then they should be able to create tasks and see each other's tasks
 * and also create people
+* users need to give selves financial permissions in order to see rates
+
+
+
+== Next iteration notes
+
+* How to emulate progress over time and execution of tasks
+* be sure to have them run short training video
+* build project plan as code - have them execute - 
