@@ -3,6 +3,10 @@ In this lab, which is not a technical lab, you will experiment as a class with v
 
 Some visual cue for identity - hats, headbands, something
 
+We are going to use the Lego Game and further constrain it.
+
+
+
 == Form 1: functional hierarchy
 
 * Sponsors (4)
