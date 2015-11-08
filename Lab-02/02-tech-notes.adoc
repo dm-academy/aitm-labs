@@ -1,0 +1,26 @@
+= Lab 02 technical notes
+== Approach
+This is an infrastructure as code lab, but deliberately is restricted to shell scripts. A more advanced variant would of course use a policy-based tool such as chef or puppet, but it does not seem possible to do this in the current constraints of the course.
+
+
+== Vagrant issues
+Multi-user Vagrant on a server is still an unsolved problem.
+
+Wanted to avoid multiple copies of images so first I set up all students' VAGRANT_HOME the same:
+
+VAGRANT_HOME=/var/vagrant/.vagrant.d
+
+Running into permissions issues with the /var/vagrant/.vagrant.d/data/lock.fpcollision.lock file, which gets locked by 1 user and then no others can access it.
+
+Related links:
+
+* https://github.com/Varying-Vagrant-Vagrants/VVV/issues/362
+* http://stackoverflow.com/questions/27670076/permission-denied-error-for-vagrant
+
+Searching on the Vagrant release notes:
+
+* https://github.com/mitchellh/vagrant/blob/master/CHANGELOG.md
+
+we see "Vagrant locks machine access to one Vagrant process at a time. This will protect against two simultaneous up actions happening on the same environment."
+
+Wound up using the config.vm.box_url parameter. Works.

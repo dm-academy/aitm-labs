@@ -1,91 +1,273 @@
-#Lab 06
+= Lab 06 Configuring Nagios monitoring
 
-In this lab, you will assemble into your teams and install the open source monitoring tool Nagios in a client-server configuration. You will feedback issues detected in Nagios back into the Kanban system. 
+== For lab testers:
+There should be a clean nerviosxx instance in your appropriate directory. We really don't want 2 people trying to do this at once on the same pipeline. I will manage for this.
 
+Run the instructions and give me feedback. It's overkill to do all the hosts and services.
 
-> **Some notes on working as a group**
+When you are done:
 
-> It is important that you all track what is happening on the console. Take turns operating the keyboard. Each command should be discussed and everyone should be aware that a new command is being issued. It is not acceptable to have the strongest technologist in the group simply do the work.
+Vagrant ssh into whatever *clients* (NOT nerviosXX) you configured and do:
 
-> Although you will be graded as a group on this assignment, questions regarding it will appear on your individual quizzes and the final. So you need to understand what is being done.
+ sudo apt-get remove nagios-nrpe-server nagios-plugins
+ exit
 
-## Getting started
+In the Calavera directory for the pipeline, go:
 
-Four pairs of virtual machines have been created:
-````
-manos01, nervios01
-manos02, nervios02
-manos03, nervios03
-manos04, nervios04
-````
+ vagrant destroy nerviosxx -f
+ vagrant up nervios xx     # don't worry about Chef run list warning.
 
-The machines all have the LAMP stack already installed, so you don't need to do that.
+Thanks!
+
+== Introduction
+In this cumulative lab, you will assemble into your teams and install the open source monitoring tool Nagios in a client-server configuration.
+
+The objectives of this lab are to gain a basic understanding of monitoring tools and techniques, and further develop your systems management skills through installing and configuring a distributed Linux system with *less prescriptive guidance than you have had to date.* This lab is much more about what, not how.
+
+This is (probably) your final hands-on lab directly using Linux in such a detailed manner.
+
+IMPORTANT: This lab may take you more than this class time. Use Slack to continue collaborating as a team. Do NOT let one person carry the load. All should be involved. Senior people, please keep your team involved.
+
+IMPORTANT: As will be repeated below, you can either run an automated script or follow manual steps to do this lab.
+
+== Getting started
+****
+*Some notes on working as a group*
+
+It is important that you all track what is happening on the console. Take turns operating the keyboard. Each command should be discussed and everyone should be aware that a new command is being issued. It is not acceptable to have the strongest technologist in the group simply do the work.
+
+Although you will be graded as a group on this assignment, questions regarding it will appear on your individual quizzes and the final. *The next quiz and the final will have some very deep dive questions on this lab.* So you *all* need to understand what is being done.
+
+Support each other as teams. Use Slack.
+****
+
+NOTE: The names nervios and Nagios are confusingly similar. Nagios is the open source monitoring software; nervios is the server. This was initially accidental, but I kept it this way because you will encounter similar situations in the real world, and you need to be careful and precise.
+
+You have a new machine in your pipeline, "nerviosxx" where xx = your team number.
 
 The goal is to
 
+* install the LAMP stack
 * install the Nagios server on your nervios instance
 * install the Nagios agent on your manos instance
-* configure Nagios to monitor your manos instance
-* confirm that manos is being monitored
-* test monitoring by halting manos and observing the result
+* configure Nagios to monitor your pipeline
+* confirm that the pipeline is being monitored
+* test monitoring by halting one or more servers and observing the result
+* expand monitoring to cover Apache Tomcat on the caraxx server, and Jenkins on hombrosxx..
+* test the expanded monitoring
 
-## Steps
+=== Steps
+WARNING: READ THIS ENTIRE LAB CAREFULLY BEFORE STARTING. IF YOU JUST LAUNCH INTO THE STEP BY STEP INSTRUCTIONS YOU WILL REGRET IT WHEN YOU GET A FEW PARAGRAPHS FURTHER. BE SURE YOU UNDERSTAND EVERYTHING.
 
-You have a manos and a nervios instance appropriate to your team (each team has a number 1-4)
+You have a nerviosxx instance appropriate to your team (each team has a number 1-4).
 
-    vagrant@192.168.33.4X    # for manosXX, X=1-4
-    vagrant@192.168.33.5X    # for nerviosXX, X=1-4
-
-First, log into the nervios instance appropriate to your team
-
-IMPORTANT: DO NOT USE "vagrant ssh." Instead, log in using ssh:
-
-    ssh vagrant@192.168.33.5X
+* `Su` to publicxx.
+* `cd` to public's home directory
+* `cd` to Calavera
+* `vagrant ssh` to nerviosxx.
 
 The instructions we will follow this time are at:
 
 http://www.unixmen.com/install-configure-nagios-4-ubuntu-14-1014-04/
 
+Notice that this script in turn points to a LAMP installation.
+
+WARNING: If you follow the LAMP installation, do NOT install mariadb. This means there is a long section in the instructions you just ignore. I have tested the lab only with mysql, so I recommend you use that.
+
 At this point, you should have the command line skills to install and configure nagios based on these directions, which will not be repeated or elaborated here.
 
-Towards the end of the directions, you will see:
+*At your own option*, you may choose to use the https://github.com/dm-academy/Calavera/blob/master/cookbooks/nervios/files/nervios.sh[nervios.sh] script, which installs both LAMP and Nagios. On your nerviosxx instance, you will find this script at
 
-*Add Monitoring targets to Nagios server*
+ /home/nerviosxx/cookbooks/nervios/files/nervios.sh
 
-At this point, log into manosXX
+(You really didn't want to install everything manually and then find out there was  a nice script, did you?)
 
-    ssh vagrant@192.168.33.4X
+If you can't `cd /home/nerviosxx/cookbooks/nerviosxx/files/`, something is wrong. What?
 
-(again the instance appropriate to your team) and configure it so that it can be monitored by the nagios server.
+You should examine this script carefully and compare it to the online directions. This script is not a "lights-out" script; you will need to select various options.
 
-You will then make a final configuration file change on nervios and restart nagios. If you have followed the instructions correctly, it should start monitoring your manos instance.
+I used this script and successfully set up Nagios on October 11-13, wiped that instance, and tested it again from scratch on October 16-17. _I offer no guarantees that it will work for you._
+
+In particular you will need to select some passwords, which can be simple ones,  or even blank. *MAKE NOTE OF ALL YOUR PASSWORDS*. We will be tearing these pipelines down and they are only available from inside the main course server, which is externally secured.
+
+NOTE: You *must* `sudo` the script.
+
+What does it mean if you get permission denied when you try to execute the script? There are at least two possible reasons. Search previous labs if you get this.
+
+Whether you follow the instructions manually or run the script, here are the interactive prompts in the install process:
+
+. mysql-server password first request (can be blank)
+. mysql-server password second request (can be blank)
+. mysql-server password third request (can be blank)
+. Configuring phpmyadmin: Select `apache2` by hitting Space bar, then Enter.
+. Configuring phpmyadmin database: Select `<Yes>` by just hitting Enter.
+. Phpmyadmin admin user password: can be blank.
+. phpmyadmin database password: can be blank
+. `Enter new Unix password:` use 'public'
+. `New password:` use 'public' (this is the password to log into the Nagios website with)
+
+WARNING: This is a sandbox system, well contained inside a hardened environment, with highly limited external access (ssh only). This is the ONLY case in which low security passwords are acceptable. Some might say they are never acceptable, and that this lab is encouraging bad habits. But you have a great deal of complexity you are confronting already and using simple or blank passwords reduces one failure mode in this challenging lab. A truly secure environment would not use passwords at all, but ssh or other technologies instead. This is beyond our scope here.
+
+The script shows you the minimum of what needs to be done. There are various tests and optional features it does not do.
+
+If you used the script, the install is done when you see:
+
+....
+To activate the new configuration, you need to run:
+  service apache2 restart
+Enabling module cgi.
+To activate the new configuration, you need to run:
+  service apache2 restart
+ * Restarting web server apache2                                  [ OK ]
+Starting nagios: done.
+....
+
+== Configure monitoring
+
+At this point, you have either run the script or done the installation manually. You are at the point of the instructions that say:
+
+*Access Nagios Web Interface*
+
+From this point, follow the instructions. Now is the time to open a second X window, if you have not already done so. Remember that you access Firefox from the main server, not from inside your VM.
 
 You can log in and see your nagios instance by opening a new ssh session into seis660 (NOT your VM!!) and typing
 
     firefox -X -no-remote
 
-The URL is http://192.168.33.5X/nagios
+When the browser window appears, type in the URL: http://10.xx.0.16/nagios
 
-Note that you need to change "5X" appropriately, as above.
+  Login: nagiosadmin
+  Password: public
+
+NOTE: Note that you need to change "xx" appropriately, as above.
+
+You will then get to a section that says:
+
+*Add Monitoring targets to Nagios server*
+
+Exit nervios xx and log into caraxx.
+
+ exit
+ vagrant ssh caraxx
+
+Continuing with the online directions, you will then make a final configuration file change by ssh'ing back into nervios (look for point in instructions that says *go back to your Nagios server*) and restart nagios.
+
+NOTE: Technically, with this version of the lab, you do not need to install the agent on cara or any other server. I am leaving this in, however, as future versions of the lab *will* include agent-based monitoring.
+
+****
+*Host IPs*
+
+You will need these.
+....
+10.xx.0.10   cerebroxx
+10.xx.0.11   brazosxx
+10.xx.0.12   espinaxx
+10.xx.0.13   hombrosxx
+10.xx.0.14   manosxx
+10.xx.0.15   caraxx
+10.xx.0.16   nerviosxx
+....
+Again, do not use a leading '0'.
+****
+
+I chose the Unixmen tutorial because it was a little more user friendly. The nagios quickstart is https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/quickstart-ubuntu.html[here] and you should familiarize yourself with its documentation.
+
+IMPORTANT: You need to substitute your target server name and IP in the configuration. *Will not work* if you use the default values suggested online.
+
+=== Wiping and re-loading the nervios server
+If your installation is fighting you, don't try to "fix" it. Servers are http://www.lauradhamilton.com/servers-pets-versus-cattle[cattle, not pets]. Go:
+
+ vagrant destroy nerviosxx -f
+ vagrant up nerviosxx
+
+and start over from scratch. Trust me, it will be quicker.
+
+=== Viewing Nagios
+
+If you have followed the instructions correctly, it should start monitoring your cara instance.
 
 From the main Nagios screen, click on the "Hosts" link to the right. You should see a screen with two hosts, like this:
 
-![](nagios1.png)
+image::nagios1.png[]
 
-Take a screen shot and save.
+Take a screen shot and post to Slack.
 
-Test that your monitoring is working correctly by going back into your MANOS VM (192.168.33.4X) and issuing the command
+Test that your monitoring is working correctly by exiting your VM and issuing:
 
-    sudo halt
+ vagrant suspend caraXX
 
 replacing the XX as appropriate for your team.
 
 In 5 minutes, you should see an error on the web portal, like this:
 
-![](nagios2.png)
+image::nagios2.png[]
 
-Take a screen shot; combine it with your previous screen shot (e.g. in Powerpoint or as a PDF) and post to Blackboard.
+Take a screen shot; combine it with your previous screen shot (e.g. in Powerpoint or as a PDF) and post to https://seis660.slack.com/messages/lab-06[Slack].
 
-If you wish, ask the instructor to restart your machine and observe the result. (Not required.)
+Restart cara (vagrant up caraxx.) Confirm that monitoring shows it is up.
 
-You are now complete.
+You can change the speed with which Nagios detects a down server through a parameter change. At your option, research the https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/objectdefinitions.html#host[instructions] and do so.
+
+Now, configure monitoring for the rest of your pipeline. Note that nervios already monitors itself.
+
+When you are done, post a screenshot of your pipeline being monitored to Slack.
+
+NOTE: Nagios takes some time to restart monitoring correctly after a restart. Detecting a down server or service also takes time. Observe the "Last Check" and "Status Information" column carefully and compare it to the current time before you conclude that something's not working. When is the check scheduled? Maybe it needs a few more minutes. If you are getting impatient, add a check_interval and reduce the retry_interval and max_check_attempts for the host or service definition. See the https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/objectdefinitions.html[documentation].
+
+== Monitor services
+
+Pinging servers to be sure they are up is a start, but we also need to monitor what they are doing. Reviewing the Unixmen and Nagios instructions, configure service monitoring for:
+
+* SSH on all servers
+* Tomcat on manos and cara (monitor http port 8080)
+* Jenkins on hombros (monitor http port 8080)
+* Artifactory on espina (monitor http port 8081)
+
+In order to monitor HTTP with a given port, add
+
+....
+define command{
+        command_name    check_http_port
+        command_line    /usr/local/nagios/libexec/check_http -H $ARG1$ -p $ARG2$
+        }
+....
+
+to your clients.cfg file. Then, define a service (as you did with SSH) and use the following:
+
+ check_command             check_http_port!<IP>!<Port>
+
+For example, to monitor tomcat on cara1:
+
+ check_command              check_http_port!10.1.0.15!8080
+
+To monitor Artifactory on espina3:
+
+ check_command              check_http_port!10.3.0.15!8081
+
+Yes, these directions are somewhat incomplete. You have to combine them with previous steps.
+
+Review the https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/3/en/monitoring-publicservices.html[Nagios instructions] for further understanding. What are the exclamation points all about? Discuss.
+
+Git on cerebro is extra credit, 10 points to the team who figures it out.
+
+The command to stop tomcat on a server is `sudo service tomcat6 stop`.
+
+The command to start it is `sudo service tomcat6 start`.
+
+Stop Tomcat on cara or manos, and take a screenshot showing that the service is down but the server is up.
+
+We are not going to monitor services on brazos. Discuss why that might be in your team. We'll talk about it towards the end of class (please remind me).
+
+Post a screen shot to https://seis660.slack.com/messages/lab-06/[Slack] showing the services being monitored.
+
+****
+*HINT*
+
+It is always good to dig around in the lab folder and see what else may be there to assist you. But if you didn't read the lab entirely at first per the instructions, you might have done more work than you needed.
+****
+
+== Extra credit: monitor capacity
+
+As an extra credit project (15 points to each team member), monitor either CPU, RAM, or both using the Nagios agent. Post proof to Slack. You are on your own. I may ask each member of the team to show me how it was done, so don't just let your strongest technical person do it.
+
+You are now complete with the first half of the course. The second half will be less technical. Congratulations. Be sure to review this lab thoroughly for the quiz, which will be difficult.

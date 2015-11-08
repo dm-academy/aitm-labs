@@ -1,9 +1,19 @@
-= Lab 01 Learning Linux
+= Lab 01 (Technical) Learning Linux
 
+(120 minutes)
 
-* Log in to seis660.gps.stthomas.edu
 * Log into your account on the server.
-* Run the first 2 Linux tutorials.
-    * http://www.ee.surrey.ac.uk/Teaching/Unix/unix1.html
-    * http://www.ee.surrey.ac.uk/Teaching/Unix/unix2.html
-* Recommended: Run as many of these as you have time for.
+* Go to http://www.ee.surrey.ac.uk/Teaching/Unix/index.html
+* Run at least the first 2 Linux tutorials.
+    ** http://www.ee.surrey.ac.uk/Teaching/Unix/unix1.html
+    ** http://www.ee.surrey.ac.uk/Teaching/Unix/unix2.html
+* When you are done, run as many additionally as you have time for.
+
+Post questions to Slack.
+
+Power tips:
+
+* Up arrow: last command
+* Tab: auto-fills file names if the file is uniquely identified in the directory by enough characters
+
+See also http://teohm.com/blog/2012/01/04/shortcuts-to-move-faster-in-bash-command-line/[Shortcuts to Move Faster in Bash Command Line]

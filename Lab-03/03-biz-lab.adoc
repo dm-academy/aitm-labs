@@ -1,0 +1,18 @@
+= Lab 03 (Business) Software development as a career
+
+image::http://assets.amuniversal.com/84ed53b0a0a5012f2fe600163e41dd5b[]
+(permission pending)
+
+As a team, read 2 or 3 of the following:
+
+* http://henrikwarne.com/2012/12/12/working-as-a-software-developer/[Working as a Software Developer]
+* http://henrikwarne.com/2014/12/08/5-reasons-why-software-developer-is-a-great-career-choice/[5 Reasons Why Software Developer is a Great Career Choice]
+* http://lifehacker.com/what-i-wish-i-knew-when-i-started-my-career-as-a-softwa-1681002791[What I Wish I Knew When I Started My Career as a Software Developer]
+* https://www.quora.com/What-are-the-pros-and-cons-of-becoming-a-software-developer-in-your-30s[What are the pros and cons of becoming a software developer in your 30's?]
+
+Discuss your current career thoughts with your team:
+
+* Do you see yourself as a software engineer (Session 3)?
+* Infrastructure engineer (Session 2)?
+
+Why/why not?

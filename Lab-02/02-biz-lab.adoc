@@ -1,0 +1,18 @@
+= Lab 02 (Business) IT Infrastructure
+
+Consider last week's product idea. Does it have any particular infrastructure needs you can identify, having read this chapter?
+
+Briefly scan and discuss Cloud providers and develop a few thoughts on their suitability for your product.
+
+* Amazon EC2
+* Google Compute Engine
+* Microsoft Azure
+* Heroku
+* Pivotal & Cloud Foundry
+* Salesforce's Force.com
+
+Some suggested searches to seed your discussion:
+
+* https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=choosing%20a%20cloud%20provider["Choosing a Cloud provider"]
+* https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#safe=active&q=AWS+vs+GCE+vs+Azure["AWS vs GCE vs Azure"]
+* https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#safe=active&q=cloud+analysts+on+PaaS["Cloud analysts on Paas"]

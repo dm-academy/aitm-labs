@@ -1,0 +1,11 @@
+# aitm-labs
+Labs for Agile IT Management
+Prof. Charles T. Betz
+initially developed for SEIS 660, University of St. Thomas
+it's tightly coupled in a few places to the Blackboard courseware system.
+
+The labs proper are named "##-lab-name.adoc"
+
+The "README.adoc" file has notes on approach, re-use potential, etc.
+
+There are both "tech" and "business" labs. Tech labs are, well, technical. "Business" labs require no computing, they are discussion or paper-based.

@@ -1,63 +1,63 @@
-= Lab 02 IT Infrastructure
+= Lab 02 (Technical) IT Infrastructure
 
-In this lab you will learn more about IT infrastructure by running Vagrant and learning basic "infrastructure as code" principles.
 
-==  Running Vagrant on the Course Server #
+In this lab you will learn about IT infrastructure by running Vagrant and learning basic "infrastructure as code" principles.
 
-Vagrant is already installed on the SEIS660 course server, but you need to take a few steps before you can use it.
+This is a long lab, with the following learning objectives:
+
+* Creation of a basic virtual machine using Vagrant
+* Using your Linux skills for simple server configuration
+* Learning the basics of Git source control
+* Combining the three previous skills into an automated "infrastructure as code" use case
+
+==  1. Running Vagrant on the Course Server
+
+Vagrant is already installed on the serverXXX course server, but you need to take a few steps before you can use it.
 Assuming you have .ssh configured and have logged in, you should find yourself in your default directory.
 
-Note, in the following instructions when you see teststu1, substitute your user id.
+IMPORTANT: In the following instructions when you see *YourStudentID*, substitute your user id. Where you see *serverXXX*, substitute the course servername.
 
 Do not type the "$" symbol - this represents the command prompt you see when you log into Linux. It may also be a "#" or have some directory information in front of it, e.g.
 
-	teststu1@seis660:~$
+	YourStudentID@serverXXX:~$
 
 First, always confirm where you are by issuing the "pwd" (print working directory) command:
 
-    $ pwd
-    /home/student/teststu1
+....
+YourStudentID@serverXXX:~$ pwd
+/home/student/YourStudentID
+....
 
 and examine what is in your directory:
 
-	teststu1@seis660:~$ ls -al
-	total 28
-	drwxr-xr-x  6 teststu1 student 4096 Feb  8 11:37 .
-	drwxr-xr-x 25 root     root    4096 Feb  8 11:28 ..
-	-rw-------  1 teststu1 student  263 Feb  8 11:34 .bash_history
-	-rw-r--r--  1 teststu1 student  220 Feb  8 11:28 .bash_logout
-	-rw-r--r--  1 teststu1 student 3760 Feb  8 11:28 .bashrc
-	-rw-r--r--  1 teststu1 student  675 Feb  8 11:28 .ssh
+....
+YourStudentID@serverXXX:~$ ls -al
+drwxr-xr-x  5 YourStudentID student 4096 Sep 19 11:35 .
+drwxr-xr-x 32 root  root    4096 Sep 19 09:19 ..
+-rw-------  1 YourStudentID student 1040 Sep 19 10:51 .bash_history
+drwx------  2 YourStudentID student 4096 Sep 19 09:26 .cache
+drwx------  3 YourStudentID student 4096 Sep 18 20:08 .config
+drwxr-xr-x  2 YourStudentID student 4096 Sep 19 09:50 .ssh
+....
 
-In any command line environment, it is good to run these commands (pwd and ls, or their equivalents) frequently so you maintain situational awareness of where you are and what might be affected by any commands you run.
+In any command line environment, it is good to run these commands (pwd and ls, or their equivalents) frequently so you maintain awareness of where you are and what might be affected by any commands you run.
 
 Now, make a "vagrant" directory:
 
-	teststu1@seis660:~$ mkdir vagrant
-	teststu1@seis660:~$
+....
+YourStudentID@serverXXX:~$ mkdir vagrant
+....
 
-Type "ls -al" again:
+Change to your "vagrant" directory:
 
-	total 28
-	drwxr-xr-x  6 teststu1 student 4096 Feb  8 11:37 .
-	drwxr-xr-x 25 root     root    4096 Feb  8 11:28 ..
-	-rw-------  1 teststu1 student  263 Feb  8 11:34 .bash_history
-	-rw-r--r--  1 teststu1 student  220 Feb  8 11:28 .bash_logout
-	-rw-r--r--  1 teststu1 student 3760 Feb  8 11:28 .bashrc
-	-rw-r--r--  1 teststu1 student  675 Feb  8 11:28 .profile
-	-rw-r--r--  1 teststu1 student  675 Feb  8 11:28 .ssh
-	drwxr-xr-x  2 teststu1 student 4096 Feb  8 12:19 vagrant
-
-Confirm that you now have the directory.
-
-Change to it:
-
-	teststu1@seis660:~$ cd vagrant
-	teststu1@seis660:~/vagrant$
+....
+YourStudentID@serverXXX:~$ cd ~/vagrant
+YourStudentID@serverXXX:~/vagrant$
+....
 
 Type the following command carefully:
 
-	teststu1@seis660:~/vagrant$ vagrant init precise64
+	YourStudentID@serverXXX:~/vagrant$ vagrant init precise64
 
 You should see the following:
 
@@ -65,287 +65,146 @@ You should see the following:
 	ready to `vagrant up` your first virtual environment! Please read
 	the comments in the Vagrantfile as well as documentation on
 	`vagrantup.com` for more information on using Vagrant.
-	teststu1@seis660:~/vagrant$
-
-If you get an error with "vagrant up" like this:
-
-````
-An error occurred while downloading the remote file. The error message, if any, is reproduced below. Please fix this error and try again.
 
 
-Couldn't open file /home/student/akou0009/vagrant/precise64
-````
+NOTE: If you install and run Vagrant locally on your own laptop, you won't need to do this next step (editing the Vagrantfile). The VM image will take some time to download.
 
-try
+....
+ YourStudentID@serverXXX:~/vagrant$ nano Vagrantfile
+....
 
-    vagrant box add "precise64" http://files.vagrantup.com/precise64.box
+In the nano text editor, scroll down to the line that says:
 
-Now, let's try something that will not work:
+ config.vm.box = "precise64"
 
-	teststu1@seis660:~/vagrant$ vagrant up
-	Bringing machine 'default' up with 'virtualbox' provider...
-	==> default: Importing base box 'precise64'...
-	==> default: Matching MAC address for NAT networking...
-	==> default: Setting the name of the VM: vagrant_default_1423420554497_66907
-	==> default: Fixed port collision for 22 => 2222. Now on port 2203.
-	==> default: Clearing any previously set network interfaces...
-	==> default: Preparing network interfaces based on configuration...
-	    default: Adapter 1: nat    ==> default: Forwarding ports...
-	    default: 22 => 2203 (adapter 1)    ==> default: Booting VM...
-	==> default: Waiting for machine to boot. This may take a few minutes...
-	The private key to connect to the machine via SSH must be owned
-	by the user running Vagrant. This is a strict requirement from
-	SSH itself. Please fix the following key to be owned by the user
-	running Vagrant:
+and after it, add the line:
 
-	/var/vagrant/.vagrant.d/insecure_private_key
-	teststu1@seis660:~/vagrant$
+ config.vm.box_url = "/var/vagrant/boxes/precise64.box"
 
-What happened? Let's do a little troubleshooting. Unlike a lot of error messages, this one gives you everything you need to fix the problem. It's an ownership issue with a file called "insecure_private_key" in the directory  /var/vagrant/.vagrant.d/.
+Exit nano, saving the file.
 
-When you create a new virtual machine with Vagrant and VirtualBox, Vagrant needs to be able to talk to it on your behalf, and uses .ssh for this purpose. Just as we created a private key for you to hold on your laptop, with a matching public key on the server, so you need to have ANOTHER private/public key pair to communicate between your ssh session running directly on seis660, and your new virtual machine. And, because the Vagrant machine is pre-baked (more on this to come), you have to start by using a predefined key pair that comes with Vagrant.
+Now, cross your fingers and enter the following command:
 
-Review the image below. Right-click and open the image below in its own window or tab if it is too small.  ![architecture](Resources/sshDetails.jpg)
+	YourStudentID@serverXXX:~/vagrant$ vagrant up
 
+You should see:
+....
+Bringing machine 'default' up with 'virtualbox' provider...
+==> default: Importing base box 'precise64'...
+==> default: Matching MAC address for NAT networking...
+==> default: Setting the name of the VM: vagrant_default_1442681339461_15180
+==> default: Fixed port collision for 22 => 2222. Now on port 2207.
+==> default: Clearing any previously set network interfaces...
+==> default: Preparing network interfaces based on configuration...
+    default: Adapter 1: nat
+==> default: Forwarding ports...
+    default: 22 => 2207 (adapter 1)
+==> default: Booting VM...
+==> default: Waiting for machine to boot. This may take a few minutes...
+    default: SSH address: 127.0.0.1:2207
+    default: SSH username: vagrant
+    default: SSH auth method: private key
+    default: Warning: Connection timeout. Retrying...
+    default:
+    default: Vagrant insecure key detected. Vagrant will automatically replace
+    default: this with a newly generated keypair for better security.
+    default:
+    default: Inserting generated public key within guest...
+    default: Removing insecure key from the guest if it's present...
+    default: Key inserted! Disconnecting and reconnecting using new SSH key...
+==> default: Machine booted and ready!
+==> default: Checking for guest additions in VM...
+    default: The guest additions on this VM do not match the installed version of
+    default: VirtualBox! In most cases this is fine, but in rare cases it can
+    default: prevent things such as shared folders from working properly. If you see
+    default: shared folder errors, please make sure the guest additions within the
+    default: virtual machine match the version of VirtualBox you have installed on
+    default: your host and reload your VM.
+    default:
+    default: Guest Additions Version: 4.2.0
+    default: VirtualBox Version: 4.3
+==> default: Mounting shared folders...
+    default: /vagrant => /home/student/YourStudentID/vagrant
+....
 
-So, let's copy the key to your own .ssh directory. First, we need to clean up our failed attempt:
+If you saw the above output, or close to it, try:
 
-	teststu1@seis660:~$ vagrant destroy
-	default: Are you sure you want to destroy the 'default' VM? [y/N] y
-	==> default: Forcing shutdown of VM...
-	==> default: Destroying VM and associated drives...
+....
+YourStudentID@serverXXX:~/vagrant$ vagrant ssh
+Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic x86_64)
 
-Then:
+ * Documentation:  https://help.ubuntu.com/
+New release '14.04.3 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
 
-	teststu1@seis660:~$ pwd
-	/home/student/teststu1/vagrant
-	teststu1@seis660:~$ cd ../.ssh
-	teststu1@seis660:~/.ssh$ cp /var/SEIS660/public/insecure_private_key .   #DON"T miss the period there
-	teststu1@seis660:~/.ssh$ ls -al
-	total 12
-	drwxr-xr-x 2 teststu1 student 4096 Feb  8 13:45 .
-	drwxr-xr-x 6 teststu1 student 4096 Feb  8 13:18 ..
-	-rw-r--r-- 1 teststu1 student    0 Feb  8 13:18 authorized_keys
-	-rw-r----- 1 teststu1 student 1675 Feb  8 13:45 insecure_private_key
-	teststu1@seis660:~/.ssh$ chmod 600 insecure_private_key
-	teststu1@seis660:~/.ssh$ ls -al
-	total 12
-	drwxr-xr-x 2 teststu1 student 4096 Feb  8 13:45 .
-	drwxr-xr-x 6 teststu1 student 4096 Feb  8 13:18 ..
-	-rw-r--r-- 1 teststu1 student    0 Feb  8 13:18 authorized_keys
-	-rw------- 1 teststu1 student 1675 Feb  8 13:45 insecure_private_key
+Welcome to your Vagrant-built virtual machine.
+Last login: Fri Sep 14 06:23:18 2012 from 10.0.2.2
+vagrant@precise64:~$
+....
 
-What did we just do?
+If that worked, congratulations, you did it!
 
-1. We changed our working directory to .ssh
-2. We copied the key there
-3. We changed the permissions on the key so that only we can read and write it (ssh requires this).
-However, this isn't enough. We need to tell Vagrant to look at this key, not its default. So:
+But, what does this all mean?
 
+You now have your own personal Linux machine, operating within the main course server, on which *you are the administrator*. You have tremendous freedom to experiment with its configuration.
 
-```
-teststu1@seis660:~/.ssh$ cd ../vagrant/
-teststu1@seis660:~/vagrant$ nano Vagrantfile
-GNU nano 2.2.6                   File: Vagrantfile
+If you damage something, you simply need to exit out to the main server command prompt and run "vagrant destroy." This will erase the machine. You can then run "vagrant up" again and the machine will be restored.
 
-# -*- mode: ruby -*-
+IMPORTANT: If you destroy the VM you will LOSE ALL DATA you have on the machine, unless that data is stored in your ~/vagrant directory (https://docs.vagrantup.com/v2/synced-folders/index.html[which is mapped] to your /vagrant directory in the VM).
 
-# vi: set ft=ruby :
-
-# All Vagrant configuration is done below. The "2" in Vagrant.configure
-# configures the configuration version (we support older styles for
-# backwards compatibility). Please don't change it unless you know what
-# you're doing.
-Vagrant.configure(2) do |config|
-# The most common configuration options are documented and commented below.
-# For a complete reference, please see the online documentation at
-# https://docs.vagrantup.com.
-
-# Every Vagrant development environment requires a box. You can search for
-# boxes at https://atlas.hashicorp.com/search.
-	  config.vm.box = "precise64"
-
-# Disable automatic box update checking. If you disable this, then
-# boxes will only be checked for updates when the user runs
-# `vagrant box outdated`. This is not recommended.
-# config.vm.box_check_update = false
-
-# Create a forwarded port mapping which allows access to a specific port
-# within the machine from a port on the host machine. In the example below,
-# accessing "localhost:8080" will access port 80 on the guest machine.
-# config.vm.network "forwarded_port", guest: 80, host: 8080
-
-# Create a private network, which allows host-only access to the machine
-# using a specific IP.
-# config.vm.network "private_network", ip: "192.168.33.10"
-
-# Create a public network, which generally matched to bridged network.
-# Bridged networks make the machine appear as another physical device on
-# your network.
-# config.vm.network "public_network"
-
-# Share an additional folder to the guest VM. The first argument is
-# the path on the host to the actual folder. The second argument is
-# the path on the guest to mount the folder. And the optional third
-# argument is a set of non-required options.
-# config.vm.synced_folder "../data", "/vagrant_data"
-
-# Provider-specific configuration so you can fine-tune various
-# backing providers for Vagrant. These expose provider-specific options.
-# Example for VirtualBox:
-#
-# config.vm.provider "virtualbox" do |vb|
-#   # Display the VirtualBox GUI when booting the machine
-#   vb.gui = true
-#
-#   # Customize the amount of memory on the VM:
-#   vb.memory = "1024"
-# end
-#
-# View the documentation for the provider you are using for more
-# information on available options.
-
-# Define a Vagrant Push strategy for pushing to Atlas. Other push strategies
-# such as FTP and Heroku are also available. See the documentation at
-# https://docs.vagrantup.com/v2/push/atlas.html for more information.
-# config.push.define "atlas" do |push|
-#   push.app = "YOUR_ATLAS_USERNAME/YOUR_APPLICATION_NAME"
-# end
-
-# Enable provisioning with a shell script. Additional provisioners such as
-# Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
-# documentation for more information about their specific syntax and use.
-# config.vm.provision "shell", inline: <<-SHELL
-#   sudo apt-get update
-#   sudo apt-get install -y apache2
-# SHELL
-end
-                                [ Read 71 lines ]
-^G Get Help     ^O WriteOut     ^R Read File    ^Y Prev Page    ^K Cut Text     ^C Cur Pos
-^X Exit         ^J Justify      ^W Where Is     ^V Next Page    ^U UnCut Text   ^T To Spell
-```
-
-The above is a representation of being in nano, a simple editor for Linux (easier to learn than vi). In the Vagrantfile, use your down arrow key until you find the line:
-
-	config.vm.box = "precise64"
-
-and immediately under it, add the line:
-
-	  config.ssh.private_key_path = "~/.ssh/insecure_private_key"
-
-Holding down the Ctrl key, type the letter X. At the bottom of the screen it will say
-
-	Save modified buffer (ANSWERING "No" WILL DESTROY CHANGES) ?
-
-Type Y
-
-It will then say:
-
-	File Name to Write: Vagrantfile
-
-Hit Return.
-
-Now, you should be able to start your virtual machine!
-
-	teststu1@seis660:~/vagrant$ vagrant up
-	Bringing machine 'default' up with 'virtualbox' provider...
-	==> default: VirtualBox VM is already running.
-	teststu1@seis660:~/vagrant$ vagrant destroy
-	    default: Are you sure you want to destroy the 'default' VM? [y/N] y
-	==> default: Forcing shutdown of VM...
-	==> default: Destroying VM and associated drives...
-	teststu1@seis660:~/vagrant$ vagrant up
-	Bringing machine 'default' up with 'virtualbox' provider...
-	==> default: Importing base box 'precise64'...
-	==> default: Matching MAC address for NAT networking...
-	==> default: Setting the name of the VM: vagrant_default_1423425861594_60243
-	==> default: Fixed port collision for 22 => 2222. Now on port 2203.
-	==> default: Clearing any previously set network interfaces...
-	==> default: Preparing network interfaces based on configuration...
-	    default: Adapter 1: nat
-	==> default: Forwarding ports...
-	    default: 22 => 2203 (adapter 1)
-	==> default: Booting VM...
-	==> default: Waiting for machine to boot. This may take a few minutes...
-	    default: SSH address: 127.0.0.1:2203
-	    default: SSH username: vagrant
-	    default: SSH auth method: private key
-	    default: Warning: Connection timeout. Retrying...
-	    default:
-	    default: Vagrant insecure key detected. Vagrant will automatically replace
-	    default: this with a newly generated keypair for better security.
-	    default:
-	    default: Inserting generated public key within guest...
-	    default: Removing insecure key from the guest if its present...
-	    default: Key inserted! Disconnecting and reconnecting using new SSH key...
-	==> default: Machine booted and ready!
-	==> default: Checking for guest additions in VM...
-	    default: The guest additions on this VM do not match the installed version of
-	    default: VirtualBox! In most cases this is fine, but in rare cases it can
-	    default: prevent things such as shared folders from working properly. If you see
-	    default: shared folder errors, please make sure the guest additions within the
-	    default: virtual machine match the version of VirtualBox you have installed on
-	    default: your host and reload your VM.
-	    default:
-	    default: Guest Additions Version: 4.2.0
-	    default: VirtualBox Version: 4.3
-	==> default: Mounting shared folders...
-	    default: /vagrant => /home/student/teststu1/vagrant
-	teststu1@seis660:~/vagrant$
-
-Congratulations! But, what does this all mean?
-
-You now have your own personal Linux machine, operating within the main course server, on which you are the administrator. You have tremendous freedom to experiment with its configuration. If you damage something, you simply need to exit out to the main server command prompt and run "vagrant destroy." This will erase the machine. You can then run "vagrant up" again and the machine will be restored. Note, if you destroy the VM you will LOSE ALL DATA you have on the machine, unless that data is stored in your ~/vagrant directory.
-
-DO NOT ATTEMPT to bridge your VM to the external world. It is not hardened and possibly vulnerable. As long as you do not mess with the network configuration, you will be fine. In a future lab, you will see how to run Firefox on the course server in a X11 window over ssh on your local machine, so you can safely browse to your VM.
+WARNING: DO NOT ATTEMPT to bridge your VM to the external world. It is not hardened and possibly vulnerable. As long as you do not mess with the network configuration, you will be fine. In a future lab, you will see how to run Firefox on the course server in a X11 window over ssh on your local machine, so you can safely browse to your VM.
 
 For further information, see https://docs.vagrantup.com/.
 
-# IT Infrastructure Lab 3 Instructions #
-**Overview**
+== 2. Infrastructure configuration
 
-In this lab, you will get a very simple introduction to the concept of "infrastructure as code" using shell scripting on your virtual machine in conjunction with Git and Github
+In this part, you will get a very simple introduction to the concept of "infrastructure as code" using shell scripting on your virtual machine in conjunction with Git and Github
 
 **Prerequisites**
 
-Lab 1: You must have configured ssh and run the Linux tutorial (or be comfortable otherwise with Linux command-line tools).
+Lab 00 & 01: You must have configured ssh and run the Linux tutorial (or be comfortable otherwise with Linux command-line tools).
 
-Lab 2: You must have successfully created your own virtual machine (VM) using Vagrant.
+Lab 02: You must have successfully created your own virtual machine (VM) using Vagrant.
 
-
-## Part 1: Command line operations ##
+=== Command line operations
 
 You will do the exercises in this part on your new Vagrant VM.
 
-Using the skills you learned in the previous lab,  perform the following steps:
+Using the skills you learned in the previous lab (in particular, the mkdir, cd, and touch commands),  perform the following steps:
 
 **Configure a directory structure**
 
-* Directory A should contain directories B, C and D
+* First, create directories A, C, and D all at the same level
 
-* Directory C should contain directories E and F
+* Directory A should contain sub-directories named B, C and D
 
-* Directory D should contain directories G, H and I
+* Directory C (the first) should contain directories E and F
+
+* Directory D (the first) should contain directories G, H and I
 
 * Directory H should contain directories J and K
 
+(Yes, there are two C directories. We'll fix this later.)
 
 Every directory should have a file in it, with the letter of the directory doubled in lower case. E.g., directory A should have aa, F would have ff, etc.
 
+TIP: If you get impatient with how labor intensive this is, look around on the man pages for mkdir and touch. Or google something like "mkdir create many directories at once." Perhaps you can create more than one directory or file at once? Perhaps you could do it all in a couple lines??
+
 **Install and use tree**
 
-Install tree
+First, install tree
 
     vagrant@precise64~: sudo apt-get install -y tree
 
-> Note, the "-y" is critical, as this makes it possible to script apt-get
+NOTE: The "-y" avoids you having to type "yes" to approve the install. It is critical later, as this makes it possible to script the apt-get command.
 
-Use it to inspect your directory structure. It should look like:
+If you get any kind of access or permissions error, please be sure you are in YOUR vagrant machine, not the main course server (where you do not have permissions to install things.) Re-read the above material carefully.
 
-````
-vagrant@precise64:~$ tree
+Use tree to inspect your directory structure. It should look like:
 
-|-- A
+ vagrant@precise64:~$ tree
+
+ |-- A
 |   |-- aa
 |   |-- B
 |   |   `-- bb
@@ -371,7 +230,9 @@ vagrant@precise64:~$ tree
 |   |       `-- kk
 |   `-- I
 |       `-- ii
-````
+`-- postinstall.sh
+
+If you are in PuTTY and getting garbage characters, google "Garbage Characters in PuTTY" and see if you can figure it out.
 
 Now, output the tree to a file. How?
 
@@ -383,361 +244,356 @@ Review the text file:
 
 Why did I make the directory structure so detailed? This is typical of setting up infrastructure as code - you need to be able to maintain focus and successfully set up instructions that are both complicated and yet repetitive.
 
-	⁃	If you have developed an approach to "mkdir" and "touch" that you wish to refer to later you should copy it to an external text file (outside of your Vagrant VM).
+IMPORTANT: If you have developed an approach to "mkdir" and "touch" that you wish to refer to later you should copy it to an external text file (outside of your Vagrant VM).
 
-Exit and destroy your VM.
+Exit and destroy your VM. The "-f" flag does it immediatley, without further confirmation.
 
-````
-vagrant@precise64:~$ exit
-YourStudentID@serverXXX:~/vagrant$ vagrant destroy -f
-==> default: Forcing shutdown of VM...
-==> default: Destroying VM and associated drives...
-````
+ vagrant@precise64:~$ exit
+ YourStudentID@serverXXX:~/vagrant$ vagrant destroy -f
+ ==> default: Forcing shutdown of VM...
+ ==> default: Destroying VM and associated drives...
 
-## Part 2: Working with git
+== 3. Working with git
 
-You will do the exercises in part 2 on the main server, not your VM.
+Git is a popular version control system used by software developers and DevOps professionals. One of the key characteristics that sets Git apart from many other version control systems is its distributed nature. Git scales easily from small projects involving a single person all the way up to projects involving a cast of thousands.
 
-**Set up Github.com & fork this lab**
+We will work with a commercial implementation of the Git platform in this class provided by Github. You can create a free account on Github and host public code repositories, like the one we setup for this lab.
 
-Go to http://github.com and set up a user account. You probably do NOT want to use your St. Thomas email address for this (it is unlikely it will be available.)
+NOTE: Everyone should setup an individual Github account. If you are working in teams, you have the option of either doing the next section individually, or choosing one team member to perform the git forking and cloning tasks.
 
-> Notice that you will have to keep track of TWO IDs and substitute them at appropriate times:
-> YourStudentID and YourGithubID
+You will do the exercises in part 2 on the main server, not your VM (which you have now destroyed, right?).
+
+**Set up Github.com & fork the sample repo**
+
+Go to http://github.com and set up a user account (one per individual, even if you are in teams). You probably do NOT want to use your school email account name for this, as your Github account may be an asset throughout your career. *Choose a suitably professional user name.*
+
+NOTE: You will have to keep track of TWO IDs and substitute them at appropriate times:
+*YourStudentID* and *YourGithubID*
 
 Skim https://help.github.com/articles/fork-a-repo/ (it's OK if you don't understand it all immediately - just keep following the steps here)
 
-Go to https://github.com/StThomas-seis660/Lab-03 and fork the repo. Press the Fork button at top right:
+Go to https://github.com/dm-academy/example and fork the repo. Press the Fork button at top right:
 
-![fork](resources/fork.jpg)
+image::fork.jpg[]
 
 Now, go to your home account on Github and find the URL for the forked repository.
 
 Important: you should NOT be copying this:
 
-    https://github.com/StThomas-seis660/Lab-03
+ https://github.com/dm-academy/example
 
 Instead, it should look like this:
 
-    https://github.com/YourGithubID/Lab-03
+ https://github.com/YourGithubID/example
 
-Clone the Github repository you forked as Lab-03 to your home directory /home/student/YourID/. Go into it and verify the contents look as below. Notice the username YourID; **this must be replaced with your Github user name**.
+Go to your home directory:
 
-````
-YourStudentID@serverXXX:~$ git clone https://github.com/YourGithubID/Lab-03.git
-Cloning into 'Lab-03'...
-remote: Counting objects: 78, done.
-remote: Compressing objects: 100% (60/60), done.
-remote: Total 78 (delta 31), reused 58 (delta 11)
-Unpacking objects: 100% (78/78), done.
+  YourStudentID@serverXXX:~$ cd
+
+Clone the Github repository you forked as "example" to your home directory /home/student/YourID/.
+
+....
+YourStudentID@serverXXX:~$:~$ git clone https://github.com/YourGithubID/example
+Cloning into 'example'...
+remote: Counting objects: 6, done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 6 (delta 0), reused 6 (delta 0), pack-reused 0
+Unpacking objects: 100% (6/6), done.
 Checking connectivity... done.
-YourStudentID@serverXXX:~$ cd Lab-03/
-YourStudentID@serverXXX:~/Lab-03$ ls
-Lab-03-Instructions.md	LICENSE  README.md  resources  starter.sh  Vagrantfile
-````
+
+....
+Go into it and verify the contents look as below. Notice the username YourGithubID; **this must be replaced with your Github user name**.
+....
+YourStudentID@serverXXX:~$ cd example/
+YourStudentID@serverXXX:~/example$ ls
+2015-09.adoc  README.md  starter.sh  Vagrantfile
+....
 
 **Try git out**
 
-Be sure you are in the new Lab-03 directory that git created:
+Be sure you are in the new 'example' directory that git created:
 
-    YourStudentID@serverXXX:~$ cd ~/Lab-03/
+    YourStudentID@serverXXX:~$
+		YourStudentID@serverXXX:~$ cd example
 
-Create a file called YourStudentID-testfile, e.g. stud0001-testfile.md.
+Tell git who you are:
 
-    YourStudentID@serverXXX:~/Lab-03$ nano your_student_ID-testfile.md
+....
+YourStudentID@serverXXX:~/example$ git config --global user.email "you@stthomas.edu"
+YourStudentID@serverXXX:~/example$ git config --global user.name "your name"
+....
+
+Create a file called YourStudentID-testfile, e.g. stud0001-testfile.adoc.
+
+    YourStudentID@serverXXX:~/example$ nano your_student_ID-testfile.adoc
 
 (Again, do not put in "YourStudentID" literally. Substitute your student ID. Notice the following examples were done with "YourStudentID" as the student ID.)
 
-Put some Markdown content in it, starting with  the phrase "Hello World." ([What's Markdown?](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)).
+Put some http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/[AsciiDoc] content in it, starting with  the phrase "Hello World."
+
+(Don't worry about Asciidoc formatting unless you want to. Plain text will work just fine.)
 
 Exit nano (ctrl-X, saving as prompted).
 
 Add your file to your git repository
 
-    YourStudentID@serverXXX:~/Lab-03$ git add YourStudentID-testfile.md
-    YourStudentID@serverXXX:~/Lab-03$ git commit -m "my first commit"
+    YourStudentID@serverXXX:~/example$ git add YourStudentID-testfile.adoc
+    YourStudentID@serverXXX:~/example$ git commit -m "my first commit"
 
 You will get:
 
-````
-[master 312919f] my first commit
- Committer: test <YourStudentID@serverXXX.gps.stthomas.edu>
-Your name and email address were configured automatically based
-on your username and hostname. Please check that they are accurate.
-You can suppress this message by setting them explicitly:
-
-    git config --global user.name "Your Name"
-    git config --global user.email you@example.com
-
-After doing this, you may fix the identity used for this commit with:
-
-    git commit --amend --reset-author
-
- 1 file changed, 2 insertions(+)
- create mode 100644 YourStudentID-testfile.md
-````
-
-Disregard the issue with your user name and email for now.
+....
+YourStudentID@serverXXX:~/example$ git commit -m "my first commit"
+[master a60b827] my first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 YourStudentID-testfile.adoc
+....
 
 Now, edit the file again.
 
-    YourStudentID@serverXXX:~/Lab-03$ nano YourStudentID-testfile.md
+ YourStudentID@serverXXX:~/example$ nano YourStudentID-testfile.adoc
 
 Add "Hello Again" as a second line and exit nano in the usual way.
 
-You have now made a change, relative to what you committed. You can see that change through issuing the command 'git diff':
+You have now made a change, relative to what you committed. You can see that change through issuing the command "git diff":
 
-````
-YourStudentID@serverXXX:~/Lab-03$ git diff
-diff --git a/YourStudentID-testfile.md b/YourStudentID-testfile.md
+....
+YourStudentID@serverXXX:~/example$ git diff
+diff --git a/YourStudentID-testfile.adoc b/YourStudentID-testfile.adoc
 index 9801343..fcb9459 100644
---- a/YourStudentID-testfile.md
-+++ b/YourStudentID-testfile.md
+--- a/YourStudentID-testfile.adoc
++++ b/YourStudentID-testfile.adoc
 @@ -1,2 +1,3 @@
  Hello World
 +Hello Again
+....
 
-````
-
-We will be covering git in more detail as we go, but this clearly shows that Hello Again has been added.
+This clearly shows that Hello Again has been added.
 
 Commit it again (you only need to add it once):
-
-````
-YourStudentID@serverXXX:~/Lab-03$ git commit YourStudentID-testfile.md -m "second commit"
-[master becf9ae] second commit
- Committer: test <YourStudentID@serverXXX.gps.stthomas.edu>
-[ ... email error message ... ]
-
- 1 file changed, 1 insertion(+)
-````
+....
+ YourStudentID@serverXXX:~/example$ git commit YourStudentID-testfile.adoc -m "second commit"
+ [master 0ecb372] second commit
+  1 file changed, 2 insertions(+)
+....
 
 Go back into nano and replace "World" with "Mars." Exit nano.
 
 Run git diff again:
 
-````
-YourStudentID@serverXXX:~/Lab-03$ git diff
-diff --git a/YourStudentID-testfile.md b/YourStudentID-testfile.md
-index fcb9459..dcc7a8e 100644
---- a/YourStudentID-testfile.md
-+++ b/YourStudentID-testfile.md
-@@ -1,3 +1,3 @@
--Hello World
-+Hello Mars
- Hello Again
-
-````
+....
+ YourStudentID@serverXXX:~/example$ git diff
+ diff --git a/YourStudentID-testfile.adoc b/YourStudentID-testfile.adoc
+ index fcb9459..dcc7a8e 100644
+ --- a/YourStudentID-testfile.adoc
+ +++ b/YourStudentID-testfile.adoc
+ @@ -1,3 +1,3 @@
+ -Hello World
+ +Hello Mars
+  Hello Again
+....
 
 Commit it again:
 
-````
-YourStudentID@serverXXX:~/Lab-03$ git commit YourStudentID-testfile.md -m "third commit"
-[master d9b8c5d] third commit
- Committer: test <YourStudentID@serverXXX.gps.stthomas.edu>
-[... email error message ...]
- 1 file changed, 1 insertion(+)
-````
+....
+ YourStudentID@serverXXX:~/example$ git commit YourStudentID-testfile.adoc -m "third commit"
+[[master 70e21f0] third commit
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+....
 
 Now, let's look at our commit history:
 
-````
+....
+ YourStudentID@serverXXX:~/example$ git log
 
-YourStudentID@serverXXX:~/Lab-03$ git log -p
-
-commit d9b8c5d55c99279f6280c4ffb439c448f0097880
-Author: test <YourStudentID@serverXXX.gps.stthomas.edu>
-Date:   Wed Feb 18 19:29:00 2015 -0600
+commit 70e21f0719cac5b2e6527ec9cb5ceeaeabb552da
+Author: charles betz <char@erp4it.com>
+Date:   Fri Sep 18 17:35:35 2015 -0500
 
     third commit
 
-diff --git a/YourStudentID-testfile.md b/YourStudentID-testfile.md
+diff --git a/YourStudentID-testfile.adoc b/YourStudentID-testfile.adoc
 index fcb9459..dcc7a8e 100644
---- a/YourStudentID-testfile.md
-+++ b/YourStudentID-testfile.md
+--- a/YourStudentID-testfile.adoc
++++ b/YourStudentID-testfile.adoc
 @@ -1,3 +1,3 @@
 -Hello World
 +Hello Mars
  Hello Again
 
 
-commit becf9ae31a722d852c4680f3839f42a628d32162
-Author: test <YourStudentID@serverXXX.gps.stthomas.edu>
-Date:   Wed Feb 18 19:27:22 2015 -0600
+commit 0ecb372eddff6ecd344f9642caf20d7fac9aac7f
+Author: charles betz <char@erp4it.com>
+Date:   Fri Sep 18 17:27:55 2015 -0500
 
     second commit
 
-diff --git a/YourStudentID-testfile.md b/YourStudentID-testfile.md
-index 9801343..fcb9459 100644
---- a/YourStudentID-testfile.md
-+++ b/YourStudentID-testfile.md
-@@ -1,2 +1,3 @@
+diff --git a/YourStudentID-testfile.adoc b/YourStudentID-testfile.adoc
+index 557db03..fcb9459 100644
+--- a/YourStudentID-testfile.adoc
++++ b/YourStudentID-testfile.adoc
+@@ -1 +1,3 @@
  Hello World
 +Hello Again
++
 
-
-commit 312919f65be24cb9b3ec32f5e17082f3a5bc63e1
-Author: test <YourStudentID@serverXXX.gps.stthomas.edu>
-Date:   Wed Feb 18 19:23:15 2015 -0600
+commit a60b827967b11e835ba89e42128757d1abae01ab
+Author: charles betz <char@erp4it.com>
+Date:   Fri Sep 18 17:01:44 2015 -0500
 
     my first commit
 
-diff --git a/YourStudentID-testfile.md b/YourStudentID-testfile.md
+diff --git a/YourStudentID-testfile.adoc b/YourStudentID-testfile.adoc
 new file mode 100644
-index 0000000..9801343
+index 0000000..557db03
 --- /dev/null
-+++ b/YourStudentID-testfile.md
-@@ -0,0 +1,2 @@
++++ b/YourStudentID-testfile.adoc
+@@ -0,0 +1 @@
 +Hello World
-+
+....
 
-````
+There may be more, reflecting the earlier history of the example repo. Hit "q" to exit the commit review.
 
-Hit "q" to exit the commit review. (You can keep going back, but then you are getting into earlier commits on the cloned repository that I did while setting it up. More on that later.)
+All of these changes have been locally committed to your git instance. Let's send them back up to your fork at Github. You will need to authenticate (we could set up ssh to github, but not right now):
 
-All of these changes have been locally committed to your git instance on your Vagrant virtual machine. Let's send them back up to your fork at Github. You will need to authenticate (we could set up ssh to github, but not right now):
-
-````
-YourStudentID@serverXXX:~/Lab-03$ git push origin master
+....
+YourStudentID@serverXXX:~/example$ git push origin master
 Username for 'https://github.com': YourGithubID
 Password for 'https://YourGithubID@github.com':
 Counting objects: 9, done.
 Delta compression using up to 2 threads.
 Compressing objects: 100% (6/6), done.
-Writing objects: 100% (9/9), 749 bytes | 0 bytes/s, done.
-Total 9 (delta 3), reused 0 (delta 0)
-To https://github.com/YourGithubID/Lab-03.git
-   88af368..d9b8c5d  master -> master
-````
+Writing objects: 100% (9/9), 764 bytes | 0 bytes/s, done.
+Total 9 (delta 2), reused 0 (delta 0)
+To https://github.com/CharlesTBetz/example
+   04d68d8..70e21f0  master -> master
 
-At this point you have pushed your file up to your LOCAL fork of the Lab-03 repository on your Github account. I cannot see it unless I navigate to your Github site.
+....
+
+At this point you have pushed your file up to your LOCAL fork of the example repository on your Github account. I cannot see it unless I navigate to your Github site.
 
 Go back to your browser and issue a pull request:
 
-![pull](resources/pull.jpg)
+image::pull.jpg[]
 
-If your work is acceptable, I will allow it to be merged back into the main Lab-03 repository (actually the Spring 2015 branch).
+This completes this section. (I am not pulling your work back into the main lab.)
 
 There is much to learn about git and this lab is not intended to be a full tutorial, but rather means to an end, and a quick flavor of the techniques. We will cover further aspects as necessary.
+If you are looking for a short introductory course on git, check out the free online training course at link:http://gitreal.codeschool.com/[Git Real by Code School].
 
-##Part 3: Automated provisioning and infrastructure as code
+== 4. Automated provisioning and infrastructure as code
 
 This section will bring together your VM work with git, as you develop a script to automate your activities and commit it to source control.
 
 **Vagrant up from the lab directory**
-We will not vagrant up from your ~/vagrant directory. Instead, we will vagrant up from your ~/Lab-03 directory. A Vagrantfile has been placed there with the correct private key location.
 
-````
-teststud@seis660:~/Lab-03$ vagrant up
+IMPORTANT: We will NOT vagrant up from your ~/vagrant directory. +
+ +
+Instead, we will vagrant up from your ~/example directory. A Vagrantfile has been placed there.
+
+
+....
+teststud@serverXXX:~/example$ vagrant up
 Bringing machine 'default' up with 'virtualbox' provider...
 ==> default: Importing base box 'opscode-ubuntu-14.04a'...
 ==> default: Matching MAC address for NAT networking...
-==> default: Setting the name of the VM: Lab-03_default_1424923870330_27416
+==> default: Setting the name of the VM: example_default_1424923870330_27416
 ==> default: Fixed port collision for 22 => 2222. Now on port 2201.
 ==> default: Clearing any previously set network interfaces...
 ==> default: Preparing network interfaces based on configuration...
 [more]
-````
-You will get the following prompt. It is a bug of some sort I have not been able to figure out. 50 points for anyone who can fix it. Type "vagrant" to move past it:
-
-````
-Text will be echoed in the clear. Please install the HighLine or Termios libraries to suppress echoed text.
-vagrant@127.0.0.1's password:vagrant
-
-[ ... a whole lot of stuff ... ]
-stdin: is not a tty
-==> default: Checking for guest additions in VM...
-==> default: Mounting shared folders...
-    default: /vagrant => /home/student/YourStudentID/Lab-03
-````
+....
 
 **Script your work**
 
 Go into your VM:
 
-````
-YourStudentID@serverXXX:~/Lab-03$ vagrant ssh
+....
+YourStudentID@serverXXX:~/example$ vagrant ssh
 Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic x86_64)
-
- * Documentation:  https://help.ubuntu.com/
-New release '14.04.1 LTS' available.
-Run 'do-release-upgrade' to upgrade to it.
-
+...some stuff
 Welcome to your Vagrant-built virtual machine.
 Last login: Fri Sep 14 06:23:18 2012 from 10.0.2.2
 vagrant@precise64:~$
-````
+....
 
-Go to the /vagrant directory. (Not to be confused with /home/vagrant.)
+Go to the /vagrant directory on your Vagrant virtual machine and list the files. (Dont get confused with the /home/vagrant directory.)
 
-This is important. Your /vagrant directory is linked to the host machine on the outside. In fact, if you examine it, you will realize it is your ~/Lab-03 directory! You should see your *-testfile.md.
-
-````
+....
 vagrant@precise64:~$ cd /vagrant
 vagrant@precise64:/vagrant$ ls
-Lab-03-Instructions.md  LICENSE  README.md  resources  starter.sh  YourStudentID-testfile.md  Vagrantfile
-````
+example-Instructions.md  LICENSE  README.md  resources  starter.sh  YourStudentID-testfile.adoc  Vagrantfile
+....
 
-Now for the main work of Part 3:
+If you examine the /vagrant directory, you will realize it has the same contents as your ~/example directory on the class server. In fact, it's the exact same directory! What's going on here? The /vagrant directory in your virtual machine is linked to the ~/example directory on the  host machine (class server). This virtual link provides an easy mechanism to
+share and move files between your virtual machine and the host server. You should see your *-testfile.adoc in the /vagrant directory file listing.
+
+Now for the main work of this section:
 
 Starting with starter.sh, write a shell script that automates:
 
 1. the directory creation you did manually in Part 1
-2. tree installation and use.
+2. tree installation
 3. git installation
 
-Review your Unix commands as necessary. The install commands are:
+Before beginning this work, let's review the Linux application installation commands:
 
-    apt-get install -y tree
-    apt-get install -y git
+ apt-get install -y tree
+ apt-get install -y git
+
+Here are a couple additional notes to help you create the shell script:
 
   * Use Nano. Notice the shebang (#!/bin/bash) at the top of starter.sh.
 
-  * Name it YourStudentID-Lab03.sh
+  * Name it YourStudentID-Lab02.sh
 
   * You will need to change (chmod) the permissions correctly to run it.
 
-So:
+Start out by copying the starter.sh script to a new file, and then set the file permissions to allow execution.
 
-    vagrant@precise64:/vagrant$ cp starter.sh YourStudentID-Lab03.sh
-    vagrant@precise64:/vagrant$ sudo chmod 755 YourStudentID-Lab03.sh
+ vagrant@precise64:/vagrant$ cp starter.sh YourStudentID-Lab02.sh
+ vagrant@precise64:/vagrant$ sudo chmod 755 YourStudentID-Lab02.sh
+
+Yes, you can use sudo (administrative privileges) *within your VM.* If you get an error, it means you are likely not in your VM, but back out on the course server.
 
 Remember to substitute your actual ID for "YourStudentID."
 
-````
-vagrant@vagrant:/vagrant$ sudo chmod 755 YourStudentID-Lab03.sh
+....
+vagrant@vagrant:/vagrant$ sudo chmod 755 YourStudentID-Lab02.sh
 vagrant@vagrant:/vagrant$ ls -l
 total 44
--rw-r--r-- 1 vagrant vagrant 14183 Feb 20 15:22 Lab-03-Instructions.md
+-rw-r--r-- 1 vagrant vagrant 14183 Feb 20 15:22 example-Instructions.md
 -rw-r--r-- 1 vagrant vagrant  1084 Feb 20 15:22 LICENSE
 -rw-r--r-- 1 vagrant vagrant    33 Feb 20 15:22 README.md
 drwxr-xr-x 1 vagrant vagrant  4096 Feb 20 15:22 resources
 -rw-r--r-- 1 vagrant vagrant   152 Feb 20 15:22 starter.sh
--rwxr-xr-x 1 vagrant vagrant   152 Feb 20 15:58 YourStudentID-Lab03.sh
--rw-r--r-- 1 vagrant vagrant    24 Feb 20 15:33 YourStudentID-testfile.md
+-rwxr-xr-x 1 vagrant vagrant   152 Feb 20 15:58 YourStudentID-Lab02.sh
+-rw-r--r-- 1 vagrant vagrant    24 Feb 20 15:33 YourStudentID-testfile.adoc
 -rw-r--r-- 1 vagrant vagrant   296 Feb 20 15:45 Vagrantfile
-````
+....
 
 Run the script to confirm you can execute it (it's still empty, and will run fine - it just won't do anything):
 
-    vagrant@XXXXX:~/vagrant$ ./YourStudentID-Lab03.sh  <- notice the "./"
+    vagrant@XXXXX:~/vagrant$ ./YourStudentID-Lab02.sh  <- notice the "./"
 
-Create your script.
+Create your script by adding the commands to the script file using nano.
 
-    vagrant@XXXXX:~/vagrant$ nano YourStudentID-Lab03.sh
+    vagrant@XXXXX:~/vagrant$ nano YourStudentID-Lab02.sh
+
+_Add the necessary commands so that the script does what it needs to do!_
 
 Oops, something seems to be wrong when you run it:
 
-````
-vagrant@XXXXX:/vagrant$ ./YourStudentID-Lab03.sh
+....
+vagrant@XXXXX:/vagrant$ ./YourStudentID-Lab02.sh
 E: Could not open lock file /var/lib/dpkg/lock - open (13: Permission denied)
 E: Unable to lock the administration directory (/var/lib/dpkg/), are you root?
-````
+....
 
-Because the script has installations in it, you need to run it as superuser:
+Because the script has commands that initiate software installation in it, you need to run the script as superuser:
 
-````
-vagrant@XXXXX:/vagrant$ sudo ./YourStudentID-Lab03.sh
+....
+vagrant@XXXXX:/vagrant$ sudo ./YourStudentID-Lab02.sh
 Reading package lists... Done
 Building dependency tree
 Reading state information... Done
@@ -754,50 +610,55 @@ Preparing to unpack .../tree_1.6.0-1_amd64.deb ...
 Unpacking tree (1.6.0-1) ...
 Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
 Setting up tree (1.6.0-1) ...
-````
+....
 
-Use
+After running your script, you will need to confirm that it setup the required directory structure properly. Run the tree command:
 
-    vagrant@XXXXX:/vagrant:/vagrant$ tree
+ vagrant@XXXXX:/vagrant:/vagrant$ tree
 
-to see your results and "
+Did you see the results you expected? If not, you can issue the command below to remove the directories created by your script. You may need to make changes and execute your script multiple times to perfect it.
 
-    vagrant@XXXXX:/vagrant:/vagrant$ rm -rf A C D
+ vagrant@XXXXX:/vagrant:/vagrant$ rm -rf A C D
 
-to delete the directories if you need to run the script several times to perfect it.
 
-You can also:
+You can also remove the tree and git applications to reset your environment completely using these commands:
 
-    vagrant@XXXXX:/vagrant:/vagrant$ sudo apt-get remove git
-    vagrant@XXXXX:/vagrant:/vagrant$ sudo apt-get remove tree
+ vagrant@XXXXX:/vagrant:/vagrant$ sudo apt-get remove git
+ vagrant@XXXXX:/vagrant:/vagrant$ sudo apt-get remove tree
 
-if you want to reset your environment completely.
 
-Once you are happy with your script, add and commit locally:
+Once you are happy with your script, tell the new git instance *within your VM* your name & email (you have to do this again, because the VM is a whole new environment.)
 
-````
-vagrant@XXXXX:/vagrant$ git add YourStudentID-Lab03.sh
-vagrant@XXXXX:/vagrant$ git commit YourStudentID-Lab03.sh -m "script commit"
+....
+vagrant@precise64:/vagrant$ git config --global user.email "you@stthomas.edu"
+vagrant@precise64:/vagrant$ git config --global user.name "your name"
+....
+
+Then add your new script file to git tracking and commit the file to your local repository:
+
+....
+vagrant@XXXXX:/vagrant$ git add YourStudentID-Lab02.sh
+vagrant@XXXXX:/vagrant$ git commit YourStudentID-Lab02.sh -m "script commit"
 [master b5f0950] script commit
  Committer: vagrant <vagrant@precise64.(none)>
 [email error]
  1 file changed, 10 insertions(+)
- create mode 100755 YourStudentID-Lab03.sh
-````
+ create mode 100755 YourStudentID-Lab02.sh
+....
 
 In reviewing the directory structure, there are duplicate directories. Also, it is getting messy with three directories at the same level.
 
 Fix the directory creation logic so that
 
-1. there are not duplicate C and D directories (you will need to use another letter).
-2. all the directories are inside one called "main"
+1. There are no duplicate C and D directories (you will need to use another letter).
+2. All the directories are inside a single directory called "main".
 
-Run it & confirm it works.
+Run the updated script & confirm it works. You should see a tree output like:
 
-````
+....
 vagrant@vagrant:/vagrant$ tree
 .
-├── Lab-03-Instructions.md
+├── example-Instructions.md
 ├── LICENSE
 ├── main
 │   ├── A
@@ -827,18 +688,18 @@ vagrant@vagrant:/vagrant$ tree
 │       └── M
 │           └── mm
 [more stuff]
-````
+....
 
-Check in and review differences
+Create a new git commit with your updated script and review the differences with the previous version:
 
-    vagrant@vagrant:/vagrant$ git commit YourStudentID-Lab03.sh -m "2nd script commit"
-    vagrant@vagrant:/vagrant$ git log -p
+ vagrant@vagrant:/vagrant$ git commit YourStudentID-Lab02.sh -m "2nd script commit"
+ vagrant@vagrant:/vagrant$ git log -p
 
-*You are now doing "infrastructure as code."* You have automated a complex set of commands, checked them into source control, made significant changes, and checked in again. You can see both versions of your script.
+*You are now doing "infrastructure as code."* You have automated a complex set of commands, checked them into source control, made significant changes, and checked the commands in again. You can see both versions of your script in the git commit logs.
 
-When you are satisfied, push it back into your github remote account.
+When you are satisfied, push your local repository back into your Github account (also known as the origin).
 
-````
+....
 vagrant@vagrant:/vagrant$ git push origin master
 Username for 'https://github.com': YourGithubID
 Password for 'https://YourGithubID@github.com':
@@ -846,34 +707,34 @@ Counting objects: 8, done.
 Compressing objects: 100% (6/6), done.
 Writing objects: 100% (6/6), 886 bytes | 0 bytes/s, done.
 Total 6 (delta 3), reused 0 (delta 0)
-To https://github.com/YourGithubIDYourGithubID/Lab-03.git
+To https://github.com/YourGithubIDYourGithubID/example.git
    1c23c80..72958e4  master -> master
-````
-Note, your script is at risk until you do this.
+....
+Note, your script is at risk until you do this because your script only exists on your local hard drive. Pushing your repository up to Github is like making a backup copy of your source files.
 
-Exit and vagrant destroy your vm:
+Exit the Vagrant instance (now back on the class server prompt) and destroy your Vagrant virtual machine:
 
     vagrant@vagrant:/vagrant$ exit
 	logout
 	Connection to 127.0.0.1 closed.
-	YourStudentID@serverXXX:~/Lab-03$ vagrant destroy
+	YourStudentID@serverXXX:~/example$ vagrant destroy
 
-Notice that your script is still in your ~/Lab-03 directory.
+Notice that your script is still in your ~/example directory. Again, all files in the /vagrant directory on your virtual machine were mapped to the ~/example directory on the host server.
 
-````
-YourStudentID@serverXXX:~/Lab-03$ cat YourStudentID-Lab03.sh
+....
+YourStudentID@serverXXX:~/example$ cat YourStudentID-Lab02.sh
 #!/bin/bash
 # Starter shell script
-# Rename as YourID-Lab03.sh
+# Rename as YourID-Lab02.sh
 # Put commands below
-# To run, type ./YourID-Lab03.sh (you need the "./")
+# To run, type ./YourID-Lab02.sh (you need the "./")
 # It must have permissions starting with a "7"
 
 mkdir -p main/{A/{B,C,D},E/{F,G},H/{I,J/{K,L},M}}
 touch main/{A/{aa,B/bb,C/cc,D/dd},E/{ee,F/ff,G/gg},H/{hh,I/ii,J/{jj,K/kk,L/ll},M/mm}}
-apt-get install tree
-apt-get install git
-````
+apt-get -y install tree
+apt-get -y install git
+....
 
 **Automate provisioning with Vagrant**
 
@@ -881,23 +742,82 @@ You should now be on the main server (you have destroyed your VM above).
 
 Add and commit your Vagrantfile to source control (see above).
 
-Edit your Vagrantfile so that it calls your *-Lab03.sh script when you provision the machine. Add the "vm.provision" line, changing MyStudentID to your ID.
+....
+YourStudentID@serverXXX:~/example$ git add Vagrantfile
+YourStudentID@serverXXX:~/example$ git commit -m "Vagrantfile commit"
+....
 
-````
+Edit your Vagrantfile so that it calls your *-Lab02.sh script when you provision the machine. Add the "vm.provision" line, changing MyStudentID to your ID.
+
+....
 Vagrant.configure(2) do |config|
   config.vm.box = "precise64"
-  config.ssh.private_key_path =   "~/.ssh/insecure_private_key"
-  config.vm.provision             :shell, path: "./MyStudentID-Lab03.sh"
+  config.vm.provision             :shell, path: "./MyStudentID-Lab02.sh"
 end
-````
+....
 
-Vagrant up your machine and ssh into it, verify that your script has been run.
- 1. Directory "main" properly configured in /vagrant
- 2. git installed (run git --version)
- 3. tree installed
+Vagrant up your machine and ssh into it, verify that your script has been run. What happened here? Vagrant automatically executed your shell script on the new virtual machine after it started up.
+
+Verify that the following tasks were successfully completed on the virtual machine:
+
+. Directory "main" properly configured in /vagrant
+. git installed (run git --version)
+. tree installed
+
+....
+YourStudentID@serverXXX:~/example$ vagrant ssh
+Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com/
+New release '14.04.3 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+Welcome to your Vagrant-built virtual machine.
+Last login: Fri Sep 14 06:23:18 2012 from 10.0.2.2
+vagrant@precise64:~$ tree
+.
+|-- main
+|   |-- A
+|   |   |-- aa
+|   |   |-- B
+|   |   |   `-- bb
+|   |   |-- C
+|   |   |   `-- cc
+|   |   `-- D
+|   |       `-- dd
+|   |-- E
+|   |   |-- ee
+|   |   |-- F
+|   |   |   `-- ff
+|   |   `-- G
+|   |       `-- gg
+|   `-- H
+|       |-- hh
+|       |-- I
+|       |   `-- ii
+|       |-- J
+|       |   |-- jj
+|       |   |-- K
+|       |   |   `-- kk
+|       |   `-- L
+|       |       `-- ll
+|       `-- M
+|           `-- mm
+`-- postinstall.sh
+
+14 directories, 14 files
+
+vagrant@precise64:~$ git --version
+git version 1.7.9.5
+....
 
 Re-commit your Vagrantfile and push it back to origin.
 
-Issue a pull request for me to review your work.
+Finally, issue a pull request for me to review your work.
 
-That is the end of this lab. Congratulations, this was a lot of work. Next week, we will start building a continuous integration pipeline with git, Java, JUnit, Tomcat, and Ant.
+Discuss:
+
+- Why can you commit to git on the VM without initializing the repo there? You had to at least set up your name and email. Hint: Think about the virtual directory mapping and execute the comand "ls -al" on the /vagrant directory in the VM.
+- How are git and tree getting installed, since you don't say "sudo vagrant up"?
+
+That is the end of this lab. Congratulations, this was a lot of work. Next week, we will start working on the the continuous integration pipeline with git, Java, JUnit, Tomcat, and Ant.

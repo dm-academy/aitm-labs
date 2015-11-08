@@ -1,0 +1,5 @@
+= Lab 03 instructor notes
+
+Delivery notes 10/2/2015. Many students were able to complete this lab in an hour or so. Recommend extending it with the full pipeline as originally intended, and then doing behavior-driven development fully in Lab 04. Will require further work.
+
+continuous improvement: consider drawing a picture showing how internal ports & curl within the vagrant VM relate to external mappings & curl.
