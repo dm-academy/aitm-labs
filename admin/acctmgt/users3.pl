@@ -35,6 +35,15 @@ map ($_ .= "\n", @justUserIDs); # add back newlines
 print FILE @justUserIDs;
 close (FILE);
 
+open(FILE, ">", glob("~/courseadmin/pwReset.txt")) || die "can't open justusers output"; #for change loop and 
+#  can be used for deleting users
+@justUserIDs = @arrEmails;
+map ($_ .= ":t%^g7&e\n", @justUserIDs); # add back newlines
+
+print FILE @justUserIDs;
+close (FILE);
+
+
 #add passwords - random 8 char
 #add uids (none) -":"
 #add group IDs 'student'
