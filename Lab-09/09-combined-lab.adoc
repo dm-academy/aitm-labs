@@ -63,7 +63,7 @@ You will find that the behavior of iTop is very consistent. You can create, sear
 
 You can create relationships to things that are not your own. Just don't delete or modify anything someone else has created.
 
-Please, prefix anything you create with "TX" where X is your team name. For example, Team Four might create a server "T4-email-srv" representing their email server.
+Please, prefix anything you create with "XX" where X is your team name. For example, Team Four might create a server "04-email-srv" representing their email server.
 
 Refer to the iTop instructions, course readings (especially Betz), and online ITSM/ITIL materials as necessary.
 
