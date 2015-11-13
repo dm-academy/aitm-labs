@@ -77,11 +77,14 @@ Refer to the iTop instructions, course readings (especially Betz), and online IT
 *** gitXX
 *** jenkinsXX
 *** artifactoryXX
-*** ourWebAppXX (this is what is running on Manos and Cara)
+*** webXX (your app)
 
+Link your applications to your servers.
 
-
-You should create your application solution as a CI, and create the servers
+Jenkins runs on hombros and brazos
+git on cerebro
+artifactory on espina
+webXX on cara and manos
 
 * Perform the following actions, as many as you have time for:
 ** Execute a Change against a CI
@@ -103,8 +106,3 @@ image::MasterSystemsArch.png[]
 * What parts of the reference architecture are fulfilled by this tool?
 
 * What do you think of this tool in light of current industry trends to virtualization and faster cycle times?
-
-Grading:
-
-I will be evaluating each team based on the effort I see in the tool.
-We will walk through each team's efforts next Friday.
