@@ -31,7 +31,7 @@ Once logged in, bring up Firefox over X:
 
 then, using that Firefox window, log in to:
 
-http://192.168.33.37/itop
+http://localhost:8037/web
 
 Default user name is "admin," no password. (Don't do this in the real world.)
 
@@ -43,13 +43,7 @@ https://wiki.openitop.org/doku.php?id=start
 
 Here is the scenario: you are four teams within a larger organization.
 
-Team 1: customer facing ecommerce site
-
-Team 2: back office supply chain/inventory
-
-Team 3: ERP system
-
-Team 4: infrastructure (data center & end user computing, including email)
+You will be documenting your existing pipelines.
 
 **Instructions**
 
@@ -75,11 +69,17 @@ Refer to the iTop instructions, course readings (especially Betz), and online IT
 
 ****
 * Set up your configuration items
-** Each team has one application solution running on two physical servers
-*** team 1: "ecom"
-*** team 2: "s-chain"
-*** team 3: "SAP"
-*** team 4: "email"
+** Servers
+*** manosXX
+*** cerebroXX
+*** etc
+** Applications (with your team #)
+*** gitXX
+*** jenkinsXX
+*** artifactoryXX
+*** ourWebAppXX (this is what is running on Manos and Cara)
+
+
 
 You should create your application solution as a CI, and create the servers
 
