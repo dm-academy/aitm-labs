@@ -90,12 +90,14 @@ webXX on cara and manos
 ** Execute a Change against a CI
 ** Initiate and fulfill a service request for access against one of your services, or another team's.
 ** Register an Incident against a CI
+*** An Incident is focused on restoring service
 ** Register a Problem against a CI
+*** A Problem is focused on fixing the cause(s) of the Incident
+** Define and execute a Change intended to fix the Problem.
+** Create a new application solution.
+** Add new, or new kinds, of resources/CIs to your application.
 ** Set up a new service contract
-** Virtualize your servers
 ** Be creative!
-*** Create a new application solution.
-*** Add new, or new kinds, of resources/CIs to your application.
 
 Note, since we do not have actual systems that the CIs are representing (this will change) you do not do anything "real" to resolve an Incident or execute a Change. Simply fill out the form "as if" you have done so.
 

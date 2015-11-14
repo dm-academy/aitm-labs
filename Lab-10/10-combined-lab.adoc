@@ -1,1 +1,10 @@
 = Lab 10: Security, and Governance, Risk, and Compliance
+
+
+https://nvd.nist.gov/
+
+http://resources.infosecinstitute.com/14-popular-web-application-vulnerability-scanners/
+
+http://www.networkworld.com/article/2176429/security/security-6-free-network-vulnerability-scanners.html
+
+http://www.open-scap.org/
