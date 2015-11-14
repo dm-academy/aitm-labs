@@ -1,10 +1,84 @@
 = Lab 10: Security, and Governance, Risk, and Compliance
 
+== Objectives
+
+In this lab, you will gain some hands on experience in vulnerability scanning and remediation.
+
+Objectives:
+
+* Understand a "vulnerability" and how it can be detected
+* Understand how a vulnerability may be fixed or remediated
+* Understand the role of the NIST Common Vulnerability database
+
+Your teams have new responsibilities:
+
+* Team 1: Jenkins server (hombros)
+* Team 2: Artifactory server (espina)
+* Team 3: Production server (cara)
+* Team 4: Monitoring server (nervios)
+
+You will run an "inside-out" vulnerability scan and (as appropriate) a simple "outside-in" scan on the Web pages. You will research the results and recommend at least one fix that can be implemented in the Vagrantfile for building the server.
+
+Because the development and production server are supposed to be similar in configuration, those teams will need to work together if configuration changes are proposed that should apply across the environment.
+
+The vulnerability will be registered as a Problem in iTOP and the server rebuild that fixes it will be executed as a Change. You will write (with instructor assistance) a fix as a shell script to be pulled into the Calavera repository. The Change and the Problem should reference the git pull request ID.
+
+The change will then be confirmed as having fixed the Problem, which will then be closed out.
+
+I am creating one new pipeline, in the /var/SEIS660/public0 directory. You should `su` in as `public0` and run the appropriate tests on your assigned server, which you should `vagrant ssh` into.
+
+The testing will be performed by downloading two vulnerability scanners and running them on your assigned server.
+
+=== System hardening scan
+
+This scan is run internally on the server, as a script or application that reviews the server's configuration in painstaking detail. It will generate hundreds of findings. You should pick one or two and research them and figure out if there is an easy fix.
+
+=== Web vulnerability testing scan
+
+We run this script externally to the machine being tested, and give it the URL. It then probes the URL, as a form of penetration testing. It will again generate many findings. Reseach them and figure out if there is an easy fix.
+
+== Fixing the vulnerability
+
+First, you need to figure out the configuration change required to fix the vulnerability. It should be something that you can script.
+
+For this reason, you should choose a vulnerability that is relatively simple to fix. A good example is either something installed that doesn't need to be, or permissions that need to be tightened down.
+
+(example)
+
+So, you have a script called servername.sh. Perhaps you've run it on the current server and fixed things, but that doesn't help if we refresh the server.  We need to suggest the script as a change to the core recipe.
+
+[ok... they'll all be in the public0/Calavera dir, ssh'd into various servers...
+they could create their own forks and use the change process to have the script pulled into main and then have the server rebuilt with the new script... no impact to upstream]
+
+To do this, you need to create a team fork in the local Calavera repository
+
+== Tools
+
+=== OpenSCAP
+
+http://www.open-scap.org/
+
+Installing:
+
+sudo apt-get install libopenscap8    # not libopenscap0
+
+apt-get install scap-security-guide
+
+git clone https://github.com/GovReady/ubuntu-scap.git
+
+=== ZAP
+https://github.com/zaproxy/zaproxy
+https://github.com/zaproxy/zaproxy/releases/download/2.4.0/ZAPGettingStartedGuide-2.4.pdf
+
+=== Lynis
+
+https://cisofy.com/lynis/
+
+=== NIST database
 
 https://nvd.nist.gov/
 
+=== Listings
 http://resources.infosecinstitute.com/14-popular-web-application-vulnerability-scanners/
 
 http://www.networkworld.com/article/2176429/security/security-6-free-network-vulnerability-scanners.html
-
-http://www.open-scap.org/
