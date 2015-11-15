@@ -82,7 +82,7 @@ At this point, you should have the command line skills to install and configure 
 
 (You really didn't want to install everything manually and then find out there was  a nice script, did you?)
 
-If you can't `cd /home/nerviosxx/cookbooks/nerviosxx/files/`, something is wrong. What?
+If you can't `cd /home/nerviosxx/cookbooks/nervios/files/`, something is wrong. What?
 
 You should examine this script carefully and compare it to the online directions. This script is not a "lights-out" script; you will need to select various options.
 
@@ -137,7 +137,7 @@ You can log in and see your nagios instance by opening a new ssh session into se
 When the browser window appears, type in the URL: http://10.xx.0.16/nagios
 
   Login: nagiosadmin
-  Password: public
+  Password: public  [20151115 - was blank?]
 
 NOTE: Note that you need to change "xx" appropriately, as above.
 

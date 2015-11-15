@@ -17,7 +17,7 @@ Your teams have new responsibilities:
 * Team 3: Production server (cara)
 * Team 4: Monitoring server (nervios)
 
-You will run an "inside-out" vulnerability scan and (as appropriate) a simple "outside-in" scan on the Web pages. You will research the results and recommend at least one fix that can be implemented in the Vagrantfile for building the server.
+You will run an "inside-out" vulnerability scan and a simple "outside-in" scan on the Web pages. You will research the results and recommend at least one fix that can be implemented in the Vagrantfile for building the server.
 
 Because the development and production server are supposed to be similar in configuration, those teams will need to work together if configuration changes are proposed that should apply across the environment.
 
@@ -31,48 +31,95 @@ The testing will be performed by downloading two vulnerability scanners and runn
 
 === System hardening scan
 
+First, we will use Lynis. The overall instructions are here:
+
+https://cisofy.com/documentation/lynis/get-started
+
 This scan is run internally on the server, as a script or application that reviews the server's configuration in painstaking detail. It will generate hundreds of findings. You should pick one or two and research them and figure out if there is an easy fix.
+
+Start by logging into your assigned server. You should be in `/home/vagrant`. Go
+
+....
+vagrant@manos1:~$ mkdir lab-10
+vagrant@manos1:~$ cd lab-10/
+vagrant@manos1:~/lab-10$ git clone https://github.com/CISOfy/lynis
+vagrant@manos1:~/lab-10$ cd lynis
+....
+
+We use the git option so that we have the latest version.
+
+You can now go to:
+
+https://cisofy.com/documentation/lynis/get-started/#first-run
+
+You need to call lynis using the `./lynis` approach, since its path is not in your $PATH variable. Try following the instructions, which have interesting inconsistencies with what will happen.
+
+In particular you will see:
+
+`WARNING: output may be incomplete or inaccurate, you should run this program as super-user.`
+
+Hit Ctrl-C to abort. What do you need to do? Do it. [See hint #1 below if you are completely stumped, but you should know this by now. It's likely to be on a test.]
+
+Now you are getting a different error, not reflected in the instructions either. The error gives you all that you need to fix it. [See hint #2 below.]
+
+Fixed? Now you should be able to run the first scan as the lynis directions suggest.
+
+Now, let's install OpenSCAP and see what it finds.
+
+NOTE: OpenSCAP is still very Red Hat-centric. However, there is a Github project covering Ubuntu vulnerabilities that will suffice for education purposes.
+
+from your ~/lab-10 directory:
+
+....
+vagrant@manos1:~/lab-10$ sudo apt-get install libopenscap8    # install OpenSCAP
+vagrant@manos1:~/lab-10$ git clone https://github.com/GovReady/ubuntu-scap.git
+vagrant@manos1:~/lab-10$ cd ubuntu-scap
+vagrant@manos1:~/lab-10$ sudo ./run_tests.sh
+
+....
+
+This will likely give you many more results than lynis.
 
 === Web vulnerability testing scan
 
-We run this script externally to the machine being tested, and give it the URL. It then probes the URL, as a form of penetration testing. It will again generate many findings. Reseach them and figure out if there is an easy fix.
+We run this script externally to the machine being tested, and give it the URL. It then probes the URL and the server, as a form of penetration testing. It will again generate many findings. Research them and figure out if there is an easy fix.
 
 == Fixing the vulnerability
 
 First, you need to figure out the configuration change required to fix the vulnerability. It should be something that you can script.
 
-For this reason, you should choose a vulnerability that is relatively simple to fix. A good example is either something installed that doesn't need to be, or permissions that need to be tightened down.
+For this reason, you should choose a vulnerability that is relatively simple to fix.
 
-(example)
+* something installed that doesn't need to be
+* something that should be there, that isn't
+* permissions that need to be tightened down.
+
+For exampl
 
 So, you have a script called servername.sh. Perhaps you've run it on the current server and fixed things, but that doesn't help if we refresh the server.  We need to suggest the script as a change to the core recipe.
 
 [ok... they'll all be in the public0/Calavera dir, ssh'd into various servers...
 they could create their own forks and use the change process to have the script pulled into main and then have the server rebuilt with the new script... no impact to upstream]
 
-To do this, you need to create a team fork in the local Calavera repository
+To do this, you need to create a team fork in the local Calavera repository.
 
 == Tools
+
+=== Lynis
+
+https://cisofy.com/lynis/
+http://linux-audit.com/how-to-deal-with-lynis-suggestions/
+http://linux-audit.com/linux-vulnerabilities-explained-from-detection-to-treatment/
 
 === OpenSCAP
 
 http://www.open-scap.org/
 
-Installing:
-
-sudo apt-get install libopenscap8    # not libopenscap0
-
-apt-get install scap-security-guide
-
-git clone https://github.com/GovReady/ubuntu-scap.git
 
 === ZAP
 https://github.com/zaproxy/zaproxy
 https://github.com/zaproxy/zaproxy/releases/download/2.4.0/ZAPGettingStartedGuide-2.4.pdf
 
-=== Lynis
-
-https://cisofy.com/lynis/
 
 === NIST database
 
@@ -82,3 +129,14 @@ https://nvd.nist.gov/
 http://resources.infosecinstitute.com/14-popular-web-application-vulnerability-scanners/
 
 http://www.networkworld.com/article/2176429/security/security-6-free-network-vulnerability-scanners.html
+
+=== Useful stuff
+http://hardenubuntu.com/initial-setup/
+
+
+== Hints
+
+Hint #1: Run it as `sudo`
+
+Hint #2: `sudo chown -R root:root ../lynis` - you NEED to understand this -
+`
