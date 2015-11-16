@@ -139,4 +139,9 @@ http://hardenubuntu.com/initial-setup/
 Hint #1: Run it as `sudo`
 
 Hint #2: `sudo chown -R root:root ../lynis` - you NEED to understand this -
+
+== Fixes
+https://help.ubuntu.com/lts/serverguide/NTP.html
+
+
 `
