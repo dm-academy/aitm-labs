@@ -148,7 +148,7 @@ For example
 
 So, you have a script called servername.sh. Perhaps you've run it on the current server and fixed things, but that doesn't help if we refresh the server.  We need to suggest the script as a change to the core recipe.
 
-To do this, you need to create a team fork in the main Calavera repository. Clone down to a working directory on seis660, vagrant up the server in question, and work the fix. When you are satisfied, submit a pull request.
+To do this, you need to create a team fork in the main Calavera repository. Clone down to a working directory you have write access to on the main server (either your home dir or an `su`'d publicxx dir), vagrant up the virtual server in question, and work the fix. When you are satisfied, submit a pull request.
 
  [2015 Nov -  keeping this brief. Lab has taken considerable effort to get this far.]
 
@@ -162,6 +162,12 @@ Time and instructor lab preparation permitting:
 * The Change and the Problem should reference the git pull request ID.
 
 * The Change will then be confirmed as having fixed the Problem, which will then be closed out.
+
+=== Testers
+If you are a lab tester, be sure to
+
+`sudo apt-get remove ntp`
+`rm -rf lab-10` on both caraxx and the main server.
 
 == Tools
 
