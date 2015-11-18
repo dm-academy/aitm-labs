@@ -150,7 +150,7 @@ So, you have a script called servername.sh. Perhaps you've run it on the current
 
 To do this, you need to create a team fork in the main Calavera repository. Clone down to a working directory on seis660, vagrant up the server in question, and work the fix. When you are satisfied, submit a pull request.
 
-[2015 Nov -  keeping this brief. Lab has taken considerable effort to get this far.]
+ [2015 Nov -  keeping this brief. Lab has taken considerable effort to get this far.]
 
 === Optional ITSM process
 Time and instructor lab preparation permitting:
