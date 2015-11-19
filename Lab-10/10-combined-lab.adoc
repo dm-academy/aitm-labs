@@ -12,7 +12,7 @@ Objectives:
 
 == Overview
 
-Working in pairs or 3s, you will run an "inside-out" vulnerability scan on and a simple "outside-in" scan on the servers. (By splitting up, more of you can be more hands-on.) The testing will be performed by downloading two vulnerability scanners and running them on your servers.
+Working in pairs or 3s, you will run an "inside-out" vulnerability scan and a simple "outside-in" scan on the servers. (By splitting up, more students can be hands-on with the lab.) The testing will be performed by downloading two vulnerability scanners and running them on your servers.
 
 You will research the results and recommend at least one fix that can be implemented in the Vagrantfile and associated cookbook and/or shell script for building the server.
 
@@ -21,9 +21,9 @@ You will write (with instructor assistance) a fix as a shell script to be pulled
 === Getting started
 Your public1-4 pipelines are still operational. Refer back to previous labs (`su publicxx, cd ~/Calavera`).
 
-We are going to focus on caraxx and espinaxx, as these would likely be the servers first exploited by hackers. This gives your team 2 servers to work with.
+We are going to focus on caraxx and espinaxx since hackers would likely try to exploit these servers first. Why? Because these two environments contain production code. This gives your team 2 servers to work with.
 
-Restart them by doing "vagrant up" on:
+Restart the virtual servers by doing "vagrant up" on:
 
 * espinaxx
 * caraxx
@@ -59,13 +59,18 @@ NOTE: Normally we would not like to see git on a production server, but it's con
 
 OpenSCAP will return a large number of vulnerabilities. Some of them can be easily remediated. Others would be more difficult. You can easily research them using Google.
 
-Scroll through the output. Note the following:
+The `run_test.sh` script creates an HTML vulnerability scan report in the current working directory called `results.html`. An easy way to view this report is to install a text-based web browser:
+
+  sudo apt-get install lynx-cur
+
+Then, you can view the report in your terminal window by running the command:
+
+  lynx results.html
+
+Scroll through the report. Click on the following link:
 
 ....
-Title   Specify a Remote NTP Server
-Rule    xccdf_org.ssgproject.content_rule_ntpd_specify_remote_server
-Ident   CCE-27098-3
-Result  fail
+Specify a Remote NTP Server          fail
 ....
 
 What is NTP and why is its absence a problem? Research as a team. We will discuss in class.
