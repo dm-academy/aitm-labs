@@ -1,1 +1,33 @@
 = Lab 11: Enterprise Information Management
+
+probably run this one not on a VM, but in one shared DB on the main server?
+
+how to "do architecture" in limited time?
+
+define data SORs?
+
+multiple applications & SORs?
+
+model data
+
+http://www.sqlpower.ca/page/architect_download_os
+
+ETL in significant datasets
+
+advantages/disadvantages to shared datastores?
+
+how to "do architecture" in limited time?
+
+write query in SQL & analytics in R
+
+OLAP?
+
+records & data governance
+
+== Datasets
+https://www.doc.ic.ac.uk/~pjm/databases/datasets.html
+http://www.dbis.informatik.uni-goettingen.de/Mondial/
+
+
+
+http://martinfowler.com/bliki/BoundedContext.html 
