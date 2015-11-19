@@ -33,7 +33,7 @@ We may need to work as a class to figure out how to restart certain services tha
 Minimally, caraxx needs
 `sudo service tomcat6 start`. Via X, you should be able to see Artifactory:
 
-10.xx.0.12:8081/Artifactory
+10.xx.0.12:8081/artifactory
 
 and your Tomcat application:
 
