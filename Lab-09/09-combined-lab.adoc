@@ -10,7 +10,7 @@ Learning objectives:
 
 === What is iTOP?
 
-iTop is enterprise software. It consists of many screens that help you add, update, and delete across a complex, shared data model. It is intended as a tool to structure collaboration, in the form of defined processes.
+iTop is enterprise software that helps organizations manage the business of IT. Organizations need to respond to service requests, track incidents, review change orders, and manage assets. iTop is a centralized web platform that ties all of these processes together. It consists of many screens that help you add, update, and delete across a complex, shared data model. It is intended as a tool to structure collaboration, in the form of defined processes.
 
 image::itop.png[]
 
@@ -21,7 +21,7 @@ First, ssh with X-windows to seis660.gps.stthomas.edu.
 
 If you are going to use X-windows, you should log in with the following options if you are on a Mac:
 
-    ssh -XC -c blowfish-cbc,arcfour  yourID@seis660.gps.stthomas.edu
+    ssh -X -i ~/.ssh/your_key_file yourID@seis660.gps.stthomas.edu
 
 If you are on a PC using Putty or MobaXterm, you will have a checkbox (that may have defaulted to checked) to enable X. You're on your own to figure out compression options.
 
@@ -94,7 +94,7 @@ webXX on cara and manos
 ** Register a Problem against a CI
 *** A Problem is focused on fixing the cause(s) of the Incident
 ** Define and execute a Change intended to fix the Problem.
-** Create a new application solution.
+** Create a new application solution with a dependency on one of your servers.
 ** Add new, or new kinds, of resources/CIs to your application.
 ** Set up a new service contract
 ** Be creative!
