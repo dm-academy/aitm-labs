@@ -1,33 +1,76 @@
 = Lab 11: Enterprise Information Management
 
-probably run this one not on a VM, but in one shared DB on the main server?
+== Objectives
 
-how to "do architecture" in limited time?
+== Getting started
 
-define data SORs?
+== Data design
 
-multiple applications & SORs?
-
-model data
-
-http://www.sqlpower.ca/page/architect_download_os
-
-ETL in significant datasets
+== Data architecture
 
 advantages/disadvantages to shared datastores?
 
-how to "do architecture" in limited time?
+architectural analysis of overlaps & SORs
+
+suggestions for common services
+
+== Analytics
+
+merge records together into large query
+
+analytics/time series/OLAP
 
 write query in SQL & analytics in R
 
-OLAP?
+== Data governance
 
-records & data governance
+* data profiling
+* define record class code
+* data quality: exception reporting & auditing
+* audit trails: who/when changed?
+* audit investigation of purging job
+* legal hold
+* close the loop
+
+== Lab notes
+how to "do EIM" in limited time?
+
+mock up a metadata repo?
+
+Follow a lifecycle
+
+starting with data entry? or data definition?
+
+the latter...
+
+or just put them into the middle of a mess?
+ - lot of work to set up the data sets
+
+So,
+
+
+Model the data and define it
+
+Each team does two related tables
+
+if they define - how to have sample data
+
+have them define the structure & create, do some inserts & queries
+
+then move onto scale - different data?
+
+create and model data structure
+
+ETL in significant datasets
+
+
+== Tools
+http://www.sqlpower.ca/page/architect_download_os
 
 == Datasets
 https://www.doc.ic.ac.uk/~pjm/databases/datasets.html
-http://www.dbis.informatik.uni-goettingen.de/Mondial/
+http://www.dbis.informatik.uni-goettingen.de/Mondial
 
 
 
-http://martinfowler.com/bliki/BoundedContext.html 
+http://martinfowler.com/bliki/BoundedContext.html
