@@ -2,78 +2,97 @@
 
 == Objectives
 
-== Getting started
-
-== Data design
+* Define a high level conceptual data model
+* Map the conceptual model to your major systems
+* Apply records management techniques
+* Explore data quality concerns from an enterprise perspective
 
 == Data architecture
 
-advantages/disadvantages to shared datastores?
+=== Conceptual data model
+Read http://tdan.com/the-enterprise-data-model/5205[The Enterprise Data Model] as a team. Article is OK but example is not great.
 
-architectural analysis of overlaps & SORs
+You may find Googling "conceptual data model" is helpful.
 
-suggestions for common services
+Remember: the foundation of an enterprise data model is the basic concepts of interest to a business.
 
-== Analytics
+For your assigned industry, develop a comparable high level (no attributes) data model:
 
-merge records together into large query
+* Team 1: Retail
+* Team 2: Telecommunications
+* Team 3: Healthcare
+* Team 4: Financial Services
+* Alternative: Manufacturing
 
-analytics/time series/OLAP
+Your data model should have no more than 10-15 major entities. All you need to do is find the major nouns that industry uses. For example, the noun "Patient" should appear in Team 3's data model only, and the noun "Customer" should appear in the models of Team 1, 2, and 4.
 
-write query in SQL & analytics in R
+You can document the model with Visio or Powerpoint. Do your best to relate the entities with lines. This is a first cut, not something you need to worry about getting right.
+
+=== Cross reference to systems
+
+Research your industry and identify the top 3-5 system types you would expect to find (billing, CRM, etc.) What entities would go into which system? Using Excel, draw a small matrix like this, using C for Create and U for Use:
+
+|====
+||CRM|Marketing|PLM|Purchasing|Sales
+|Customer|CU|C|||U
+|Supplier|||U|C|
+|Product|||C||U
+|====
+
+Note that conceptual entities are down the side and the system types are along the top.
 
 == Data governance
 
-* data profiling
-* define record class code
-* data quality: exception reporting & auditing
-* audit trails: who/when changed?
-* audit investigation of purging job
-* legal hold
-* close the loop
+Open Microsoft Access.
 
-== Lab notes
-how to "do EIM" in limited time?
+Create a New Northwind database.
 
-mock up a metadata repo?
+Open the Relationships window and examine the structure.
 
-Follow a lifecycle
+Review the Illinois Tools record class codes. Compare to the Northwind database.
 
-starting with data entry? or data definition?
+* Assign at least 3 record class codes to Northwind tables and/or attributes (just make note of them with your team - this is not a technical exercise). Are there record classes that apply primarily at an attribute level?
 
-the latter...
+* Analyze & discuss: What is the most sensitive data in the database?
 
-or just put them into the middle of a mess?
- - lot of work to set up the data sets
+* Suppose that there was a dispute over a customer's billing, that became a legal matter. What data might be placed under a legal hold?
 
-So,
+* Now, return to your conceptual data model.
 
+* What entities are sensitive? Why?
 
-Model the data and define it
+* Define a retention strategy for at least 3 entities unique to your industry, using the Illinois Tools code as a example.
 
-Each team does two related tables
+== Data quality
+Revew http://www2.sas.com/proceedings/sugi29/098-29.pdf[the data quality paper] as a team.
 
-if they define - how to have sample data
+* What are your top 2 data quality concerns?
+* How will you manage them over time?
 
-have them define the structure & create, do some inserts & queries
+== Present
+Develop 2 or 3 slides for the class, with:
 
-then move onto scale - different data?
-
-create and model data structure
-
-ETL in significant datasets
-
+* Your conceptual data model
+* Your records retention recommendations
+* Your data quality concerns and approach
 
 == Tools
 http://www.sqlpower.ca/page/architect_download_os
 
+http://openrefine.org/
+
 == Articles
 
-http://martinfowler.com/bliki/BoundedContext.html
-
+http://www.ironmountain.com/~/media/Files/Iron%20Mountain/Knowledge%20Center/Reference%20Library/White%20Paper/F/Fundamentals%20of%20Records%20Retention%20Schedule%20US.pdf?dmc=1&ts=20151121T1113464087
 
 == Datasets
 https://www.doc.ic.ac.uk/~pjm/databases/datasets.html
+
 http://www.dbis.informatik.uni-goettingen.de/Mondial
 
+http://www.barik.net/archive/2006/03/28/195425/
+
 https://wiki.postgresql.org/wiki/Sample_Databases
+
+* Example record class codes:
+http://rm.depaul.edu/FAQ/five.aspx
