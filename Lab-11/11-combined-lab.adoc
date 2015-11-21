@@ -49,7 +49,7 @@ Create a New Northwind database.
 
 Open the Relationships window and examine the structure.
 
-Review the Illinois Tools record class codes. Compare to the Northwind database.
+Review the https://github.com/dm-academy/aitm-labs/blob/master/Lab-11/IllinoisToolWorksRetention.pdf[Illinois Tools record class codes]. Compare to the Northwind database.
 
 * Assign at least 3 record class codes to Northwind tables and/or attributes (just make note of them with your team - this is not a technical exercise). Are there record classes that apply primarily at an attribute level?
 
