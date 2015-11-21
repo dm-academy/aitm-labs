@@ -112,7 +112,7 @@ First review the first few pages of the https://github.com/zaproxy/zaproxy/relea
 
 Exit from your VM to the main server. You should be in your publicxx directory.
 
-Create a directory called "lab-10" there.
+Create a directory called "lab-10" there, if your teammates have not already.
 
 (Seems like you just did this, what's up with that?)
 
