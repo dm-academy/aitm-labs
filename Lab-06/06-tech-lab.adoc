@@ -47,7 +47,7 @@ You have a new machine in your pipeline, "nerviosxx" where xx = your team number
 
 The goal is to
 
-* install the LAMP stack
+* install the LAMP stack on your nervios instance
 * install the Nagios server on your nervios instance
 * install the Nagios agent on your manos instance
 * configure Nagios to monitor your pipeline
