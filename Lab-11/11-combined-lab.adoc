@@ -10,13 +10,12 @@
 == Data architecture
 
 === Conceptual data model
-Read http://tdan.com/the-enterprise-data-model/5205[The Enterprise Data Model] as a team. Article is OK but example is not great.
+Read http://tdan.com/the-enterprise-data-model/5205[The Enterprise Data Model] as a team. The article is OK but the example is not great.
+You can find other examples of conceptual data models by Googling "conceptual data model".
 
-You may find Googling "conceptual data model" is helpful.
+Remember: the foundation of an enterprise data model is comprised of the basic concepts of interest to a business.
 
-Remember: the foundation of an enterprise data model is the basic concepts of interest to a business.
-
-For your assigned industry, develop a comparable high level (no attributes) data model:
+Each team is assigned an industry that requires an enterprise data model to function. For your assigned industry, develop a comparable high level (no attributes) conceptual data model:
 
 * Team 1: Retail
 * Team 2: Telecommunications
@@ -26,7 +25,7 @@ For your assigned industry, develop a comparable high level (no attributes) data
 
 Your data model should have no more than 10-15 major entities. All you need to do is find the major nouns that industry uses. For example, the noun "Patient" should appear in Team 3's data model only, and the noun "Customer" should appear in the models of Team 1, 2, and 4.
 
-You can document the model with Visio or Powerpoint. Do your best to relate the entities with lines. This is a first cut, not something you need to worry about getting right.
+You can document the model with Visio or Powerpoint. Do your best to relate the entities with lines. It's not required to specify the ordinality or cardinality of entity relationships. This is a first cut, not something you need to worry about getting right.
 
 === Cross reference to systems
 
