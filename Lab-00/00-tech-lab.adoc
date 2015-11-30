@@ -154,4 +154,4 @@ WHEN you are done with the lab, log into the chat room and discussion board and 
 == Common errors
 
 * Instructor creating .ssh directory or authorized_keys as root, with incorrect permissions
-* Student failing to load private key into PuTTY every time (either manually or through correct use of profiles)
+* Student failing to load private key into PuTTY every time (either manually or through incorrect use of profiles)
