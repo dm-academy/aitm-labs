@@ -15,7 +15,7 @@ Vagrant ssh into whatever *clients* (NOT nerviosXX) you configured and do:
 In the Calavera directory for the pipeline, go:
 
  vagrant destroy nerviosxx -f
- vagrant up nervios xx     # don't worry about Chef run list warning.
+ vagrant up nerviosxx     # don't worry about Chef run list warning.
 
 Thanks!
 
