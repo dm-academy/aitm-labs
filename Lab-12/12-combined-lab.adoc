@@ -50,7 +50,7 @@ Indicators of business fitness:
 * Revenue dependency
 ** _If there is a revenue dependency, the system cannot be outsourced (corporate policy)_
 ** _No revenue dependency does not automatically mean the system should be outsourced. HR systems have no revenue dependency, but represent critical and risky functionality._
-** _The most important systems combine revenue dependency with high "heft"_
+** _The most important systems combine revenue dependency with large asset bases, high risk, and/or many other systems' dependencies_
 ** _For infrastructure systems, consider whether the systems using them have revenue dependencies._
 
 Indicators of technical fitness:
