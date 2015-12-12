@@ -1,6 +1,6 @@
 == SEIS660 Lab 12: Enterprise Architecture & IT Portfolio Management
 
-Version 1, 5/1/2015
+Version 2, 12/11/2015
 
 In this final lab, you will analyze an IT portfolio and come up with a set of recommendations for presentation to the class.
 
