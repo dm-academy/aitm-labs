@@ -39,7 +39,7 @@ The following matrix and discussion will help you think about the problem:
 
 |===
 ||*Low business fit* |*High business fit*
-|*High technical fit* |Re-evaluate with business partners; experiment |Explore new uses
+|*High technical fit* |Re-evaluate with business partners; experiment |Encourage expanded use. Ask: would more investment drive more results?
 |*Low technical fit* |Outsource or retire |Invest
 |===
 
@@ -122,4 +122,4 @@ Again, give your reasoning.
 
 Extra credit: prepare a bubble chart for some subset of the data.
 
-Time permitting, we will review some of these presentations in class. 
+Time permitting, we will review some of these presentations in class.
