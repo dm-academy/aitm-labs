@@ -23,7 +23,7 @@ $emails =~ s/".+?<//g;  # strip out names from " through left <
 $emails =~ s/\@stthomas\.edu//g;  # #remove domain
 
 # print $emails;
-@arrEmails=split("\n", $emails);
+@arrEmails=split("\n", $emails); #lose all newlines
 
 map ($_ = lc($_), @arrEmails);   # change all to lower case - using map as a declarative operator on the array
 
