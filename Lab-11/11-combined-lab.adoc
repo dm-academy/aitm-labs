@@ -1,1 +1,97 @@
 = Lab 11: Enterprise Information Management
+
+== Objectives
+
+* Define a high level conceptual data model
+* Map the conceptual model to your major systems
+* Apply records management techniques
+* Explore data quality concerns from an enterprise perspective
+
+== Data architecture
+
+=== Conceptual data model
+Read http://tdan.com/the-enterprise-data-model/5205[The Enterprise Data Model] as a team. The article is OK but the example is not great.
+You can find other examples of conceptual data models by Googling "conceptual data model".
+
+Remember: the foundation of an enterprise data model is comprised of the basic concepts of interest to a business.
+
+Each team is assigned an industry that requires an enterprise data model to function. For your assigned industry, develop a comparable high level (no attributes) conceptual data model:
+
+* Team 1: Retail
+* Team 2: Telecommunications
+* Team 3: Healthcare
+* Team 4: Financial Services
+* Alternative: Manufacturing
+
+Your data model should have no more than 10-15 major entities. All you need to do is find the major nouns that industry uses. For example, the noun "Patient" should appear in Team 3's data model only, and the noun "Customer" should appear in the models of Team 1, 2, and 4.
+
+You can document the model with Visio or Powerpoint. Do your best to relate the entities with lines. It's not required to specify the ordinality or cardinality of entity relationships. This is a first cut, not something you need to worry about getting right.
+
+=== Cross reference to systems
+
+Research your industry and identify the top 3-5 system types you would expect to find (billing, CRM, etc.) What entities would go into which system? Using Excel, draw a small matrix like this, using C for Create and U for Use:
+
+|====
+||CRM|Marketing|PLM|Purchasing|Sales
+|Customer|CU|C|||U
+|Supplier|||U|C|
+|Product|||C||U
+|====
+
+Note that conceptual entities are down the side and the system types are along the top.
+
+== Data governance
+
+Open Microsoft Access.
+
+Create a New Northwind database.
+
+Open the Relationships window and examine the structure.
+
+Review the https://github.com/dm-academy/aitm-labs/blob/master/Lab-11/IllinoisToolWorksRetention.pdf[Illinois Tools record class codes]. Compare to the Northwind database.
+
+* Assign at least 3 record class codes to Northwind tables and/or attributes (just make note of them with your team - this is not a technical exercise). Are there record classes that apply primarily at an attribute level?
+
+* Analyze & discuss: What is the most sensitive data in the database?
+
+* Suppose that there was a dispute over a customer's billing, that became a legal matter. What data might be placed under a legal hold?
+
+* Now, return to your conceptual data model.
+
+* What entities are sensitive? Why?
+
+* Define a retention strategy for at least 3 entities unique to your industry, using the Illinois Tools code as a example.
+
+== Data quality
+Revew http://www2.sas.com/proceedings/sugi29/098-29.pdf[the data quality paper] as a team.
+
+* What are your top 2 data quality concerns?
+* How will you manage them over time?
+
+== Present
+Develop 2 or 3 slides for the class, with:
+
+* Your conceptual data model
+* Your records retention recommendations
+* Your data quality concerns and approach
+
+== Tools
+http://www.sqlpower.ca/page/architect_download_os
+
+http://openrefine.org/
+
+== Articles
+
+http://www.ironmountain.com/~/media/Files/Iron%20Mountain/Knowledge%20Center/Reference%20Library/White%20Paper/F/Fundamentals%20of%20Records%20Retention%20Schedule%20US.pdf?dmc=1&ts=20151121T1113464087
+
+== Datasets
+https://www.doc.ic.ac.uk/~pjm/databases/datasets.html
+
+http://www.dbis.informatik.uni-goettingen.de/Mondial
+
+http://www.barik.net/archive/2006/03/28/195425/
+
+https://wiki.postgresql.org/wiki/Sample_Databases
+
+* Example record class codes:
+http://rm.depaul.edu/FAQ/five.aspx

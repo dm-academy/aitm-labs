@@ -1,6 +1,6 @@
 == SEIS660 Lab 12: Enterprise Architecture & IT Portfolio Management
 
-Version 1, 5/1/2015
+Version 2, 12/11/2015
 
 In this final lab, you will analyze an IT portfolio and come up with a set of recommendations for presentation to the class.
 
@@ -39,7 +39,7 @@ The following matrix and discussion will help you think about the problem:
 
 |===
 ||*Low business fit* |*High business fit*
-|*High technical fit* |Re-evaluate with business partners; experiment |Explore new uses
+|*High technical fit* |Re-evaluate with business partners; experiment |Encourage expanded use. Ask: would more investment drive more results?
 |*Low technical fit* |Outsource or retire |Invest
 |===
 
@@ -50,7 +50,7 @@ Indicators of business fitness:
 * Revenue dependency
 ** _If there is a revenue dependency, the system cannot be outsourced (corporate policy)_
 ** _No revenue dependency does not automatically mean the system should be outsourced. HR systems have no revenue dependency, but represent critical and risky functionality._
-** _The most important systems combine revenue dependency with high "heft"_
+** _The most important systems combine revenue dependency with large asset bases, high risk, and/or many other systems' dependencies_
 ** _For infrastructure systems, consider whether the systems using them have revenue dependencies._
 
 Indicators of technical fitness:
@@ -122,4 +122,4 @@ Again, give your reasoning.
 
 Extra credit: prepare a bubble chart for some subset of the data.
 
-This will be due for in class presentation at 8 PM on 5/8, 15 minutes per team. Final versions can be handed in by 5/15.
+Time permitting, we will review some of these presentations in class.

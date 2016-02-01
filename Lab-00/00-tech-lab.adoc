@@ -26,7 +26,7 @@ Same for any other platform.
 === Collaborating on Blackboard
 
 * The chat room requires an obsolete Java version, so we're not going to use it.
-* The https://blackboard.stthomas.edu/webapps/blackboard/content/launchLink.jsp?course_id=_103740_1&toc_id=_491071_1&mode=cpview&mode=reset[discussion board] will be the main communication channel.
+* Slack will be the main communication channel.
 * Navigate to it and confirm you can read messages. Try posting to the "test messages" thread.
 
 === Setting up your terminal emulator
@@ -154,4 +154,4 @@ WHEN you are done with the lab, log into the chat room and discussion board and 
 == Common errors
 
 * Instructor creating .ssh directory or authorized_keys as root, with incorrect permissions
-* Student failing to load private key into PuTTY every time (either manually or through correct use of profiles)
+* Student failing to load private key into PuTTY every time (either manually or through incorrect use of profiles)

@@ -10,7 +10,7 @@ Learning objectives:
 
 === What is iTOP?
 
-iTop is enterprise software. It consists of many screens that help you add, update, and delete across a complex, shared data model. It is intended as a tool to structure collaboration, in the form of defined processes.
+iTop is enterprise software that helps organizations manage the business of IT. Organizations need to respond to service requests, track incidents, review change orders, and manage assets. iTop is a centralized web platform that ties all of these processes together. It consists of many screens that help you add, update, and delete across a complex, shared data model. It is intended as a tool to structure collaboration, in the form of defined processes.
 
 image::itop.png[]
 
@@ -21,7 +21,7 @@ First, ssh with X-windows to seis660.gps.stthomas.edu.
 
 If you are going to use X-windows, you should log in with the following options if you are on a Mac:
 
-    ssh -XC -c blowfish-cbc,arcfour  yourID@seis660.gps.stthomas.edu
+    ssh -X -i ~/.ssh/your_key_file yourID@seis660.gps.stthomas.edu
 
 If you are on a PC using Putty or MobaXterm, you will have a checkbox (that may have defaulted to checked) to enable X. You're on your own to figure out compression options.
 
@@ -31,7 +31,7 @@ Once logged in, bring up Firefox over X:
 
 then, using that Firefox window, log in to:
 
-http://192.168.33.37/itop
+http://localhost:8037/web
 
 Default user name is "admin," no password. (Don't do this in the real world.)
 
@@ -43,13 +43,7 @@ https://wiki.openitop.org/doku.php?id=start
 
 Here is the scenario: you are four teams within a larger organization.
 
-Team 1: customer facing ecommerce site
-
-Team 2: back office supply chain/inventory
-
-Team 3: ERP system
-
-Team 4: infrastructure (data center & end user computing, including email)
+You will be documenting your existing pipelines.
 
 **Instructions**
 
@@ -69,30 +63,41 @@ You will find that the behavior of iTop is very consistent. You can create, sear
 
 You can create relationships to things that are not your own. Just don't delete or modify anything someone else has created.
 
-Please, prefix anything you create with "TX" where X is your team name. For example, Team Four might create a server "T4-email-srv" representing their email server.
+Please, prefix anything you create with "XX" where X is your team name. For example, Team Four might create a server "04-email-srv" representing their email server.
 
 Refer to the iTop instructions, course readings (especially Betz), and online ITSM/ITIL materials as necessary.
 
 ****
 * Set up your configuration items
-** Each team has one application solution running on two physical servers
-*** team 1: "ecom"
-*** team 2: "s-chain"
-*** team 3: "SAP"
-*** team 4: "email"
+** Servers
+*** manosXX
+*** cerebroXX
+*** etc
+** Applications (with your team #)
+*** gitXX
+*** jenkinsXX
+*** artifactoryXX
+*** webXX (your app)
 
-You should create your application solution as a CI, and create the servers
+Link your applications to your servers.
+
+Jenkins runs on hombros and brazos
+git on cerebro
+artifactory on espina
+webXX on cara and manos
 
 * Perform the following actions, as many as you have time for:
 ** Execute a Change against a CI
 ** Initiate and fulfill a service request for access against one of your services, or another team's.
 ** Register an Incident against a CI
+*** An Incident is focused on restoring service
 ** Register a Problem against a CI
+*** A Problem is focused on fixing the cause(s) of the Incident
+** Define and execute a Change intended to fix the Problem.
+** Create a new application solution with a dependency on one of your servers.
+** Add new, or new kinds, of resources/CIs to your application.
 ** Set up a new service contract
-** Virtualize your servers
 ** Be creative!
-*** Create a new application solution.
-*** Add new, or new kinds, of resources/CIs to your application.
 
 Note, since we do not have actual systems that the CIs are representing (this will change) you do not do anything "real" to resolve an Incident or execute a Change. Simply fill out the form "as if" you have done so.
 
@@ -103,8 +108,3 @@ image::MasterSystemsArch.png[]
 * What parts of the reference architecture are fulfilled by this tool?
 
 * What do you think of this tool in light of current industry trends to virtualization and faster cycle times?
-
-Grading:
-
-I will be evaluating each team based on the effort I see in the tool.
-We will walk through each team's efforts next Friday.

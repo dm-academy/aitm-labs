@@ -1,1 +1,250 @@
 = Lab 10: Security, and Governance, Risk, and Compliance
+
+== Objectives
+
+In this lab, you will gain some hands on experience in vulnerability scanning and remediation.
+
+Objectives:
+
+* Understand a "vulnerability" and how it can be detected
+* Understand how a vulnerability may be fixed or remediated
+* Understand the role of the NIST Common Vulnerability database
+
+== Overview
+
+Working in pairs or 3s, you will run an "inside-out" vulnerability scan and a simple "outside-in" scan on the servers. (By splitting up, more students can be hands-on with the lab.) The testing will be performed by downloading two vulnerability scanners and running them on your servers.
+
+You will research the results and recommend at least one fix that can be implemented in the Vagrantfile and associated cookbook and/or shell script for building the server.
+
+You will write (with instructor assistance) a fix as a shell script to be pulled into the Calavera repository.
+
+=== Getting started
+Your public1-4 pipelines are still operational. Refer back to previous labs (`su publicxx, cd ~/Calavera`).
+
+We are going to focus on caraxx and espinaxx since hackers would likely try to exploit these servers first. Why? Because these two environments contain production code. This gives your team 2 servers to work with.
+
+Restart the virtual servers by doing "vagrant up" on:
+
+* espinaxx
+* caraxx
+
+We may need to work as a class to figure out how to restart certain services that were not set to restart on reboot. This is a good hands-on exercise.
+
+Minimally, caraxx needs
+`sudo service tomcat6 start`. Via X, you should be able to see Artifactory:
+
+10.xx.0.12:8081/artifactory
+
+and your Tomcat application:
+
+10.xx.0.15:8080/MainServlet
+
+=== System hardening scan
+
+Now, let's install OpenSCAP on caraxx and see what it finds.
+
+NOTE: OpenSCAP is still very Red Hat-centric. However, there is a Github project covering Ubuntu vulnerabilities that will suffice for education purposes.
+
+....
+vagrant@cara1:~$ mkdir lab-10
+vagrant@cara1:~$ cd lab-10/
+vagrant@cara1:~/lab-10$ sudo apt-get install libopenscap8    # install OpenSCAP
+vagrant@cara1:~/lab-10$ sudo apt-get install git
+vagrant@cara1:~/lab-10$ git clone https://github.com/GovReady/ubuntu-scap.git
+vagrant@cara1:~/lab-10$ cd ubuntu-scap
+vagrant@cara1:~/lab-10$ sudo ./run_tests.sh
+....
+
+NOTE: Normally we would not like to see git on a production server, but it's convenient for this lab.
+
+OpenSCAP will return a large number of vulnerabilities. Some of them can be easily remediated. Others would be more difficult. You can easily research them using Google.
+
+The `run_test.sh` script creates an HTML vulnerability scan report in the current working directory called `results.html`. An easy way to view this report is to install a text-based web browser:
+
+  sudo apt-get install lynx-cur
+
+Then, you can view the report in your terminal window by running the command:
+
+  lynx results.html
+
+Scroll through the report. Click on the following link:
+
+....
+Specify a Remote NTP Server          fail
+....
+
+What is NTP and why is its absence a problem? Research as a team. We will discuss in class.
+
+Fixing is easy. Go:
+
+`vagrant@cara1:~/lab-10$ sudo apt-get install ntp`
+
+and run
+
+`vagrant@cara1:~/lab-10$ sudo ./run_tests.sh`
+
+again. You should see:
+
+....
+Title   Specify a Remote NTP Server
+Rule    xccdf_org.ssgproject.content_rule_ntpd_specify_remote_server
+Ident   CCE-27098-3
+Result  pass
+....
+
+Note the *pass* result. Hey, we fixed a vulnerability!
+
+Now for the hard part. Find another vulnerability you can fix. To use class time most efficiently, you should post the vulnerabilities you are researching to Slack. Don't start on something someone else is doing.
+
+Obviously, you should coordinate your research within your team as well, dividing up search results to review so you can more quickly identify if this vulnerability can easily be fixed.
+
+We will pause class and discuss interesting cases.
+
+Be prepared to share you results, positive or negative. If you fix a vulnerability, be sure to document the steps so they could be scripted.
+
+When you have fixed your SCAP vulnerability, read http://www.sonatype.org/nexus/2015/11/13/did-you-wake-up-to-an-alert-about-the-java-deserialization-vulnerability and discuss with your team. What is the National Vulnerability Database? Be prepared to discuss in class.
+
+=== Web vulnerability testing scan
+
+When you have reflected enough on the Java deserialization vulnerability and the implications of that article, move on to a Web vulnerability.
+
+First review the first few pages of the https://github.com/zaproxy/zaproxy/releases/download/2.4.0/ZAPGettingStartedGuide-2.4.pdf[zaproxy docs].
+
+Exit from your VM to the main server. You should be in your publicxx directory.
+
+Create a directory called "lab-10" there, if your teammates have not already.
+
+(Seems like you just did this, what's up with that?)
+
+Go:
+
+....
+wget https://github.com/zaproxy/zaproxy/releases/download/2.4.2/ZAP_2.4.2_Linux.tar.gz
+tar -xvf ZAP_2.4.2_Linux.tar.gz
+cd ZAP_2.4.2/
+./zap.sh -cmd -quickurl http://10.xx.0.15:8080/MainServlet
+....
+
+We run this script externally to the machine being tested, and give it the URL. It then probes the URL and the server, as a form of penetration testing. It will again generate a number of findings. Research them and figure out if there is an easy fix.
+
+NOTE: You will get raw XML dumped to the terminal. You can cut and paste this to an HTML document on your workstation and open it with a browser for an easier view.
+
+Now, try
+
+`./zap.sh -cmd -quickurl http://10.1.0.12:8081/artifactory`
+
+More errors than before... why? Discuss.
+
+== Fixing one or more vulnerabilities
+
+First, you need to figure out the configuration change required to fix the vulnerability. It should be something that you can script.
+
+For this reason, you should choose a vulnerability that is relatively simple to fix.
+
+* something installed that doesn't need to be
+* something that should be there, that isn't
+* permissions that need to be tightened down.
+
+For example
+
+. Run the necessary commands to fix the vulnerability.
+. Put them into a shell script.
+. Change the "testxx" vagrant server definition
+
+So, you have a script called servername.sh. Perhaps you've run it on the current server and fixed things, but that doesn't help if we refresh the server.  We need to suggest the script as a change to the core recipe.
+
+To do this, you need to create a team fork in the main Calavera repository. Clone down to a working directory you have write access to on the main server (either your home dir or an `su`'d publicxx dir), vagrant up the virtual server in question, and work the fix. When you are satisfied, submit a pull request.
+
+ [2015 Nov -  keeping this brief. Lab has taken considerable effort to get this far.]
+
+=== Optional ITSM process
+Time and instructor lab preparation permitting:
+
+* The vulnerability should be registered as a Problem in iTOP, against the server it is detected on.
+
+* The server rebuild that fixes it will be executed as a Change.
+
+* The Change and the Problem should reference the git pull request ID.
+
+* The Change will then be confirmed as having fixed the Problem, which will then be closed out.
+
+=== Testers
+If you are a lab tester, be sure to
+
+`sudo apt-get remove ntp`
+`rm -rf lab-10` on both caraxx and the main server.
+
+== Tools
+
+=== Lynis
+
+https://cisofy.com/lynis/
+http://linux-audit.com/how-to-deal-with-lynis-suggestions/
+http://linux-audit.com/linux-vulnerabilities-explained-from-detection-to-treatment/
+
+=== OpenSCAP
+http://www.open-scap.org/
+
+=== ZAP
+https://github.com/zaproxy/zaproxy
+https://github.com/zaproxy/zaproxy/releases/download/2.4.0/ZAPGettingStartedGuide-2.4.pdf
+
+=== NIST database
+https://nvd.nist.gov/
+
+=== Listings
+http://resources.infosecinstitute.com/14-popular-web-application-vulnerability-scanners/
+
+http://www.networkworld.com/article/2176429/security/security-6-free-network-vulnerability-scanners.html
+
+=== Useful stuff
+http://hardenubuntu.com/initial-setup/
+http://www.sonatype.org/nexus/2015/11/13/did-you-wake-up-to-an-alert-about-the-java-deserialization-vulnerability
+http://continuousdelivery.com/2013/08/risk-management-theatre/
+
+
+== Fixes
+https://help.ubuntu.com/lts/serverguide/NTP.html
+
+== Lynis
+Lynis is another option, but it doesn't find as much as OpenSCAP.
+
+The overall instructions are here:
+
+https://cisofy.com/documentation/lynis/get-started
+
+This scan is run internally on the server, as a script or application that reviews the server's configuration in painstaking detail. It will generate hundreds of findings. You should pick one or two and research them and figure out if there is an easy fix.
+
+Start by logging into your assigned server. You should be in `/home/vagrant`. Go
+
+....
+vagrant@manos1:~$ mkdir lab-10
+vagrant@manos1:~$ cd lab-10/
+vagrant@manos1:~/lab-10$ git clone https://github.com/CISOfy/lynis
+vagrant@manos1:~/lab-10$ cd lynis
+....
+
+We use the git option so that we have the latest version.
+
+You can now go to:
+
+https://cisofy.com/documentation/lynis/get-started/#first-run
+
+You need to call lynis using the `./lynis` approach, since its path is not in your $PATH variable. Try following the instructions, which have interesting inconsistencies with what will happen.
+
+In particular you will see:
+
+`WARNING: output may be incomplete or inaccurate, you should run this program as super-user.`
+
+Hit Ctrl-C to abort. What do you need to do? Do it. [See hint #1 below if you are completely stumped, but you should know this by now. It's likely to be on a test.]
+
+Now you are getting a different error, not reflected in the instructions either. The error gives you all that you need to fix it. [See hint #2 below.]
+
+Fixed? Now you should be able to run the first scan as the lynis directions suggest.
+
+=== Hints
+
+Hint #1: Run it as `sudo`
+
+Hint #2: `sudo chown -R root:root ../lynis` - you NEED to understand this -
+`

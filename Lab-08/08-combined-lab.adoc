@@ -186,4 +186,4 @@ http://www.aha.io/
 
 * How to emulate progress over time and execution of tasks
 * be sure to have them run short training video
-* build project plan as code - have them execute - 
+* build project plan as code - have them execute -
