@@ -355,6 +355,9 @@ If you have trouble, do not raise your hand immediately. Instead, first ask the 
 
 WHEN you are done with the lab, log into the chat room and discussion board and assist until all of your classmates are done.
 
+== Discussion
+Google "Why is SSH key authentication better than password authentication?" and discuss top 2-3 hits with your partner. Be prepared to discuss if called on.
+
 == Common errors
 
 * Instructor creating .ssh directory or authorized_keys as root, with incorrect permissions
