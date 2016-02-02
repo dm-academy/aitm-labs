@@ -242,9 +242,9 @@ You should get this, with no password prompt:
 
 image::finalLoginWindows.png[]
 
-You have successfully configured Putty. 
+You have successfully configured Putty.
 
-You will need to launch Pageant every time you log in and give it your private key. I recommend keeping your private key on a USB stick, or other secure location.
+You will need to launch Pageant every time you log in and give it your private key and passphrase. I recommend keeping your private key on a USB stick, or other secure location.
 
 Optional:
 
@@ -263,7 +263,7 @@ If you're not already in it, bring up your Terminal application (under Applicati
 
 It will suggest a name, id_rsa; that is fine.
 
-You can enter a blank passphrase.
+Choose a passphrase - like a password but usually a sentence with spaces. Now:
 
  $ cat id_rsa.pub
 
@@ -271,23 +271,39 @@ You will get output like:
 ```
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDRycwk4jklWQyzmXi/QtM6ky+85O3C5291GDCOuvzn3Q4t83Sv2wkN69aLhLk53Lfw5SU1unOWb0Cj2xi+El8D5oR+Yncovz53uqSFmiDuHKNH3bQBUS4v15n6AkJ9nqvJtJZ0iuFD1zSlP3JqeSk5e2NPCmqSbWKEOijOsGWeVHxbs2z8I5PcD2Yrd9nDwhpg84eRUHamgZvvDS83lb5A0cUK5lQXr6zinAhWsELtCZCfSOYf5gaL3ADI53hSHekDMeJvK0r+em0NLb9dwSJnJJYBJ+Eb8xhj+hSrw3pkSHGhsPYDth99vkDnPdSQNrNoVhwmJxa3T4sbLy2O+WWn xxxxxx@xxx..xxx.local
 ```
-Copy the output to your Clipboard (highlight and Command-C). Log back into the course server with your name and password.
+Copy the output to your Clipboard (highlight and Command-C).
+
+Now log back into the course server with your name and password.
 
  $ ssh <yourStThomasID>@<servername>
- [login]
 
- > cd ~/.ssh
- > vi authorized_keys
+Go:
+ student@server:~$ cd .ssh    # go to .ssh directory
+ student@server:~/.ssh$ nano authorized_keys   # edit your public keys
 
-. Press the i key to go into insert mode. (It should say INSERT at the bottom.)
+You will see:
 
-. Paste your key with a right click of your mouse.
+image::nano.png[]
 
-. Hit the "ESC" or "Escape" key, which should be at the top left of your keyboard. "INSERT" should disappear.
+Carefully place your cursor on the black terminal screen and right click once. This *should* paste your key into the editor. It should look like this:
 
-. Type ":wq!"   (NO QUOTES)
+image::nano2.png[]
 
-. Now, type 'exit'.
+The text you see is just the end of your private key. If you hit return it should show you the beginning:
+
+image::nano3.png[]
+
+Hit Ctrl-O to save (WriteOut):
+
+image::nano4.png[]
+
+Accept the suggested file name by hitting Enter. Then hit Ctrl-X to exit.
+
+You have now configured the server with your public key. You can log into it without using a password, if you have your private key. Let's try that now.
+
+Type
+
+ $ exit    # abandon terminal session
 
 You should now be able to log into the server by going
 
@@ -313,18 +329,25 @@ To use X-windows, log into seis660, enabling X windows for the connection, as de
 
 Open the X windows client, http://sourceforge.net/projects/xming/[XMing] (install if necessary).
 
-If you are using your own PC, you can also install http://wiki.x2go.org/doku.php/doc:installation:x2goclient[X2Go] or MobaXTerm.
-
 *Mac OS* As of February 2015, Macs no longer are bundled with X. In newer machines, the http://xquartz.macosforge.org/landing/[XQuartz application] X windows client needs to be downloaded and installed on your computer.
 
-Log in to the classroom server with the following options if you are on a Mac:
+NOTE: At this iteration of the lab, we have not had time to detail installation instructions screen by screen.
+
+If you are on Putty, log out and log back in, this time checking the X11 forwarding in SSH:
+
+image::puttyX11.png[]
+
+Log out and log back in to the classroom server with the following options if you are on a Mac:
 
     ssh -XC yourID@server.domain
-
 
 *All OS* The quickest test for X-windows is to run the command
 
     xclock
+
+It may take some time, but you should see a clock:
+
+image::xclock.png[]
 
 If it does not work, it may be an issue with X-windows on the client.
 
@@ -335,4 +358,5 @@ WHEN you are done with the lab, log into the chat room and discussion board and 
 == Common errors
 
 * Instructor creating .ssh directory or authorized_keys as root, with incorrect permissions
+* Student copying partial key from PuTTYGen
 * Student failing to load private key into PuTTY every time (either manually or through incorrect use of profiles)
