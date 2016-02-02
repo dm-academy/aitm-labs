@@ -13,8 +13,6 @@ CONTINUOUS IMPROVEMENT FEEDBACK FOR Spring 2016:
 * Test this well
 * Provide an overview of the objectives
 * Explain the basic Unix commands when first used
-
-
-_Retrospective notes after 2015 fall run: this needs complete QA & cleanup before Spring 2016. Strongly recommend not linking to other resources. Need to do our own Putty install & config. Not using vi. _
-
-_There should be some discussion of the difference between password and ssh login and why ssh is preferable._
+* consider not linking to other resources
+* not using vi
+* add discussion of passwd vs ssh
