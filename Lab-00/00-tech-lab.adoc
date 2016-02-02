@@ -57,13 +57,32 @@ We will use Blackboard for the syllabus,
 
 You may also use Cygwin, TeraTerm, Bitvise, or any other SSH client of your choice. You’re on your own for this.
 
+=== Logging in
+
 You will be provided usernames, temporary passwords, and the server name in class. Use your terminal emulator to log into the server, by entering the server address, your name, and password as appropriate to PuTTy, or by simply going:
 
  > ssh <yourStThomasID>@<servername>
 
 on the Mac OS.
 
-Once you have logged in, do not type anything or "move around" in the directory structure. You should be in your home directory in a "clean," newly initialized account. Try:
+=== Changing your password
+Once you have logged in, do not type anything or "move around" in the directory structure. You should be in your home directory in a "clean," newly initialized account.
+
+The first order of business is to change your password. Type:
+
+```
+test3@seis660:~$ passwd
+Changing password for test3.
+(current) UNIX password: <enter the password given in class>
+Enter new UNIX password: <enter a new password of your choice>
+Retype new UNIX password: <enter your new password again>
+passwd: password updated successfully
+```
+Note that where in the above you see "test3," you should see your login ID.
+
+
+=== Setting up ssh on the server
+Try:
 
  $ mkdir .ssh
  $ cd .ssh
