@@ -5,3 +5,16 @@ This lab is a simple, "get them started" lab that nevertheless requires detail o
 The pwOn.bash and pwOff.bash scripts may be useful to quickly turn cleartext challenge/response logins briefly on while students are configuring their ssh keys. NOT RECOMMENDED to leave on for more than a minimum length of time!!!
 
 I don't like relying on external installation resources but time is pressing. May rewrite them as time permits.
+
+
+
+CONTINUOUS IMPROVEMENT FEEDBACK FOR Spring 2016:
+
+* Test this well
+* Provide an overview of the objectives
+* Explain the basic Unix commands when first used
+
+
+_Retrospective notes after 2015 fall run: this needs complete QA & cleanup before Spring 2016. Strongly recommend not linking to other resources. Need to do our own Putty install & config. Not using vi. _
+
+_There should be some discussion of the difference between password and ssh login and why ssh is preferable._
