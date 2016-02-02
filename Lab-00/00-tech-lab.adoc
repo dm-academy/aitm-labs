@@ -6,40 +6,58 @@ CONTINUOUS IMPROVEMENT FEEDBACK FOR Spring 2015:
 * Provide an overview of the objectives
 * Explain the basic Unix commands when first used
 
+
+_Retrospective notes after 2015 fall run: this needs complete QA & cleanup before Spring 2016. Strongly recommend not linking to other resources. Need to do our own Putty install & config. Not using vi. _
+
+_There should be some discussion of the difference between password and ssh login and why ssh is preferable._
+
+
 In this lab, you will set up the tools and access you need for the rest of the semester.
 
 == Objectives for this lab:
-* Locate and use the Blackboard collaboration tools
+* Locate and use the Blackboard and Slack collaboration tools
 * Configure your terminal emulator
-* Securely connect to course server via ssh and x-windows
+* Securely connect to course server via ssh and (possibly) x-windows
 * Collaborate and support each other.
+
+This lab suffers from what is called a https://en.wikipedia.org/wiki/Catch-22_(logic)[Catch-22], a "no win" situation. You can't learn Linux without connecting to the server, and you can't connect to the server without learning a little Linux.
+
+Because of this, you will go through a set of instructions that may not make much sense. You will have plenty of support from your instructor and hopefully your classmates. Do NOT get discouraged. The first thing you will do next week is run a Linux tutorial. We've had good experiences in this class getting everyone up to speed on these basics.
 
 == Prerequisites
 You need access to a Windows (7 or greater), Mac OS X (10.9.5 or greater) or Ubuntu Linux machine on the St. Thomas network. It can be your machine or one of the machines in the classroom.
 
-If you want to use a tablet, you are ON YOUR OWN. (It probably could be done - SSH & X clients exist - but I don't have the bandwidth to support it.)
+If you have your own machine, you should be comfortable installing software on it.
+
+If you want to use a tablet (iPad or Android), you are ON YOUR OWN. (It probably could be done - SSH & X clients exist - but we don't have the bandwidth to support it.)
 
 Same for any other platform.
 
 == Tasks
 
-=== Collaborating on Blackboard
+=== Using Blackboard
+You should be familiar with Blackboard from previous courses. If you are not, please let the instructor know.
 
-* The chat room requires an obsolete Java version, so we're not going to use it.
+We will use Blackboard for the syllabus,
+
+=== Collaborating on Slack
+
 * Slack will be the main communication channel.
-* Navigate to it and confirm you can read messages. Try posting to the "test messages" thread.
+* Navigate to https://seis660.slack.com/[https://seis660.slack.com/].
+** Click "create an account" and remember your password.
+** Confirm you can read messages. Try posting to the https://seis660.slack.com/messages/general/[#general] thread.
+** The channels are not cleared from the previous semester. Have a look, you'll get a feel for the class. SEIS660 alumni may lurk and assist if they feel like it, as long as they are constructive.
 
 === Setting up your terminal emulator
 
 * Classroom machine: PuTTY and PuTTYGen should be installed
-* Windows on your laptop: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html[install PuTTY and PuTTYGen] and make sure you can find the shortcuts. Putting them on your desktop is fine for now.
+* Windows on your laptop: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html[install PuTTY and PuTTYGen] and make sure you can find the shortcuts.
+** Download the latest installer (*putty-0.66-installer.exe* as of Feb 2016) and run it. (Save, then run. You may need to approve some security warnings. Accept all the defaults. No need to open the README.)
 * On your MacOS laptop, go to Applications|Utilities|Terminal and put it in your Dock.
 
-Advanced Windows (ON YOUR OWN): install Cygwin for SSH from command line. This allows use of command line SSH from the Windows prompt, and standard OpenSSH tools.
+You may also use Cygwin, TeraTerm, Bitvise, or any other SSH client of your choice. You’re on your own for this.
 
-You may also use TeraTerm, Bitvise, or any other SSH client of your choice. You’re on your own for this.
-
-You will be provided usernames, temporary passwords, and the server name. Use your terminal emulator to log into the server, by entering the server address, your name, and password as appropriate to PuTTy, or by simply going:
+You will be provided usernames, temporary passwords, and the server name in class. Use your terminal emulator to log into the server, by entering the server address, your name, and password as appropriate to PuTTy, or by simply going:
 
  > ssh <yourStThomasID>@<servername>
 
