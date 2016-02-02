@@ -323,7 +323,7 @@ We will spend some time as a class determining whether and how X-windows is work
 
 NOTE: As of Fall 2015, there is new X-windows software in the lab. We will all be getting familiar with it.
 
-To use X-windows, log into seis660, enabling X windows for the connection, as described in the following.
+To use X-windows, log into the course server, enabling X windows for the connection, as described in the following.
 
 *Windows* If you are on a windows machine using Putty you will have a checkbox (that may have defaulted to checked) to enable X. If someone figures out the compression options, please suggest.
 
