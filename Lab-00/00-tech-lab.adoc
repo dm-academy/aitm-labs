@@ -192,7 +192,7 @@ image::puttyGen6.png[]
 
 Now return to your terminal session. Go:
 
-student@server:~/.ssh$ nano authorized_keys   # edit your public keys
+ student@server:~/.ssh$ nano authorized_keys   # edit your public keys
 
 You will see:
 
