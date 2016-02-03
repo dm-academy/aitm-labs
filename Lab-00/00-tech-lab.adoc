@@ -278,10 +278,13 @@ Now log back into the course server with your name and password.
  $ ssh <yourStThomasID>@<servername>
 
 Go:
+```
  student@server:~$ cd .ssh    # go to .ssh directory
  student@server:~/.ssh$ nano authorized_keys   # edit your public keys
-
+```
 You will see:
+
+_screenshot placehoders, replace w/Mac screenshots_
 
 image::nano.png[]
 
