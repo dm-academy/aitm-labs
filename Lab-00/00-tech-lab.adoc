@@ -123,6 +123,8 @@ On the Mac, launch your Terminal and type:
 
 on the Mac OS.
 
+You should see a result similar to the screen above, with slightly different Mac graphics.
+
 === Changing your password
 Once you have logged in, do not type anything or "move around" in the directory structure. You should be in your home directory in a "clean," newly initialized account.
 
@@ -282,9 +284,10 @@ Go:
  student@server:~$ cd .ssh    # go to .ssh directory
  student@server:~/.ssh$ nano authorized_keys   # edit your public keys
 ```
-You will see:
 
-_screenshot placehoders, replace w/Mac screenshots_
+NOTE: The following screenshots are from the Windows client but the Mac terminal should look substantively the same.
+
+You will see:
 
 image::nano.png[]
 
