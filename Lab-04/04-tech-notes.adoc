@@ -34,6 +34,10 @@ In order to do this with Vagrant (and this is the major compromise) it is necess
 
 There is risk here; students would have the permissions to modify and destroy Calavera servers running under public, but we just have to manage this. Fortunately, any server can be easily rebuilt.
 
+
+
+= Thinking about one pipeline, multiple products
+(ultimately this was not the chosen route)
 In order to do this, some brute force configuration is required including the creation of multiple dev directories and Tomcat URL mappings.
 
 "Hijo" will remain the default primary product. For Lab 04 (as being implemented for 4 teams) we will add:
