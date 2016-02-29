@@ -2,11 +2,27 @@
 
 This lab relies on the new templated Vagrant file. You need to:
 
-* Clone Calavera
-* Run ./template.sh, passing an argument 1-4 to it
+* Create four users, public1-4, with directories /home/publicx
+* su to each in turn
+* Clone Calavera to ~
+* Run ./template.sh, passing an argument 1-4 to it corresponding to the current user
 * vagrant up the corresponding machines, now named cerebro1-4, brazos1-4, etc.
+* copy the Calavera/shared/keys directory from some other working instance or run startup.sh. (error - they won't have rights to copy vm to /var/vagrant/boxes)
 
 A 48 gb server can run 4 pipelines of 6 machines each.
+
+Each of the 4 users may need to re-install berkshelf:
+
+$ vagrant plugin install vagrant-berkshelf
+
+The order of machines is:
+
+vagrant up cerebro
+vagrant up brazos
+vagrant up espina
+vagrant up hombros
+vagrant up manos
+vagrant up cara
 
 == Previous notes
 
@@ -34,11 +50,9 @@ In order to do this with Vagrant (and this is the major compromise) it is necess
 
 There is risk here; students would have the permissions to modify and destroy Calavera servers running under public, but we just have to manage this. Fortunately, any server can be easily rebuilt.
 
-
-
 = Thinking about one pipeline, multiple products
 (ultimately this was not the chosen route)
-In order to do this, some brute force configuration is required including the creation of multiple dev directories and Tomcat URL mappings.
+In order to do this, some brute force configuration is required including the creation of multiple dev directories and Tomcat URL mappings. (Alternative: four production servers. Four build servers, configured on the fly.)
 
 "Hijo" will remain the default primary product. For Lab 04 (as being implemented for 4 teams) we will add:
 

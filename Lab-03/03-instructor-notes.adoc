@@ -1,5 +1,20 @@
 = Lab 03 instructor notes
 
+You will likely need to re-run startup.sh to regenerate a new machine with an updated apt-get update
+
+(yes, could do this more efficiently by just forcing it for the machine every time - )
+
+Be sure to delete
+
+$ rm -rf .vagrant.d
+
+and then reinstall
+
+$ vagrant plugin install vagrant-berkshelf
+
+Why?
+
+
 Delivery notes 10/2/2015. Many students were able to complete this lab in an hour or so. Recommend extending it with the full pipeline as originally intended, and then doing behavior-driven development fully in Lab 04. Will require further work.
 
 continuous improvement: consider drawing a picture showing how internal ports & curl within the vagrant VM relate to external mappings & curl.
