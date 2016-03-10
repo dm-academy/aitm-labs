@@ -184,7 +184,7 @@ Click on the Configure link:
 
 image::hijoCfg2.png[]
 
-There are a lot of settings of the next page. The upper section is basic info for the project:
+There are a lot of settings on the next page. The upper section is basic info for the project:
 
 image::basicInfo.png[]
 
