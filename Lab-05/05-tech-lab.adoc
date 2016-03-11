@@ -68,6 +68,9 @@ We have been doing the centralized git workflow. For this lab you are to work wi
 NOTE: We do not have a capability for automated git pull requests within Calavera. (We do not use Github *within* Calavera. We just use plain git.)
 Therefore, your pull requests will have to be handled manually in your Kanban workflow. More below.
 
+The following picture, similar to the Atlassian tutorials, may be of help. (First draft as of 2016-03-11.)
+
+image::workflow.png[]
 === Identify a new feature
 Your product feature idea can be extremely simple. Some good starter examples would be:
 
