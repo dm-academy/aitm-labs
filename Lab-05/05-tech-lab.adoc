@@ -503,7 +503,7 @@ As you move forward with more features, consider that you have all the skills no
 == Automated Kanban
 Once you have developed at least 5 features with your manual Kanban board, switch to an online SaaS tool. (Consider the section in the AITM textbook, http://dm-academy.github.io/aitm/#_the_shared_mental_model_of_the_work_to_be_done"[Time and Space Shifting."])
 
-For the Fall 2015 lab, Teams 1 and 2 will use https://trello.com/[Trello].
+Teams 1 and 2 will use https://trello.com/[Trello].
 Teams 3 and 4 will use https://tree.taiga.io[Taiga].
 
 The Cloud-based SaaS sites have extensive instructions and do their best to make it easy. Therefore, this lab does not provide step by step instructions. For both Taiga and Trello, your team lead should sign up first and create the team, and then invite the other members. I have tested that this works for both systems.
