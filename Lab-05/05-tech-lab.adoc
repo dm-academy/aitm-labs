@@ -245,7 +245,7 @@ vagrant@manos5:/home/hijo$
 
 Now, here is a tricky question.
 
-Look at your Jenkins console. Why didn't the build run? Investigate the hijoInit configuration. Don't move on until you see why.
+Look at your Jenkins console. Why didn't the build run? Investigate the hijoInit configuration. Don't move on until you see why. Do NOT "fix" this.
 
 Developer, your Kanban task is now ready for QA - it meets the definition of done. Do not pull anything more into your queue until this task has been pulled ahead. Instead, go help folks downstream clear their lane.
 
