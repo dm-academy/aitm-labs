@@ -1,5 +1,7 @@
 = Lab 05 technical notes
 
+_Continuous improvement from fall 2015: this lab would really benefit from a visual workflow of the branching/merging and more detailed explanation of the git pull request aspects from dev to QA. The "git pull" is not as clear as on github, due to the simplified, standalone infrastructure._
+
 == Test driven tomcat
 Experienced people will note that the MainServlet java class is not being tested. This is possible, but gets complex - see http://stackoverflow.com/questions/12945907/how-to-mock-the-httpservletrequest and related links.
 
