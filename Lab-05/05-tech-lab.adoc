@@ -71,10 +71,13 @@ Therefore, your pull requests will have to be handled manually in your Kanban wo
 The following picture, similar to the Atlassian tutorials, may be of help. (First draft as of 2016-03-11.)
 
 image::workflow.png[]
-=== Identify a new feature
-Your product feature idea can be extremely simple. Some good starter examples would be:
 
-* Add two numbers together
+=== Identify a new feature
+Your product feature idea should be extremely simple. It is more important to move several simple features through the pipeline end to end, than to spend all your time building something complicated.
+
+Some good starter examples would be:
+
+* Add two numbers together (we will start with this)
 * Display the team name
 * Display a given irrational number to 10 places
 
@@ -94,6 +97,7 @@ As BA, you should formalize the story more:
 Business analyst, once it is written in this form, your Kanban task is now ready for QA - it meets the definition of done. Do not pull anything more into your queue until this task has been pulled ahead. Instead, go help folks clear their lane.
 
 === Develop the new feature
+NOTE: The lab provides a detailed walkthrough of adding two numbers together. If your team consists of advanced Java developers, feel free to build your own story from the start. Otherwise, you should do this example first before moving on to other features of your own creation.
 
 Developer, pull the story from the BA into your queue.
 
