@@ -141,21 +141,25 @@ When the browser window appears, type in the URL: http://nerviosxx/nagios
 
 NOTE: Note that you need to change "xx" appropriately, as above.
 
+Congratulations, you have the nerviosxx server running Nagios.
+
 Continuing in the http://www.unixmen.com/install-configure-nagios-4-ubuntu-14-1014-04/[instructions] you will then get to a section that says:
 
 *Add Monitoring targets to Nagios server*
 
-Exit nervios xx and log into caraxx.
+Exit nervios xx and log into caraxx (as your "production" server, would be the first you would monitor.)
 
  exit
  vagrant ssh caraxx
 
-Continuing with the online directions, you will then make a final configuration file change by ssh'ing back into nervios (look for point in instructions that says *go back to your Nagios server*) and restart nagios.
+Follow the instructions to install the nagios-nrpe-server and nagios-plugins.
+
+IMPORTANT: You are using Debian/Ubuntu, NOT CentOS/RHEL/Scientific Linux! The "yum"  command is INCORRECT.
 
 ****
 *Host IPs*
 
-You will need these.
+You may need these.
 ....
 10.xx.0.10   cerebroxx
 10.xx.0.11   brazosxx
@@ -165,8 +169,14 @@ You will need these.
 10.xx.0.15   caraxx
 10.xx.0.16   nerviosxx
 ....
-Again, do not use a leading '0'.
+Again, do not use a leading '0' when you swap out the "x".
 ****
+
+Continue on caraxx with the online http://www.unixmen.com/install-configure-nagios-4-ubuntu-14-1014-04/[instructions], in the section "*Configure Monitoring Targets*." There is a small choice you can make, whether to put in the ip address of nerviosxx, or the actual hostname nerviosxx. Reading the notes in the configuration file, what do you think you should do? Will putting in the nerviosxx host name work? How can you find out?
+
+At the point in instructions that says *go back to your Nagios server* you will exit cara1, and ssh back into nerviosxx and make a configuration change, and finally restart nagios.
+
+NOTE: I am giving you what not how at this point, follow the instructions carefully and be careful of the address you use. If you give something a default host name of "client," that is what you will see in the console. Notice that host_name is not the same as address in the Nagios configuration.
 
 I chose the Unixmen tutorial because it was a little more user friendly. The nagios quickstart is https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/quickstart-ubuntu.html[here] and you should familiarize yourself with its documentation.
 
