@@ -43,6 +43,8 @@ Start with this sequence as a baseline. Understand you may adapt it; please be p
 * QA person commits it to master
 * Tools person moves it to production (via cara reprovision)
 
+NOTE: There is no clear industry consensus around the relative roles of "feature" vs "story." The Atlassian case study uses the term "feature" at a fine grained level. Other interpretations might say that a feature *contains* stories. This particular lab is consistent with the Atlassian approach. 
+
 You are to do this multiple times. Add 3-5 additional features (each at least some words and an object result - see example below) to the generated web page, considering each one as a feature.
 
 Do  2-3 features manually and 2-3 features with an automated kanban tool.
