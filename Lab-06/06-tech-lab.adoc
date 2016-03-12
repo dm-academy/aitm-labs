@@ -84,7 +84,7 @@ At this point, you should have the command line skills to install and configure 
 
 If you can't `cd /home/nerviosxx/cookbooks/nervios/files/`, something is wrong. What?
 
-You should examine this script carefully and compare it to the online directions. This script is not a "lights-out" script; you will need to select various options.
+You should examine this script carefully and compare it to the online directions. This script is not a "lights-out" script; you will need to watch the console and select various options per the instructions.
 
 I used this script and successfully set up Nagios on October 11-13, wiped that instance, and tested it again from scratch on October 16-17. _I offer no guarantees that it will work for you._
 
@@ -124,7 +124,7 @@ Starting nagios: done.
 
 == Configure monitoring
 
-At this point, you have either run the script or done the installation manually. You are at the point of the instructions that say:
+At this point, you have either run the script or done the installation manually. You are at the point of the http://www.unixmen.com/install-configure-nagios-4-ubuntu-14-1014-04/[instructions] that say:
 
 *Access Nagios Web Interface*
 
@@ -134,14 +134,14 @@ You can log in and see your nagios instance by opening a new ssh session into se
 
     firefox -X -no-remote
 
-When the browser window appears, type in the URL: http://10.xx.0.16/nagios
+When the browser window appears, type in the URL: http://nerviosxx/nagios
 
   Login: nagiosadmin
-  Password: public  [20151115 - was blank?]
+  Password: public
 
 NOTE: Note that you need to change "xx" appropriately, as above.
 
-You will then get to a section that says:
+Continuing in the http://www.unixmen.com/install-configure-nagios-4-ubuntu-14-1014-04/[instructions] you will then get to a section that says:
 
 *Add Monitoring targets to Nagios server*
 
@@ -151,8 +151,6 @@ Exit nervios xx and log into caraxx.
  vagrant ssh caraxx
 
 Continuing with the online directions, you will then make a final configuration file change by ssh'ing back into nervios (look for point in instructions that says *go back to your Nagios server*) and restart nagios.
-
-NOTE: Technically, with this version of the lab, you do not need to install the agent on cara or any other server. I am leaving this in, however, as future versions of the lab *will* include agent-based monitoring.
 
 ****
 *Host IPs*

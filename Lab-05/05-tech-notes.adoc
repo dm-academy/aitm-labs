@@ -1,6 +1,5 @@
 = Lab 05 technical notes
 
-_Continuous improvement from fall 2015: this lab would really benefit from a visual workflow of the branching/merging and more detailed explanation of the git pull request aspects from dev to QA. The "git pull" is not as clear as on github, due to the simplified, standalone infrastructure._
 
 == Test driven tomcat
 Experienced people will note that the MainServlet java class is not being tested. This is possible, but gets complex - see http://stackoverflow.com/questions/12945907/how-to-mock-the-httpservletrequest and related links.
@@ -11,3 +10,17 @@ consider setting up class taiga http://taigaio.github.io/taiga-doc/dist/setup-al
 Kanbanery was ruled out because the free version only allows 2 team members
 
 Asana was considered but it's not a board
+
+== Spring 2016 notes
+Need to clarify product enhancement direction. Attempts were made to do things too complex for the class.
+
+Draw an architecture diagram of the solution - it's the simplest thing that could possibly work and yet it is complex(!)
+
+Update MainServlet.java to make it clear where stuff goes
+
+- Keep it simple
+- Do the selected enhancement first
+- Re-build often, after every line of code that you think should work.
+- Enhancements need to remain in the designated place in MainServlet.java
+- Once you are comfortable with that, then you can try modifying Class1.
+- If you have done that successfully, then try adding a new Class and TestClass.
