@@ -446,6 +446,8 @@ Re-build the application (you can run `sudo ant`). Note that when you do so, you
 
 image::QA-display.png[]
 
+IMPORTANT: It is possible now for your deployed solutions to collide. The tester may push to Tomcat and delete the compiled files the developer is working on for the next feature. This is a limitation of the lab, but also a learning opportunity for you to coordinate. Because the source is not impacted, you will not actually lose work. (Commit to git often...) It's just that whoever does "sudo ant" most recently will see their solution on the application server. 
+
 When you are satisfied, you can push to master:
 
 ....
