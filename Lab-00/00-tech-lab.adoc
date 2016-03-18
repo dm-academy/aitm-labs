@@ -26,7 +26,7 @@ Same for any other platform.
 === Using Blackboard
 You should be familiar with Blackboard from previous courses. If you are not, please let the instructor know.
 
-We will use Blackboard for the syllabus,
+Go to Blackboard and find this lab. (instructor displays this on screen.)
 
 === Collaborating on Slack
 
@@ -119,7 +119,7 @@ image::login.png[]
 
 On the Mac, launch your Terminal and type:
 
- > ssh <yourStThomasID>@<servername>
+> ssh <yourStThomasID>@<servername>
 
 on the Mac OS.
 
@@ -194,7 +194,7 @@ image::puttyGen6.png[]
 
 Now return to your terminal session. Go:
 
- student@server:~/.ssh$ nano authorized_keys   # edit your public keys
+$ nano authorized_keys   # edit your public keys
 
 You will see:
 
@@ -247,6 +247,10 @@ image::finalLoginWindows.png[]
 You have successfully configured Putty.
 
 You will need to launch Pageant every time you log in and give it your private key and passphrase. I recommend keeping your private key on a USB stick, or other secure location.
+
+If you want to log into the server from home, you must have your private key on your home computer.
+
+You can email your key to yourself if you must. (Not the best security practice.)
 
 Optional:
 
@@ -333,7 +337,7 @@ To use X-windows, log into the course server, enabling X windows for the connect
 
 *Windows* If you are on a windows machine using Putty you will have a checkbox (that may have defaulted to checked) to enable X. If someone figures out the compression options, please suggest.
 
-Open the X windows client, http://sourceforge.net/projects/xming/[XMing] (install if necessary).
+Open the X windows client, http://sourceforge.net/projects/xming/[XMing] (install if necessary). (Start Menu|XMing|Xming)
 
 *Mac OS* As of February 2015, Macs no longer are bundled with X. In newer machines, the http://xquartz.macosforge.org/landing/[XQuartz application] X windows client needs to be downloaded and installed on your computer.
 
@@ -369,3 +373,6 @@ Google "Why is SSH key authentication better than password authentication?" and 
 * Instructor creating .ssh directory or authorized_keys as root, with incorrect permissions
 * Student copying partial key from PuTTYGen
 * Student failing to load private key into PuTTY every time (either manually or through incorrect use of profiles)
+* Failure to actually launch XMing client
+* sies660 vs seis660
+* typing in unnecessary prompt characters the lab instructions say to omit ($, >, etc)
