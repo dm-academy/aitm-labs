@@ -271,7 +271,7 @@ Post a screen shot to https://seis660.slack.com/messages/lab-06/[Slack] showing 
 ****
 *HINT*
 
-It is always good to dig around in the lab folder and see what else may be there to assist you. But if you didn't read the lab entirely at first per the instructions, you might have done more work than you needed.
+It is always good to dig around in the lab folder on Github and see what else may be there to assist you. But if you didn't read the lab entirely at first per the instructions, you might have done more work than you needed.
 ****
 
 == Extra credit: monitor capacity
