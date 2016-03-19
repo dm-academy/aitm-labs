@@ -88,7 +88,7 @@ If you can't `cd /home/nerviosxx/cookbooks/nervios/files/`, something is wrong. 
 
 You should examine this script carefully and compare it to the online directions. This script is not a "lights-out" script; you will need to watch the console and select various options per the instructions.
 
-I used this script and successfully set up Nagios on October 11-13, wiped that instance, and tested it again from scratch on October 16-17. _I offer no guarantees that it will work for you._
+I have tested this script repeatedly across 2 semesters. _I offer no guarantees that it will work for you._
 
 In particular you will need to select some passwords, which can be simple ones,  or even blank. *MAKE NOTE OF ALL YOUR PASSWORDS*. We will be tearing these pipelines down and they are only available from inside the main course server, which is externally secured.
 
