@@ -6,6 +6,6 @@ it's tightly coupled in a few places to the Blackboard courseware system.
 
 The labs proper are named "##-lab-name.adoc"
 
-The "README.adoc" file has notes on approach, re-use potential, etc.
+Some labs have tech notes on approach, re-use potential, etc.
 
 There are both "tech" and "business" labs. Tech labs are, well, technical. "Business" labs require no computing, they are discussion or paper-based.
