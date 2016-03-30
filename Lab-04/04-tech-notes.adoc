@@ -1,5 +1,8 @@
 = Lab 04 technical notes
+== Spring 2016 notes
+Was not able to start a public5 pipeline due to Tomcat recipe being upgraded and a fresh Berkshelf cache for public5. Public1-4 have cached v0.17 which defaults to Tomcat 6, but new Berks gives 0.2 which defaults to NO tomcat - you have to specify. 
 
+== Overview
 This lab relies on the new templated Vagrant file. You need to:
 
 * Create four users, public1-4, with directories /home/publicx

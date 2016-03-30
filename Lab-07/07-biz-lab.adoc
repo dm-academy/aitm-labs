@@ -1,12 +1,78 @@
 = Lab 07 IT Organization
 
+== Introduction
+Credit where due: this lab draws much inspiration from the Lego Scrum game. However, using it to illustrate matrix management is new.
+
 IMPORTANT: These instructions are for the instructor conducting the lab. Lab participants should NOT read them before the lab, in the interest of the learning experience.
 
-In this lab, which is not a technical lab, you will experiment as a class with various organizational forms.
+In this lab, which is not a technical lab, the class experiments with various organizational forms.
 
 The purpose of this lab is to understand through practical experience concepts including:
 
-There will be 4 teams:
+* Product teams
+* Functional specialization
+* Matrix management
+* Organizational culture
+* Styles of work
+* Self-organization
+* Collaboration and coordination
+
+Framing: Instructor is product manager, and the "product" is a city.
+
+== Initial backlog
+* Infrastructure
+** Streets
+** Bus stops
+** Intersection(s) (can be drawn)
+** Park (can be drawn)
+** River (can be drawn)
+** Bridge
+* 1 & 2 Stories
+** 20 - single family homes, one per sticky note
+** 10 - apartment buildings
+** 5 - shops (2 stories, usually on corner or on main drag)
+* Civil & Commercial
+** 2 - factories
+** Police station
+** Gas station
+** School
+** Hospital
+** Childcare (with fence and playground)
+* Vehicles
+** 3 trucks
+** 3 buses
+** 5 cars
+** Rail
+
+== Business rules
+
+All buildings front onto a street.
+
+There should be zones:
+
+* Residential
+* Commercial
+* Industrial
+
+Factories should have truck access and plan for rail access
+
+== Starting
+
+The lab starts by dividing into 4 functional teams:
+
+Functional team 1: Project planning & management
+Functional team 2: Sourcing (finding parts)
+Functional team 3: Assembly
+Functional team 4: Integration
+
+The project managers divide up the backlog (by the major bullets) and start by walking their work through the other 3 functional teams.
+
+At this stage, roles are strictly enforced.
+
+* Only sourcing people can take parts out of the parts bin
+* Only assembly people can put them together
+* Only integration people can move things over to the board
+* Integration people also are responsible for any drawn infrastructure
 
 Product team 1	1 & 2 story buildings
 Product team 2	Commercial & civil buildings
@@ -15,7 +81,9 @@ Product team 4	Vehicles
 
 Stay in your groupings from previous. No need to re-form.
 
-Team #
-Specialty
+Within each team identify:
 
-Online-stopwatch.com up front
+* Product owners (1 only)
+* Developers (up to 2)
+* QA staff (up to 2)
+* Operations staff (up to 2)
