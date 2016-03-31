@@ -14,7 +14,7 @@ Credit where due: this lab draws much inspiration from the work of Alexey Krivit
 
 IMPORTANT: These instructions are for the instructor conducting the lab. Lab participants should NOT read them before the lab, in the interest of the learning experience.
 
-In this lab, which is not a technical lab, the class experiments with various organizational forms.
+In this lab, which is not a technical lab, the class experiments with various http://dm-academy.github.io/aitm/#_the_continuum_of_organizational_forms[organizational forms].
 
 The purpose of this lab is to understand through practical experience concepts including:
 
