@@ -19,6 +19,15 @@ The purpose of this lab is to understand through practical experience concepts i
 
 Framing: Instructor is product manager, and the "product" is a city.
 
+== Supplies
+* Large quantity of Legos, K'Nex, etc
+* Large post-it sheets
+* Small post-it notes
+* Duct tape
+* String/wire
+* Name badges
+* Markers
+
 == Initial backlog
 * Infrastructure
 ** Streets
@@ -74,10 +83,18 @@ At this stage, roles are strictly enforced.
 * Only integration people can move things over to the board
 * Integration people also are responsible for any drawn infrastructure
 
+* workcells w/expeditor
+* project "team" convened but still workcells sitting w/each other
+* project team convenes > 60%
+* project team isolated
+* project team w/guilds
+
 Product team 1	1 & 2 story buildings
 Product team 2	Commercial & civil buildings
 Product team 3	Infrastructure
 Product team 4	Vehicles
+
+
 
 Stay in your groupings from previous. No need to re-form.
 
