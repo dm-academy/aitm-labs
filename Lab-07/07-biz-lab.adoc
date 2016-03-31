@@ -1,7 +1,16 @@
 = Lab 07 IT Organization
 
+== Supplies
+* Large quantity of Legos, K'Nex, etc
+* Large post-it sheets
+* Small post-it notes
+* Duct tape
+* String/twine
+* Name badges
+* Markers
+
 == Introduction
-Credit where due: this lab draws much inspiration from the Lego Scrum game. However, using it to illustrate matrix management is new.
+Credit where due: this lab draws much inspiration from the work of Alexey Krivitsky with his http://www.lego4scrum.com/[Lego Scrum game]. However, the purpose of this game is not to teach Scrum, but rather illustrate various forms of matrix management.
 
 IMPORTANT: These instructions are for the instructor conducting the lab. Lab participants should NOT read them before the lab, in the interest of the learning experience.
 
@@ -19,17 +28,19 @@ The purpose of this lab is to understand through practical experience concepts i
 
 Framing: Instructor is product manager, and the "product" is a city.
 
-== Supplies
-* Large quantity of Legos, K'Nex, etc
-* Large post-it sheets
-* Small post-it notes
-* Duct tape
-* String/wire
-* Name badges
-* Markers
+There are four phases with 3 sprints each:
+
+* Pure silos, with project management as expeditor
+* Virtual project teams
+* Pure product teams
+* Product teams with guilds
+
+Here is an illustration of a city in progress:
+
+image::sampleCity.jpg[]
 
 == Initial backlog
-* Infrastructure
+* Infrastructure (illustrated on two large Post-it sheets on a central table)
 ** Streets
 ** Bus stops
 ** Intersection(s) (can be drawn)
@@ -41,11 +52,11 @@ Framing: Instructor is product manager, and the "product" is a city.
 ** 10 - apartment buildings
 ** 5 - shops (2 stories, usually on corner or on main drag)
 * Civil & Commercial
+** Utility plant (represents electric/water/telco, one line from it to each structure)
 ** 2 - factories
 ** Police station
 ** Gas station
 ** School
-** Hospital
 ** Childcare (with fence and playground)
 * Vehicles
 ** 3 trucks
@@ -55,17 +66,23 @@ Framing: Instructor is product manager, and the "product" is a city.
 
 == Business rules
 
-All buildings front onto a street.
+* There should be zones:
 
-There should be zones:
+** Residential
+** Commercial
+** Industrial
 
-* Residential
-* Commercial
-* Industrial
+* All buildings front onto a street.
 
-Factories should have truck access and plan for rail access
+* The utility plant should be built in the first iteration.
+
+* Factories should have truck access and plan for rail access.
+
+* All buildings need a utility line, which can either be string or drawn with marker.
 
 == Starting
+
+Thought experiment: Your startup was absorbed by a company that believes in functional silos.
 
 The lab starts by dividing into 4 functional teams:
 
@@ -74,7 +91,7 @@ Functional team 2: Sourcing (finding parts)
 Functional team 3: Assembly
 Functional team 4: Integration
 
-The project managers divide up the backlog (by the major bullets) and start by walking their work through the other 3 functional teams.
+The project managers divide up the backlog (by the major bullets) and start by walking their work through the other 3 functional teams. Each PM should create a kanban sheet, very simple.
 
 At this stage, roles are strictly enforced.
 
@@ -82,25 +99,77 @@ At this stage, roles are strictly enforced.
 * Only assembly people can put them together
 * Only integration people can move things over to the board
 * Integration people also are responsible for any drawn infrastructure
+* Only the PM can move the sticky note
 
-* workcells w/expeditor
-* project "team" convened but still workcells sitting w/each other
-* project team convenes > 60%
-* project team isolated
-* project team w/guilds
+Selection of work is indicated by moving selected backlog into the "doing" column. This is considered to be estimation. Sticky notes moved into the "doing" column must be completed by the sprint end.
 
-Product team 1	1 & 2 story buildings
-Product team 2	Commercial & civil buildings
-Product team 3	Infrastructure
-Product team 4	Vehicles
+== Phase 1: Workcells w/expeditor
 
+In this model, the team is more or less anonymous to the project manager and operates on a "first come, first served" basis.
 
+The project manager decides what is feasible to build.
 
-Stay in your groupings from previous. No need to re-form.
+The project manager goes to the sourcing team and requests a specific # of parts and moves them to the assembly team, and then to the integration team. The project manager must not touch the parts bin and can only take the parts s/he can carry in 2 hands. However, s/he can make multiple trips.
 
+Only the project manager can communicate between the workcells. Workcell operators cannot communicate with each other.
+
+3 x 10 minute sprints
+
+== Phase 2: Virtual project team
+
+In this model, people on each team are aligned to specific projects and can communicate with each other outside of the project manager. However, they still sit together in functional groups.
+
+Project manager leads the planning, with input from the team (the team gathers temporarily around the kanban sheet)
+
+3 x 10 minute sprints
+
+== Break: Matrix exercise
+Line up the attendees in columns corresponding to functional teams, with the project managers on one side.
+
+Each row becomes a feature team. (Some doubling up will be required.)
+
+Feature team 1	1 & 2 story buildings
+Feature team 2	Commercial & civil buildings
+Feature team 3	Infrastructure
+Feature team 4	Vehicles
+
+Have people look up and down to see the silo, and back and forth to see the feature.
+
+== Phase 3: Isolated product team
+
+Each product team takes 10 minutes to reform.
 Within each team identify:
 
 * Product owners (1 only)
 * Developers (up to 2)
 * QA staff (up to 2)
 * Operations staff (up to 2)
+
+Project managers need to be something other than feature managers, just to mix things up.
+
+In this iteration, anyone can move the sticky notes. Anyone can pull from the bin.
+
+Complication emerges: an operational concern that no red bricks be used. All structures must be retrofit. No new red bricks can be used.
+
+3 x 10 minute sprints.
+
+== Phase 4: Product team with guilds
+The old functional teams become guilds. Business rules are promoted by guild.
+
+Each team convenes and selects the work to perform. Then the guild briefly meets for the new rules.
+
+Sprint 1 guild rules:
+
+Feature owners: Need to coordinate work with other feature owners
+Sourcing: New rules on sourcing - no red OR black
+Assembly: New rule: yellow and blue cannot be used in the same wall (no retrofits needed)
+Integration: Wires can only be attached to blue parts
+
+Sprint 2 & 3 guild rules:
+
+Each guild establishes one more guideline and adheres to it.
+
+== Exercise leader "plays"
+
+* Replace half the vehicles with rail at some point
+* Require that messy utility lines be refactored and consolidated into cleaner routings (if they used twine)
