@@ -6,7 +6,7 @@
 * Small post-it notes
 * Duct tape
 * String/twine
-* Name badges
+* Name badges (? still thinking about this)
 * Markers
 
 == Introduction
@@ -40,7 +40,7 @@ Here is an illustration of a city in progress:
 image::sampleCity.jpg[]
 
 == Initial backlog
-* Infrastructure (illustrated on two large Post-it sheets on a central table)
+* Infrastructure (illustrated on 2-3 large Post-it sheets on a central table)
 ** Streets
 ** Bus stops
 ** Intersection(s) (can be drawn)
@@ -86,10 +86,13 @@ Thought experiment: Your startup was absorbed by a company that believes in func
 
 The lab starts by dividing into 4 functional teams:
 
-Functional team 1: Project planning & management
-Functional team 2: Sourcing (finding parts)
-Functional team 3: Assembly
-Functional team 4: Integration
+. Project planning & management
+. Sourcing (finding parts)
+. Assembly
+. Integration
+
+== Phase 1: Workcells w/expeditor
+Learning objective: Transactional costs of silo approaches.
 
 The project managers divide up the backlog (by the major bullets) and start by walking their work through the other 3 functional teams. Each PM should create a kanban sheet, very simple.
 
@@ -103,8 +106,6 @@ At this stage, roles are strictly enforced.
 
 Selection of work is indicated by moving selected backlog into the "doing" column. This is considered to be estimation. Sticky notes moved into the "doing" column must be completed by the sprint end.
 
-== Phase 1: Workcells w/expeditor
-
 In this model, the team is more or less anonymous to the project manager and operates on a "first come, first served" basis.
 
 The project manager decides what is feasible to build.
@@ -116,6 +117,7 @@ Only the project manager can communicate between the workcells. Workcell operato
 3 x 10 minute sprints
 
 == Phase 2: Virtual project team
+Learning objective: Breaking down the silo boundaries. But people still orient around who they are sitting with.
 
 In this model, people on each team are aligned to specific projects and can communicate with each other outside of the project manager. However, they still sit together in functional groups.
 
@@ -136,34 +138,34 @@ Feature team 4	Vehicles
 Have people look up and down to see the silo, and back and forth to see the feature.
 
 == Phase 3: Isolated product team
+Learning objective: Product teams can collaborate in a different way.
 
-Each product team takes 10 minutes to reform.
-Within each team identify:
+Each product team takes 10 minutes to reform. Remind them that within their team, they still need clear roles. Within each team identify:
 
 * Product owners (1 only)
-* Developers (up to 2)
-* QA staff (up to 2)
-* Operations staff (up to 2)
+* Sourcers
+* Assemblers
+* Integrators
 
 Project managers need to be something other than feature managers, just to mix things up.
 
-In this iteration, anyone can move the sticky notes. Anyone can pull from the bin.
-
-Complication emerges: an operational concern that no red bricks be used. All structures must be retrofit. No new red bricks can be used.
+The roles are suggestions but not enforced.
 
 3 x 10 minute sprints.
 
+In sprint 2: Complication emerges: an operational concern that no red bricks be used. All structures must be retrofit. No new red bricks can be used.
+
 == Phase 4: Product team with guilds
-The old functional teams become guilds. Business rules are promoted by guild.
+The roles meet across teams as guilds. Business rules are promoted by guild.
 
 Each team convenes and selects the work to perform. Then the guild briefly meets for the new rules.
 
 Sprint 1 guild rules:
 
-Feature owners: Need to coordinate work with other feature owners
-Sourcing: New rules on sourcing - no red OR black
-Assembly: New rule: yellow and blue cannot be used in the same wall (no retrofits needed)
-Integration: Wires can only be attached to blue parts
+* Feature owners: Need to coordinate work with other feature owners
+* Sourcing: New rules on sourcing - no red OR black
+* Assembly: New rule: yellow and blue cannot be used in the same wall (no retrofits needed)
+* Integration: Wires can only be attached to blue parts
 
 Sprint 2 & 3 guild rules:
 
