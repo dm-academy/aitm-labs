@@ -4,7 +4,8 @@
 * Large quantity of Legos, K'Nex, etc
 * Large post-it sheets
 * Small post-it notes
-* Duct tape
+* Tape (clear postal packing)
+* Scissors
 * String/twine
 * Name badges (? still thinking about this)
 * Markers
@@ -173,5 +174,8 @@ Each guild establishes one more guideline and adheres to it.
 
 == Exercise leader "plays"
 
+Use these as appropriate to mix things up, add pressure.
+
 * Replace half the vehicles with rail at some point
-* Require that messy utility lines be refactored and consolidated into cleaner routings (if they used twine)
+* Require that messy utility lines be refactored and consolidated into cleaner routings (this may require cutting and taping down paper to cover previous, or restructuring twine)
+* Require that no more than 10 spare pieces be allowed at any team's table (excess capacity must mostly stay in the central bin)
