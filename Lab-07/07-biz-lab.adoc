@@ -1,5 +1,32 @@
 = Lab 07 IT Organization
 
+
+ 2016 Apr note: Need to have printed sheet or poster with both backlog and business rules
+
+  Rules on printed cards for all to reference?? - not good enough with me just verbally providing directions.
+
+ Ran short of backlog - they got quite quick - or make each building more difficult (higher quality required?)
+
+  Not enough work for vehicle team
+
+  Not sure how well the functional silo is getting across
+
+  Definition of done: DEPLOYED (missed this until middle of iteration 2)
+
+  2 iterations on first was good
+
+  Big bottleneck with infrastructure team being perfectionist & preventing deployments
+
+  Need concept of "minimum viable town"
+
+  PMS walked away from kanbans & didn't maintain
+
+  No meaningful estimation
+
+  8 minute sprints are probably OK
+
+ ""
+
 == Supplies
 * Large quantity of Legos, K'Nex, etc
 * Large post-it sheets
@@ -48,6 +75,10 @@ image::sampleCity.jpg[]
 ** Park (can be drawn)
 ** River (can be drawn)
 ** Bridge
+** Rail cars
+** Docks
+** Barges (if dockyards complete)
+** Grain elevators
 * 1 & 2 Stories
 ** 20 - single family homes, one per sticky note
 ** 10 - apartment buildings
@@ -80,6 +111,13 @@ image::sampleCity.jpg[]
 * Factories should have truck access and plan for rail access.
 
 * All buildings need a utility line, which can either be string or drawn with marker.
+
+* Consider required infrastructure:
+** Rail cars require tracks
+** Barges require docks
+** Vehicles require roads
+
+This drives need for planning discussions
 
 == Starting
 
@@ -115,7 +153,7 @@ The project manager goes to the sourcing team and requests a specific # of parts
 
 Only the project manager can communicate between the workcells. Workcell operators cannot communicate with each other.
 
-3 x 10 minute sprints
+2 x 10 minute sprints
 
 == Phase 2: Virtual project team
 Learning objective: Breaking down the silo boundaries. But people still orient around who they are sitting with.
@@ -124,7 +162,7 @@ In this model, people on each team are aligned to specific projects and can comm
 
 Project manager leads the planning, with input from the team (the team gathers temporarily around the kanban sheet)
 
-3 x 10 minute sprints
+2 x 10 minute sprints
 
 == Break: Matrix exercise
 Line up the attendees in columns corresponding to functional teams, with the project managers on one side.
@@ -141,18 +179,11 @@ Have people look up and down to see the silo, and back and forth to see the feat
 == Phase 3: Isolated product team
 Learning objective: Product teams can collaborate in a different way.
 
-Each product team takes 10 minutes to reform. Remind them that within their team, they still need clear roles. Within each team identify:
-
-* Product owners (1 only)
-* Sourcers
-* Assemblers
-* Integrators
-
-Project managers need to be something other than feature managers, just to mix things up.
+Each product team takes 10 minutes to reform. Anyone can do any job - no roles required within a team.
 
 The roles are suggestions but not enforced.
 
-3 x 10 minute sprints.
+2 x 8 minute sprints.
 
 In sprint 2: Complication emerges: an operational concern that no red bricks be used. All structures must be retrofit. No new red bricks can be used.
 
