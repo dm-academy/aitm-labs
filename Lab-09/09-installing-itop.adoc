@@ -10,13 +10,17 @@ http://downloads.sourceforge.net/project/itop/itop/2.2.0/iTop-2.2.0-2459.zip?r=h
 
 script pies.sh
 
-web https://wiki.openitop.org/doku.php?id=2_2_0:admin:install_wizard
+Xwindows to http://localhost:8037/web/setup/index.php
 
-sudo /etc/init.d/mysql restart
-sudo service apache2 restart
+see web https://wiki.openitop.org/doku.php?id=2_2_0:admin:install_wizard
+
 
 2015.11.13 notes:
 
 Bad crash, not sure why. Too many VMs & Firefox sessions, perhaps. Shut down all pipelines & rebooted server. Next time: install iTOP with more capacity (Vagrant config). Would be nice to have some VMs & monitoring going. Ideal: Nagios/iTOP integration.
 
 Comment from class: Describe a more typical ITIL flow - incident, problem, change...
+
+2016 spring notes:
+installed as enterprise, not service provider, production not test (recalling that the test data caused confusion)
+updated pies.sh obvious error but did not re-run it.
