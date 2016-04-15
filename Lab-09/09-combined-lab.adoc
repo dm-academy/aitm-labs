@@ -81,30 +81,67 @@ Refer to the iTop instructions, course readings (especially Betz), and online IT
 
 Link your applications to your servers.
 
-Jenkins runs on hombros and brazos
-git on cerebro
-artifactory on espina
-webXX on cara and manos
+* Jenkins runs on hombros and brazos
+* Central git on cerebro
+* artifactory on espina
+* webXX on cara and manos
 
-* Perform the following actions, as many as you have time for:
-** Execute a Change against a CI
-** Initiate and fulfill a service request for access against one of your services, or another team's.
-** Register an Incident against a CI
-*** An Incident is focused on restoring service
-** Register a Problem against a CI
-*** A Problem is focused on fixing the cause(s) of the Incident
-** Define and execute a Change intended to fix the Problem.
-** Create a new application solution with a dependency on one of your servers.
-** Add new, or new kinds, of resources/CIs to your application.
-** Set up a new service contract
-** Be creative!
+== A typical ITIL scenario
+The following exercise reflects an end to end ITIL workflow. Refer to previous labs as necessary.
 
-Note, since we do not have actual systems that the CIs are representing (this will change) you do not do anything "real" to resolve an Incident or execute a Change. Simply fill out the form "as if" you have done so.
+Note, the following assumes your team's pipeline is still active.
+
+In your same Firefox instance, additionally open your Nagios console:
+
+http://nerviosxx/nagios[http://nerviosxx/nagios]
+
+*First*, as in https://github.com/dm-academy/aitm-labs/blob/master/Lab-06/06-tech-lab.adoc[Lab 6], do
+
+ vagrant suspend caraXX
+
+For the sake of the exercise, consider this as a "mistake" on the part of some staff person who did not realize that caraXX was running the production web site.
+
+*Second*, go into iTop and register this as an Incident. Be sure to link the incident to at least one CI. You have three choices:
+
+* Link the incident to caraXX
+* Link the incident to the application webXX
+* Link it to both
+
+Discuss as a team - which are you going to do? Why? What would IT Service Management philosophy suggest?
+
+*Third,* Decide what you need to do, to restore service.
+
+*Fourth*, create a Change describing this. Relate it to the Incident. Approve the Change.
+
+*Fifth,* perform the action and update the Change accordingly.
+
+*Sixth,* close the Change with documentation as to the results of your activity.
+
+*Seventh* Assume that this is not the first time this has happened. You need it to stop.
+
+* Create a Problem record. Relate it to the Incident.
+* What is your plan to prevent critical servers from being suspended?
+
+== Free form activities
+
+Perform the following actions, as many as you have time for:
+
+* Initiate and fulfill a service request for access against one of your services, or another team's.
+* Add new, or new kinds, of resources/CIs to your application. (These can be imaginary.)
+* Add dependencies on other teams' resources, and see that you are added as a Change approver.
+* Be creative!
+
+== ITSM tool and the architecture of IT
 
 Discuss:
 
 image::MasterSystemsArch.png[]
 
-* What parts of the reference architecture are fulfilled by this tool?
+(Betz)
+
+image::IT4ITL2.png[]
+(IT4IT)
+
+* What parts of these reference architectures are fulfilled by this tool?
 
 * What do you think of this tool in light of current industry trends to virtualization and faster cycle times?
