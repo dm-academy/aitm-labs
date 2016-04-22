@@ -210,6 +210,7 @@ http://www.networkworld.com/article/2176429/security/security-6-free-network-vul
 === Useful stuff
 http://hardenubuntu.com/initial-setup/
 http://www.sonatype.org/nexus/2015/11/13/did-you-wake-up-to-an-alert-about-the-java-deserialization-vulnerability
+
 http://continuousdelivery.com/2013/08/risk-management-theatre/
 
 
@@ -217,7 +218,7 @@ http://continuousdelivery.com/2013/08/risk-management-theatre/
 https://help.ubuntu.com/lts/serverguide/NTP.html
 
 == Lynis
-Lynis is another option, but it doesn't find as much as OpenSCAP.
+Extra credit. Lynis is another option, but it doesn't find as much as OpenSCAP.
 
 The overall instructions are here:
 
