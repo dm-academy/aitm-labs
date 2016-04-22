@@ -23,15 +23,16 @@ Your public1-4 pipelines are still operational. Refer back to previous labs (`su
 
 We are going to focus on caraxx and espinaxx since hackers would likely try to exploit these servers first. Why? Because these two environments contain production code. This gives your team 2 servers to work with.
 
-Restart the virtual servers by doing "vagrant up" on:
+First, do
+
+ vagrant status
+
+If needed, restart the virtual servers by doing "vagrant up" on:
 
 * espinaxx
 * caraxx
 
-We may need to work as a class to figure out how to restart certain services that were not set to restart on reboot. This is a good hands-on exercise.
-
-Minimally, caraxx needs
-`sudo service tomcat6 start`. Via X, you should be able to see Artifactory:
+Via X, you should be able to see Artifactory:
 
 10.xx.0.12:8081/artifactory
 
@@ -39,20 +40,28 @@ and your Tomcat application:
 
 10.xx.0.15:8080/MainServlet
 
+If you cannot, let the instructor know.
+
 === System hardening scan
 
 Now, let's install OpenSCAP on caraxx and see what it finds.
 
-NOTE: OpenSCAP is still very Red Hat-centric. However, there is a Github project covering Ubuntu vulnerabilities that will suffice for education purposes.
+NOTE: OpenSCAP is still very Red Hat-centric. However, there is an (outdated) Github project covering Ubuntu vulnerabilities that will suffice for education purposes.
 
 ....
-vagrant@cara1:~$ mkdir lab-10
-vagrant@cara1:~$ cd lab-10/
-vagrant@cara1:~/lab-10$ sudo apt-get install libopenscap8    # install OpenSCAP
-vagrant@cara1:~/lab-10$ sudo apt-get install git
-vagrant@cara1:~/lab-10$ git clone https://github.com/GovReady/ubuntu-scap.git
-vagrant@cara1:~/lab-10$ cd ubuntu-scap
-vagrant@cara1:~/lab-10$ sudo ./run_tests.sh
+public1@seis660:~/Calavera$ vagrant ssh cara1
+Welcome to Ubuntu 14.04.3 LTS (GNU/Linux 3.19.0-25-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com/
+Last login: Sat Apr 16 00:22:20 2016 from 10.0.2.2
+
+vagrant@caraxx:~$ mkdir lab-10
+vagrant@caraxx:~$ cd lab-10/
+vagrant@caraxx:~/lab-10$ sudo apt-get install libopenscap8  -y  # install OpenSCAP
+vagrant@caraxx:~/lab-10$ sudo apt-get install git -y
+vagrant@caraxx:~/lab-10$ git clone https://github.com/GovReady/ubuntu-scap.git
+vagrant@caraxx:~/lab-10$ cd ubuntu-scap
+vagrant@caraxx:~/lab-10$ sudo ./run_tests.sh
 ....
 
 NOTE: Normally we would not like to see git on a production server, but it's convenient for this lab.
@@ -61,7 +70,7 @@ OpenSCAP will return a large number of vulnerabilities. Some of them can be easi
 
 The `run_test.sh` script creates an HTML vulnerability scan report in the current working directory called `results.html`. An easy way to view this report is to install a text-based web browser:
 
-  sudo apt-get install lynx-cur
+  sudo apt-get install lynx-cur -y
 
 Then, you can view the report in your terminal window by running the command:
 
@@ -110,7 +119,7 @@ When you have reflected enough on the Java deserialization vulnerability and the
 
 First review the first few pages of the https://github.com/zaproxy/zaproxy/releases/download/2.4.0/ZAPGettingStartedGuide-2.4.pdf[zaproxy docs].
 
-Exit from your VM to the main server. You should be in your publicxx directory.
+Exit from your VM to the main server. You should be in your publicxx directory (go `cd` if you are not).
 
 Create a directory called "lab-10" there, if your teammates have not already.
 
@@ -119,21 +128,22 @@ Create a directory called "lab-10" there, if your teammates have not already.
 Go:
 
 ....
-wget https://github.com/zaproxy/zaproxy/releases/download/2.4.2/ZAP_2.4.2_Linux.tar.gz
-tar -xvf ZAP_2.4.2_Linux.tar.gz
-cd ZAP_2.4.2/
+wget https://github.com/zaproxy/zaproxy/releases/download/2.4.3/ZAP_2.4.3_Linux.tar.gz
+tar -xvf ZAP_2.4.3_Linux.tar.gz
+
+cd ZAP_2.4.3/
 ./zap.sh -cmd -quickurl http://10.xx.0.15:8080/MainServlet
 ....
 
-We run this script externally to the machine being tested, and give it the URL. It then probes the URL and the server, as a form of penetration testing. It will again generate a number of findings. Research them and figure out if there is an easy fix.
+We run this script externally to the machine being tested, and give it the URL. It then probes the URL and the server, as a form of penetration testing. It will again generate a number of findings. Research them and figure out if there is an easy fix. Share with class on Slack.
 
 NOTE: You will get raw XML dumped to the terminal. You can cut and paste this to an HTML document on your workstation and open it with a browser for an easier view.
 
 Now, try
 
-`./zap.sh -cmd -quickurl http://10.1.0.12:8081/artifactory`
+`./zap.sh -cmd -quickurl http://10.xx.0.12:8081/artifactory`
 
-More errors than before... why? Discuss.
+More errors than before... why? Discuss. How would you fix these?
 
 == Fixing one or more vulnerabilities
 
@@ -155,7 +165,6 @@ So, you have a script called servername.sh. Perhaps you've run it on the current
 
 To do this, you need to create a team fork in the main Calavera repository. Clone down to a working directory you have write access to on the main server (either your home dir or an `su`'d publicxx dir), vagrant up the virtual server in question, and work the fix. When you are satisfied, submit a pull request.
 
- [2015 Nov -  keeping this brief. Lab has taken considerable effort to get this far.]
 
 === Optional ITSM process
 Time and instructor lab preparation permitting:
@@ -169,12 +178,13 @@ Time and instructor lab preparation permitting:
 * The Change will then be confirmed as having fixed the Problem, which will then be closed out.
 
 === Testers
-If you are a lab tester, be sure to
+If you are a lab tester, be sure to remove git, libopenscap, and
 
 `sudo apt-get remove ntp`
 `rm -rf lab-10` on both caraxx and the main server.
 
 == Tools
+The following tools were evaluated as part of developing this lab.
 
 === Lynis
 
