@@ -49,7 +49,7 @@ Now, let's install OpenSCAP on caraxx and see what it finds.
 NOTE: OpenSCAP is still very Red Hat-centric. However, there is an (outdated) Github project covering Ubuntu vulnerabilities that will suffice for education purposes.
 
 ....
-public1@seis660:~/Calavera$ vagrant ssh cara1
+public1@courseSrv:~/Calavera$ vagrant ssh cara1
 Welcome to Ubuntu 14.04.3 LTS (GNU/Linux 3.19.0-25-generic x86_64)
 
  * Documentation:  https://help.ubuntu.com/
