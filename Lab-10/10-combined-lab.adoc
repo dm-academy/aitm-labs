@@ -145,7 +145,7 @@ Now, try
 
 More errors than before... why? Discuss. How would you fix these?
 
-== Fixing one or more vulnerabilities
+== Permanently fixing one or more vulnerabilities
 
 First, you need to figure out the configuration change required to fix the vulnerability. It should be something that you can script.
 
@@ -155,11 +155,10 @@ For this reason, you should choose a vulnerability that is relatively simple to 
 * something that should be there, that isn't
 * permissions that need to be tightened down.
 
-For example
+In order to fix the vulnerability (fixing something on caraXX would probably be simplest):
 
 . Run the necessary commands to fix the vulnerability.
 . Put them into a shell script.
-. Change the "testxx" vagrant server definition
 
 So, you have a script called servername.sh. Perhaps you've run it on the current server and fixed things, but that doesn't help if we refresh the server.  We need to suggest the script as a change to the core recipe.
 
