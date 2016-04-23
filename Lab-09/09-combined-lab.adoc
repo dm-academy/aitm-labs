@@ -1,3 +1,15 @@
+Spring 2016 notes:
+
+People got done too early.
+
+Add lab exit/grade criteria - screen shots, etc..
+
+Delivery model problem - prevents team assignment to incident -
+
+Add help desk exercise.
+
+
+
 == Lab 09: IT Service Management Suite (Process Management)
 
 This lab will introduce you to a full IT service management suite supporting the ITIL process framework.
@@ -6,7 +18,7 @@ Learning objectives:
 
 * Understand how ITSM software is used to support collaborative ITSM processes
 * Document a simulated IT service for your team and execute various ITSM processes against it
-* Consider the implications of this lab in light of other course learnings
+* Evaluate ITSM software in light of industry reference architectures
 
 === What is iTOP?
 

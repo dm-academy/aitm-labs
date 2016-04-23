@@ -61,7 +61,7 @@ vagrant@caraxx:~/lab-10$ sudo apt-get install libopenscap8  -y  # install OpenSC
 vagrant@caraxx:~/lab-10$ sudo apt-get install git -y
 vagrant@caraxx:~/lab-10$ git clone https://github.com/GovReady/ubuntu-scap.git
 vagrant@caraxx:~/lab-10$ cd ubuntu-scap
-vagrant@caraxx:~/lab-10$ sudo ./run_tests.sh
+vagrant@caraxx:~/ubuntu-scap$ sudo ./run_tests.sh
 ....
 
 NOTE: Normally we would not like to see git on a production server, but it's convenient for this lab.
@@ -90,7 +90,7 @@ Fixing is easy. Go:
 
 and run
 
-`vagrant@cara1:~/lab-10$ sudo ./run_tests.sh`
+`vagrant@cara1:~/ubuntu-scap$ sudo ./run_tests.sh`
 
 again. You should see:
 
