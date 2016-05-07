@@ -110,12 +110,12 @@ In terms of product, if you sort the spreadsheet by first column N and then colu
 
 === The analysis
 
-On a Powerpoint deck, answer the following:
+On a Powerpoint deck, based on the matrix above, the spreadsheet definitions, and your analysis, answer the following:
 
 1. What are the top 3 application (not infrastructure) candidates for investment? Give your reasoning.
 1. What are the top 3 application candidates for retirement or outsourcing? Give your reasoning.
 1. What infrastructure system is the top candidate for investment? Consider what depends on it. Give your reasoning.
-1. What is the
+1. What is the most risky technology product? What has the most dependencies, or the most significant dependencies? (When a product has multiple dependencies, sometimes it is effective to fund a project to upgrade it across the board.)
 1. Finally, give one example each of a service that should be
 
 ** positioned for expanded use?
