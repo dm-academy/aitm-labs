@@ -8,7 +8,7 @@ The portfolio is represented in an Excel spreadsheet. There is a significant amo
 
 This is an exercise in critical thinking and while it is not completely a matter of opinion, there are subjective aspects. You need to be prepared to justify your conclusions.
 
-You have a limited budget. You cannot be able to fund all the requests.
+You have a limited budget. You cannot fund all the requests.
 
 At a high level, you need to answer:
 
