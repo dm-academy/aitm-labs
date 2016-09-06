@@ -1,13 +1,10 @@
 #!/usr/bin/perl
-# this version only create a list of users from a list of emails (not including quoted names)
-# and not the input file for newusers
+# creates a list of users from comma delimited list of emails (not including quoted names)
+# and user:passwd reset file for chpasswd batch command
 # assuming final email doesn't have comma
 # but does have a newline at end of file - be careful
 # UNDECLARED VARIABLES very bad
 
-#use Tie::File;
-# creates a new users file from a comma delimited list of emails
-# pw_name:pw_passwd:pw_uid:pw_gid:pw_gecos:pw_dir:pw_shell
 
 #read in file
 $filename = $ARGV[0]; 
