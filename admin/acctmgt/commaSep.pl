@@ -21,12 +21,17 @@ $emails =~ s/@.*?, ?/\n/g;  # could make this more robust
 @arrEmails=split("\n", $emails);
 map ($_ = lc($_), @arrEmails);
 
-open(FILE, "> /home/char/courseadmin/justUserIDs.txt") || die "can't open output"; #for change loop and 
+open(FILE, "> IDs.txt") || die "can't open IDs.txt"; #for change loop and 
 #also can be used for deleting users
 @justUserIDs = @arrEmails;
 map ($_ .= "\n", @justUserIDs); # add back newlines
-
 print FILE @justUserIDs;
+close (FILE);
+
+open(FILE, "> IDsPWs.txt") || die "can't open IDsPWs.txt"; 
+@userIDsPWs = @arrEmails;
+map ($_ .= ":zfxA1i08\n", @userIDsPWs); # add  newlines & default PW
+print FILE @userIDsPWs;
 close (FILE);
 
 
