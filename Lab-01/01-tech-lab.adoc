@@ -4,6 +4,7 @@
 
 * Log into your account on the server.
 * Go to http://www.ee.surrey.ac.uk/Teaching/Unix/index.html
+* Review http://www.ee.surrey.ac.uk/Teaching/Unix/unixintro.html
 * Run the first 5 Linux tutorials. 
 
 
