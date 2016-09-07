@@ -4,10 +4,8 @@
 
 * Log into your account on the server.
 * Go to http://www.ee.surrey.ac.uk/Teaching/Unix/index.html
-* Run at least the first 2 Linux tutorials.
-    ** http://www.ee.surrey.ac.uk/Teaching/Unix/unix1.html
-    ** http://www.ee.surrey.ac.uk/Teaching/Unix/unix2.html
-* When you are done, run as many additionally as you have time for.
+* Run the first 5 Linux tutorials. 
+
 
 Post questions to Slack.
 
