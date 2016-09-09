@@ -31,10 +31,10 @@ Go to Blackboard and find this lab. (instructor displays this on screen.)
 === Collaborating on Slack
 
 * Slack will be the main communication channel.
-* Navigate to https://seis660.slack.com/[https://seis660.slack.com/].
+* Navigate to https://seis664.slack.com/[https://seis664.slack.com/].
 ** Click "create an account" and remember your password. You need to use your St. Thomas email.
-** Confirm you can read messages. Try posting to the https://seis660.slack.com/messages/general/[#general] thread.
-** The channels are not cleared from the previous semester. Have a look, you'll get a feel for the class. SEIS660 alumni may lurk and assist if they feel like it, as long as they are constructive.
+** Confirm you can read messages. Try posting to the https://seis664.slack.com/messages/general/[#general] thread.
+** The channels are not cleared from the previous semester. Have a look, you'll get a feel for the class. SEIS660 & SEIS664 alumni may lurk and assist if they feel like it, as long as they are constructive.
 
 === Setting up your terminal emulator on Windows
 
