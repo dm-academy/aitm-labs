@@ -2,6 +2,6 @@
 
 (45 minutes)
 
-. Go to any popular online service (Facebook, Netflix, Flickr, Etsy, etc.) How would you describe the http://dm-academy.github.io/aitm/#_it_services_systems_and_applications["moments of truth"] or value experiences these sites offer users? There may be several. Discuss with your team & be prepared to be called on.
+. Go to any popular online service (Facebook, Netflix, Flickr, Etsy, etc.) How would you describe the http://dm-academy.github.io/aitm/#_it_services_systems_and_applications["moments of truth"] or value experiences these sites offer users? There may be several. Discuss with your team & be prepared to be called on. Who are the user, customer, and sponsor of the app? What are there motivations?
 
 . Brainstorm an idea for an IT-based product you could take to market. Who are the user, customer, and sponsor of your product? (See  http://dm-academy.github.io/aitm/#_defining_consumer_customer_and_sponsor[discussion in book].) Be prepared to discuss in class.
