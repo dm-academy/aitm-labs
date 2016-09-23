@@ -6,7 +6,7 @@ This is an infrastructure as code lab, but deliberately is restricted to shell s
 == Vagrant issues
 Multi-user Vagrant on a server is still an unsolved problem.
 
-Wanted to avoid multiple copies of images so first I set up all students' VAGRANT_HOME the same:
+Wanted to avoid multiple copies of images so first I tried to set up all students' VAGRANT_HOME the same (this is a dead end):
 
 VAGRANT_HOME=/var/vagrant/.vagrant.d
 
@@ -23,4 +23,6 @@ Searching on the Vagrant release notes:
 
 we see "Vagrant locks machine access to one Vagrant process at a time. This will protect against two simultaneous up actions happening on the same environment."
 
-Wound up using the config.vm.box_url parameter. Works.
+Wound up using the config.vm.box_url parameter. Works. You need to store boxes with correct permissions (chmod 644 or greater) in /var/vagrant/boxes or some other shared directory of your choosing (you'll have to update the instructions)
+
+I use the package command to get a nice clean box with the virtualbox additions already updated and save it locally. 
