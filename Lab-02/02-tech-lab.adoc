@@ -57,7 +57,7 @@ YourStudentID@serverXXX:~/vagrant$
 
 Type the following command carefully:
 
-	YourStudentID@serverXXX:~/vagrant$ vagrant init precise64
+	YourStudentID@serverXXX:~/vagrant$ vagrant init xenial64
 
 You should see the following:
 
@@ -75,11 +75,11 @@ NOTE: If you install and run Vagrant locally on your own laptop, you won't need 
 
 In the nano text editor, scroll down to the line that says:
 
- config.vm.box = "precise64"
+ config.vm.box = "xenial64"
 
 and after it, add the line:
 
- config.vm.box_url = "/var/vagrant/boxes/precise64.box"
+ config.vm.box_url = "/var/vagrant/boxes/xenial64.box"
 
 Exit nano, saving the file.
 
