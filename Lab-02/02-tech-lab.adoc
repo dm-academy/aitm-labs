@@ -270,7 +270,7 @@ Go to http://github.com and set up a user account (one per individual, even if y
 NOTE: You will have to keep track of TWO IDs and substitute them at appropriate times:
 *YourStudentID* and *YourGithubID*
 
-Skim https://help.github.com/articles/fork-a-repo/ (it's OK if you don't understand it all immediately - just keep following the steps here)
+WITHOUT actually following its instructions --scan (that is, lightly review) https://help.github.com/articles/fork-a-repo/ (it's OK if you don't understand it all immediately - just keep following the steps here)
 
 Go to https://github.com/dm-academy/example and fork the repo. Press the Fork button at top right:
 
