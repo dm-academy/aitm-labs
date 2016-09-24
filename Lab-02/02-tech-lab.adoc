@@ -90,7 +90,7 @@ Now, cross your fingers and enter the following command:
 You should see:
 ....
 Bringing machine 'default' up with 'virtualbox' provider...
-==> default: Importing base box 'precise64'...
+==> default: Importing base box 'xenial64'...
 ==> default: Matching MAC address for NAT networking...
 ==> default: Setting the name of the VM: vagrant_default_1442681339461_15180
 ==> default: Fixed port collision for 22 => 2222. Now on port 2207.
@@ -139,7 +139,7 @@ Run 'do-release-upgrade' to upgrade to it.
 
 Welcome to your Vagrant-built virtual machine.
 Last login: Fri Sep 14 06:23:18 2012 from 10.0.2.2
-vagrant@precise64:~$
+vagrant@xenial64:~$
 ....
 
 If that worked, congratulations, you did it!
@@ -194,7 +194,7 @@ TIP: If you get impatient with how labor intensive this is, look around on the m
 
 First, install tree
 
-    vagrant@precise64~: sudo apt-get install -y tree
+    vagrant@xenial64~: sudo apt-get install -y tree
 
 NOTE: The "-y" avoids you having to type "yes" to approve the install. It is critical later, as this makes it possible to script the apt-get command.
 
@@ -202,7 +202,7 @@ If you get any kind of access or permissions error, please be sure you are in YO
 
 Use tree to inspect your directory structure. It should look like:
 
- vagrant@precise64:~$ tree
+ vagrant@xenial64:~$ tree
 
  |-- A
 |   |-- aa
@@ -236,11 +236,11 @@ If you are in PuTTY and getting garbage characters, google "Garbage Characters i
 
 Now, output the tree to a file. How?
 
-    vagrant@precise64:~$tree > tree.txt
+    vagrant@xenial64:~$tree > tree.txt
 
 Review the text file:
 
-    vagrant@precise64:~$cat tree.txt
+    vagrant@xenial64:~$cat tree.txt
 
 Why did I make the directory structure so detailed? This is typical of setting up infrastructure as code - you need to be able to maintain focus and successfully set up instructions that are both complicated and yet repetitive.
 
@@ -248,7 +248,7 @@ IMPORTANT: If you have developed an approach to "mkdir" and "touch" that you wis
 
 Exit and destroy your VM. The "-f" flag does it immediatley, without further confirmation.
 
- vagrant@precise64:~$ exit
+ vagrant@xenial64:~$ exit
  YourStudentID@serverXXX:~/vagrant$ vagrant destroy -f
  ==> default: Forcing shutdown of VM...
  ==> default: Destroying VM and associated drives...
@@ -404,7 +404,7 @@ Commit it again:
 Now, let's look at our commit history:
 
 ....
- YourStudentID@serverXXX:~/example$ git log
+ YourStudentID@serverXXX:~/example$ git log -p
 
 commit 70e21f0719cac5b2e6527ec9cb5ceeaeabb552da
 Author: charles betz <char@erp4it.com>
@@ -514,14 +514,14 @@ Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic x86_64)
 ...some stuff
 Welcome to your Vagrant-built virtual machine.
 Last login: Fri Sep 14 06:23:18 2012 from 10.0.2.2
-vagrant@precise64:~$
+vagrant@xenial64:~$
 ....
 
 Go to the /vagrant directory on your Vagrant virtual machine and list the files. (Dont get confused with the /home/vagrant directory.)
 
 ....
-vagrant@precise64:~$ cd /vagrant
-vagrant@precise64:/vagrant$ ls
+vagrant@xenial64:~$ cd /vagrant
+vagrant@xenial64:/vagrant$ ls
 example-Instructions.md  LICENSE  README.md  resources  starter.sh  YourStudentID-testfile.adoc  Vagrantfile
 ....
 
@@ -551,8 +551,8 @@ Here are a couple additional notes to help you create the shell script:
 
 Start out by copying the starter.sh script to a new file, and then set the file permissions to allow execution.
 
- vagrant@precise64:/vagrant$ cp starter.sh YourStudentID-Lab02.sh
- vagrant@precise64:/vagrant$ sudo chmod 755 YourStudentID-Lab02.sh
+ vagrant@xenial64:/vagrant$ cp starter.sh YourStudentID-Lab02.sh
+ vagrant@xenial64:/vagrant$ sudo chmod 755 YourStudentID-Lab02.sh
 
 Yes, you can use sudo (administrative privileges) *within your VM.* If you get an error, it means you are likely not in your VM, but back out on the course server.
 
@@ -630,8 +630,8 @@ You can also remove the tree and git applications to reset your environment comp
 Once you are happy with your script, tell the new git instance *within your VM* your name & email (you have to do this again, because the VM is a whole new environment.)
 
 ....
-vagrant@precise64:/vagrant$ git config --global user.email "you@stthomas.edu"
-vagrant@precise64:/vagrant$ git config --global user.name "your name"
+vagrant@xenial64:/vagrant$ git config --global user.email "you@stthomas.edu"
+vagrant@xenial64:/vagrant$ git config --global user.name "your name"
 ....
 
 Then add your new script file to git tracking and commit the file to your local repository:
@@ -640,7 +640,7 @@ Then add your new script file to git tracking and commit the file to your local 
 vagrant@XXXXX:/vagrant$ git add YourStudentID-Lab02.sh
 vagrant@XXXXX:/vagrant$ git commit YourStudentID-Lab02.sh -m "script commit"
 [master b5f0950] script commit
- Committer: vagrant <vagrant@precise64.(none)>
+ Committer: vagrant <vagrant@xenial64.(none)>
 [email error]
  1 file changed, 10 insertions(+)
  create mode 100755 YourStudentID-Lab02.sh
@@ -751,7 +751,7 @@ Edit your Vagrantfile so that it calls your *-Lab02.sh script when you provision
 
 ....
 Vagrant.configure(2) do |config|
-  config.vm.box = "precise64"
+  config.vm.box = "xenial64"
   config.vm.provision             :shell, path: "./MyStudentID-Lab02.sh"
 end
 ....
@@ -774,7 +774,7 @@ Run 'do-release-upgrade' to upgrade to it.
 
 Welcome to your Vagrant-built virtual machine.
 Last login: Fri Sep 14 06:23:18 2012 from 10.0.2.2
-vagrant@precise64:~$ tree
+vagrant@xenial64:~$ tree
 .
 |-- main
 |   |-- A
@@ -807,7 +807,7 @@ vagrant@precise64:~$ tree
 
 14 directories, 14 files
 
-vagrant@precise64:~$ git --version
+vagrant@xenial64:~$ git --version
 git version 1.7.9.5
 ....
 
