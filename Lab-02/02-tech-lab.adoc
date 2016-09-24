@@ -57,7 +57,7 @@ YourStudentID@serverXXX:~/vagrant$
 
 Type the following command carefully:
 
-	YourStudentID@serverXXX:~/vagrant$ vagrant init xenial64
+	YourStudentID@serverXXX:~/vagrant$ vagrant init ubuntu/xenial64
 
 You should see the following:
 
