@@ -82,25 +82,43 @@ Each section like that defines how Vagrant should bring up a machine and configu
 ....
 
 ###############################################################################
-###################################    manos     ##############################
+###################################    manos1    ##############################
 ###############################################################################
 
+  config.vm.define "manos1" do | manos1 |
+    manos1.vm.host_name            ="manos1.calavera.biz"
+    manos1.vm.network              "private_network", ip: "10.1.0.14"
+    manos1.vm.network              "forwarded_port", guest: 22, host: 2114, auto_correct: true
+    manos1.vm.network              "forwarded_port", guest: 80, host: 8114, auto_correct: true
+    manos1.vm.network              "forwarded_port", guest: 8080, host: 9114, auto_correct: true
 
-#manos.vm.provision         :shell, path: "./shell/manos.sh"
+    manos1.ssh.forward_agent        =true
 
- manos.vm.provision :chef_zero do |chef|
-   chef.cookbooks_path         = ["./cookbooks/"]
-   chef.add_recipe             "git::default"
-   chef.add_recipe             "localAnt::default"
-   chef.add_recipe             "java7::default"  # comments...
-   chef.add_recipe             "tomcat::default"
-   chef.add_recipe             "shared::_junit"
-   chef.add_recipe             "manos::default"
- end
-end
+    manos1.vm.synced_folder        ".",         "/home/manos1"
+    manos1.vm.synced_folder        "./shared", "/mnt/shared"
+    #manos1.vm.provision         :shell, path: "./shell/manos1.sh"
+
+    manos1.vm.provision :chef_zero do |chef|
+      chef.cookbooks_path         = ["./cookbooks/"]
+      chef.data_bags_path           = ["./data_bags/"]
+      chef.nodes_path               = ["./nodes/"]
+      chef.roles_path               = ["./roles/"]
+      chef.add_recipe               "shared::_apt-update"
+      chef.add_recipe               "git::default"
+      chef.add_recipe               "localAnt::default"
+      chef.add_recipe               "java7::default"   #   this is redundant. we already installed this in base and tomcat also installs Java. but won't work w/o it.
+      chef.add_recipe               "localTomcat::v8"
+      chef.add_recipe               "shared::_junit"
+      chef.add_recipe               "manos::default"
+    end
+  end
 ....
 
-You used a shell provisioner in your previous lab to apply your script to your new VM. But what's this? The first line in the example above is commented out (the # means that Vagrant won't execute that line).
+You used a shell provisioner in your previous lab to apply your script to your new VM. But what's this? This line in the example above
+
+ #manos1.vm.provision         :shell, path: "./shell/manos1.sh"
+
+is commented out (the # means that Vagrant won't execute that line).
 
 Rather than using another provisioner to install software on our VM, we are starting to use Chef. As mentioned in the  http://dm-academy.github.io/aitm/#_policy_based_approaches[readings for Session 02], Chef is a configuration management system.
 
@@ -110,13 +128,19 @@ A full treatment of Chef is beyond the scope of this class. However, you should 
 
 ....
 YourStudentID@serverXXX:~/Calavera$ tree
-.
+
 ├── Berksfile
+├── Berksfile.lock
 ├── cookbooks
 │   ├── base
+│   │   ├── files
+│   │   │   ├── calaverahosts
+│   │   │   └── ssh.sh
 │   │   ├── metadata.rb
 │   │   └── recipes
-│   │       └── default.rb
+│   │       ├── default.rb
+│   │       ├── _hosts.rb
+│   │       └── _ssh.rb
 │   ├── brazos
 │   │   ├── metadata.rb
 │   │   └── recipes
@@ -138,7 +162,7 @@ YourStudentID@serverXXX:~/Calavera$ tree
 │   ├── hombros
 │   │   ├── files
 │   │   │   ├── hijoConfig.xml
-│   │   │   ├── hijoInit.xml
+│   │   │   ├── OLD-hijoInit.xml
 │   │   │   └── org.jfrog.hudson.ArtifactoryBuilder.xml
 │   │   ├── metadata.rb
 │   │   └── recipes
@@ -164,6 +188,15 @@ YourStudentID@serverXXX:~/Calavera$ tree
 │   │   ├── metadata.rb
 │   │   └── recipes
 │   │       └── default.rb
+│   ├── localJenkins
+│   │   ├── metadata.rb
+│   │   └── recipes
+│   │       └── default.rb
+│   ├── localTomcat
+│   │   ├── metadata.rb
+│   │   └── recipes
+│   │       ├── v6.rb
+│   │       └── v8.rb
 │   ├── manos
 │   │   ├── files
 │   │   │   ├── build.xml
@@ -175,6 +208,23 @@ YourStudentID@serverXXX:~/Calavera$ tree
 │   │   ├── metadata.rb
 │   │   └── recipes
 │   │       └── default.rb
+│   ├── nervios
+│   │   └── files
+│   │       └── nervios.sh
+│   ├── pies
+│   │   └── files
+│   │       └── pies.sh
+│   ├── shared
+│   │   ├── metadata.rb
+│   │   └── recipes
+│   │       ├── _apt-update.rb
+│   │       └── _junit.rb
+│   └── test
+│       ├── metadata.rb
+│       └── recipes
+│           └── default.rb
+├── data_bags
+│   └── README.txt
 
 (more files)
 ....
@@ -185,7 +235,7 @@ TIP: If you are using Putty or some other terminal emulator and getting garbage 
 
 This directory structure is the entire Calavera project, which is a simple DevOps simulation that all runs through Vagrant.
 
-Go back to the Vagrantfile (use cat), and notice in the Vagrantfile the directives:
+Examine the Vagrantfile again (use `cat` or `more`), and notice in the Vagrantfile the directives:
 
     manos.vm.provision :chef_zero do |chef|
 
@@ -196,13 +246,14 @@ The above tells Vagrant to use Chef to set up the virtual machine.
 The above tells Chef where the cookbooks are.
 
 ....
-chef.add_recipe "shared::default"
-chef.add_recipe "git::default"
-chef.add_recipe "localAnt::default"
-chef.add_recipe "java7::default"
-chef.add_recipe "tomcat::default"
-chef.add_recipe "shared::_junit"
-chef.add_recipe "manos::default"
+chef.add_recipe               "shared::_apt-update"
+chef.add_recipe               "git::default"
+chef.add_recipe               "localAnt::default"
+chef.add_recipe               "java7::default"
+chef.add_recipe               "localTomcat::v8"
+chef.add_recipe               "shared::_junit"
+chef.add_recipe               "manos::default"
+
 ....
 
 Finally, the above tells Chef to apply a series of recipes from various parts of the tree. These recipes install software and configure the system in various ways.
