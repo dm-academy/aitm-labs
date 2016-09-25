@@ -179,6 +179,8 @@ YourStudentID@serverXXX:~/Calavera$ tree
 (more files)
 ....
 
+The ".rb" extension indicates the Ruby language, which is used to develop Chef scripts.
+
 TIP: If you are using Putty or some other terminal emulator and getting garbage characters like âââ in your tree, see http://unix.stackexchange.com/questions/61293/how-can-i-change-locale-encoding-to-avoid-getting-weird-characters-in-terminal[here].
 
 This directory structure is the entire Calavera project, which is a simple DevOps simulation that all runs through Vagrant.
@@ -322,7 +324,7 @@ First, be sure you logged into the server with X enabled. You need to either:
 * Check the box in Putty // For people using xming 6.9 above, there will be enable x11 forwarding checkbox under ssh.
 * go "ssh -X YourStudentID@serverXXX" if you are using your Mac console
 
-NOTE: You do *not* need Firefox on your local laptop for this to work. You *do* need to have X11 forwarding working, with a local Xwindows display. For example, if XMing is installed, open XLaunch and click through the screens with the defaults. See also https://github.com/dm-academy/aitm-labs/blob/master/Lab-00/00-tech-lab.adoc[Lab 00], Configuring X-Windows. 
+NOTE: You do *not* need Firefox on your local laptop for this to work. You *do* need to have X11 forwarding working, with a local Xwindows display. For example, if XMing is installed, open XLaunch and click through the screens with the defaults. See also https://github.com/dm-academy/aitm-labs/blob/master/Lab-00/00-tech-lab.adoc[Lab 00], Configuring X-Windows.
 
 Type "xclock" for a quick test. See https://github.com/dm-academy/aitm-labs/blob/master/Lab-00/00-tech-lab.adoc[Configuring X-Windows] in Lab 00.
 
