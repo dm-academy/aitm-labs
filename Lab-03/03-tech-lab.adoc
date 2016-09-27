@@ -304,9 +304,51 @@ Bringing machine 'manos1' up with 'virtualbox' provider...
     [more]
 ....
 
-It will take several minutes to launch the new Vagrant instance.
+It will take several minutes to launch the new Vagrant instance. In the meantime, YOU NEED TO WATCH THE OUTPUT.
 
-Once the Vagrant launching process is complete, you can access your VM's web server. Manos comes preconfigured with a running Tomcat instance and a simple test-harness based Java application. You can see it running when you ssh into the VM:
+Look for the language "Fixed port collision" in a series like this. THE NUMBERS WILL BE DIFFERENT:
+
+....
+==> manos: Fixed port collision for 22 => 2114. Now on port 2201.
+==> manos: Fixed port collision for 80 => 8114. Now on port 2202.
+==> manos: Fixed port collision for 8080 => 9114. Now on port 2203.
+==> manos: Fixed port collision for 22 => 2222. Now on port 2214.
+==> manos: Clearing any previously set network interfaces...
+==> manos: Preparing network interfaces based on configuration...
+    manos: Adapter 1: nat
+==> manos: Forwarding ports...
+    manos: 22 => 2201 (adapter 1)
+    manos: 80 => 2202 (adapter 1)
+    manos: 8080 => 2203 (adapter 1)
+    manos: 22 => 2214 (adapter 1)
+==> manos: Booting VM...
+....
+
+MAKE NOTE OF THE PORT 8080 MAPPING. In the above, it says "Now on port 2203." You will have a DIFFERENT number. Write it down.
+
+****
+ONLY *if you miss your port*, or can't find it, you will need to do:
+
+ vboxmanage list vms
+
+You should see output including something like:
+
+"Calavera_manos_XXXXXXXXXXXXX_XXXXX" {389dab0f-2f52-434e-bf50-c9792c42416a}
+
+Go:
+
+ vboxmanage showvminfo Calavera_manos_XXXXXXXXXXXXX_XXXXX|more (replacing the X's with the actual numbers, you should cut and paste)
+
+Look for this line:
+
+....
+NIC 1 Rule(3):   name = tcp8134, protocol = tcp, host ip = , host port = XXXX, guest ip = , guest port = 8080
+....
+
+Copy down the "XXXX." It is your port 8080 mapping.
+****
+
+Once you have your port 8080 mapping and the Vagrant launching process is complete, you can access your VM's web server. Manos comes preconfigured with a running Tomcat instance and a simple test-harness based Java application. You can see it running when you ssh into the VM:
 
 ....
 YourStudentID@serverXXX:~/Calavera$ vagrant ssh manos
@@ -324,44 +366,13 @@ vagrant@manos:~$ curl localhost:8080/MainServlet
 What is "curl"? curl is like a web browser for the command line.
 For more read @ http://curl.haxx.se/docs/manpage.html
 
-You can also see the same thing from OUTSIDE your virtual machine. First, figure out your machine's IP address:
+You can also see the same thing from OUTSIDE your virtual machine.
 
 ....
-vagrant@manos1:~$ ifconfig
-eth0      Link encap:Ethernet  HWaddr 08:00:27:c9:78:16
-          inet addr:10.0.2.15  Bcast:10.0.2.255  Mask:255.255.255.0
-          inet6 addr: fe80::a00:27ff:fec9:7816/64 Scope:Link
-          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-          RX packets:33747 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:13188 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:1000
-          RX bytes:26600608 (26.6 MB)  TX bytes:1117945 (1.1 MB)
-
-eth1      Link encap:Ethernet  HWaddr 08:00:27:c9:26:30
-          inet addr:172.28.128.3  Bcast:172.28.128.255  Mask:255.255.255.0
-          inet6 addr: fe80::a00:27ff:fec9:2630/64 Scope:Link
-          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-          RX packets:2 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:19 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:1000
-          RX bytes:1180 (1.1 KB)  TX bytes:2210 (2.2 KB)
-
-lo        Link encap:Local Loopback
-          inet addr:127.0.0.1  Mask:255.0.0.0
-          inet6 addr: ::1/128 Scope:Host
-          UP LOOPBACK RUNNING  MTU:65536  Metric:1
-          RX packets:30 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:30 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:0
-          RX bytes:2497 (2.4 KB)  TX bytes:2497 (2.4 KB)
-
-vagrant@manos1:~$ exit
-....
-
-The IP address (inet addr as labeled above) is on the eth1 interface (not eth0), so in the above case is 172.28.128.3.
-
-....
-test4@seis660:~/Calavera$ curl 172.28.128.3:8080/MainServlet
+vagrant@manos:~$ exit
+logout
+Connection to 127.0.0.1 closed.
+test4@seis660:~/Calavera$ curl 127.0.0.1:2203/MainServlet
 <h1>This is a skeleton application-- to explore the end to end Calavera delivery framework.</h1>
 ....
 
@@ -380,7 +391,7 @@ Type "xclock" for a quick test. See https://github.com/dm-academy/aitm-labs/blob
 
 At the command line, go:
 ....
-YourStudentID@serverXXX:~$ firefox -no-remote "YOUR_IP_ADDRESS:8080/MainServlet"
+YourStudentID@serverXXX:~$ firefox -no-remote "127.0.0.1:PORT/MainServlet"
 
 (process:46597): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
 Gtk-Message: Failed to load module "canberra-gtk-module"
