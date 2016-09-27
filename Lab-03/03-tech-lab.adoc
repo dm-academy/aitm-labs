@@ -6,7 +6,7 @@
 
 The purpose of this lab is to give you a realistic, if brief overview of (reasonably) modern application development practices.
 
-You will find as an IT professional, even if you are not a software developer, that you need on occasion to "dig in" to the application world and makes sense of things from basic tutorials and online resources. 
+You will find as an IT professional, even if you are not a software developer, that you need on occasion to "dig in" to the application world and makes sense of things from basic tutorials and online resources.
 
 Lab objectives:
 
@@ -380,7 +380,7 @@ Type "xclock" for a quick test. See https://github.com/dm-academy/aitm-labs/blob
 
 At the command line, go:
 ....
-YourStudentID@serverXXX:~$ firefox -no-remote "127.0.0.1:2203/MainServlet"
+YourStudentID@serverXXX:~$ firefox -no-remote "YOUR_IP_ADDRESS:8080/MainServlet"
 
 (process:46597): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
 Gtk-Message: Failed to load module "canberra-gtk-module"
