@@ -494,7 +494,7 @@ says,
 Go back into your manos VM and have a look at the home/hijo directory:
 
 ....
-YourStudentID@serverXXX:~/Calavera$ vagrant ssh manos
+YourStudentID@serverXXX:~/Calavera$ vagrant ssh manos1
 Welcome to Ubuntu 14.04.2 LTS (GNU/Linux 3.13.0-24-generic x86_64)
 
  * Documentation:  https://help.ubuntu.com/
