@@ -293,7 +293,7 @@ Go to your home directory:
 Clone the Github repository you forked as "example" to your home directory /home/student/YourID/.
 
 ....
-YourStudentID@serverXXX:~$:~$ git clone https://github.com/YourGithubID/example
+YourStudentID@serverXXX:~$ git clone https://github.com/YourGithubID/example
 Cloning into 'example'...
 remote: Counting objects: 6, done.
 remote: Compressing objects: 100% (3/3), done.

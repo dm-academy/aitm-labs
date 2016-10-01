@@ -286,7 +286,7 @@ Copy down the "XXXX."
 Once you have your port 8080 mapping and the Vagrant launching process is complete, you can access your VM's web server. Manos comes preconfigured with a running Tomcat instance and a simple test-harness based Java application. You can see it running when you ssh into the VM:
 
 ....
-YourStudentID@serverXXX:~/Calavera$ vagrant ssh manos
+YourStudentID@serverXXX:~/Calavera$ vagrant ssh manos1
 Welcome to Ubuntu 14.04.2 LTS (GNU/Linux 3.13.0-24-generic x86_64)
 
  * Documentation:  https://help.ubuntu.com/
@@ -322,7 +322,7 @@ First, be sure you logged into the server with X enabled. You need to either:
 * Check the box in Putty // For people using xming 6.9 above, there will be enable x11 forwarding checkbox under ssh.
 * go "ssh -X YourStudentID@serverXXX" if you are using your Mac console
 
-NOTE: You do *not* need Firefox on your local laptop for this to work. You *do* need to have X11 forwarding working, with a local Xwindows display. For example, if XMing is installed, open XLaunch and click through the screens with the defaults. See also https://github.com/dm-academy/aitm-labs/blob/master/Lab-00/00-tech-lab.adoc[Lab 00], Configuring X-Windows. 
+NOTE: You do *not* need Firefox on your local laptop for this to work. You *do* need to have X11 forwarding working, with a local Xwindows display. For example, if XMing is installed, open XLaunch and click through the screens with the defaults. See also https://github.com/dm-academy/aitm-labs/blob/master/Lab-00/00-tech-lab.adoc[Lab 00], Configuring X-Windows.
 
 Type "xclock" for a quick test. See https://github.com/dm-academy/aitm-labs/blob/master/Lab-00/00-tech-lab.adoc[Configuring X-Windows] in Lab 00.
 
@@ -431,7 +431,7 @@ says,
 Go back into your manos VM and have a look at the home/hijo directory:
 
 ....
-YourStudentID@serverXXX:~/Calavera$ vagrant ssh manos
+YourStudentID@serverXXX:~/Calavera$ vagrant ssh manos1
 Welcome to Ubuntu 14.04.2 LTS (GNU/Linux 3.13.0-24-generic x86_64)
 
  * Documentation:  https://help.ubuntu.com/
