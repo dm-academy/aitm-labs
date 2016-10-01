@@ -6,6 +6,8 @@
 
 The purpose of this lab is to give you a realistic, if brief overview of (reasonably) modern application development practices.
 
+You will find as an IT professional, even if you are not a software developer, that you need on occasion to "dig in" to the application world and makes sense of things from basic tutorials and online resources.
+
 Lab objectives:
 
 In this lab, you will work with basic application tools, as an individual developer. You will see test-driven development in action, in a very simple form, with automated build and deployment to a local Tomcat instance.
@@ -82,27 +84,50 @@ Each section like that defines how Vagrant should bring up a machine and configu
 ....
 
 ###############################################################################
-###################################    manos     ##############################
+###################################    manos1    ##############################
 ###############################################################################
 
+  config.vm.define "manos1" do | manos1 |
+    manos1.vm.host_name            ="manos1.calavera.biz"
+    manos1.vm.network              "private_network", ip: "10.1.0.14"
+    manos1.vm.network              "forwarded_port", guest: 22, host: 2114, auto_correct: true
+    manos1.vm.network              "forwarded_port", guest: 80, host: 8114, auto_correct: true
+    manos1.vm.network              "forwarded_port", guest: 8080, host: 9114, auto_correct: true
 
-#manos.vm.provision         :shell, path: "./shell/manos.sh"
+    manos1.ssh.forward_agent        =true
 
- manos.vm.provision :chef_zero do |chef|
-   chef.cookbooks_path         = ["./cookbooks/"]
-   chef.add_recipe             "git::default"
-   chef.add_recipe             "localAnt::default"
-   chef.add_recipe             "java7::default"  # comments...
-   chef.add_recipe             "tomcat::default"
-   chef.add_recipe             "shared::_junit"
-   chef.add_recipe             "manos::default"
- end
-end
+    manos1.vm.synced_folder        ".",         "/home/manos1"
+    manos1.vm.synced_folder        "./shared", "/mnt/shared"
+    #manos1.vm.provision         :shell, path: "./shell/manos1.sh"
+
+    manos1.vm.provision :chef_zero do |chef|
+      chef.cookbooks_path         = ["./cookbooks/"]
+      chef.data_bags_path           = ["./data_bags/"]
+      chef.nodes_path               = ["./nodes/"]
+      chef.roles_path               = ["./roles/"]
+      chef.add_recipe               "shared::_apt-update"
+      chef.add_recipe               "git::default"
+      chef.add_recipe               "localAnt::default"
+      chef.add_recipe               "java7::default"   #   this is redundant. we already installed this in base and tomcat also installs Java. but won't work w/o it.
+      chef.add_recipe               "localTomcat::v8"
+      chef.add_recipe               "shared::_junit"
+      chef.add_recipe               "manos::default"
+      if ENV['LAB_NUM']=="lab03"
+        puts "Skipping remote git"
+      else
+        chef.add_recipe               "manos::git-remote.rb"
+      end
+    end
+  end
 ....
 
-You used a shell provisioner in your previous lab to apply your script to your new VM. But what's this? The first line in the example above is commented out (the # means that Vagrant won't execute that line).
+You used a shell provisioner in your previous lab to apply your script to your new VM. But what's this? This line in the example above
 
-Rather than using another provisioner to install software on our VM, we are starting to use Chef. As mentioned in the  http://dm-academy.github.io/aitm/#_policy_based_approaches[readings for Session 02], Chef is a configuration management system.
+ #manos1.vm.provision         :shell, path: "./shell/manos1.sh"
+
+is commented out (the # means that Vagrant won't execute that line).
+
+Rather than using a shell provisioner to install software on our VM, we are starting to use Chef. As mentioned in the  http://dm-academy.github.io/aitm/#_policy_based_approaches[readings for Session 02], Chef is a configuration management system.
 
 Now, http://searchaws.techtarget.com/definition/Opscode-Chef[read a bit about Chef] and https://docs.chef.io/chef_quick_overview.html[a bit more] before you continue.
 
@@ -110,13 +135,19 @@ A full treatment of Chef is beyond the scope of this class. However, you should 
 
 ....
 YourStudentID@serverXXX:~/Calavera$ tree
-.
+
 ├── Berksfile
+├── Berksfile.lock
 ├── cookbooks
 │   ├── base
+│   │   ├── files
+│   │   │   ├── calaverahosts
+│   │   │   └── ssh.sh
 │   │   ├── metadata.rb
 │   │   └── recipes
-│   │       └── default.rb
+│   │       ├── default.rb
+│   │       ├── _hosts.rb
+│   │       └── _ssh.rb
 │   ├── brazos
 │   │   ├── metadata.rb
 │   │   └── recipes
@@ -138,7 +169,7 @@ YourStudentID@serverXXX:~/Calavera$ tree
 │   ├── hombros
 │   │   ├── files
 │   │   │   ├── hijoConfig.xml
-│   │   │   ├── hijoInit.xml
+│   │   │   ├── OLD-hijoInit.xml
 │   │   │   └── org.jfrog.hudson.ArtifactoryBuilder.xml
 │   │   ├── metadata.rb
 │   │   └── recipes
@@ -164,6 +195,15 @@ YourStudentID@serverXXX:~/Calavera$ tree
 │   │   ├── metadata.rb
 │   │   └── recipes
 │   │       └── default.rb
+│   ├── localJenkins
+│   │   ├── metadata.rb
+│   │   └── recipes
+│   │       └── default.rb
+│   ├── localTomcat
+│   │   ├── metadata.rb
+│   │   └── recipes
+│   │       ├── v6.rb
+│   │       └── v8.rb
 │   ├── manos
 │   │   ├── files
 │   │   │   ├── build.xml
@@ -175,15 +215,34 @@ YourStudentID@serverXXX:~/Calavera$ tree
 │   │   ├── metadata.rb
 │   │   └── recipes
 │   │       └── default.rb
+│   ├── nervios
+│   │   └── files
+│   │       └── nervios.sh
+│   ├── pies
+│   │   └── files
+│   │       └── pies.sh
+│   ├── shared
+│   │   ├── metadata.rb
+│   │   └── recipes
+│   │       ├── _apt-update.rb
+│   │       └── _junit.rb
+│   └── test
+│       ├── metadata.rb
+│       └── recipes
+│           └── default.rb
+├── data_bags
+│   └── README.txt
 
 (more files)
 ....
+
+The ".rb" extension indicates the Ruby language, which is used to develop Chef scripts.
 
 TIP: If you are using Putty or some other terminal emulator and getting garbage characters like âââ in your tree, see http://unix.stackexchange.com/questions/61293/how-can-i-change-locale-encoding-to-avoid-getting-weird-characters-in-terminal[here].
 
 This directory structure is the entire Calavera project, which is a simple DevOps simulation that all runs through Vagrant.
 
-Go back to the Vagrantfile (use cat), and notice in the Vagrantfile the directives:
+Examine the Vagrantfile again (use `cat` or `more`), and notice in the Vagrantfile the directives:
 
     manos.vm.provision :chef_zero do |chef|
 
@@ -194,13 +253,14 @@ The above tells Vagrant to use Chef to set up the virtual machine.
 The above tells Chef where the cookbooks are.
 
 ....
-chef.add_recipe "shared::default"
-chef.add_recipe "git::default"
-chef.add_recipe "localAnt::default"
-chef.add_recipe "java7::default"
-chef.add_recipe "tomcat::default"
-chef.add_recipe "shared::_junit"
-chef.add_recipe "manos::default"
+chef.add_recipe               "shared::_apt-update"
+chef.add_recipe               "git::default"
+chef.add_recipe               "localAnt::default"
+chef.add_recipe               "java7::default"
+chef.add_recipe               "localTomcat::v8"
+chef.add_recipe               "shared::_junit"
+chef.add_recipe               "manos::default"
+
 ....
 
 Finally, the above tells Chef to apply a series of recipes from various parts of the tree. These recipes install software and configure the system in various ways.
@@ -211,31 +271,36 @@ Finally, the above tells Chef to apply a series of recipes from various parts of
 
 The combination of these recipes precisely describes what the virtual machine will look like. If you delete a VM and bring it back up, it should look exactly the same every time.
 
-Now, the current Vagrantfile is a little dangerous, because if you type "vagrant up" it will try to bring up ALL of the machines. So, I have created a branch in git with a Vagrantfile for just the manos machine. Let's switch to that.
+Now, the current Vagrantfile is a little dangerous, because if you type "vagrant up" it will try to bring up ALL of the machines. So, I have created a shell script you should use.
 
-Return to the Calavera base directory and issue the following commands:
+IMPORTANT: DO NOT ISSUE A `vagrant up` COMMAND IN THIS LAB.
+
+Return to the Calavera base directory and issue the following command, to bring the necessary image into your environment:
 
 ....
 YourStudentID@serverXXX:~/Calavera$ cd ~/Calavera/
-YourStudentID@serverXXX:~/Calavera$ git checkout Lab-03
-Branch Lab-03 set up to track remote branch Lab-03 from origin.
-Switched to a new branch 'Lab-03'
+YourStudentID@serverXXX:~/Calavera$ vagrant box add opscode-ubuntu-14.04a /var/vagrant/boxes/opscode-ubuntu-14.04a.box -f
+
+default configuration
+Launching from linux/mac
+==> box: Box file was not detected as metadata. Adding it directly...
+==> box: Adding box 'opscode-ubuntu-14.04a' (v0) for provider:
+    box: Unpacking necessary files from: file:///var/vagrant/boxes/opscode-ubuntu-14.04a.box
+==> box: Successfully added box 'opscode-ubuntu-14.04a' (v0) for 'virtualbox'!
+....
+
+Now, launch your machine through executing the script:
 
 ....
-Now, do "cat Vagrantfile". You should see that Manos is the only machine left.
-
-Vagrant up manos:
-
-    YourStudentID@serverXXX:~/Calavera$ vagrant up manos
-
-....
-Bringing machine 'manos' up with 'virtualbox' provider...
-==> manos: Box 'opscode-ubuntu-14.04a' could not be found. Attempting to find and install...
-    manos: Box Provider: virtualbox
-    manos: Box Version: >= 0
-==> manos: Box file was not detected as metadata. Adding it directly...
-==> manos: Adding box 'opscode-ubuntu-14.04a' (v0) for provider: virtualbox
-    manos: Unpacking necessary files from: file:///var/vagrant/boxes/opscode-ubuntu-14.04a.box
+YourStudentID@serverXXX:~/Calavera$ ./lab-03.sh
+Lab 03 manos configuration
+Launching from linux/mac
+Skipping remote git
+Bringing machine 'manos1' up with 'virtualbox' provider...
+    manos1: The Berkshelf shelf is at "/home/char/.berkshelf/vagrant-berkshelf/shelves/berkshelf20160925-23989-fdanrr-manos1"
+==> manos1: Sharing cookbooks with VM
+==> manos1: Importing base box 'opscode-ubuntu-14.04a'...
+==> manos1: Matching MAC address for NAT networking...
     [more]
 ....
 
@@ -244,9 +309,9 @@ It will take several minutes to launch the new Vagrant instance. In the meantime
 Look for the language "Fixed port collision" in a series like this. THE NUMBERS WILL BE DIFFERENT:
 
 ....
-==> manos: Fixed port collision for 22 => 2234. Now on port 2201.
-==> manos: Fixed port collision for 80 => 8034. Now on port 2202.
-==> manos: Fixed port collision for 8080 => 8134. Now on port 2203.
+==> manos: Fixed port collision for 22 => 2114. Now on port 2201.
+==> manos: Fixed port collision for 80 => 8114. Now on port 2202.
+==> manos: Fixed port collision for 8080 => 9114. Now on port 2203.
 ==> manos: Fixed port collision for 22 => 2222. Now on port 2214.
 ==> manos: Clearing any previously set network interfaces...
 ==> manos: Preparing network interfaces based on configuration...
@@ -280,7 +345,7 @@ Look for this line:
 NIC 1 Rule(3):   name = tcp8134, protocol = tcp, host ip = , host port = XXXX, guest ip = , guest port = 8080
 ....
 
-Copy down the "XXXX."
+Copy down the "XXXX." It is your port 8080 mapping.
 ****
 
 Once you have your port 8080 mapping and the Vagrant launching process is complete, you can access your VM's web server. Manos comes preconfigured with a running Tomcat instance and a simple test-harness based Java application. You can see it running when you ssh into the VM:
@@ -301,7 +366,7 @@ vagrant@manos:~$ curl localhost:8080/MainServlet
 What is "curl"? curl is like a web browser for the command line.
 For more read @ http://curl.haxx.se/docs/manpage.html
 
-You can also see the same thing from OUTSIDE your virtual machine:
+You can also see the same thing from OUTSIDE your virtual machine.
 
 ....
 vagrant@manos:~$ exit
@@ -311,8 +376,6 @@ test4@seis660:~/Calavera$ curl 127.0.0.1:2203/MainServlet
 <h1>This is a skeleton application-- to explore the end to end Calavera delivery framework.</h1>
 ....
 
-IMPORTANT: Instead of typing 2203 for the port number, you should substitute the port number that 8080 was mapped to by Vagrant.
-
 Finally, you can view it in a real browser over X windows.
 
 NOTE: You may not find much use for X-windows in the outside world, but it is helpful here as it prevents us from worrying about hardening the local Vagrant VMs.
@@ -320,7 +383,7 @@ NOTE: You may not find much use for X-windows in the outside world, but it is he
 First, be sure you logged into the server with X enabled. You need to either:
 
 * Check the box in Putty // For people using xming 6.9 above, there will be enable x11 forwarding checkbox under ssh.
-* go "ssh -X YourStudentID@serverXXX" if you are using your Mac console
+* go "ssh -X YourStudentID@serverXXX" if you are using your Mac console (or have Linux on your machine)
 
 NOTE: You do *not* need Firefox on your local laptop for this to work. You *do* need to have X11 forwarding working, with a local Xwindows display. For example, if XMing is installed, open XLaunch and click through the screens with the defaults. See also https://github.com/dm-academy/aitm-labs/blob/master/Lab-00/00-tech-lab.adoc[Lab 00], Configuring X-Windows.
 
@@ -328,7 +391,7 @@ Type "xclock" for a quick test. See https://github.com/dm-academy/aitm-labs/blob
 
 At the command line, go:
 ....
-YourStudentID@serverXXX:~$ firefox -no-remote "127.0.0.1:2203/MainServlet"
+YourStudentID@serverXXX:~$ firefox -no-remote "127.0.0.1:PORT/MainServlet"
 
 (process:46597): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
 Gtk-Message: Failed to load module "canberra-gtk-module"
@@ -505,21 +568,23 @@ Back when Java first came out, the developer would have to painstakingly compile
 
 ....
 vagrant@manos:~$ cd /home/hijo/
-vagrant@manos:/home/hijo$ sudo ant
+vagrant@manos1:/home/hijo$ sudo ant
 Buildfile: /home/hijo/build.xml
 
 init:
      [echo]
      [echo] 			Computer name is ${my_env.COMPUTERNAME}
+     [echo] 			Build time is 2016-09-26_01:27:10 UTC (e.g. US CT +6)
      [echo]                         User name is root
      [echo] 			Building from /home/hijo/build.xml
      [echo] 			Java is version 1.7
      [echo] 			Project is ${ant.project.name}
-     [echo] 			Ant is Apache Ant(TM) version 1.9.4 compiled on April 29 2014
+     [echo] 			Ant is Apache Ant(TM) version 1.9.7 compiled on April 9 2016
      [echo] 			Basedir is /home/hijo
      [echo] 			Source is ./src/main/java/biz/calavera
      [echo] 			Build target is ./target
-     [echo] 			Deployment target is /var/lib/tomcat6/webapps/ROOT/WEB-INF/lib
+     [echo] 			Deployment target is /var/lib/tomcat8/webapps/ROOT/WEB-INF/lib
+     [echo] 		        Classpath is /home/hijo:/var/lib/tomcat8/lib/servlet-api.jar:/usr/bin/junit-4.12.jar:/usr/bin/hamcrest-core-1.3.jar
      [echo]
 
 compile:
@@ -531,26 +596,19 @@ test:
      [echo] 			entering test
      [echo]
     [junit] Running biz.calavera.TestClass1
-    [junit] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.074 sec
+    [junit] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.041 sec
 
 compress:
       [jar] Building jar: /home/hijo/target/CalaveraMain.jar
 
 deploy:
-   [delete] Deleting directory /var/lib/tomcat6/webapps/ROOT/WEB-INF/lib
-    [mkdir] Created dir: /var/lib/tomcat6/webapps/ROOT/WEB-INF/lib
-     [copy] Copying 1 file to /var/lib/tomcat6/webapps/ROOT/WEB-INF/lib
+   [delete] Deleting directory /var/lib/tomcat8/webapps/ROOT/WEB-INF/lib
+    [mkdir] Created dir: /var/lib/tomcat8/webapps/ROOT/WEB-INF/lib
+     [copy] Copying 1 file to /var/lib/tomcat8/webapps/ROOT/WEB-INF/lib
      [echo]
      [echo] 			Attempting Tomcat restart.
      [echo]
-     [exec] The command attribute is deprecated.
-     [exec] Please use the executable attribute and nested arg elements.
-     [exec]  * Stopping Tomcat servlet engine tomcat6
-     [exec]    ...done.
-     [exec] The command attribute is deprecated.
-     [exec] Please use the executable attribute and nested arg elements.
-     [exec]  * Starting Tomcat servlet engine tomcat6
-     [exec]    ...done.
+     [exec] Tomcat started.
 
 main:
      [echo]
@@ -558,10 +616,11 @@ main:
      [echo]
 
 BUILD SUCCESSFUL
-Total time: 8 seconds
+Total time: 1 second
+vagrant@manos1:/home/hijo$
 ....
 
-TIP: Points to anyone who can rewrite the Ant script so that it's not using the deprecated Ant command attribute generating the warnings at the bottom.
+== Ant exercises
 
 You can see the Ant script at build.xml. Compare that script to the output. It is:
 
@@ -571,7 +630,25 @@ You can see the Ant script at build.xml. Compare that script to the output. It i
 - Moving the jar file to the appropriate Tomcat directory, along with the web.xml configuration file
 - Restarting Tomcat
 
-If you are interested in Ant further, you can see more about it at http://ant.apache.org/.
+Ant documentation is at http://ant.apache.org/.
+
+Review build.xml in detail  with reference to the Ant documentation and answer the following questions:
+
+. What lines in the file tell the build process where the source code files are?
+. What lines in the file tell the build process where to put the compiled file?
+. What lines in the file tell the build process to restart Tomcat?
+
+Using nano, change line 29 from :
+
+ <pathelement location="/var/lib/tomcat8/lib/servlet-api.jar"/>
+
+to
+
+ <pathelement location="/var/libx/tomcat8/lib/servlet-api.jar"/>
+
+Google the error result. What is the problem?
+
+Examine web.xml. This is a critical file. What do you notice about it, compared to the tree command from /home/hijo?
 
 == Changing the application
 
@@ -897,6 +974,7 @@ vagrant@manos:/home/hijo$ cat src/main/java/biz/calavera/MainServlet.java
 ....
 
 Rebuild with ant and check that the original functionality is restored. Use Curl again.
+
 
 Exit your VM and destroy it:
 
