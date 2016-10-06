@@ -1,0 +1,56 @@
+= Tech lab 04 (version 2)
+
+In this version of the lab, each student has their own development and production environments, flowing through a centralized development pipeline.
+
+This lab is a work in progress.
+
+== Adapting manosXX to be one of many
+
+* Change Vagrantfile to manosXX where XX is unique to you (to be assigned by instructor)
+* Bring up
+* Alter the Java app
+** Change directory to /home/hijoXX - ? needed?
+** Change MainServlet to MainXX - why?
+** Change web.xml and build.xml as needed
+** test sudo ant
+** test curl localhost:8080/MainXX
+
+* configure cerebro
+** git init bare /home/hijoXX.git
+
+ sudo git init --bare --shared=group /home/hijo02.git
+ sudo chown -R git hijo02.git/
+ sudo chgrp -R git hijo02.git/
+
+
+
+* back to manosXX
+** initialize remote
+
+ ssh-keyscan cerebro1 >> ~/.ssh/known_hosts
+ git remote add origin ssh://cerebro1/home/hijoXX.git
+
+* back to cerebro
+** add webhook (will need to be changed)
+
+ cp /home/cerebro1/cookbooks/cerebro/files/post-receive /home/hijo02.git/hooks/
+ sudo chown git post-receive
+ sudo chmod 775 post-receive
+
+change below - add XX
+
+ curl http://hombros1:8080/git/notifyCommit?url=git@cerebro1:/home/hijoXX.git
+
+* configure Jenkins job
+
+firefox -no-remote http://127.0.0.1:9113
+
+New Item
+Freestyle
+ just copy from hijo02 or hijo def
+ change Artifactory
+
+* initialize caraXX
+
+create your own deployment recipe caraXX based on cara02
+update your Vagrantfile accordingly
