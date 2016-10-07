@@ -25,6 +25,9 @@ These instructions assume comprehensive familiarity with Unix commands and opera
 
 * `nano` ~/VMs/XX/Vagrantfile and do the following:
 ** Search replace on the manosXX name (from manos02 to manosXX)
+
+Change the IP to end in 22 + your #
+
 ** Change the ports
 *** guest: 22, host: 2120 + your #
 *** guest: 80, host: 8120 + your #
