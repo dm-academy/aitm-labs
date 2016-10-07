@@ -6,6 +6,8 @@ In this version of the lab, each student has their own development and productio
 
 This lab is a work in progress.
 
+Slack is expected.
+
 == Adapting manosXX to be one of many
 
 === Change the Vagrantfile
@@ -39,6 +41,8 @@ These instructions assume comprehensive familiarity with Unix commands and opera
 In this section you will bring up and log into your server, then from there access cerebro1 and configure your origin git repo, then connect your server's remote to that origin.
 
 `vagrant up manosXX` where XX = the number you have been given
+
+IMPORTANT: Synch point. Do not proceed until all students have caught up. Go to Slack and help your classmates.
 
 `vagrant ssh manoxXX`
 `cd /home/hijo`
@@ -80,9 +84,21 @@ You now should be logged in as yourself.
 
 === Configure Jenkins
 
+If on a class workstation: Putty with X, launch XLaunch and accept all defaults.
+
  firefox -x -no-remote
 
 go to http://127.0.0.1:9113
+
+IMPORTANT: Synch point. Do not proceed until all students are here. Go to Slack and help.
+
+
+
+In Jenkins:
+
+TIP: If confused, look at the Jenkins configurations for hijo02 and hijo03..
+
+Go:
 
 New Item
 
@@ -118,6 +134,8 @@ image::jenkins-ssh.png[]
 * Save
 
 * Close Firefox (to save load on server)
+
+IMPORTANT: Synch point. Do not proceed until all students are here. Go to Slack and help.
 
 === Kick off pipeline
 
@@ -167,6 +185,8 @@ To ssh://cerebro1/home/hijo03.git
 ....
 
 Refresh Artifactory. You should see that you have a directory. This is your production-ready package!
+
+IMPORTANT: Synch point. Do not proceed until all students are here. Go to Slack and help.
 
 === Initialize CaraXX
 
