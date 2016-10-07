@@ -1,56 +1,183 @@
 = Tech lab 04 (version 2)
 
-In this version of the lab, each student has their own development and production environments, flowing through a centralized development pipeline.
+In the previous version of this lab, multiple full pipelines were set up, one per team.
+
+In this version of the lab, each student has their own development and production environments, flowing through a centralized development pipeline. In this way, each student gets a fuller experience.
 
 This lab is a work in progress.
 
 == Adapting manosXX to be one of many
 
-* Change Vagrantfile to manosXX where XX is unique to you (to be assigned by instructor)
-* Bring up
-* Alter the Java app
-** Change directory to /home/hijoXX - ? needed?
-** Change MainServlet to MainXX - why?
-** Change web.xml and build.xml as needed
-** test sudo ant
-** test curl localhost:8080/MainXX
+=== Change the Vagrantfile
+These instructions assume comprehensive familiarity with Unix commands and operations. Literal instructions are limited.
 
-* configure cerebro
-** git init bare /home/hijoXX.git
+`ssh -XC` into the server.
 
- sudo git init --bare --shared=group /home/hijo02.git
- sudo chown -R git hijo02.git/
- sudo chgrp -R git hijo02.git/
+`su` to the public1 ID; password given in class.
 
+`cd ~\VMs` to the ~/VMs directory
 
+`mkdir XX` where XX is the 2-digit number you have been assigned.
 
-* back to manosXX
+* Copy `~/Calavera/lab-04-Vagrantfile` to the directory you just created, giving it the name `Vagrantfile`.
+
+* `nano` ~/VMs/XX/Vagrantfile and do the following:
+** Search replace on the manosXX name (from manos02 to manosXX)
+** Change the ports
+*** guest: 22, host: 2120 + your #
+*** guest: 80, host: 8120 + your #
+*** guest: 8080, host: 9120 + your #
+
+** Search replace on the caraXX name
+** Change the ports
+*** guest: 22, host: 2160 + your #
+*** guest: 80, host: 8160 + your #
+*** guest: 8080, host: 9160 + your #
+
+=== Connect your server with cerebro1 (git origin)
+
+In this section you will bring up and log into your server, then from there access cerebro1 and configure your origin git repo, then connect your server's remote to that origin.
+
+`vagrant up manosXX` where XX = the number you have been given
+
+`vagrant ssh manoxXX`
+`cd /home/hijo`
+
+`ssh cerebro1`
+
+"yes" to the ECDSA prompt if it appears.
+
+`sudo git init --bare --shared=group /home/hijoXX.git`
+
+Why are we using git init --bare? Look it up.
+
+ sudo chown -R git /home/hijoXX.git/
+ sudo chgrp -R git /home/hijoXX.git/
+ sudo cp /home/cerebro1/cookbooks/cerebro/files/post-receive /home/hijoXX.git/hooks/
+ sudo chown git /home/hijoXX.git/hooks/post-receive
+ sudo chmod 775 /home/hijoXX.git/hooks/post-receive
+ sudo nano /home/hijoXX.git/hooks/post-receive
+
+change XX in the below to your #, or add it if not there
+
+  curl http://hombros1:8080/git/notifyCommit?url=git@cerebro1:/home/hijoXX.git
+
+ exit
+
+* you should now be back to manosXX
 ** initialize remote
 
+ cd /home/hijo     # just to be sure
  ssh-keyscan cerebro1 >> ~/.ssh/known_hosts
  git remote add origin ssh://cerebro1/home/hijoXX.git
+ exit
 
-* back to cerebro
-** add webhook (will need to be changed)
+You should now be logged in as "public1"
 
- cp /home/cerebro1/cookbooks/cerebro/files/post-receive /home/hijo02.git/hooks/
- sudo chown git post-receive
- sudo chmod 775 post-receive
+ exit
 
-change below - add XX
+You now should be logged in as yourself.
 
- curl http://hombros1:8080/git/notifyCommit?url=git@cerebro1:/home/hijoXX.git
+=== Configure Jenkins
 
-* configure Jenkins job
+ firefox -x -no-remote
 
-firefox -no-remote http://127.0.0.1:9113
+go to http://127.0.0.1:9113
 
 New Item
+
 Freestyle
- just copy from hijo02 or hijo def
- change Artifactory
 
-* initialize caraXX
+* Project name hijoXX
+* Restrict where it can be run
+* Label brazos1
+* Source code management "Git"
+* Repository URL ssh://jenkins@cerebro1/home/hijoXX.git
+* Credentials|add
 
-create your own deployment recipe caraXX based on cara02
-update your Vagrantfile accordingly
+image::jenkins-ssh.png[]
+
+* Branch Specifier: */master
+* Poll SCM
+* Generic Artifactory Integration
+* Artifactory deployment server: http://espina1:8081/artifactory
+* Target repository: ext-release-local (click Refresh Repositories)
+* Published Artifacts:
+
+**/target/*.jar=>hijoXX
+
+**/target/web.xml=>hijoXX
+
+* Capture and publish build info
+
+* Build:
+** Add build step
+** Invoke Ant
+** Targets: init compile test compress
+
+* Save
+
+* Close Firefox (to save load on server)
+
+=== Kick off pipeline
+
+* Back to command line (log into seis664 again if needed)
+
+* su public1
+
+* cd ~/VMs/XX
+
+* vagrant ssh manos03
+
+From this point, I am not going to give you as many explicit commands.
+
+Navigate to the /home/hijo directory. You can run `sudo ant` to make sure ant and Tomcat are running.
+
+Now, let's push your local repo to cerebro.
+
+ git push origin --mirror
+
+Now, you should open a NEW terminal session, X-windows enabled, and go back into Jenkins. Also You can open a new tab in FireFox and go to http://127.0.0.1:7112/artifactory, login is "admin/password." Go to the Artifacts tab and open ext-release-local. Observe that you do not yet have a directory there.
+
+On your manos instance, from /home/hijo, make a small change to  src/main/java/biz/calavera/MainServlet.java, just the message regarding the "skeleton application." You can change any words/letters within that string.
+
+Then, after you've made the change, go:
+
+ git add . -A
+ git commit "my first commit"
+ git push origin master
+
+If all is well you should see something *like*:
+
+....
+[master 5de8bfc] my first commit
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+vagrant@manos03:/home/hijo$ git push origin master
+Counting objects: 15, done.
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (8/8), 679 bytes | 0 bytes/s, done.
+Total 8 (delta 1), reused 0 (delta 0)
+remote:   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+remote:                                  Dload  Upload   Total   Spent    Left  Speed
+remote: 100   101  100   101    0     0   5619      0 --:--:-- --:--:-- --:--:--  5941
+remote: Scheduled polling of hijo03
+remote: No Git consumers using SCM API plugin for: git@cerebro1:/home/hijo03.git
+To ssh://cerebro1/home/hijo03.git
+   2c5e543..5de8bfc  master -> master
+....
+
+Refresh Artifactory. You should see that you have a directory. This is your production-ready package!
+
+=== Initialize CaraXX
+
+This is deliberately challenging. Support each other on Slack.
+
+In short, you need to create your own deployment recipe caraXX based on cara02.rb in /var/SEIS660/public1/Calavera/cookbooks/cara/recipes/. When we are done, that directory will have multiple caraXX.rb files.
+
+* Update your Vagrantfile accordingly.
+
+* vagrant up and test your application
+
+== Use the pipeline
+
+Make a change to your application and push it all the way through the pipeline. Post a screenshot to Slack of either Firefox or a curl invocation.
