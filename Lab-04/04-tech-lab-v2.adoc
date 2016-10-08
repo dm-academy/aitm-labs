@@ -50,7 +50,7 @@ In this section you will bring up and log into your server, then from there acce
 
 IMPORTANT: Synch point. Do not proceed until all students have caught up. Go to Slack and help your classmates.
 
-`vagrant ssh manoxXX`
+`vagrant ssh manosXX`
 `cd /home/hijo`
 
 `ssh cerebro1`
