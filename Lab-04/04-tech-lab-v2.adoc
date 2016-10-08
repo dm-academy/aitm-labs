@@ -34,6 +34,9 @@ Change the IP to end in 20 + your #
 *** guest: 8080, host: 9120 + your #
 
 ** Search replace on the caraXX name
+
+Change the cara IP to end in 60 plus your #
+
 ** Change the ports
 *** guest: 22, host: 2160 + your #
 *** guest: 80, host: 8160 + your #
