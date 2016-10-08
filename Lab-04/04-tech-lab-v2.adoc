@@ -24,7 +24,7 @@ These instructions assume comprehensive familiarity with Unix commands and opera
 * Copy `~/Calavera/lab-04-Vagrantfile` to the directory you just created, giving it the name `Vagrantfile`.
 
 * `nano` ~/VMs/XX/Vagrantfile and do the following:
-** Search replace on the manosXX name (from manos02 to manosXX)
+** Search replace on the manosXX name (from manos03 to manosXX)
 
 Change the IP to end in 22 + your #
 
