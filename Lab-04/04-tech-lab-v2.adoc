@@ -126,9 +126,9 @@ image::jenkins-ssh.png[]
 * Target repository: ext-release-local (click Refresh Repositories)
 * Published Artifacts:
 
-**/target/*.jar=>hijoXX
+ **/target/*.jar=>hijoXX
 
-**/target/web.xml=>hijoXX
+ **/target/web.xml=>hijoXX
 
 * Capture and publish build info
 
@@ -151,7 +151,7 @@ IMPORTANT: Synch point. Do not proceed until all students are here. Go to Slack 
 
 * cd ~/VMs/XX
 
-* vagrant ssh manos03
+* vagrant ssh manosXX
 
 From this point, I am not going to give you as many explicit commands.
 
