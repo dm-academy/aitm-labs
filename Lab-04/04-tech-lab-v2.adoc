@@ -30,9 +30,9 @@ These instructions assume comprehensive familiarity with Unix commands and opera
 
 ** Search replace on the caraXX name
 ** Change the ports
-*** guest: 22, host: 2160 + your #
-*** guest: 80, host: 8160 + your #
-*** guest: 8080, host: 9160 + your #
+*** guest: 22, host: 2150 + your #
+*** guest: 80, host: 8150 + your #
+*** guest: 8080, host: 9150 + your #
 
 === Connect your server with cerebro1 (git origin)
 
