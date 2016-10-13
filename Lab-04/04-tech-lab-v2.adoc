@@ -6,14 +6,16 @@ In this version of the lab, each student has their own development and productio
 
 This lab is a work in progress.
 
+Slack is expected.
+
 == Adapting manosXX to be one of many
 
 === Change the Vagrantfile
 These instructions assume comprehensive familiarity with Unix commands and operations. Literal instructions are limited.
 
-`ssh -XC` into the server.
+`ssh -XC` into the server. (On windows, Putty with X enabled.)
 
-`su` to the public1 ID; password given in class.
+`su public1`; password given in class.
 
 `cd ~\VMs` to the ~/VMs directory
 
@@ -22,13 +24,19 @@ These instructions assume comprehensive familiarity with Unix commands and opera
 * Copy `~/Calavera/lab-04-Vagrantfile` to the directory you just created, giving it the name `Vagrantfile`.
 
 * `nano` ~/VMs/XX/Vagrantfile and do the following:
-** Search replace on the manosXX name (from manos02 to manosXX)
+** Search replace on the manosXX name (from manos03 to manosXX)
+
+Change the IP to end in 20 + your #
+
 ** Change the ports
 *** guest: 22, host: 2120 + your #
 *** guest: 80, host: 8120 + your #
 *** guest: 8080, host: 9120 + your #
 
 ** Search replace on the caraXX name
+
+Change the cara IP to end in 60 plus your #
+
 ** Change the ports
 *** guest: 22, host: 2150 + your #
 *** guest: 80, host: 8150 + your #
@@ -40,7 +48,9 @@ In this section you will bring up and log into your server, then from there acce
 
 `vagrant up manosXX` where XX = the number you have been given
 
-`vagrant ssh manoxXX`
+IMPORTANT: Synch point. Do not proceed until all students have caught up. Go to Slack and help your classmates.
+
+`vagrant ssh manosXX`
 `cd /home/hijo`
 
 `ssh cerebro1`
@@ -80,9 +90,21 @@ You now should be logged in as yourself.
 
 === Configure Jenkins
 
+If on a class workstation: Putty with X, launch XLaunch and accept all defaults.
+
  firefox -x -no-remote
 
 go to http://127.0.0.1:9113
+
+IMPORTANT: Synch point. Do not proceed until all students are here. Go to Slack and help.
+
+
+
+In Jenkins:
+
+TIP: If confused, look at the Jenkins configurations for hijo02 and hijo03..
+
+Go:
 
 New Item
 
@@ -104,9 +126,9 @@ image::jenkins-ssh.png[]
 * Target repository: ext-release-local (click Refresh Repositories)
 * Published Artifacts:
 
-**/target/*.jar=>hijoXX
+ **/target/*.jar=>hijoXX
 
-**/target/web.xml=>hijoXX
+ **/target/web.xml=>hijoXX
 
 * Capture and publish build info
 
@@ -119,6 +141,8 @@ image::jenkins-ssh.png[]
 
 * Close Firefox (to save load on server)
 
+IMPORTANT: Synch point. Do not proceed until all students are here. Go to Slack and help.
+
 === Kick off pipeline
 
 * Back to command line (log into seis664 again if needed)
@@ -127,7 +151,7 @@ image::jenkins-ssh.png[]
 
 * cd ~/VMs/XX
 
-* vagrant ssh manos03
+* vagrant ssh manosXX
 
 From this point, I am not going to give you as many explicit commands.
 
@@ -167,6 +191,8 @@ To ssh://cerebro1/home/hijo03.git
 ....
 
 Refresh Artifactory. You should see that you have a directory. This is your production-ready package!
+
+IMPORTANT: Synch point. Do not proceed until all students are here. Go to Slack and help.
 
 === Initialize CaraXX
 
