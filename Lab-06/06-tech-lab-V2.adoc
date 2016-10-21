@@ -4,7 +4,7 @@ Version 2 - for fan in/out model.
 
 Each team of 2 gets their own monitoring server, which is not the most realistic scenario but gives everyone experience in a complex install and configuration process.
 
-The monitoring servers will all monitor the same targets
+The monitoring servers will all monitor the primary pipeline and the cara03 server.
 
 == Introduction
 In this cumulative lab, you will assemble into your teams and install the open source monitoring tool Nagios in a client-server configuration.
@@ -37,9 +37,7 @@ These instructions assume comprehensive familiarity with Unix commands and opera
 
 `su` to the public1 ID; password given in class.
 
-`cd ~\VMs` to the ~/VMs directory
-
-`mkdir XX` where XX is the 2-digit number you have been assigned.
+`cd ~\VMs` to the ~/VMs directory you will be working in (re-used from previous)
 
 * Copy `~/Calavera/lab-06-Vagrantfile` to the directory you just created, giving it the name `Vagrantfile`.
 
@@ -58,8 +56,7 @@ The goal is to
 
 * install the LAMP stack on your nervios instance
 * install the Nagios server on your nervios instance
-* install the Nagios agent on your manos instance
-* configure Nagios to monitor your pipeline
+* configure Nagios to monitor servers in the pipeline
 * confirm that the pipeline is being monitored
 * test monitoring by halting one or more servers and observing the result
 * expand monitoring to cover Apache Tomcat on the caraxx server, and Jenkins on hombrosxx..
@@ -80,9 +77,9 @@ WARNING: If you follow the LAMP installation, do NOT install mariadb. This means
 
 At this point, you should have the command line skills to install and configure nagios based on these directions, which will not be repeated or elaborated here.
 
-*At your own option*, you may choose to use the https://github.com/dm-academy/Calavera/blob/master/cookbooks/nervios/files/nervios.sh[nervios.sh] script, which installs both LAMP and Nagios. On your nerviosxx instance, you will find this script at
+*At your own option*, you may choose to use the https://github.com/dm-academy/Calavera/blob/master/cookbooks/nervios/files/nervios.sh[nervios.sh] script, which installs both LAMP and Nagios.
 
- /home/nerviosxx/cookbooks/nervios/files/nervios.sh
+You will need to copy this script into your ~/VMs/XX directory, when you are logged in as public1. it is at ~/Calavera/cookbooks/nervios/files/nervios.sh.
 
 (You really didn't want to install everything manually and then find out there was  a nice script, did you?)
 
