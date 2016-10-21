@@ -39,6 +39,10 @@ These instructions assume comprehensive familiarity with Unix commands and opera
 
 `cd ~\VMs` to the ~/VMs directory you will be working in (re-used from previous)
 
+* If there is already a Vagrantfile, go:
+
+ mv Vagrantfile Vagrantfile.old
+
 * Copy `~/Calavera/lab-06-Vagrantfile` to the directory you just created, giving it the name `Vagrantfile`.
 
 * `nano` ~/VMs/XX/Vagrantfile and do the following:
