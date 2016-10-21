@@ -152,32 +152,23 @@ Continuing in the http://www.unixmen.com/install-configure-nagios-4-ubuntu-14-10
 
 *Add Monitoring targets to Nagios server*
 
-Exit nervios xx and log into caraxx (as your "production" server, would be the first you would monitor.)
-
- exit
- vagrant ssh caraxx
-
-Follow the instructions to install the nagios-nrpe-server and nagios-plugins.
-
-IMPORTANT: You are using Debian/Ubuntu, NOT CentOS/RHEL/Scientific Linux! The "yum"  command is INCORRECT.
 
 ****
 *Host IPs*
 
 You may need these.
 ....
-10.xx.0.10   cerebroxx
-10.xx.0.11   brazosxx
-10.xx.0.12   espinaxx
-10.xx.0.13   hombrosxx
-10.xx.0.14   manosxx
-10.xx.0.15   caraxx
-10.xx.0.16   nerviosxx
+10.xx.0.10   cerebro1
+10.xx.0.11   brazos1
+10.xx.0.12   espina1
+10.xx.0.13   hombros1
+10.xx.0.14   manos1
+10.xx.0.15   cara03
 ....
 Again, do not use a leading '0' when you swap out the "x".
 ****
 
-Continue on caraxx with the online http://www.unixmen.com/install-configure-nagios-4-ubuntu-14-1014-04/[instructions], in the section "*Configure Monitoring Targets*." There is a small choice you can make, whether to put in the ip address of nerviosxx, or the actual hostname nerviosxx. Reading the notes in the configuration file, what do you think you should do? Will putting in the nerviosxx host name work? How can you find out?
+ http://www.unixmen.com/install-configure-nagios-4-ubuntu-14-1014-04/[instructions], in the section "*Configure Monitoring Targets*." There is a small choice you can make, whether to put in the ip address of nerviosxx, or the actual hostname nerviosxx. Reading the notes in the configuration file, what do you think you should do? Will putting in the nerviosxx host name work? How can you find out?
 
 At the point in instructions that says *go back to your Nagios server* you will exit cara1, and ssh back into nerviosxx and make a configuration change, and finally restart nagios.
 
