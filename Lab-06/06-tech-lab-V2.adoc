@@ -2,7 +2,9 @@
 
 Version 2 - for fan in/out model.
 
-Everyone gets their own monitoring server, which is not the most realistic scenario but gives everyone experience in a complex install and configuration process.
+Each team of 2 gets their own monitoring server, which is not the most realistic scenario but gives everyone experience in a complex install and configuration process.
+
+The monitoring servers will all monitor the same targets
 
 == Introduction
 In this cumulative lab, you will assemble into your teams and install the open source monitoring tool Nagios in a client-server configuration.
@@ -44,7 +46,7 @@ These instructions assume comprehensive familiarity with Unix commands and opera
 * `nano` ~/VMs/XX/Vagrantfile and do the following:
 
 
-** Search replace on the nerviosXX name
+** Search replace on the nervios00 name
 ** Change the "90" in your IP to 90 + your #
 ** Change the ports
 *** guest: 22, host: 2190 + your #
