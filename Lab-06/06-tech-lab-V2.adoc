@@ -144,9 +144,7 @@ When the browser window appears, type in the URL: http://127.0.0.1:8182/nagios
   Login: nagiosadmin
   Password: public
 
-NOTE: Note that you need to change "xx" appropriately, as above.
-
-Congratulations, you have the nerviosxx server running Nagios.
+Congratulations, you have the nervios server running Nagios.
 
 Continuing in the http://www.unixmen.com/install-configure-nagios-4-ubuntu-14-1014-04/[instructions] you will then get to a section that says:
 
@@ -169,8 +167,6 @@ Again, do not use a leading '0' when you swap out the "x".
 ****
 
  http://www.unixmen.com/install-configure-nagios-4-ubuntu-14-1014-04/[instructions], in the section "*Configure Monitoring Targets*." There is a small choice you can make, whether to put in the ip address of nerviosxx, or the actual hostname nerviosxx. Reading the notes in the configuration file, what do you think you should do? Will putting in the nerviosxx host name work? How can you find out?
-
-At the point in instructions that says *go back to your Nagios server* you will exit cara1, and ssh back into nerviosxx and make a configuration change, and finally restart nagios.
 
 NOTE: I am giving you what not how at this point, follow the instructions carefully and be careful of the address you use. If you give something a default host name of "client," that is what you will see in the console. Notice that host_name is not the same as address in the Nagios configuration.
 
