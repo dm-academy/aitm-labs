@@ -146,7 +146,7 @@ When the browser window appears, type in the URL: http://127.0.0.1:8xxx/nagios, 
 
 Congratulations, you have the nervios server running Nagios.
 
-Continuing in the http://www.unixmen.com/install-configure-nagios-4-ubuntu-14-1014-04/[instructions] you will then get to a section that says:
+Go to the  http://www.unixmen.com/install-configure-nagios-4-ubuntu-14-1014-04/[instructions] section that says:
 
 *Add Monitoring targets to Nagios server*
 
