@@ -139,7 +139,7 @@ You can log in and see your nagios instance by opening a new ssh session into se
 
     firefox -X -no-remote
 
-When the browser window appears, type in the URL: http://127.0.0.1:8182/nagios
+When the browser window appears, type in the URL: http://127.0.0.1:8xxx/nagios, where xxx is the port mapping for port 80 that you set in the Vagrantfile
 
   Login: nagiosadmin
   Password: public
