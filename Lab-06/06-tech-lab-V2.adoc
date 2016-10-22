@@ -150,7 +150,9 @@ Go to the  http://www.unixmen.com/install-configure-nagios-4-ubuntu-14-1014-04/[
 
 *Add Monitoring targets to Nagios server*
 
-Skip the section where you start nrpe. Go to the section that says _Now, go back to your Nagios server, and add the clients ( in the configuration file_.
+Skip the section where you start nrpe. Go to the section that says _Now, go back to your Nagios server, and add the clients..._.
+
+Copy the configuration from https://github.com/dm-academy/aitm-labs/blob/master/Lab-06/clients.cfg. 
 
 ****
 *Host IPs*
