@@ -1,31 +1,11 @@
 = Lab 07 IT Organization
 
+== Multitasking intro
 
- 2016 Apr note: Need to have printed sheet or poster with both backlog and business rules
+http://davecrenshaw.com/multitasking-example/
 
-  Rules on printed cards for all to reference?? - not good enough with me just verbally providing directions.
+* Multitasking vs switchtasking - definitions
 
- Ran short of backlog - they got quite quick - or make each building more difficult (higher quality required?)
-
-  Not enough work for vehicle team
-
-  Not sure how well the functional silo is getting across
-
-  Definition of done: DEPLOYED (missed this until middle of iteration 2)
-
-  2 iterations on first was good
-
-  Big bottleneck with infrastructure team being perfectionist & preventing deployments
-
-  Need concept of "minimum viable town"
-
-  PMS walked away from kanbans & didn't maintain
-
-  No meaningful estimation
-
-  8 minute sprints are probably OK
-
- ""
 
 == Supplies
 * Large quantity of Legos, K'Nex, etc
@@ -118,6 +98,8 @@ image::sampleCity.jpg[]
 ** Vehicles require roads
 
 This drives need for planning discussions
+
+The definition of done must include deployed
 
 == Starting
 
