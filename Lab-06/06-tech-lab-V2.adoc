@@ -2,7 +2,9 @@
 
 Version 2 - for fan in/out model.
 
-Everyone gets their own monitoring server, which is not the most realistic scenario but gives everyone experience in a complex install and configuration process.
+Each team of 2 gets their own monitoring server, which is not the most realistic scenario but gives everyone experience in a complex install and configuration process.
+
+The monitoring servers will all monitor the primary pipeline and the cara03 server.
 
 == Introduction
 In this cumulative lab, you will assemble into your teams and install the open source monitoring tool Nagios in a client-server configuration.
@@ -35,16 +37,18 @@ These instructions assume comprehensive familiarity with Unix commands and opera
 
 `su` to the public1 ID; password given in class.
 
-`cd ~\VMs` to the ~/VMs directory
+`cd ~\VMs` to the ~/VMs directory you will be working in (re-used from previous)
 
-`mkdir XX` where XX is the 2-digit number you have been assigned.
+* If there is already a Vagrantfile, go:
+
+ mv Vagrantfile Vagrantfile.old
 
 * Copy `~/Calavera/lab-06-Vagrantfile` to the directory you just created, giving it the name `Vagrantfile`.
 
 * `nano` ~/VMs/XX/Vagrantfile and do the following:
 
 
-** Search replace on the nerviosXX name
+** Search replace on the nervios00 name
 ** Change the "90" in your IP to 90 + your #
 ** Change the ports
 *** guest: 22, host: 2190 + your #
@@ -56,8 +60,7 @@ The goal is to
 
 * install the LAMP stack on your nervios instance
 * install the Nagios server on your nervios instance
-* install the Nagios agent on your manos instance
-* configure Nagios to monitor your pipeline
+* configure Nagios to monitor servers in the pipeline
 * confirm that the pipeline is being monitored
 * test monitoring by halting one or more servers and observing the result
 * expand monitoring to cover Apache Tomcat on the caraxx server, and Jenkins on hombrosxx..
@@ -78,9 +81,9 @@ WARNING: If you follow the LAMP installation, do NOT install mariadb. This means
 
 At this point, you should have the command line skills to install and configure nagios based on these directions, which will not be repeated or elaborated here.
 
-*At your own option*, you may choose to use the https://github.com/dm-academy/Calavera/blob/master/cookbooks/nervios/files/nervios.sh[nervios.sh] script, which installs both LAMP and Nagios. On your nerviosxx instance, you will find this script at
+*At your own option*, you may choose to use the https://github.com/dm-academy/Calavera/blob/master/cookbooks/nervios/files/nervios.sh[nervios.sh] script, which installs both LAMP and Nagios.
 
- /home/nerviosxx/cookbooks/nervios/files/nervios.sh
+You will need to copy this script into your ~/VMs/XX directory, when you are logged in as public1. it is at ~/Calavera/cookbooks/nervios/files/nervios.sh.
 
 (You really didn't want to install everything manually and then find out there was  a nice script, did you?)
 
@@ -136,47 +139,42 @@ You can log in and see your nagios instance by opening a new ssh session into se
 
     firefox -X -no-remote
 
-When the browser window appears, type in the URL: http://nerviosxx/nagios
+When the browser window appears, type in the URL: http://127.0.0.1:8xxx/nagios, where xxx is the port mapping for port 80 that you set in the Vagrantfile
 
   Login: nagiosadmin
   Password: public
 
-NOTE: Note that you need to change "xx" appropriately, as above.
+Congratulations, you have the nervios server running Nagios.
 
-Congratulations, you have the nerviosxx server running Nagios.
-
-Continuing in the http://www.unixmen.com/install-configure-nagios-4-ubuntu-14-1014-04/[instructions] you will then get to a section that says:
+Go to the  http://www.unixmen.com/install-configure-nagios-4-ubuntu-14-1014-04/[instructions] section that says:
 
 *Add Monitoring targets to Nagios server*
 
-Exit nervios xx and log into caraxx (as your "production" server, would be the first you would monitor.)
+Skip the section where you start nrpe. Go to the section that says _Now, go back to your Nagios server, and add the clients..._.
 
- exit
- vagrant ssh caraxx
+When you get to the part where you are editing
 
-Follow the instructions to install the nagios-nrpe-server and nagios-plugins.
+sudo nano /usr/local/nagios/etc/servers/clients.cfg
 
-IMPORTANT: You are using Debian/Ubuntu, NOT CentOS/RHEL/Scientific Linux! The "yum"  command is INCORRECT.
+
+you should copy and adapt the configuration from https://github.com/dm-academy/aitm-labs/blob/master/Lab-06/clients.cfg. 
 
 ****
 *Host IPs*
 
 You may need these.
 ....
-10.xx.0.10   cerebroxx
-10.xx.0.11   brazosxx
-10.xx.0.12   espinaxx
-10.xx.0.13   hombrosxx
-10.xx.0.14   manosxx
-10.xx.0.15   caraxx
-10.xx.0.16   nerviosxx
+10.xx.0.10   cerebro1
+10.xx.0.11   brazos1
+10.xx.0.12   espina1
+10.xx.0.13   hombros1
+10.xx.0.14   manos1
+10.xx.0.15   cara03
 ....
 Again, do not use a leading '0' when you swap out the "x".
 ****
 
-Continue on caraxx with the online http://www.unixmen.com/install-configure-nagios-4-ubuntu-14-1014-04/[instructions], in the section "*Configure Monitoring Targets*." There is a small choice you can make, whether to put in the ip address of nerviosxx, or the actual hostname nerviosxx. Reading the notes in the configuration file, what do you think you should do? Will putting in the nerviosxx host name work? How can you find out?
-
-At the point in instructions that says *go back to your Nagios server* you will exit cara1, and ssh back into nerviosxx and make a configuration change, and finally restart nagios.
+ http://www.unixmen.com/install-configure-nagios-4-ubuntu-14-1014-04/[instructions], in the section "*Configure Monitoring Targets*." There is a small choice you can make, whether to put in the ip address of nerviosxx, or the actual hostname nerviosxx. Reading the notes in the configuration file, what do you think you should do? Will putting in the nerviosxx host name work? How can you find out?
 
 NOTE: I am giving you what not how at this point, follow the instructions carefully and be careful of the address you use. If you give something a default host name of "client," that is what you will see in the console. Notice that host_name is not the same as address in the Nagios configuration.
 
