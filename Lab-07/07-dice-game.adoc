@@ -10,11 +10,11 @@ objectives:
 * illustrate queuing versus collaborative teams
 * illustrate feedback & information creation issues
 
-IMPORTANT: rework is rolled for only the first time a plate is received. 
+IMPORTANT: rework is rolled for only the first time a plate is received.
 
 === Round 1
 
-Specialist teams with strong intake management.
+Specialist teams with strong intake management, large batches.
 
 Each table row represents a specialty
 
@@ -40,7 +40,7 @@ Repeat 2x
 
 === Round 2
 
-Specialist teams with direct PO assignment
+Specialist teams with direct PO assignment, large batches.
 
 Each table row represents a specialty
 
@@ -66,7 +66,7 @@ Repeat 2x
 
 === Round 3
 
-Product team, sprints, specialists
+Product team composed of specialists, working in sprints.
 
 Everyone rotates 90 degrees. Floaters must choose a product team. Product flow now is along the table.
 
@@ -83,7 +83,7 @@ Dev and Ops additionally roll a large 20-sided dice to account for rework. On re
 
 === Round 4
 
-Product team, sprints, no specialists
+Product team composed of generalists, working in sprints.
 
 There are no more specialists. Anyone can perform any role, but the role still can only perform one task. The next step can be performed by any other person. People must know what step they did: BA, Dev, or Ops.
 
@@ -95,7 +95,7 @@ NOTE: Why are the odds worse? Discuss.
 
 === Round 5
 
-Product team, continuous flow, no specialists
+Product team composed of generalists, continuous flow.
 
 There are no specialists. Dice move in batches of 1. Anyone can perform any role, but the role still can only perform one task. The next step can be performed by any other person. People must know what step they did: BA, Dev, or Ops.
 
@@ -104,8 +104,6 @@ The persons performing the Dev and Ops tasks additionally roll a large 20-sided 
 === Round 6
 
 Product team, self-organizing
-
-Product team, continuous flow, no specialists
 
 There are no specialists. Team self-organizes. Dice move in batches of any size. Anyone can perform any role, but the role still can only perform one task. The next step can be performed by any other person. People must know what step they did: BA, Dev, or Ops.
 
