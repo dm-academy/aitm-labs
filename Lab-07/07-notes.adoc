@@ -23,3 +23,26 @@
   No meaningful estimation
 
   8 minute sprints are probably OK
+
+
+  == ideas for dice game
+
+  there are 6 major products
+  each product consists of a set of releases
+  each release is a 12"x12" card with a specific configuration
+  of complex requirements
+
+  * dice (with a particular side up)
+  * cards
+  * small, specified Lego structures
+
+  dimensions:
+
+  * lifecycle stages
+  * supply specialists
+  * products
+
+
+
+
+  each set of
