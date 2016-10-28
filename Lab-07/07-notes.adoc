@@ -25,7 +25,21 @@
   8 minute sprints are probably OK
 
 
-  == ideas for dice game
+== ideas for dice game
+
+objectives:
+
+* illustrate matrix management
+* illustrate queuing versus collaborative teams
+* illustrate feedback & information creation issues
+
+how to think about feedback
+
+BA sets all dice to 1 & forwards
+Dice are laid out on a card with 10 spaces.
+
+Dev sets all dice to 2 & forwards. But they discover... what? 
+
 
   there are 6 major products
   each product consists of a set of releases
@@ -35,6 +49,17 @@
   * dice (with a particular side up)
   * cards
   * small, specified Lego structures
+
+they can choose what they want to build - they assemble the cards from primitives
+
+a primitive has a
+
+ - point value
+ - an artifact (dice, cards, Lego)
+ - a set of states for the artifact (discovery, delivery, deployment, ops)
+
+
+
 
   dimensions:
 
