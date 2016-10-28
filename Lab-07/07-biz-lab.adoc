@@ -6,7 +6,9 @@ http://davecrenshaw.com/multitasking-example/
 
 * Multitasking vs switchtasking - definitions
 
+== dice game
 
+http://lithespeed.com/an-exercise-in-flow-the-dice-game/
 
 == Supplies
 * Large quantity of Legos, K'Nex, etc
