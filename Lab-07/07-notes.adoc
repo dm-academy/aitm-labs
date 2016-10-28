@@ -1,0 +1,25 @@
+
+
+ 2016 Apr note: Need to have printed sheet or poster with both backlog and business rules
+
+  Rules on printed cards for all to reference?? - not good enough with me just verbally providing directions.
+
+ Ran short of backlog - they got quite quick - or make each building more difficult (higher quality required?)
+
+  Not enough work for vehicle team
+
+  Not sure how well the functional silo is getting across
+
+  Definition of done: DEPLOYED (missed this until middle of iteration 2)
+
+  2 iterations on first was good
+
+  Big bottleneck with infrastructure team being perfectionist & preventing deployments
+
+  Need concept of "minimum viable town"
+
+  PMS walked away from kanbans & didn't maintain
+
+  No meaningful estimation
+
+  8 minute sprints are probably OK
