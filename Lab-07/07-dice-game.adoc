@@ -21,11 +21,13 @@ Each table row represents a specialty
 * BAs in back
 * Devs next
 * Ops next
-* POs in front
+* PMs in front
+
+Extra people should be on BA and Dev teams to handle rework, not PMs or Ops.
 
 Additionally, the person at the end of the BA, Dev, and Ops rows is the manager and all work must flow through them (the PO must not talk to the indivduals.)
 
-Each PO gets random plate of dice.
+Each PM gets random plate of dice.
 
 They take through process in order, each performing a _task_:
 
@@ -34,7 +36,7 @@ They take through process in order, each performing a _task_:
 * Ops: sets dice to the highest
 * PO: collects plate & moves to front
 
-Dev and Ops additionally roll a large 20-sided dice to account for rework. On receiving a plate of 10 dice, they must roll 12 or better. If they do not get 12 or better the plate of dice must be sent back to their manager, to hand off to the PO, to take back to the previous step, where any 3 dice must be increased by 1 increment. The plate is then passed to the manager for handoff back to the PO.
+Dev and Ops additionally roll a large 20-sided dice to account for rework. On receiving a plate of 10 dice, they must roll 12 or better. If they do not get 12 or better the plate of dice must be sent back to their manager, to hand off to the PM, to take back to the previous step, where any 3 dice must be increased by 1 increment. The plate is then passed to the manager for handoff back to the PO.
 
 Repeat 2x
 
@@ -47,11 +49,11 @@ Each table row represents a specialty
 * BAs in back
 * Devs next
 * Ops next
-* POs in front
+* PMs in front
 
-There is no manager. Instead, each PO has 1 person dedicated on each team. They should identify their resources at the start of the team. Extra people can float as needed. Floaters should know that they are floaters.
+There is still a manager. All they do is assign the PM to who they should work with. (1 or more people at their option) They should identify their resources at the start of the team.
 
-Each PO gets random plate of dice.
+Each PM gets random plate of dice.
 
 They take through process in order, each performing a task:
 
@@ -114,3 +116,7 @@ The persons performing the Dev and Ops tasks additionally roll a large 20-sided 
 More than 3 dice: 13 or better
 
 If they do not make their roll the plate of dice must be sent back to any other person on the team, who must increase any 1 dice by 1 increment. The plate ends up at the PO's position.
+
+=== Thoughts for next time
+
+Product design cards - simple configurations of dice - only PM can see, has to verbally describe to BA... first, no feedback until the PM sees at the end of the pipeline...
