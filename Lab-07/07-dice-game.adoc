@@ -120,3 +120,13 @@ If they do not make their roll the plate of dice must be sent back to any other 
 === Thoughts for next time
 
 Product design cards - simple configurations of dice - only PM can see, has to verbally describe to BA... first, no feedback until the PM sees at the end of the pipeline...
+
+
+What are the state transitions then? What are the tokens/resources in play? BA, Dev, Ops - who does what with what?
+
+Principles: we are illustrating:
+
+* Batch size
+* Specialization
+* Team matrixing
+* Feedback tempo
