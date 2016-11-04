@@ -1,0 +1,25 @@
+= Lab 08 Agile Architecture
+
+.setup
+image::setup.jpg[]
+
+The game should be set up as in Figure 1.
+
+.page speed obtained
+image::page-speed.jpg[]
+
+.cart UI
+image::cart-ui.jpg[]
+
+.upgrade, for purchase path
+image::upgrade.jpg[]
+
+.next year
+image::next-year.jpg[]
+
+.SOA
+image::soa.jpg[]
+
+.upgrade with SOA
+image::soa-upgrade.jpg[]
+Notice that one of the "meeples" is replaced with a box.
