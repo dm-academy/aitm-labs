@@ -44,14 +44,23 @@ https://wiki.openitop.org/doku.php?id=start
 
 === Scenario
 
-Here is the scenario: you are six teams within a larger organization.
+Here is the scenario: you are six teams within a larger organization. The overview of your tasks is:
 
-You will be documenting your existing pipelines.
+* Create your team and members
+* Enter your systems:
+** Business processes
+** Applications
+** Servers
+* Register an Incident against a Server
+** Identify impacted processes and business objectives in the Incident
+* File an Emergency Change to restore service
+* Create a Problem ticket representing root cause
+* File a Change to fix the Problem
 
 **Instructions**
 
 * Set up your teams (we won't use the existing teams in iTOP - however, the existing data may help you understand how to set things up)
-* Name them TeamX where X={1-4}
+* Name them TeamX where X={1-6}
 ** as admin, give each person on your team an ID and password (Configuration Management|Contacts) - use your St. Thomas email ID and no password. (Don't do this in the real world.)
 ** assign each to the appropriate team
 
@@ -71,23 +80,9 @@ Please, prefix anything you create with "XX" where X is your team name. For exam
 Refer to the iTop instructions, course readings (especially Betz), and online ITSM/ITIL materials as necessary.
 
 ****
-* Set up your configuration items
-** Servers
-*** manosXX
-*** cerebroXX
-*** etc
-** Applications (with your team #)
-*** gitXX
-*** jenkinsXX
-*** artifactoryXX
-*** webXX (your app)
 
-Link your applications to your servers.
+== Configure the system
 
-* Jenkins runs on hombros and brazos
-* Central git on cerebro
-* artifactory on espina
-* webXX on cara and manos
 
 == A typical ITIL scenario
 The following exercise reflects an end to end ITIL workflow. Refer to previous labs as necessary.
