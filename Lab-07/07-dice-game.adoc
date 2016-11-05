@@ -1,0 +1,132 @@
+== Dice Game
+
+Premise: 4 products, moving through BA/Dev/Ops, each with a product owner
+
+Need: 4 rows of tables
+
+objectives:
+
+* illustrate matrix management
+* illustrate queuing versus collaborative teams
+* illustrate feedback & information creation issues
+
+IMPORTANT: rework is rolled for only the first time a plate is received.
+
+=== Round 1
+
+Specialist teams with strong intake management, large batches.
+
+Each table row represents a specialty
+
+* BAs in back
+* Devs next
+* Ops next
+* PMs in front
+
+Extra people should be on BA and Dev teams to handle rework, not PMs or Ops.
+
+Additionally, the person at the end of the BA, Dev, and Ops rows is the manager and all work must flow through them (the PO must not talk to the indivduals.)
+
+Each PM gets random plate of dice.
+
+They take through process in order, each performing a _task_:
+
+* BA: sets dice to the lowest #
+* Dev: sets dice one higher than received
+* Ops: sets dice to the highest
+* PO: collects plate & moves to front
+
+Dev and Ops additionally roll a large 20-sided dice to account for rework. On receiving a plate of 10 dice, they must roll 12 or better. If they do not get 12 or better the plate of dice must be sent back to their manager, to hand off to the PM, to take back to the previous step, where any 3 dice must be increased by 1 increment. The plate is then passed to the manager for handoff back to the PO.
+
+Repeat 2x
+
+=== Round 2
+
+Specialist teams with direct PO assignment, large batches.
+
+Each table row represents a specialty
+
+* BAs in back
+* Devs next
+* Ops next
+* PMs in front
+
+There is still a manager. All they do is assign the PM to who they should work with. (1 or more people at their option) They should identify their resources at the start of the team.
+
+Each PM gets random plate of dice.
+
+They take through process in order, each performing a task:
+
+* BA: sets dice to the lowest #
+* Dev: sets dice one higher than received
+* Ops: sets dice to the highest
+* PO: collects plate & moves to front
+
+Dev and Ops additionally roll a large 20-sided dice to account for rework. On receiving a plate of 10 dice, they must roll 12 or better. If they do not get 12 or better the plate of dice must be sent back to the PO, to take back to the previous step, where any 3 dice must be increased by 1 increment. The plate is then collected by the PO.
+
+Repeat 2x
+
+=== Round 3
+
+Product team composed of specialists, working in sprints.
+
+Everyone rotates 90 degrees. Floaters must choose a product team. Product flow now is along the table.
+
+The product owner gets a random plate of dice. They send the dice through on the small plates in batches of 2 or 3. The dice still go through the specialities in order:
+
+* BA: sets dice to the lowest #
+* Dev: sets dice one higher than received
+* Ops: sets dice to the highest
+* PO: shadows plate as it moves along
+
+*Different odds - read carefully*
+
+Dev and Ops additionally roll a large 20-sided dice to account for rework. On receiving a plate of 2-3 dice, they must roll 6 or better. If they do not get 6 or better the plate of dice must be sent back to person who did the previous step, where any 1 dice must be increased by 1 increment. The plate is passed directly to the PO's position on the table.
+
+=== Round 4
+
+Product team composed of generalists, working in sprints.
+
+There are no more specialists. Anyone can perform any role, but the role still can only perform one task. The next step can be performed by any other person. People must know what step they did: BA, Dev, or Ops.
+
+*Different odds - read carefully*
+
+The persons performing the Dev and Ops tasks additionally roll a large 20-sided dice to account for rework. On receiving a plate of 2-3 dice, they must roll 7 or better. If they do not get 7 or better the plate of dice must be sent back to any other person, who must increase any 1 dice by 1 increment and return the plate to the person who sent it back. The plate is then passed to the manager for handoff back to the PO.
+
+NOTE: Why are the odds worse? Discuss.
+
+=== Round 5
+
+Product team composed of generalists, continuous flow.
+
+There are no specialists. Dice move in batches of 1. Anyone can perform any role, but the role still can only perform one task. The next step can be performed by any other person. People must know what step they did: BA, Dev, or Ops.
+
+The persons performing the Dev and Ops tasks additionally roll a large 20-sided dice to account for rework. On receiving a plate with 1 die, they must roll a 5 or better. If they do not make their roll the plate with the die on it must be sent back to any other person on the team, who must increase any 1 dice by 1 increment and return it to the person who sent it back. The plate ends up at the PO's position.
+
+=== Round 6
+
+Product team, self-organizing
+
+There are no specialists. Team self-organizes. Dice move in batches of any size. Anyone can perform any role, but the role still can only perform one task. The next step can be performed by any other person. People must know what step they did: BA, Dev, or Ops.
+
+The persons performing the Dev and Ops tasks additionally roll a large 20-sided dice to account for rework. On receiving a plate with *any number* of dice, they must roll to the following:
+
+1 dice: 5 or better
+2-3 dice: 8 or better
+More than 3 dice: 13 or better
+
+If they do not make their roll the plate of dice must be sent back to any other person on the team, who must increase any 1 dice by 1 increment. The plate ends up at the PO's position.
+
+=== Thoughts for next time
+
+Product design cards - simple configurations of dice - only PM can see, has to verbally describe to BA... first, no feedback until the PM sees at the end of the pipeline...
+
+
+What are the state transitions then? What are the tokens/resources in play? BA, Dev, Ops - who does what with what?
+
+Principles: we are illustrating:
+
+* Batch size
+* Specialization
+* Team matrixing
+* Feedback tempo
