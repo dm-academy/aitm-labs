@@ -1,6 +1,4 @@
 
-
-
 == Lab 09: IT Service Management Suite (Process Management)
 
 This lab will introduce you to a full IT service management suite supporting the ITIL process framework.
@@ -44,7 +42,7 @@ https://wiki.openitop.org/doku.php?id=start
 
 === Scenario
 
-Here is the scenario: you are six teams within a larger organization. The overview of your tasks is:
+Here is the scenario: you are six teams within a larger organization. Additionally, each individual owns an application. The overview of your tasks is:
 
 * Create your team and members
 * Enter your systems:
@@ -59,14 +57,6 @@ Here is the scenario: you are six teams within a larger organization. The overvi
 
 **Instructions**
 
-* Set up your teams (we won't use the existing teams in iTOP - however, the existing data may help you understand how to set things up)
-* Name them TeamX where X={1-6}
-** as admin, give each person on your team an ID and password (Configuration Management|Contacts) - use your St. Thomas email ID and no password. (Don't do this in the real world.)
-** assign each to the appropriate team
-
-image::contacts.png[]
-image::person.png[]
-
 .Critical note
 ****
 There are dozens of possible screens in iTop, and the lab does not document them all with screenshots. It would start to become very redundant.
@@ -75,35 +65,85 @@ You will find that the behavior of iTop is very consistent. You can create, sear
 
 You can create relationships to things that are not your own. Just don't delete or modify anything someone else has created.
 
-Please, prefix anything you create with "XX" where X is your team name. For example, Team Four might create a server "04-email-srv" representing their email server.
-
-Refer to the iTop instructions, course readings (especially Betz), and online ITSM/ITIL materials as necessary.
-
 ****
 
 == Configure the system
 
+We are leaving the following undefined:
 
-== A typical ITIL scenario
-The following exercise reflects an end to end ITIL workflow. Refer to previous labs as necessary.
+* Locations
+* Roles
+* Organizations
 
-Note, the following assumes your team's pipeline is still active.
+== To create teams and individuals
 
-In your same Firefox instance, additionally open your Nagios console:
+In iTop, "Contacts" include "Persons" and "Teams." *Contacts are not necessarily iTOP users, nor are iTOP users necessarily Contacts.*
 
-http://nerviosxx/nagios[http://nerviosxx/nagios]
+The "New Contact" command under Configuration Management|Contacts is used to create teams and individuals in iTOP.
 
-*First*, as in https://github.com/dm-academy/aitm-labs/blob/master/Lab-06/06-tech-lab.adoc[Lab 6], do
+* In Configuration Management, set up your Teams according to the Team column.
+** Create Persons, one for each team member, with your real name and associate them with the Team.
+* In Admin tools|User Accounts, create an iTOP account for the Person you just created- use your St. Thomas email ID and "test" as password. (Don't do this in the real world.) Make them an administrator to start.
+** assign each User Account to the appropriate Person
 
- vagrant suspend caraXX
+image::contacts.png[]
+image::person.png[]
 
-For the sake of the exercise, consider this as a "mistake" on the part of some staff person who did not realize that caraXX was running the production web site.
+Review your progress with the instructor before continuing.
 
-*Second*, go into iTop and register this as an Incident. Be sure to link the incident to at least one CI. You have three choices:
+== Creating CIs
 
-* Link the incident to caraXX
-* Link the incident to the application webXX
-* Link it to both
+* Create the servers your applications run on
+* Create your applications
+* Create your business processes
+* Create your inter-application dependencies (you will need to coordinate with other teams, who may not have completed their CMDB work when you need it.)
+
+For each CI, you should associate it to the "Master service." If you do not do this, you will not be able to assign people to the associated Changes:
+
+image::masterService.png[]
+
+Link them together as appropriate. Refer to the "Sample process" configuration. When you are done, go to your Business Process CI and run a Depends On report. It should look something like this:
+
+image::impact.png[]
+
+Create a Slack channel for your team, called #lab-09-tXX where XX is your team name.
+
+When you have your topology defined, post a screenshot to Slack. Do not continue until all teams have completed their configurations. (Take a break if you need to, or start your reading for next week.)
+
+== ITIL process
+
+The following exercises reflect the traditional ITIL workflow. Here are the rules:
+
+An Incident against a CI requires the following:
+
+* All impacted contacts need to be listed on the Incident
+* Some approach for restoring service needs to be agreed upon as an emergency Change (e.g. "reboot server XXX" or "restart app server on XXX")
+** This should be done in Slack, in the owning team's channel. When agreement is reached, create the Emergency Change record with related CIs *AND* related Incident. Assign it to the Team owning the business process, and to the individual owning the app. See the C-000002 Change.
+** The individual owning the change needs to modify and save it multiple times, in order to move it through the lifecycle.
+
+
+
+Go to your appropriate team and perform the indicated activity, and
+
+=== T01-Marketing services
+
+
+=== T02-eCommerce services
+
+
+=== T03-Fulfillment services
+
+
+=== T04-Supply chain services
+
+
+=== T05-Corporate services
+
+
+=== T06-Product services
+
+
+
 
 Discuss as a team - which are you going to do? Why? What would IT Service Management philosophy suggest?
 
@@ -142,4 +182,4 @@ image::IT4ITL2.png[]
 
 * What parts of these reference architectures are fulfilled by this tool?
 
-* What do you think of this tool in light of current industry trends to virtualization and faster cycle times?
+* What do you think of this tool in light of current industry trends to virtualization, infrastructure as code, and faster cycle times?
