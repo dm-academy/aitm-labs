@@ -77,26 +77,46 @@ We are leaving the following undefined:
 
 == To create teams and individuals
 
+Each individual person should create their own Person and User account.
+
 In iTop, "Contacts" include "Persons" and "Teams." *Contacts are not necessarily iTOP users, nor are iTOP users necessarily Contacts.*
 
 The "New Contact" command under Configuration Management|Contacts is used to create teams and individuals in iTOP.
 
-* In Configuration Management, set up your Teams according to the Team column.
 ** Create Persons, one for each team member, with your real name and associate them with the Team.
-* In Admin tools|User Accounts, create an iTOP account for the Person you just created- use your St. Thomas email ID and "test" as password. (Don't do this in the real world.) Make them an administrator to start.
-** assign each User Account to the appropriate Person
 
 image::contacts.png[]
 image::person.png[]
+
+* In Admin tools|User Accounts, create an iTOP account for the Person you just created- use your St. Thomas email ID and "test" as password. (Don't do this in the real world.) Make them an administrator to start.
+** assign each User Account to the appropriate Person
+
+image::userContact.png[]
+
+** for now, each user can have the Administrator profile
+
+image::administrator.png[]
+
+* In Configuration Management, set up your Teams according to the Team column.
+
+image::createTeam.png[]
+image::teamProps.png[]
 
 Review your progress with the instructor before continuing.
 
 == Creating CIs
 
 * Create the servers your applications run on
-* Create your applications
+** Configuration Management|New CI|Server
+
+image::createServer.png[]
+
+* Create your applications in the same way
 * Create your business processes
 * Create your inter-application dependencies (you will need to coordinate with other teams, who may not have completed their CMDB work when you need it.)
+** Your business process depends on the applications
+** Your applications depend on the servers
+** Your applications depend on each other
 
 For each CI, you should associate it to the "Master service." If you do not do this, you will not be able to assign people to the associated Changes:
 
@@ -112,53 +132,70 @@ When you have your topology defined, post a screenshot to Slack. Do not continue
 
 == ITIL process
 
+Each team will have two incidents, one reported by them, one reported by someone else. They may also be called in regarding other issues and dependencies.
+
+Both incidents will follow a common process:
+
+. Register the Incident
+. Create an Emergency Change to fix it (referencing the Incident)
+. Approve, schedule, and complete the Change
+. Close Change and then the Incident
+. Open a Problem referencing the Incident
+. Create a Normal Change to resolve it (referencing the Problem)
+. Approve, schedule, and complete Change
+. Close the Change and then the Problem
+
+At the same time, coordinate with all other teams who are indicating dependencies and requiring you to resolve issues that they are seeing.
+
+.IMPORTANT
+Read through the two workflows below, then go to your team section for what you need to do specifically in the tool.
+
+=== Create an Incident and resolve it with an Emergency Change
+
 The following exercises reflect the traditional ITIL workflow. Here are the rules:
 
-An Incident against a CI requires the following:
+An Incident against a CI follows the general process:
 
-* All impacted contacts need to be listed on the Incident
 * Some approach for restoring service needs to be agreed upon as an emergency Change (e.g. "reboot server XXX" or "restart app server on XXX")
-** This should be done in Slack, in the owning team's channel. When agreement is reached, create the Emergency Change record with related CIs *AND* related Incident. Assign it to the Team owning the business process, and to the individual owning the app. See the C-000002 Change.
+** This should be done in Slack, in the owning team's channel, with all impacted teams involved. When agreement is reached, create the Emergency Change record with related CIs *AND* related Incident. Assign it to the Team owning the business process, and to the individual owning the app. See the C-000002 Change.
 ** The individual owning the change needs to modify and save it multiple times, in order to move it through the lifecycle.
+**  You may have a server down and another team calls you about it. You should only create one Incident.
+* Assume that this is not the first time this has happened. You need it to stop.
 
 
+=== Create a Problem and resolve it with a Normal Change
 
-Go to your appropriate team and perform the indicated activity, and
+* Create a Problem record. Relate it to the Incident.Discuss on Slack with all stakeholders - which are you going to do to fix the problem going forward?
+* Create a Normal Change describing this. Relate it to the Incident. Approve the Change.
+* Perform the action and update the Change accordingly.
+* Close the Change with documentation as to the results of your activity.
 
-=== T01-Marketing services
+=== TEAM SPECIFIC TASKS
 
+==== T01-Marketing services
+. You have an incident on srv001, the J2EE process is hung
+. You notice that the CSM app is down
 
-=== T02-eCommerce services
+==== T02-eCommerce services
+. You have an incident on srv007, the Oracle database has gotten corrupted
+. You notice that the PM app is slow
 
+==== T03-Fulfillment services
+. You have an incident on srv016, the message queue appears to be stuck
+. You notice that the CRM app is down
 
-=== T03-Fulfillment services
+==== T04-Supply chain services
+. You have an incident on srv020, it has crashed hard
+. You notice that the OM app is down
 
+==== T05-Corporate services
+. You have an incident on srv024, the software is not functioning due to a recent change
+. You notice AP is down
 
-=== T04-Supply chain services
+==== T06-Product services
+. You have an incident on srv031,
+. You notice the TT app is down
 
-
-=== T05-Corporate services
-
-
-=== T06-Product services
-
-
-
-
-Discuss as a team - which are you going to do? Why? What would IT Service Management philosophy suggest?
-
-*Third,* Decide what you need to do, to restore service.
-
-*Fourth*, create a Change describing this. Relate it to the Incident. Approve the Change.
-
-*Fifth,* perform the action and update the Change accordingly.
-
-*Sixth,* close the Change with documentation as to the results of your activity.
-
-*Seventh* Assume that this is not the first time this has happened. You need it to stop.
-
-* Create a Problem record. Relate it to the Incident.
-* What is your plan to prevent critical servers from being suspended?
 
 == Free form activities
 

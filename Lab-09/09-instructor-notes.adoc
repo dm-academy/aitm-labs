@@ -47,5 +47,9 @@ Delivery model problem - prevents team assignment to incident -
 
 Add help desk exercise.
 
-=== 2017 fqall
+=== 2017 fall
 script worked well, updated so that wget wasn't running in background
+
+iTOP is always a pain with its service model. The essential component is creating a master delivery model and assigning it to the company:
+
+image::DeliveryModel.png[]
