@@ -52,8 +52,8 @@ Here is the scenario: you are six teams within a larger organization. The overvi
 ** Applications
 ** Servers
 * Register an Incident against a Server
-** Identify impacted processes and business objectives in the Incident
-* File an Emergency Change to restore service
+** Identify impacted processes, business objectives, and other teams in the Incident
+* File an Emergency Change to restore service, in coordination with all stakeholders
 * Create a Problem ticket representing root cause
 * File a Change to fix the Problem
 
