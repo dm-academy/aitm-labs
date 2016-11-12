@@ -119,14 +119,15 @@ image::createServer.png[]
 ** Your business process depends on the applications
 ** Your applications depend on the servers
 ** Your applications depend on each other
+** Your applications, under the Contacts tab, are assigned to your team (not persons)
 
-In order to link Configuration Items (CIs), you need to Modify them. The interface is simple. 
+In order to link Configuration Items (CIs), you need to Modify them. The interface is simple.
 
 For each CI, you should associate it to the "Master service." If you do not do this, you will not be able to assign people to the associated Changes:
 
 image::masterService.png[]
 
-Link them together as appropriate. Refer to the "Sample process" configuration. When you are done, go to your Business Process CI and run a Depends On report. It should look something like this:
+Link them together as appropriate. Refer to the "Sample process" configuration. When you are done, go to your Business Process CI and run a Depends On report (top right "Other Actions"). It should look something like this:
 
 image::impact.png[]
 
