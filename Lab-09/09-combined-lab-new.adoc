@@ -120,6 +120,8 @@ image::createServer.png[]
 ** Your applications depend on the servers
 ** Your applications depend on each other
 
+In order to link Configuration Items (CIs), you need to Modify them. The interface is simple. 
+
 For each CI, you should associate it to the "Master service." If you do not do this, you will not be able to assign people to the associated Changes:
 
 image::masterService.png[]
@@ -166,13 +168,14 @@ An Incident against a CI follows the general process:
 **  You may have a server down and another team calls you about it. You should only create one Incident.
 * Assume that this is not the first time this has happened. You need it to stop.
 
-
 === Create a Problem and resolve it with a Normal Change
 
-* Create a Problem record. Relate it to the Incident.Discuss on Slack with all stakeholders - which are you going to do to fix the problem going forward?
+* Create a Problem record. Relate it to the Incident. Discuss on Slack with all stakeholders - which are you going to do to fix the problem going forward?
 * Create a Normal Change describing this. Relate it to the Incident. Approve the Change.
 * Perform the action and update the Change accordingly.
 * Close the Change with documentation as to the results of your activity.
+
+IMPORTANT: I am not clear exactly whether a person can be "added" as an approver on a Change, I did not have time to figure this out. Extra credit for the team who figures this out.
 
 === TEAM SPECIFIC TASKS
 
@@ -205,8 +208,8 @@ An Incident against a CI follows the general process:
 
 Perform the following actions, as many as you have time for:
 
-* Initiate and fulfill a service request for access against one of your services, or another team's.
-* Add new, or new kinds, of resources/CIs to your application. (These can be imaginary.)
+* Initiate and fulfill a service request for access against one of your applications, or another team's.
+* Add new, or new kinds, of resources/CIs to your application. (These can be imaginary.) Post the dependency graph to Slack.
 * Add dependencies on other teams' resources, and see that you are added as a Change approver.
 * Be creative!
 
