@@ -53,3 +53,5 @@ script worked well, updated so that wget wasn't running in background
 iTOP is always a pain with its service model. The essential component is creating a master delivery model and assigning it to the company:
 
 image::DeliveryModel.png[]
+
+Too much config, and we didn't get to the incidents soon enough. Need to suspend and save that instance for post-mortem. Lots of valuable data. Usual problem of not being able to assign incidents/changes to the right team - what is it? Service model stuff? Got to figure out. 
