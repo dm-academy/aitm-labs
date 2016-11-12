@@ -40,6 +40,8 @@ At the same time, using a LOCAL browser (not the Firefox where you have iTOP), g
 
 https://wiki.openitop.org/doku.php?id=start
 
+Finally, you will need to open the https://github.com/dm-academy/aitm-labs/blob/master/Lab-09/Copy%20of%20sample-data.xlsx[sample data] Excel file.
+
 === Scenario
 
 Here is the scenario: you are six teams within a larger organization. Additionally, each individual owns an application. The overview of your tasks is:
@@ -129,6 +131,8 @@ image::impact.png[]
 Create a Slack channel for your team, called #lab-09-tXX where XX is your team name.
 
 When you have your topology defined, post a screenshot to Slack. Do not continue until all teams have completed their configurations. (Take a break if you need to, or start your reading for next week.)
+
+Log out as admin and back in as yourself (your St. Thomas email ID).
 
 == ITIL process
 
