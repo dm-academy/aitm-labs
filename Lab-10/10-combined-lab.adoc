@@ -38,23 +38,11 @@ You should download using the git approach.
 
 This scan is run internally on the server, as a script or application that reviews the server's configuration in painstaking detail. It will generate hundreds of findings. You should pick one or two and research them and figure out if there is an easy fix.
 
-Start by logging into your personal server. You should be in `/home/vagrant`. Go
-
-
+Start by logging into your personal server. You should be in `/home/vagrant`. Go to:
 
 https://cisofy.com/documentation/lynis/get-started/#first-run
 
-You need to call lynis using the `./lynis` approach, since its path is not in your $PATH variable. Try following the instructions, which have interesting inconsistencies with what will happen.
-
-In particular you will see:
-
-`WARNING: output may be incomplete or inaccurate, you should run this program as super-user.`
-
-Hit Ctrl-C to abort. What do you need to do? Do it. [See hint #1 below if you are completely stumped, but you should know this by now. It's likely to be on a test.]
-
-Now you are getting a different error, not reflected in the instructions either. The error gives you all that you need to fix it. [See hint #2 below.]
-
-Fixed? Now you should be able to run the first scan as the lynis directions suggest. Lots of output that looks like:
+You should be able to run the first scan as the lynis directions suggest. Lots of output that looks like:
 
 ....
 - Checking for old files in /tmp                            [ OK ]
@@ -76,14 +64,20 @@ Fixed? Now you should be able to run the first scan as the lynis directions sugg
 
 Let's fix the legal banner issue. See:
 
-http://askubuntu.com/questions/420375/how-to-add-legal-banner-in-etc-issue-and-etc-issue-net-in-ubuntu
-http://csrc.nist.gov/publications/nistbul/csl93-03.txt
+* http://askubuntu.com/questions/420375/how-to-add-legal-banner-in-etc-issue-and-etc-issue-net-in-ubuntu
+* http://csrc.nist.gov/publications/nistbul/csl93-03.txt
 
-Between these two resources you should be able to fix the issue. When you have, run the scan again and post evidence to Slack.
+Between these two resources you should be able to fix the issue. If you have questions, post them to Slack.
+
+When you have fixed the issue, run the scan again and post evidence to Slack.
 
 === System hardening
 
 Now for the hard part. Find another vulnerability you can fix. To use class time most efficiently, you should post the vulnerabilities you are researching to Slack. Don't start on something someone else is doing.
+
+You should take some time and think about and/or research the risk any given vulnerability presents. Remember the CISSP terminology:
+
+image::4.10-security-taxonomy.png[]
 
 We will pause class and discuss interesting cases.
 
@@ -92,6 +86,7 @@ Be prepared to share you results, positive or negative. If you fix a vulnerabili
 After you have fixed one more lynis vulnerability, read http://www.sonatype.org/nexus/2015/11/13/did-you-wake-up-to-an-alert-about-the-java-deserialization-vulnerability and discuss with your neighbors. What is the National Vulnerability Database? Be prepared to discuss in class.
 
 === Web vulnerability testing scan
+(if time)
 
 When you have reflected enough on the Java deserialization vulnerability and the implications of that article, move on to a Web vulnerability.
 
