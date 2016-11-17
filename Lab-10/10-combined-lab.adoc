@@ -8,110 +8,88 @@ Objectives:
 
 * Understand a "vulnerability" and how it can be detected
 * Understand how a vulnerability may be fixed or remediated
-* Understand the role of the NIST Common Vulnerability database
 
 == Overview
 
-Working in pairs or 3s, you will run an "inside-out" vulnerability scan and a simple "outside-in" scan on the servers. (By splitting up, more students can be hands-on with the lab.) The testing will be performed by downloading two vulnerability scanners and running them on your servers.
+Working individually, you will run an "inside-out" vulnerability scan and a simple "outside-in" scan on the servers.  The testing will be performed by downloading two vulnerability scanners and running them on your servers.
 
 You will research the results and recommend at least one fix that can be implemented in the Vagrantfile and associated cookbook and/or shell script for building the server.
 
 You will write (with instructor assistance) a fix as a shell script to be pulled into the Calavera repository.
 
 === Getting started
-Your public1-4 pipelines are still operational. Refer back to previous labs (`su publicxx, cd ~/Calavera`).
 
-We are going to focus on caraxx and espinaxx since hackers would likely try to exploit these servers first. Why? Because these two environments contain production code. This gives your team 2 servers to work with.
+Go to your home directory.
 
-First, do
+ cd
 
- vagrant status
+You should still have a vagrant directory. Go:
 
-If needed, restart the virtual servers by doing "vagrant up" on:
+ cd vagrant
+ vagrant up
 
-* espinaxx
-* caraxx
+If this doesn't work, go back to https://github.com/dm-academy/aitm-labs/blob/master/Lab-02/02-tech-lab.adoc[Lab 2] and follow the Section 1 instructions just up through getting the simple Vagrant machine running (do not continue to section 2 in that lab.)
 
-Via X, you should be able to see Artifactory:
+Now, install Lynis. The overall instructions are here:
 
-10.xx.0.12:8081/artifactory
+https://cisofy.com/documentation/lynis/get-started
 
-and your Tomcat application:
+You should download using the git approach.
 
-10.xx.0.15:8080/MainServlet
+This scan is run internally on the server, as a script or application that reviews the server's configuration in painstaking detail. It will generate hundreds of findings. You should pick one or two and research them and figure out if there is an easy fix.
 
-If you cannot, let the instructor know.
+Start by logging into your personal server. You should be in `/home/vagrant`. Go
 
-=== System hardening scan
 
-Now, let's install OpenSCAP on caraxx and see what it finds.
 
-NOTE: OpenSCAP is still very Red Hat-centric. However, there is an (outdated) Github project covering Ubuntu vulnerabilities that will suffice for education purposes.
+https://cisofy.com/documentation/lynis/get-started/#first-run
 
-....
-public1@courseSrv:~/Calavera$ vagrant ssh cara1
-Welcome to Ubuntu 14.04.3 LTS (GNU/Linux 3.19.0-25-generic x86_64)
+You need to call lynis using the `./lynis` approach, since its path is not in your $PATH variable. Try following the instructions, which have interesting inconsistencies with what will happen.
 
- * Documentation:  https://help.ubuntu.com/
-Last login: Sat Apr 16 00:22:20 2016 from 10.0.2.2
+In particular you will see:
 
-vagrant@caraxx:~$ mkdir lab-10
-vagrant@caraxx:~$ cd lab-10/
-vagrant@caraxx:~/lab-10$ sudo apt-get install libopenscap8  -y  # install OpenSCAP
-vagrant@caraxx:~/lab-10$ sudo apt-get install git -y
-vagrant@caraxx:~/lab-10$ git clone https://github.com/GovReady/ubuntu-scap.git
-vagrant@caraxx:~/lab-10$ cd ubuntu-scap
-vagrant@caraxx:~/ubuntu-scap$ sudo ./run_tests.sh
-....
+`WARNING: output may be incomplete or inaccurate, you should run this program as super-user.`
 
-NOTE: Normally we would not like to see git on a production server, but it's convenient for this lab.
+Hit Ctrl-C to abort. What do you need to do? Do it. [See hint #1 below if you are completely stumped, but you should know this by now. It's likely to be on a test.]
 
-OpenSCAP will return a large number of vulnerabilities. Some of them can be easily remediated. Others would be more difficult. You can easily research them using Google.
+Now you are getting a different error, not reflected in the instructions either. The error gives you all that you need to fix it. [See hint #2 below.]
 
-The `run_test.sh` script creates an HTML vulnerability scan report in the current working directory called `results.html`. An easy way to view this report is to install a text-based web browser:
-
-  sudo apt-get install lynx-cur -y
-
-Then, you can view the report in your terminal window by running the command:
-
-  lynx results.html
-
-Scroll through the report. Click on the following link:
+Fixed? Now you should be able to run the first scan as the lynis directions suggest. Lots of output that looks like:
 
 ....
-Specify a Remote NTP Server          fail
+- Checking for old files in /tmp                            [ OK ]
+ - Checking /tmp sticky bit                                  [ OK ]
+ - Mount options of /                                        [ OK ]
+ - Checking Locate database                                  [ FOUND ]
+.
+.
+.
+
+ * Consider hardening SSH configuration [SSH-7408]
+    - Details  : AllowAgentForwarding (YES --> NO)
+      https://cisofy.com/controls/SSH-7408/
+
+  * Add a legal banner to /etc/issue, to warn unauthorized users [BANN-7126]
+      https://cisofy.com/controls/BANN-7126/
+
 ....
 
-What is NTP and why is its absence a problem? Research as a team. We will discuss in class.
+Let's fix the legal banner issue. See:
 
-Fixing is easy. Go:
+http://askubuntu.com/questions/420375/how-to-add-legal-banner-in-etc-issue-and-etc-issue-net-in-ubuntu
+http://csrc.nist.gov/publications/nistbul/csl93-03.txt
 
-`vagrant@cara1:~/lab-10$ sudo apt-get install ntp`
+Between these two resources you should be able to fix the issue. When you have, run the scan again and post evidence to Slack.
 
-and run
-
-`vagrant@cara1:~/ubuntu-scap$ sudo ./run_tests.sh`
-
-again. You should see:
-
-....
-Title   Specify a Remote NTP Server
-Rule    xccdf_org.ssgproject.content_rule_ntpd_specify_remote_server
-Ident   CCE-27098-3
-Result  pass
-....
-
-Note the *pass* result. Hey, we fixed a vulnerability!
+=== System hardening
 
 Now for the hard part. Find another vulnerability you can fix. To use class time most efficiently, you should post the vulnerabilities you are researching to Slack. Don't start on something someone else is doing.
-
-Obviously, you should coordinate your research within your team as well, dividing up search results to review so you can more quickly identify if this vulnerability can easily be fixed.
 
 We will pause class and discuss interesting cases.
 
 Be prepared to share you results, positive or negative. If you fix a vulnerability, be sure to document the steps so they could be scripted.
 
-When you have fixed your SCAP vulnerability, read http://www.sonatype.org/nexus/2015/11/13/did-you-wake-up-to-an-alert-about-the-java-deserialization-vulnerability and discuss with your team. What is the National Vulnerability Database? Be prepared to discuss in class.
+After you have fixed one more lynis vulnerability, read http://www.sonatype.org/nexus/2015/11/13/did-you-wake-up-to-an-alert-about-the-java-deserialization-vulnerability and discuss with your neighbors. What is the National Vulnerability Database? Be prepared to discuss in class.
 
 === Web vulnerability testing scan
 
@@ -128,10 +106,10 @@ Create a directory called "lab-10" there, if your teammates have not already.
 Go:
 
 ....
-wget https://github.com/zaproxy/zaproxy/releases/download/2.4.3/ZAP_2.4.3_Linux.tar.gz
-tar -xvf ZAP_2.4.3_Linux.tar.gz
+wget https://github.com/zaproxy/zaproxy/releases/download/2.5.0/ZAP_2.5.0_Linux.tar.gz
+tar -xvf ZAP_2.5.0_Linux.tar.gz
 
-cd ZAP_2.4.3/
+cd ZAP_2.5.0/
 ./zap.sh -cmd -quickurl http://10.xx.0.15:8080/MainServlet
 ....
 
@@ -176,11 +154,6 @@ Time and instructor lab preparation permitting:
 
 * The Change will then be confirmed as having fixed the Problem, which will then be closed out.
 
-=== Testers
-If you are a lab tester, be sure to remove git, libopenscap, and
-
-`sudo apt-get remove ntp`
-`rm -rf lab-10` on both caraxx and the main server.
 
 == Tools
 The following tools were evaluated as part of developing this lab.
