@@ -1,5 +1,7 @@
 = Lab 10: Security, and Governance, Risk, and Compliance
 
+FALL 2016 notes: fixing banner is not a good place to start. it doesn't show up for students ssh'ing in. 
+
 == Objectives
 
 In this lab, you will gain some hands on experience in vulnerability scanning and remediation.
@@ -47,7 +49,7 @@ Go to:
 
 https://cisofy.com/documentation/lynis/get-started/#first-run and run the scan.
 
-Be sure to run lynis with the syntax `sudo ./lynis audit system`, because it is not in your path. Sudo gives you more results. 
+Be sure to run lynis with the syntax `sudo ./lynis audit system`, because it is not in your path. Sudo gives you more results.
 
 You should be able to run the first scan as the lynis directions suggest. This scan is run internally on the server, as a script or application that reviews the server's configuration in painstaking detail. Lots of output that looks like:
 
