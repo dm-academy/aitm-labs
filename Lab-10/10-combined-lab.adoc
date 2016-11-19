@@ -47,7 +47,7 @@ Go to:
 
 https://cisofy.com/documentation/lynis/get-started/#first-run and run the scan.
 
-Be sure to run lynis with the syntax `./lynis audit system`, because it is not in your path.
+Be sure to run lynis with the syntax `sudo ./lynis audit system`, because it is not in your path. Sudo gives you more results. 
 
 You should be able to run the first scan as the lynis directions suggest. This scan is run internally on the server, as a script or application that reviews the server's configuration in painstaking detail. Lots of output that looks like:
 
@@ -180,3 +180,7 @@ http://hardenubuntu.com/initial-setup/
 http://www.sonatype.org/nexus/2015/11/13/did-you-wake-up-to-an-alert-about-the-java-deserialization-vulnerability
 
 http://continuousdelivery.com/2013/08/risk-management-theatre/
+
+Nessus is often used by security professionals; it is commercial.
+
+OpenVAS is another option, not evaluated.
