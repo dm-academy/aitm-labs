@@ -47,7 +47,7 @@ Go to:
 
 https://cisofy.com/documentation/lynis/get-started/#first-run and run the scan.
 
-Be sure to run lynis with the syntax `./lynis audit system`, because it is not in your path. 
+Be sure to run lynis with the syntax `./lynis audit system`, because it is not in your path.
 
 You should be able to run the first scan as the lynis directions suggest. This scan is run internally on the server, as a script or application that reviews the server's configuration in painstaking detail. Lots of output that looks like:
 
@@ -73,6 +73,10 @@ Let's fix the legal banner issue (for both /etc/issue and /etc/issue.net). See:
 
 * http://askubuntu.com/questions/420375/how-to-add-legal-banner-in-etc-issue-and-etc-issue-net-in-ubuntu
 * http://csrc.nist.gov/publications/nistbul/csl93-03.txt
+
+To restart sshd on ubuntu 16, use the command:
+
+ sudo systemctl restart sshd
 
 Between these two resources you should be able to fix the issue. If you have questions, post them to Slack. When you have fixed the issue, run the scan again and confirm the banner is no longer an issue.
 
