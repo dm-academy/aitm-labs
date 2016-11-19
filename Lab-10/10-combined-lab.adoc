@@ -41,7 +41,7 @@ NOTE: If you choose to clone into /usr/local, you will need to sudo.
 
 This scan is run internally on the server, as a script or application that reviews the server's configuration in painstaking detail. It will generate hundreds of findings. You should pick one or two and research them and figure out if there is an easy fix.
 
-Start by logging into your personal server. You should be in `/home/vagrant`. 
+Start by logging into your personal server. You should be in `/home/vagrant` or `/home/ubuntu`. 
 
 Go to:
 
