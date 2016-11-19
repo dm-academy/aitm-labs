@@ -11,11 +11,12 @@ Objectives:
 
 == Overview
 
-Working individually, you will run an "inside-out" vulnerability scan and a simple "outside-in" scan on the servers.  The testing will be performed by downloading two vulnerability scanners and running them on your servers.
+Working individually, you will run an "inside-out" vulnerability scan and a simple "outside-in" penetration scan on a virtual machine.  The testing will be performed by downloading two vulnerability scanners and running them on your servers.
 
 You will research the results and recommend at least one fix that can be implemented in the Vagrantfile and associated cookbook and/or shell script for building the server.
 
-You will write (with instructor assistance) a fix as a shell script to be pulled into the Calavera repository.
+You will fix at least two vulnerabilities and participate in group and class discussion about how this relates to the broader topics of governance, risk, and compliance.
+
 
 === Getting started
 
@@ -30,21 +31,23 @@ You should still have a vagrant directory. Go:
 
 If this doesn't work, go back to https://github.com/dm-academy/aitm-labs/blob/master/Lab-02/02-tech-lab.adoc[Lab 2] and follow the Section 1 instructions just up through getting the simple Vagrant machine running (do not continue to section 2 in that lab.)
 
-Now, install Lynis. The overall instructions are here:
+Now, start by logging into your personal server. You should be in `/home/vagrant`. Install Lynis. The overall instructions are here:
 
 https://cisofy.com/documentation/lynis/get-started
 
 You should download using the git approach.
 
-NOTE: If you choose to clone into /usr/local, you will need to sudo. 
+NOTE: If you choose to clone into /usr/local, you will need to sudo.
 
 This scan is run internally on the server, as a script or application that reviews the server's configuration in painstaking detail. It will generate hundreds of findings. You should pick one or two and research them and figure out if there is an easy fix.
 
-Start by logging into your personal server. You should be in `/home/vagrant`. Go to:
+Start by logging into your personal server. You should be in `/home/vagrant`. 
 
-https://cisofy.com/documentation/lynis/get-started/#first-run
+Go to:
 
-You should be able to run the first scan as the lynis directions suggest. Lots of output that looks like:
+https://cisofy.com/documentation/lynis/get-started/#first-run and run the scan.
+
+You should be able to run the first scan as the lynis directions suggest. This scan is run internally on the server, as a script or application that reviews the server's configuration in painstaking detail. Lots of output that looks like:
 
 ....
 - Checking for old files in /tmp                            [ OK ]
@@ -64,14 +67,12 @@ You should be able to run the first scan as the lynis directions suggest. Lots o
 
 ....
 
-Let's fix the legal banner issue. See:
+Let's fix the legal banner issue (for both /etc/issue and /etc/issue.net). See:
 
 * http://askubuntu.com/questions/420375/how-to-add-legal-banner-in-etc-issue-and-etc-issue-net-in-ubuntu
 * http://csrc.nist.gov/publications/nistbul/csl93-03.txt
 
-Between these two resources you should be able to fix the issue. If you have questions, post them to Slack.
-
-When you have fixed the issue, run the scan again and post evidence to Slack.
+Between these two resources you should be able to fix the issue. If you have questions, post them to Slack. When you have fixed the issue, run the scan again and confirm the banner is no longer an issue.
 
 === System hardening
 
@@ -90,55 +91,47 @@ After you have fixed one more lynis vulnerability, read http://www.sonatype.org/
 === Web vulnerability testing scan
 (if time)
 
-When you have reflected enough on the Java deserialization vulnerability and the implications of that article, move on to a Web vulnerability.
+When you have reflected enough on the Java deserialization vulnerability and the implications of that article, move on to a Web vulnerability. We will install Java and apache2 on your VM. (Don't try to install these on the main server; you won't be able to.)
 
-First review the first few pages of the https://github.com/zaproxy/zaproxy/releases/download/2.4.0/ZAPGettingStartedGuide-2.4.pdf[zaproxy docs].
+First review the first few pages of the https://github.com/zaproxy/zaproxy/releases/download/2.5.0/ZAPGettingStartedGuide-2.5.pdf[zaproxy docs].
 
-Exit from your VM to the main server. You should be in your publicxx directory (go `cd` if you are not).
-
-Create a directory called "lab-10" there, if your teammates have not already.
-
-(Seems like you just did this, what's up with that?)
-
-Go:
+ON YOUR VM, go:
 
 ....
+sudo apt-get update
+sudo apt-get install -y default-jdk apache2
+
 wget https://github.com/zaproxy/zaproxy/releases/download/2.5.0/ZAP_2.5.0_Linux.tar.gz
 tar -xvf ZAP_2.5.0_Linux.tar.gz
 
 cd ZAP_2.5.0/
-./zap.sh -cmd -quickurl http://10.xx.0.15:8080/MainServlet
+./zap.sh -cmd -quickurl http://localhost:80
 ....
 
 We run this script externally to the machine being tested, and give it the URL. It then probes the URL and the server, as a form of penetration testing. It will again generate a number of findings. Research them and figure out if there is an easy fix. Share with class on Slack.
 
-NOTE: You will get raw XML dumped to the terminal. You can cut and paste this to an HTML document on your workstation and open it with a browser for an easier view.
+NOTE: You will get raw XML dumped to the terminal. You can cut and paste this to an *.xml document on your workstation and open it with a browser for an easier view.
 
-Now, try
-
-`./zap.sh -cmd -quickurl http://10.xx.0.12:8081/artifactory`
-
-More errors than before... why? Discuss. How would you fix these?
-
-== Permanently fixing one or more vulnerabilities
+== Permanently fixing one or more vulnerabilities (10+ extra credit points).
 
 First, you need to figure out the configuration change required to fix the vulnerability. It should be something that you can script.
 
-For this reason, you should choose a vulnerability that is relatively simple to fix.
+For this reason, you should choose a vulnerability that is relatively simple to fix. Email the instructor with the vulnerability you choose BEFORE you start. It should be:
 
 * something installed that doesn't need to be
 * something that should be there, that isn't
 * permissions that need to be tightened down.
 
-In order to fix the vulnerability (fixing something on caraXX would probably be simplest):
+In order to fix the vulnerability:
 
 . Run the necessary commands to fix the vulnerability.
 . Put them into a shell script.
+. Call the shell script from your vagrant file
+. Vagrant destroy and vagrant up your machine, confirming that it comes up with the correct fix.
 
-So, you have a script called servername.sh. Perhaps you've run it on the current server and fixed things, but that doesn't help if we refresh the server.  We need to suggest the script as a change to the core recipe.
-
-To do this, you need to create a team fork in the main Calavera repository. Clone down to a working directory you have write access to on the main server (either your home dir or an `su`'d publicxx dir), vagrant up the virtual server in question, and work the fix. When you are satisfied, submit a pull request.
-
+1 vulnerability fixed: 10 points
+2 : 15 points
+3 : 20 points.
 
 === Optional ITSM process
 Time and instructor lab preparation permitting:
@@ -181,50 +174,3 @@ http://hardenubuntu.com/initial-setup/
 http://www.sonatype.org/nexus/2015/11/13/did-you-wake-up-to-an-alert-about-the-java-deserialization-vulnerability
 
 http://continuousdelivery.com/2013/08/risk-management-theatre/
-
-
-== Fixes
-https://help.ubuntu.com/lts/serverguide/NTP.html
-
-== Lynis
-Extra credit. Lynis is another option, but it doesn't find as much as OpenSCAP.
-
-The overall instructions are here:
-
-https://cisofy.com/documentation/lynis/get-started
-
-This scan is run internally on the server, as a script or application that reviews the server's configuration in painstaking detail. It will generate hundreds of findings. You should pick one or two and research them and figure out if there is an easy fix.
-
-Start by logging into your assigned server. You should be in `/home/vagrant`. Go
-
-....
-vagrant@manos1:~$ mkdir lab-10
-vagrant@manos1:~$ cd lab-10/
-vagrant@manos1:~/lab-10$ git clone https://github.com/CISOfy/lynis
-vagrant@manos1:~/lab-10$ cd lynis
-....
-
-We use the git option so that we have the latest version.
-
-You can now go to:
-
-https://cisofy.com/documentation/lynis/get-started/#first-run
-
-You need to call lynis using the `./lynis` approach, since its path is not in your $PATH variable. Try following the instructions, which have interesting inconsistencies with what will happen.
-
-In particular you will see:
-
-`WARNING: output may be incomplete or inaccurate, you should run this program as super-user.`
-
-Hit Ctrl-C to abort. What do you need to do? Do it. [See hint #1 below if you are completely stumped, but you should know this by now. It's likely to be on a test.]
-
-Now you are getting a different error, not reflected in the instructions either. The error gives you all that you need to fix it. [See hint #2 below.]
-
-Fixed? Now you should be able to run the first scan as the lynis directions suggest.
-
-=== Hints
-
-Hint #1: Run it as `sudo`
-
-Hint #2: `sudo chown -R root:root ../lynis` - you NEED to understand this -
-`
