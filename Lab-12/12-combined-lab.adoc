@@ -70,6 +70,8 @@ Indicators of technical fitness:
 
 Also, be aware of the dependency columns. An application service also is subject to the risks and issues of anything it is dependent on.
 
+IMPORTANT: Remember that "services" and "technology products," for the purposes of this lab, are two distinct concepts. 
+
 == The portfolio spreadsheet
 
 The assignment is based on the spreadsheet titled "seis660portfolio." This spreadsheet has 3 tabs:
