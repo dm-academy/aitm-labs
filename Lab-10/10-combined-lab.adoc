@@ -1,6 +1,6 @@
 = Lab 10: Security, and Governance, Risk, and Compliance
 
-FALL 2016 notes: fixing banner is not a good place to start. it doesn't show up for students ssh'ing in. 
+FALL 2016 notes: fixing banner is not a good place to start. it doesn't show up for students ssh'ing in.
 
 == Objectives
 
@@ -140,6 +140,7 @@ In order to fix the vulnerability:
 1 vulnerability fixed: 10 points
 2 : 15 points
 3 : 20 points.
+10 or more: 30 points
 
 === Optional ITSM process
 Time and instructor lab preparation permitting:
