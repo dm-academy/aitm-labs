@@ -68,13 +68,23 @@ You should be able to run the first scan as the lynis directions suggest. This s
 
   * Add a legal banner to /etc/issue, to warn unauthorized users [BANN-7126]
       https://cisofy.com/controls/BANN-7126/
+      
+  * Configure minimum password age in /etc/login.defs [AUTH-9286] 
+      https://cisofy.com/controls/AUTH-9286/
 
+  * Configure maximum password age in /etc/login.defs [AUTH-9286] 
+      https://cisofy.com/controls/AUTH-9286/
 ....
 
-Let's fix the legal banner issue (for both /etc/issue and /etc/issue.net). See:
+Let's fix the minium and maxium password age issue in login.defs. 
 
-* http://askubuntu.com/questions/420375/how-to-add-legal-banner-in-etc-issue-and-etc-issue-net-in-ubuntu
-* http://csrc.nist.gov/publications/nistbul/csl93-03.txt
+Open file /etc/login.defs using text editor:
+# vi /etc/login.defs
+
+Setup (sample) values as follows:
+PASS_MAX_DAYS 30
+PASS_MIN_DAYS 1
+PASS_WARN_AGE 7
 
 To restart sshd on ubuntu 16, use the command:
 
