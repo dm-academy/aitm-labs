@@ -68,18 +68,15 @@ You should be able to run the first scan as the lynis directions suggest. This s
 
   * Add a legal banner to /etc/issue, to warn unauthorized users [BANN-7126]
       https://cisofy.com/controls/BANN-7126/
+      
+  * Configure minimum password age in /etc/login.defs [AUTH-9286] 
+      https://cisofy.com/controls/AUTH-9286/
 
+  * Configure maximum password age in /etc/login.defs [AUTH-9286] 
+      https://cisofy.com/controls/AUTH-9286/
 ....
 
-Let's fix the legal banner issue (for both /etc/issue and /etc/issue.net). See:
-
 Let's fix the minium and maxium password age issue in login.defs. 
-In details:
-* Configure minimum password age in /etc/login.defs [AUTH-9286] 
-      https://cisofy.com/controls/AUTH-9286/
-
-* Configure maximum password age in /etc/login.defs [AUTH-9286] 
-      https://cisofy.com/controls/AUTH-9286/
 
 Open file /etc/login.defs using text editor:
 # vi /etc/login.defs
