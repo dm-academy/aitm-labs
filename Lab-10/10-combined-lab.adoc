@@ -138,7 +138,7 @@ First, you need to figure out the configuration change required to fix the vulne
 * something that should be there, that isn't
 * permissions that need to be tightened down.
 
-In order to fix the vulnerability:
+In order to gain the extra credit:
 
 * Create a new VM and run the vulnerability scanner. 
 * Save the output to a text file, named "initial-output.log"
