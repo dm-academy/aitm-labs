@@ -134,18 +134,20 @@ NOTE: You will get raw XML dumped to the terminal. You can cut and paste this to
 
 First, you need to figure out the configuration change required to fix the vulnerability. It should be something that you can script.
 
-For this reason, you should choose a vulnerability that is relatively simple to fix. Email the instructor with the vulnerability you choose BEFORE you start. It should be:
-
 * something installed that doesn't need to be
 * something that should be there, that isn't
 * permissions that need to be tightened down.
 
 In order to fix the vulnerability:
 
-. Run the necessary commands to fix the vulnerability.
-. Put them into a shell script.
-. Call the shell script from your vagrant file
-. Vagrant destroy and vagrant up your machine, confirming that it comes up with the correct fix.
+* Create a new VM and run the vulnerability scanner. 
+* Save the output to a text file, named "initial-output.log"
+* Run the necessary commands to fix the vulnerability.
+* Put them into a shell script.
+* Call the shell script from your vagrant file
+* Vagrant destroy and vagrant up your machine, confirming that it comes up with the correct fix(es)
+* Run the scanner again, saving the output to "final-output.log" and showing that they are fixed
+* Submit the 2 output files, your modified Vagrantfile, and your script for extra credit. 
 
 1 vulnerability fixed: 10 points
 2 : 15 points
