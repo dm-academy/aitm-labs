@@ -125,7 +125,7 @@ On a Powerpoint deck, based on the matrix above, the spreadsheet definitions, an
 
 Again, give your reasoning.
 
-Extra credit: prepare a bubble chart for some subset of the data.
+5 pts extra credit: prepare a bubble chart for some subset of the data.
 
 Time permitting, we will review some of these presentations in class.
 
