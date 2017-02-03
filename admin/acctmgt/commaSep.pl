@@ -4,7 +4,7 @@
 # assuming final email doesn't have comma
 # but does have a newline at end of file - be careful
 # UNDECLARED VARIABLES very bad
-
+# to get starter file: murphy, email class as mac or windows, copy from mailer window
 
 #read in file
 $filename = $ARGV[0]; 
@@ -12,9 +12,11 @@ open FILE, $filename||die $!;
 $emails=<FILE>;
 close(FILE);
 chomp $emails; #remove newline from EOF
-$emails .= ", ";  # add comma/space to last email - kind of lame
-#remove domain, comma, space, add newlines
-$emails =~ s/@.*?, ?/\n/g;  # could make this more robust
+$emails .= ";";  # delimit last email - kind of lame
+#remove domain, semincolon, space, add newlines
+#$emails =~ s/@.*?, ?/\n/g;  # could make this more robust
+$emails =~ s/@.*?;/\n/g;  # could make this more robust
+
 @arrEmails=split("\n", $emails);
 map ($_ = lc($_), @arrEmails);
 
