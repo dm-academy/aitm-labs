@@ -1,5 +1,8 @@
 = Lab 00  Course setup
 
+ spring 2017 todo: illustrate difference between public/private key
+ 
+
 In this lab, you will set up the tools and access you need for the rest of the semester.
 
 == Objectives for this lab
