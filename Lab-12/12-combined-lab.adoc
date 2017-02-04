@@ -1,5 +1,10 @@
 == SEIS660 Lab 12: Enterprise Architecture & IT Portfolio Management
 
+12/2016 notes
+ continuing confusion over late vs early retirement - clarify
+
+ fix the double alphabet problem
+
 Version 2, 12/11/2015
 
 In this final lab, you will analyze an IT portfolio and come up with a set of recommendations for presentation to the class.
@@ -70,7 +75,7 @@ Indicators of technical fitness:
 
 Also, be aware of the dependency columns. An application service also is subject to the risks and issues of anything it is dependent on.
 
-IMPORTANT: Remember that "services" and "technology products," for the purposes of this lab, are two distinct concepts. 
+IMPORTANT: Remember that "services" and "technology products," for the purposes of this lab, are two distinct concepts.
 
 == The portfolio spreadsheet
 

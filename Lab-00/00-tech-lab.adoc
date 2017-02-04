@@ -3,7 +3,7 @@
 In this lab, you will set up the tools and access you need for the rest of the semester.
 
 == Objectives for this lab
-* Locate and use the Blackboard and Slack collaboration tools
+* Locate and use the Canvas and Slack collaboration tools
 * Configure your terminal emulator
 * Securely connect to course server via ssh and (possibly) x-windows
 * Collaborate and support each other.
@@ -23,10 +23,8 @@ Same for any other platform.
 
 == Tasks
 
-=== Using Blackboard
-You should be familiar with Blackboard from previous courses. If you are not, please let the instructor know.
-
-Go to Blackboard and find this lab. (instructor displays this on screen.)
+=== Using Canvas
+Canvas is relatively new. If you have issues, inform the instructor. Go to Canvas and find this lab. (instructor displays this on screen.)
 
 === Collaborating on Slack
 
