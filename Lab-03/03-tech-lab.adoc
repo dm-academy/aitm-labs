@@ -6,7 +6,7 @@
 
 The purpose of this lab is to give you a realistic, if brief overview of (reasonably) modern application development practices.
 
-You will find as an IT professional, even if you are not a software developer, that you need on occasion to "dig in" to the application world and makes sense of things from basic tutorials and online resources.
+You will find as an IT professional, even if you are not a software developer, that you need on occasion to "dig in" to the application world and make sense of things from basic tutorials and online resources.
 
 Lab objectives:
 

@@ -75,7 +75,7 @@ NOTE: If you install and run Vagrant locally on your own laptop, you won't need 
 
 In the nano text editor, scroll down to the line that says:
 
- config.vm.box = "xenial64"
+ config.vm.box = "ubuntu/xenial64"
 
 and after it, add the line:
 

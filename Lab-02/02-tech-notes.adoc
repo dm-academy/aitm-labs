@@ -26,3 +26,21 @@ we see "Vagrant locks machine access to one Vagrant process at a time. This will
 Wound up using the config.vm.box_url parameter. Works. You need to store boxes with correct permissions (chmod 644 or greater) in /var/vagrant/boxes or some other shared directory of your choosing (you'll have to update the instructions)
 
 As of fall 2016 - The package command creates an image tightly coupled to the user (references that user's home directory), which breaks on security when another user tries to use it. Need to download the box directly from Hashicorp. You can see the URL on a trial "vagrant up." Copy and rename that box as appropriate in /var/vagrant/boxes
+
+Spring 2017 - major headaches. Many, but not all, got:
+
+....
+There was an error while executing `VBoxManage`, a CLI used by Vagrant
+for controlling VirtualBox. The command and stderr is shown below.
+
+Command: ["startvm", "4b8ed9fe-98b5-41dd-9ae8-93e29f4fc05c", "--type", "headless"]
+
+Stderr: VBoxManage: error: RawFile#0 failed to create the raw output file /home/char/vagrant/ubuntu-xenial-16.04-cloudimg-console.log (VERR_ACCESS_DENIED)
+VBoxManage: error: Details: code NS_ERROR_FAILURE (0x80004005), component ConsoleWrap, interface IConsole
+....
+
+Best guess: somehow the stored box got re-packaged? otherwise how would it be coupled to the user? And some students did not get the error.
+
+When you have this error, you need to delete the .vagrant.d directory in the user's home and the .vagrant directory in ~/vagrant.
+
+Downloaded new box from Hashicorp to /var/vagrant/boxes/xenial64.box, works now.
