@@ -246,7 +246,7 @@ Why did I make the directory structure so detailed? This is typical of setting u
 
 IMPORTANT: If you have developed an approach to "mkdir" and "touch" that you wish to refer to later you should copy it to an external text file (outside of your Vagrant VM).
 
-Exit and destroy your VM. The "-f" flag does it immediatley, without further confirmation.
+Exit and destroy your VM. The "-f" flag does it immediately, without further confirmation.
 
  vagrant@xenial64:~$ exit
  YourStudentID@serverXXX:~/vagrant$ vagrant destroy -f
@@ -259,7 +259,7 @@ Git is a popular version control system used by software developers and DevOps p
 
 We will work with a commercial implementation of the Git platform in this class provided by Github. You can create a free account on Github and host public code repositories, like the one we setup for this lab.
 
-NOTE: Everyone should setup an individual Github account. If you are working in teams, you have the option of either doing the next section individually, or choosing one team member to perform the git forking and cloning tasks.
+NOTE: Everyone should setup an individual Github account.
 
 You will do the exercises in part 2 on the main server, not your VM (which you have now destroyed, right?).
 
@@ -524,7 +524,7 @@ Go to the /vagrant directory on your Vagrant virtual machine and list the files.
 ....
 vagrant@xenial64:~$ cd /vagrant
 vagrant@xenial64:/vagrant$ ls
-example-Instructions.md  LICENSE  README.md  resources  starter.sh  YourStudentID-testfile.adoc  Vagrantfile
+README.md  starter.sh  YourStudentID-testfile.adoc  Vagrantfile
 ....
 
 If you examine the /vagrant directory, you will realize it has the same contents as your ~/examples directory on the class server. In fact, it's the exact same directory! What's going on here? The /vagrant directory in your virtual machine is linked to the ~/examples directory on the  host machine (class server). This virtual link provides an easy mechanism to
@@ -564,14 +564,12 @@ Remember to substitute your actual ID for "YourStudentID."
 vagrant@vagrant:/vagrant$ sudo chmod 755 YourStudentID-Lab02.sh
 vagrant@vagrant:/vagrant$ ls -l
 total 44
--rw-r--r-- 1 vagrant vagrant 14183 Feb 20 15:22 example-Instructions.md
--rw-r--r-- 1 vagrant vagrant  1084 Feb 20 15:22 LICENSE
+
+-rw-r--r-- 1 vagrant vagrant   152 Feb 20 15:22 2015-09.adoc
 -rw-r--r-- 1 vagrant vagrant    33 Feb 20 15:22 README.md
-drwxr-xr-x 1 vagrant vagrant  4096 Feb 20 15:22 resources
 -rw-r--r-- 1 vagrant vagrant   152 Feb 20 15:22 starter.sh
--rwxr-xr-x 1 vagrant vagrant   152 Feb 20 15:58 YourStudentID-Lab02.sh
--rw-r--r-- 1 vagrant vagrant    24 Feb 20 15:33 YourStudentID-testfile.adoc
 -rw-r--r-- 1 vagrant vagrant   296 Feb 20 15:45 Vagrantfile
+-rwxr-xr-x 1 vagrant vagrant   152 Feb 20 15:58 YourStudentID-Lab02.sh
 ....
 
 Run the script to confirm you can execute it (it's still empty, and will run fine - it just won't do anything):
@@ -753,7 +751,7 @@ Edit your Vagrantfile so that it calls your *-Lab02.sh script when you provision
 
 ....
 Vagrant.configure(2) do |config|
-  config.vm.box = "xenial64"
+  config.vm.box = .....
   config.vm.provision             :shell, path: "./MyStudentID-Lab02.sh"
 end
 ....
@@ -768,7 +766,7 @@ Verify that the following tasks were successfully completed on the virtual machi
 
 ....
 YourStudentID@serverXXX:~/examples$ vagrant ssh
-Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic x86_64)
+Welcome to Ubuntu 14.04 LTS (GNU/Linux 3.2.0-23-generic x86_64)
 
  * Documentation:  https://help.ubuntu.com/
 New release '14.04.3 LTS' available.
@@ -776,7 +774,7 @@ Run 'do-release-upgrade' to upgrade to it.
 
 Welcome to your Vagrant-built virtual machine.
 Last login: Fri Sep 14 06:23:18 2012 from 10.0.2.2
-vagrant@xenial64:~$ tree
+vagrant@precise64:~$ tree
 .
 |-- main
 |   |-- A
@@ -809,7 +807,7 @@ vagrant@xenial64:~$ tree
 
 14 directories, 14 files
 
-vagrant@xenial64:~$ git --version
+vagrant@precise64:~$ git --version
 git version 1.7.9.5
 ....
 
