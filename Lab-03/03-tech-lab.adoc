@@ -366,13 +366,13 @@ vagrant@manos:~$ curl localhost:8080/MainServlet
 What is "curl"? curl is like a web browser for the command line.
 For more read @ http://curl.haxx.se/docs/manpage.html
 
-You can also see the same thing from OUTSIDE your virtual machine.
+You can also see the same thing from OUTSIDE your virtual machine. *NOTE: 'XXXX' _must be replaced_ with the port mapping you captured above.*
 
 ....
 vagrant@manos:~$ exit
 logout
 Connection to 127.0.0.1 closed.
-test4@seis660:~/Calavera$ curl 127.0.0.1:2203/MainServlet
+test4@seis660:~/Calavera$ curl 127.0.0.1:XXXX/MainServlet
 <h1>This is a skeleton application-- to explore the end to end Calavera delivery framework.</h1>
 ....
 
