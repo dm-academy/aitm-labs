@@ -646,12 +646,12 @@ vagrant@XXXXX:/vagrant$ git commit YourStudentID-Lab02.sh -m "script commit"
  create mode 100755 YourStudentID-Lab02.sh
 ....
 
-In reviewing the directory structure, there are duplicate directories. Also, it is getting messy with three directories at the same level.
+In reviewing the directory structure, there are duplicate directories. Also, it is getting messy with three directories at the same level, and the structure should actually go into its own directory in your home directory.
 
 Fix the directory creation logic so that
 
 1. There are no duplicate C and D directories (you will need to use another letter).
-2. All the directories are inside a single directory called "main".
+2. All the directories are inside a single directory called "main" inside your home directory (remember, `cd ~` puts you in your home directory for whatever machine you're on).
 
 Run the updated script & confirm it works. You should see a tree output like:
 
@@ -730,8 +730,8 @@ YourStudentID@serverXXX:~/examples$ cat YourStudentID-Lab02.sh
 # To run, type ./YourID-Lab02.sh (you need the "./")
 # It must have permissions starting with a "7"
 
-mkdir -p main/{A/{B,C,D},E/{F,G},H/{I,J/{K,L},M}}
-touch main/{A/{aa,B/bb,C/cc,D/dd},E/{ee,F/ff,G/gg},H/{hh,I/ii,J/{jj,K/kk,L/ll},M/mm}}
+mkdir -p ~/main/{A/{B,C,D},E/{F,G},H/{I,J/{K,L},M}}
+touch ~/main/{A/{aa,B/bb,C/cc,D/dd},E/{ee,F/ff,G/gg},H/{hh,I/ii,J/{jj,K/kk,L/ll},M/mm}}
 apt-get -y install tree
 apt-get -y install git
 ....
@@ -746,6 +746,8 @@ Add and commit your Vagrantfile to source control (see above).
 YourStudentID@serverXXX:~/examples$ git add Vagrantfile
 YourStudentID@serverXXX:~/examples$ git commit -m "Vagrantfile commit"
 ....
+
+You may get a comment about untracked files. These are the files you are not going to put in source control. You may have added one or more on purpose or by accident. Do not worry about them.
 
 Edit your Vagrantfile so that it calls your *-Lab02.sh script when you provision the machine. Add the "vm.provision" line, changing MyStudentID to your ID.
 
@@ -774,7 +776,7 @@ Run 'do-release-upgrade' to upgrade to it.
 
 Welcome to your Vagrant-built virtual machine.
 Last login: Fri Sep 14 06:23:18 2012 from 10.0.2.2
-vagrant@precise64:~$ tree
+vagrant@precise64:~$ tree ~/main
 .
 |-- main
 |   |-- A
