@@ -512,18 +512,18 @@ Go into your VM:
 
 ....
 YourStudentID@serverXXX:~/examples$ vagrant ssh
-Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic x86_64)
+Welcome to Ubuntu XXXX LTS (GNU/Linux 3.2.0-23-generic x86_64)
 ...some stuff
 Welcome to your Vagrant-built virtual machine.
 Last login: Fri Sep 14 06:23:18 2012 from 10.0.2.2
-vagrant@xenial64:~$
+vagrant@XXXXX:~$
 ....
 
 Go to the /vagrant directory on your Vagrant virtual machine and list the files. (Dont get confused with the /home/vagrant directory.)
 
 ....
-vagrant@xenial64:~$ cd /vagrant
-vagrant@xenial64:/vagrant$ ls
+vagrant@XXXXXX:~$ cd /vagrant
+vagrant@XXXXXX:/vagrant$ ls
 README.md  starter.sh  YourStudentID-testfile.adoc  Vagrantfile
 ....
 
@@ -553,16 +553,16 @@ Here are a couple additional notes to help you create the shell script:
 
 Start out by copying the starter.sh script to a new file, and then set the file permissions to allow execution.
 
- vagrant@xenial64:/vagrant$ cp starter.sh YourStudentID-Lab02.sh
- vagrant@xenial64:/vagrant$ sudo chmod 755 YourStudentID-Lab02.sh
+ vagrant@XXXXXX:/vagrant$ cp starter.sh YourStudentID-Lab02.sh
+ vagrant@XXXXXX:/vagrant$ sudo chmod 755 YourStudentID-Lab02.sh
 
 Yes, you can use sudo (administrative privileges) *within your VM.* If you get an error, it means you are likely not in your VM, but back out on the course server.
 
 Remember to substitute your actual ID for "YourStudentID."
 
 ....
-vagrant@vagrant:/vagrant$ sudo chmod 755 YourStudentID-Lab02.sh
-vagrant@vagrant:/vagrant$ ls -l
+vagrant@XXXXXX:/vagrant$ sudo chmod 755 YourStudentID-Lab02.sh
+vagrant@XXXXXX:/vagrant$ ls -l
 total 44
 
 -rw-r--r-- 1 vagrant vagrant   152 Feb 20 15:22 2015-09.adoc
@@ -700,7 +700,7 @@ Create a new git commit with your updated script and review the differences with
 When you are satisfied, push your local repository back into your Github account (also known as the origin).
 
 ....
-vagrant@vagrant:/vagrant$ git push origin master
+vagrant@XXXXXX:/vagrant$ git push origin master
 Username for 'https://github.com': YourGithubID
 Password for 'https://YourGithubID@github.com':
 Counting objects: 8, done.
@@ -714,10 +714,10 @@ Note, your script is at risk until you do this because your script only exists o
 
 Exit the Vagrant instance (now back on the class server prompt) and destroy your Vagrant virtual machine:
 
-    vagrant@vagrant:/vagrant$ exit
+    vagrant@XXXXXX:/vagrant$ exit
 	logout
 	Connection to 127.0.0.1 closed.
-	YourStudentID@serverXXX:~/examples$ vagrant destroy
+	YourStudentID@serverXXX:~/examples$ vagrant destroy -f
 
 Notice that your script is still in your ~/examples directory. Again, all files in the /vagrant directory on your virtual machine were mapped to the ~/examples directory on the host server.
 
