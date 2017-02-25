@@ -1,7 +1,7 @@
 = Lab 00  Course setup
 
  spring 2017 todo: illustrate difference between public/private key
- 
+
 
 In this lab, you will set up the tools and access you need for the rest of the semester.
 
@@ -326,6 +326,12 @@ and it will NOT require a password, because you are using your key pair to authe
 *QUESTION:*
 
 Why didn't I automate this? It would have been a simple script to set it all up in advance and provide you all your private keys. Discuss.
+====
+
+====
+*IMPORTANT:*
+
+Protect your private key, especially if you start to use it in significant ways (e.g. as the basis of your work with Github.) Don't leave it where others can access it. 
 ====
 
 === Configuring X windows
