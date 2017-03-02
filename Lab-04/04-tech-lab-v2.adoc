@@ -10,7 +10,7 @@ Slack is expected.
 
 == Adapting manosXX to be one of many
 
-You are assigned a number "XX" where XX may be from 03-34. 
+You are assigned a number "XX" where XX may be from 03-34.
 
 === Change the Vagrantfile
 These instructions assume comprehensive familiarity with Unix commands and operations. Literal instructions are limited.
@@ -27,8 +27,9 @@ These instructions assume comprehensive familiarity with Unix commands and opera
 
 * `nano` ~/VMs/XX/Vagrantfile and do the following:
 ** Search replace on the manosXX name (from manos03 to manosXX)
+** Use the nano search/replace command.
 
-Change the IP to end in 20 + your #
+Change the manosXX IP to end in 20 + your #
 
 ** Change the ports
 *** guest: 22, host: 2120 + your #
@@ -37,7 +38,7 @@ Change the IP to end in 20 + your #
 
 ** Search replace on the caraXX name
 
-Change the cara IP to end in 60 plus your #
+Change the caraXX IP to end in 60 plus your #
 
 ** Change the ports
 *** guest: 22, host: 2150 + your #
@@ -52,14 +53,16 @@ In this section you will bring up and log into your server, then from there acce
 
 IMPORTANT: Synch point. Do not proceed until all students have caught up. Go to Slack and help your classmates.
 
-`vagrant ssh manosXX`
-`cd /home/hijo`
 
-`ssh cerebro1`
+ vagrant ssh manosXX
+ cd /home/hijo
+ ssh cerebro1
 
 "yes" to the ECDSA prompt if it appears.
 
 `sudo git init --bare --shared=group /home/hijoXX.git`
+
+WARNING: Be sure to replace "XX" in the above command and those that follow!!!
 
 Why are we using git init --bare? Look it up.
 
@@ -76,15 +79,18 @@ change XX in the below to your #, or add it if not there
 
  exit
 
-* you should now be back to manosXX
-** initialize remote
+IMPORTANT: You should now be back to manosXX
+
+=== Initialize the remote
+
+NOTE: The "hijo" directory on your manosXX virtual machine does NOT have a number.
 
  cd /home/hijo     # just to be sure
  ssh-keyscan cerebro1 >> ~/.ssh/known_hosts
  git remote add origin ssh://cerebro1/home/hijoXX.git
  exit
 
-You should now be logged in as "public1"
+You should now be NOT in any VM, but logged in to the main server as "public1"
 
  exit
 
@@ -100,8 +106,6 @@ go to http://127.0.0.1:9113
 
 IMPORTANT: Synch point. Do not proceed until all students are here. Go to Slack and help.
 
-
-
 In Jenkins:
 
 TIP: If confused, look at the Jenkins configurations for hijo02 and hijo03..
@@ -112,11 +116,11 @@ New Item
 
 Freestyle
 
-* Project name hijoXX
+* Item name hijoXX (OK)
 * Restrict where it can be run
-* Label brazos1
+* Label Expression brazos1
 * Source code management "Git"
-* Repository URL ssh://jenkins@cerebro1/home/hijoXX.git
+* Repository URL `ssh://jenkins@cerebro1/home/hijoXX.git`
 * Credentials|add
 
 image::jenkins-ssh.png[]
@@ -124,7 +128,8 @@ image::jenkins-ssh.png[]
 * Branch Specifier: */master
 * Poll SCM
 * Generic Artifactory Integration
-* Artifactory deployment server: http://espina1:8081/artifactory
+* Artifactory upload server: `http://espina1:8081/artifactory`
+* Download & upload by legacy patterns
 * Target repository: ext-release-local (click Refresh Repositories)
 * Published Artifacts:
 
