@@ -1,6 +1,24 @@
 = Lab 04 technical notes
+
+== Spring 2017
+
+big issues with espina. 
+
+Last fall created a new approach but did not document fully.
+
+Lab 04 now has a multiple manos/one Jenkins topology (which worked pretty well last fall).
+
+Key: everyone is logged in as public1 (any public ID, actually - key is that they are all the same) and the VMs are all forced into the same network. This solves many problems, at the disadvantage of an artificial environment with everyone logged in as the same ID.
+
+The key is to have one master pipeline, call it Calavera00, that people can attach their individual manosXX servers to.
+
+* `su public1 && cd ~`
+* `git clone https://github.com/dm-academy/Calavera.git`
+* `./template.sh 0`
+
+
 == Spring 2016 notes
-Was not able to start a public5 pipeline due to Tomcat recipe being upgraded and a fresh Berkshelf cache for public5. Public1-4 have cached v0.17 which defaults to Tomcat 6, but new Berks gives 0.2 which defaults to NO tomcat - you have to specify. 
+Was not able to start a public5 pipeline due to Tomcat recipe being upgraded and a fresh Berkshelf cache for public5. Public1-4 have cached v0.17 which defaults to Tomcat 6, but new Berks gives 0.2 which defaults to NO tomcat - you have to specify.
 
 == Overview
 This lab relies on the new templated Vagrant file. You need to:
