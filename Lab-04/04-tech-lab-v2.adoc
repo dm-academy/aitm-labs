@@ -19,7 +19,7 @@ These instructions assume comprehensive familiarity with Unix commands and opera
 
 `su public1`; password given in class.
 
-`cd ~\VMs` to the ~/VMs directory
+`cd ~/VMs` to the ~/VMs directory
 
 `mkdir XX` where XX is the 2-digit number you have been assigned.
 
