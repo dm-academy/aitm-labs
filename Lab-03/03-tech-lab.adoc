@@ -549,8 +549,8 @@ But wait, there is more. How is Tomcat actually serving up the servlet?
 Run tree:
 
 ....
-vagrant@manos:/home/hijo$ tree /var/lib/tomcat6/webapps/ROOT/WEB-INF/
-/var/lib/tomcat6/webapps/ROOT/WEB-INF/
+vagrant@manos:/home/hijo$ tree /var/lib/tomcat8/webapps/ROOT/WEB-INF/
+/var/lib/tomcat8/webapps/ROOT/WEB-INF/
 ├── lib
 │   └── CalaveraMain.jar
 └── web.xml
@@ -864,7 +864,7 @@ init:
      [echo] 			Basedir is /home/hijo
      [echo] 			Source is ./src/main/java/biz/calavera
      [echo] 			Build target is ./target
-     [echo] 			Deployment target is /var/lib/tomcat6/webapps/ROOT/WEB-INF/lib
+     [echo] 			Deployment target is /var/lib/tomcat8/webapps/ROOT/WEB-INF/lib
      [echo]
 
 compile:
