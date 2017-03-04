@@ -329,17 +329,19 @@ MAKE NOTE OF THE PORT 8080 MAPPING. In the above, it says "Now on port 2203." Yo
 ****
 ONLY *if you miss your port*, or can't find it, you will need to do:
 
- vboxmanage list vms
+ YourStudentID@serverXXX:vboxmanage list vms
 
 You should see output including something like:
 
-"Calavera_manos_XXXXXXXXXXXXX_XXXXX" {389dab0f-2f52-434e-bf50-c9792c42416a}
+ "Calavera_manos_XXXXXXXXXXXXX_XXXXX" {389dab0f-2f52-434e-bf50-c9792c42416a}
 
 Go:
 
- vboxmanage showvminfo Calavera_manos_XXXXXXXXXXXXX_XXXXX|more (replacing the X's with the actual numbers, you should cut and paste)
+ YourStudentID@serverXXX:vboxmanage showvminfo Calavera_manos_XXXXXXXXXXXXX_XXXXX|grep 8080 
 
-Look for this line:
+You replace the machine name and the X's with the actual numbers, you should cut and paste
+
+You should see something like this line:
 
 ....
 NIC 1 Rule(3):   name = tcp8134, protocol = tcp, host ip = , host port = XXXX, guest ip = , guest port = 8080
