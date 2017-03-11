@@ -175,7 +175,7 @@ On your manos instance, from /home/hijo, make a small change to  src/main/java/b
 Then, after you've made the change, go:
 
  git add . -A
- git commit "my first commit"
+ git commit -m "my first commit"
  git push origin master
 
 If all is well you should see something *like*:
