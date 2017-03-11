@@ -134,7 +134,6 @@ image::jenkins-ssh.png[]
 * Published Artifacts:
 
  **/target/*.jar=>hijoXX
-
  **/target/web.xml=>hijoXX
 
 * Capture and publish build info
