@@ -356,7 +356,7 @@ image::puttyX11.png[]
 
 Log out and log back in to the classroom server with the following options if you are on a Mac:
 
-    ssh -XC yourID@server.domain
+    ssh -YC yourID@server.domain
 
 *All OS* The quickest test for X-windows is to run the command
 

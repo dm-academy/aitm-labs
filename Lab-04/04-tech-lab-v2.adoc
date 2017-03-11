@@ -15,7 +15,7 @@ You are assigned a number "XX" where XX may be from 03-34.
 === Change the Vagrantfile
 These instructions assume comprehensive familiarity with Unix commands and operations. Literal instructions are limited.
 
-`ssh -XC` into the server. (On windows, Putty with X enabled.)
+`ssh -YC` into the server. (On windows, Putty with X enabled.)
 
 `su public1`; password given in class.
 
@@ -214,3 +214,5 @@ In short, you need to create your own deployment recipe caraXX based on cara02.r
 == Use the pipeline
 
 Make a change to your application and push it all the way through the pipeline. Post a screenshot to Slack of either Firefox or a curl invocation.
+
+Break your build.

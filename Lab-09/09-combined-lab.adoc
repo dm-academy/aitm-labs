@@ -30,7 +30,7 @@ If you are on a PC using Putty or MobaXterm, you will have a checkbox (that may 
 
 Once logged in, bring up Firefox over X:
 
-    firefox -XC -no-remote &
+    firefox -YC -no-remote &
 
 then, using that Firefox window, log in to:
 

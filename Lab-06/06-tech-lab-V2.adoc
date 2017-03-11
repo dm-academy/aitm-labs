@@ -33,7 +33,7 @@ NOTE: The names nervios and Nagios are confusingly similar. Nagios is the open s
 === Change the Vagrantfile
 These instructions assume comprehensive familiarity with Unix commands and operations. Literal instructions are limited.
 
-`ssh -XC` into the server.
+`ssh -YC` into the server.
 
 `su` to the public1 ID; password given in class.
 
