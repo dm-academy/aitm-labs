@@ -50,7 +50,7 @@ These instructions assume comprehensive familiarity with Unix commands and opera
 ** Search replace on the nervios00 name
 ** Change the "90" in your IP to 90 + your #
 ** Change the ports
-*** guest: 22, host: 2190 + your #
+*** guest: 22, host: 2190 + your # (e.g, 2190 + 18 = 2208)
 *** guest: 80, host: 8190 + your #
 *** guest: 8080, host: 9190 + your #
 
