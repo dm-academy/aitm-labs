@@ -11,7 +11,6 @@ In this cumulative lab, you will assemble into your teams and install the open s
 
 The objectives of this lab are to gain a basic understanding of monitoring tools and techniques, and further develop your systems management skills through installing and configuring a distributed Linux system with *less prescriptive guidance than you have had to date.* This lab is much more about what, not how.
 
-This is (probably) your final hands-on lab directly using Linux in such a detailed manner.
 
 IMPORTANT: This lab may take you more than this class time. Use Slack to continue collaborating as a team. Do NOT let one person carry the load. All should be involved. Senior people, please keep your team involved.
 
@@ -157,7 +156,7 @@ When you get to the part where you are editing
 sudo nano /usr/local/nagios/etc/servers/clients.cfg
 
 
-you should copy and adapt the configuration from https://github.com/dm-academy/aitm-labs/blob/master/Lab-06/clients.cfg. 
+you should copy and adapt the configuration from https://github.com/dm-academy/aitm-labs/blob/master/Lab-06/clients.cfg.
 
 ****
 *Host IPs*
