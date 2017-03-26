@@ -42,12 +42,12 @@ These instructions assume comprehensive familiarity with Unix commands and opera
 
  mv Vagrantfile Vagrantfile.old
 
-* Copy `~/Calavera/lab-06-Vagrantfile` to the directory you just created, giving it the name `Vagrantfile`.
+* Copy `~/Calavera/lab-06-Vagrantfile` to the directory you just created, giving it the name `Vagrantfile`. (you can save your old one as Vagrantfile.old if you want).
 
 * `nano` ~/VMs/XX/Vagrantfile and do the following:
 
 
-** Search replace on the nervios00 name
+** Search replace on the nervios00 name and change it to nerviosXX.
 ** Change the "90" in your IP to 90 + your #
 ** Change the ports
 *** guest: 22, host: 2190 + your # (e.g, 2190 + 18 = 2208)
@@ -89,6 +89,8 @@ You will need to copy this script into your ~/VMs/XX directory, when you are log
 NOTE: You *must* `sudo` the script.
 
 If you can't `cd /home/nerviosxx/cookbooks/nervios/files/`, something is wrong. What?
+
+If you can't sudo the script, what is wrong?
 
 You should examine this script carefully and compare it to the online directions. This script is not a "lights-out" script; you will need to watch the console and select various options per the instructions.
 
