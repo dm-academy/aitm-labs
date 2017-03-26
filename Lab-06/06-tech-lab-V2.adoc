@@ -57,13 +57,15 @@ These instructions assume comprehensive familiarity with Unix commands and opera
 
 The goal is to
 
-* install the LAMP stack on your nervios instance
-* install the Nagios server on your nervios instance
+* install the LAMP stack on your nerviosXX instance
+* install the Nagios server on your nerviosXX instance
 * configure Nagios to monitor servers in the pipeline
 * confirm that the pipeline is being monitored
 * test monitoring by halting one or more servers and observing the result
-* expand monitoring to cover Apache Tomcat on the caraxx server, and Jenkins on hombrosxx..
+* expand monitoring to cover Apache Tomcat on the cara1 server, and Jenkins on hombros1.
 * test the expanded monitoring
+
+NOTE: As of Spring 2017, due to server capacity issues, this lab will have many nerviosXX servers monitoring the main pipeline. Do not launch your own caraXX servers.
 
 === Steps
 WARNING: READ THIS ENTIRE LAB CAREFULLY BEFORE STARTING. IF YOU JUST LAUNCH INTO THE STEP BY STEP INSTRUCTIONS YOU WILL REGRET IT WHEN YOU GET A FEW PARAGRAPHS FURTHER. BE SURE YOU UNDERSTAND EVERYTHING.
@@ -134,7 +136,7 @@ At this point, you have either run the script or done the installation manually.
 
 *Access Nagios Web Interface*
 
-From this point, follow the instructions. Now is the time to open a second X window, if you have not already done so. Remember that you access Firefox from the main server, not from inside your VM.
+From this point, follow the instructions. Now is the time to open a second X window, if you have not already done so. Remember that you access Firefox from the main server when you are logged in as you. It will not work if you are su'd as public, nor ssh'd into your VM.
 
 You can log in and see your nagios instance by opening a new ssh session into seis660 (NOT your VM!!) and typing
 
@@ -165,17 +167,17 @@ you should copy and adapt the configuration from https://github.com/dm-academy/a
 
 You may need these.
 ....
-10.xx.0.10   cerebro1
-10.xx.0.11   brazos1
-10.xx.0.12   espina1
-10.xx.0.13   hombros1
-10.xx.0.14   manos1
-10.xx.0.15   cara03
+10.1.0.10   cerebro1
+10.1.0.11   brazos1
+10.1.0.12   espina1
+10.1.0.13   hombros1
+10.1.0.14   manos1
+10.1.0.15   cara1
 ....
-Again, do not use a leading '0' when you swap out the "x".
+
 ****
 
- http://www.unixmen.com/install-configure-nagios-4-ubuntu-14-1014-04/[instructions], in the section "*Configure Monitoring Targets*." There is a small choice you can make, whether to put in the ip address of nerviosxx, or the actual hostname nerviosxx. Reading the notes in the configuration file, what do you think you should do? Will putting in the nerviosxx host name work? How can you find out?
+In the http://www.unixmen.com/install-configure-nagios-4-ubuntu-14-1014-04/[Unixmen instructions], in the section "*Configure Monitoring Targets*," there is a small choice you can make, whether to put in the ip address of nerviosxx, or the actual hostname nerviosxx. Reading the notes in the configuration file, what do you think you should do? Will putting in the nerviosxx host name work? How can you find out?
 
 NOTE: I am giving you what not how at this point, follow the instructions carefully and be careful of the address you use. If you give something a default host name of "client," that is what you will see in the console. Notice that host_name is not the same as address in the Nagios configuration.
 
@@ -201,11 +203,7 @@ image::nagios1.png[]
 
 Take a screen shot and post to Slack.
 
-Test that your monitoring is working correctly by exiting your VM and issuing:
-
- vagrant suspend caraXX
-
-replacing the XX as appropriate for your team.
+Test that your monitoring is working correctly by asking the instructor to suspend the cara server (we may have to coordinate this with the class as everyone is looking at the same server; hopefully people will arrive at this point at different times.)
 
 In 5 minutes, you should see an error on the web portal, like this:
 
@@ -213,7 +211,7 @@ image::nagios2.png[]
 
 Take a screen shot; combine it with your previous screen shot (e.g. in Powerpoint or as a PDF) and post to https://seis660.slack.com/messages/lab-06[Slack].
 
-Restart cara (vagrant up caraxx.) Confirm that monitoring shows it is up.
+When you have taken this screenshot, tell the instructor so he or she can re-launch cara.
 
 You can change the speed with which Nagios detects a down server through a parameter change. At your option, research the https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/objectdefinitions.html#host[instructions] and do so.
 
