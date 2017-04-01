@@ -36,7 +36,7 @@ These instructions assume comprehensive familiarity with Unix commands and opera
 
 `su` to the public1 ID; password given in class.
 
-`cd ~/VMs` to the ~/VMs directory you will be working in (re-used from previous)
+`cd ~/VMs/XX` (re-used from previous)
 
 * If there is already a Vagrantfile, go:
 
