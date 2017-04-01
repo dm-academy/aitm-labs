@@ -37,7 +37,7 @@ These instructions assume comprehensive familiarity with Unix commands and opera
 
 `su` to the public1 ID; password given in class.
 
-`cd ~\VMs` to the ~/VMs directory you will be working in (re-used from previous)
+`cd ~/VMs` to the ~/VMs directory you will be working in (re-used from previous)
 
 * If there is already a Vagrantfile, go:
 
@@ -157,7 +157,7 @@ When you get to the part where you are editing
 sudo nano /usr/local/nagios/etc/servers/clients.cfg
 
 
-you should copy and adapt the configuration from https://github.com/dm-academy/aitm-labs/blob/master/Lab-06/clients.cfg. 
+you should copy and adapt the configuration from https://github.com/dm-academy/aitm-labs/blob/master/Lab-06/clients.cfg.
 
 ****
 *Host IPs*
