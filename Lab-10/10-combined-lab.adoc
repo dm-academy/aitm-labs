@@ -66,17 +66,14 @@ You should be able to run the first scan as the lynis directions suggest. This s
     - Details  : AllowAgentForwarding (YES --> NO)
       https://cisofy.com/controls/SSH-7408/
 
-  * Add a legal banner to /etc/issue, to warn unauthorized users [BANN-7126]
-      https://cisofy.com/controls/BANN-7126/
-      
-  * Configure minimum password age in /etc/login.defs [AUTH-9286] 
+  * Configure minimum password age in /etc/login.defs [AUTH-9286]
       https://cisofy.com/controls/AUTH-9286/
 
-  * Configure maximum password age in /etc/login.defs [AUTH-9286] 
+  * Configure maximum password age in /etc/login.defs [AUTH-9286]
       https://cisofy.com/controls/AUTH-9286/
 ....
 
-Let's fix the minium and maxium password age issue in login.defs. 
+Let's fix the minium and maxium password age issue in login.defs.
 
 Open file /etc/login.defs using text editor:
 # vi /etc/login.defs
@@ -140,14 +137,14 @@ First, you need to figure out the configuration change required to fix the vulne
 
 In order to gain the extra credit:
 
-* Create a new VM and run the vulnerability scanner. 
+* Create a new VM and run the vulnerability scanner.
 * Save the output to a text file, named "initial-output.log"
 * Run the necessary commands to fix the vulnerability.
 * Put them into a shell script.
 * Call the shell script from your vagrant file
 * Vagrant destroy and vagrant up your machine, confirming that it comes up with the correct fix(es)
 * Run the scanner again, saving the output to "final-output.log" and showing that they are fixed
-* Submit the 2 output files, your modified Vagrantfile, and your script for extra credit. 
+* Submit the 2 output files, your modified Vagrantfile, and your script for extra credit.
 
 1 vulnerability fixed: 10 points
 2 : 15 points
