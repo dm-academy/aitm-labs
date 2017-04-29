@@ -127,10 +127,22 @@ In order to gain the extra credit:
 * Run the scanner again, saving the output to "final-output.log" and showing that they are fixed
 * Submit the 2 output files, your modified Vagrantfile, and your script for extra credit.
 
-1 vulnerability fixed: 10 points
-2 : 15 points
-3 : 20 points.
-10 or more: 30 points
+* 1 vulnerability fixed: 10 points
+* 2 : 15 points
+* 3 : 20 points.
+* 10 or more: 30 points
+
+sed is your friend. Simple example:
+
+....
+char@seis664:~$ echo myScriptContent > test.txt
+char@seis664:~$ cat test.txt
+myScriptContent
+char@seis664:~$ sed -i s/Script/New/g test.txt
+char@seis664:~$ cat test.txt
+myNewContent
+....
+
 
 === Web vulnerability testing scan
 (if time)
