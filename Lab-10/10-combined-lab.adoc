@@ -79,9 +79,10 @@ Open file /etc/login.defs using text editor:
 # sudo nano /etc/login.defs
 
 Setup (sample) values as follows:
-PASS_MAX_DAYS 30
-PASS_MIN_DAYS 1
-PASS_WARN_AGE 7
+
+ PASS_MAX_DAYS 30
+ PASS_MIN_DAYS 1
+ PASS_WARN_AGE 7
 
 To restart sshd on ubuntu 16, use the command:
 
@@ -102,6 +103,8 @@ You should take some time and think about and/or research the risk any given vul
 image::4.10-security-taxonomy.png[]
 
 We will pause class and discuss interesting cases.
+
+TIP: If you search Google on the Lynis ID, e.g. `AUTH-9286`, you should be taken to the cisofy.com site (or perhaps other resources) which will get you started on resolving it. 
 
 Be prepared to share you results, positive or negative. If you fix a vulnerability, be sure to document the steps so they could be scripted.
 
