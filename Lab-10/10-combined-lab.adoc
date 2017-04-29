@@ -104,7 +104,9 @@ image::4.10-security-taxonomy.png[]
 
 We will pause class and discuss interesting cases.
 
-TIP: If you search Google on the Lynis ID, e.g. `AUTH-9286`, you should be taken to the cisofy.com site (or perhaps other resources) which will get you started on resolving it. 
+TIP: If you search Google on the Lynis ID, e.g. `AUTH-9286`, you should be taken to the cisofy.com site (or perhaps other resources) which will get you started on resolving it.
+
+NOTE: Do not try to fix the banners issue. It only can be tested by logging directly into the server console (which in the case of a VM doesn't really exist), not via ssh.
 
 Be prepared to share you results, positive or negative. If you fix a vulnerability, be sure to document the steps so they could be scripted.
 
