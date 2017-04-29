@@ -103,29 +103,6 @@ Be prepared to share you results, positive or negative. If you fix a vulnerabili
 
 After you have fixed one more lynis vulnerability, read http://www.sonatype.org/nexus/2015/11/13/did-you-wake-up-to-an-alert-about-the-java-deserialization-vulnerability and discuss with your neighbors. What is the National Vulnerability Database? Be prepared to discuss in class.
 
-=== Web vulnerability testing scan
-(if time)
-
-When you have reflected enough on the Java deserialization vulnerability and the implications of that article, move on to a Web vulnerability. We will install Java and apache2 on your VM. (Don't try to install these on the main server; you won't be able to.)
-
-First review the first few pages of the https://github.com/zaproxy/zaproxy/releases/download/2.5.0/ZAPGettingStartedGuide-2.5.pdf[zaproxy docs].
-
-ON YOUR VM, go:
-
-....
-sudo apt-get update
-sudo apt-get install -y default-jdk apache2
-
-wget https://github.com/zaproxy/zaproxy/releases/download/2.5.0/ZAP_2.5.0_Linux.tar.gz
-tar -xvf ZAP_2.5.0_Linux.tar.gz
-
-cd ZAP_2.5.0/
-./zap.sh -cmd -quickurl http://localhost:80
-....
-
-We run this script externally to the machine being tested, and give it the URL. It then probes the URL and the server, as a form of penetration testing. It will again generate a number of findings. Research them and figure out if there is an easy fix. Share with class on Slack.
-
-NOTE: You will get raw XML dumped to the terminal. You can cut and paste this to an *.xml document on your workstation and open it with a browser for an easier view.
 
 == Permanently fixing one or more vulnerabilities (10+ extra credit points).
 
@@ -150,6 +127,30 @@ In order to gain the extra credit:
 2 : 15 points
 3 : 20 points.
 10 or more: 30 points
+
+=== Web vulnerability testing scan
+(if time)
+
+When you have reflected enough on the Java deserialization vulnerability and the implications of that article, move on to a Web vulnerability. We will install Java and apache2 on your VM. (Don't try to install these on the main server; you won't be able to.)
+
+First review the first few pages of the https://github.com/zaproxy/zaproxy/releases/download/2.5.0/ZAPGettingStartedGuide-2.5.pdf[zaproxy docs].
+
+ON YOUR VM, go:
+
+....
+sudo apt-get update
+sudo apt-get install -y default-jdk apache2
+
+wget https://github.com/zaproxy/zaproxy/releases/download/2.5.0/ZAP_2.5.0_Linux.tar.gz
+tar -xvf ZAP_2.5.0_Linux.tar.gz
+
+cd ZAP_2.5.0/
+./zap.sh -cmd -quickurl http://localhost:80
+....
+
+We run this script externally to the machine being tested, and give it the URL. It then probes the URL and the server, as a form of penetration testing. It will again generate a number of findings. Research them and figure out if there is an easy fix. Share with class on Slack.
+
+NOTE: You will get raw XML dumped to the terminal. You can cut and paste this to an *.xml document on your workstation and open it with a browser for an easier view.
 
 === Optional ITSM process
 Time and instructor lab preparation permitting:
