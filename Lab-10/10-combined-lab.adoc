@@ -76,7 +76,7 @@ You should be able to run the first scan as the lynis directions suggest. This s
 Let's fix the minium and maxium password age issue in login.defs.
 
 Open file /etc/login.defs using text editor:
-# nano /etc/login.defs
+# sudo nano /etc/login.defs
 
 Setup (sample) values as follows:
 PASS_MAX_DAYS 30
