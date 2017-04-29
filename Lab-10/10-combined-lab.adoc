@@ -137,7 +137,11 @@ In order to gain the extra credit:
 * 3 : 20 points.
 * 10 or more: 30 points
 
-sed is your friend. Simple example:
+You can script commands like
+
+ apt-get install <some program>
+
+You can't script an interactive text editor (like nano). To change configuration files, sed is your friend. Simple example:
 
 ....
 char@seis664:~$ echo myScriptContent > test.txt
@@ -148,6 +152,7 @@ char@seis664:~$ cat test.txt
 myNewContent
 ....
 
+You may need to Google "regular expressions."
 
 === Web vulnerability testing scan
 (if time)
