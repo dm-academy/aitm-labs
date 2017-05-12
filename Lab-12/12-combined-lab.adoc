@@ -108,7 +108,7 @@ In terms of product, if you sort the spreadsheet by first column N and then colu
 
 === Setting up
 
-1. Download the spreadsheet from https://github.com/StThomas-SEIS660/Lab-12/blob/master/seis660portfolio.xls. Click "View Raw" to download.
+1. Download the spreadsheet from https://github.com/dm-academy/aitm-labs/blob/master/Lab-12/portfolioLab.xls. Click "View Raw" to download.
 2. Create a new tab and name it for your team. Save your spreadsheet somewhere you can find it.
 3. Go to the dataset-gen tab and hit F9.
 4. Select all and paste AS FORMATTED VALUES to your new tab.
