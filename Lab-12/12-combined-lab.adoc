@@ -74,7 +74,7 @@ IMPORTANT: Remember that "services" and "technology products," for the purposes 
 
 == The portfolio spreadsheet
 
-The assignment is based on the spreadsheet titled "seis660portfolio." This spreadsheet has 3 tabs:
+The assignment is based on the spreadsheet titled "portfolioLab.xls." This spreadsheet has 3 tabs:
 
 *dictionary* - definitions of the fields, including how they are generated.
 
