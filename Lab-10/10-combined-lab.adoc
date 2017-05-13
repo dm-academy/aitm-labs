@@ -136,7 +136,7 @@ In order to gain the extra credit:
 * Vagrant destroy and vagrant up your machine, confirming that it comes up with the correct fix(es)
 * Run the scanner again, saving the output to "final-output.log" and showing that they are fixed
 
-IMPORTANT:Submit the 2 output files, your modified Vagrantfile, and your script for extra credit.
+IMPORTANT: Submit the 2 output files, your modified Vagrantfile, and your script for extra credit.
 
 
 
