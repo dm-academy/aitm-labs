@@ -100,7 +100,10 @@ Finally, the "delta" system appears solid both in terms of business and technica
 
 Out of this brief analysis, we clearly would prioritize pi and deprioritize zulu. The other two require further investigation and would land in the middle of the pack.
 
-In terms of product, if you sort the spreadsheet by first column N and then column J, you will see that Product2 and Product8 support significant systems (add up the heft scores for the systems they support.) It might be good to prioritize sunsetting those products. Think about what this means in terms of your recommendations.
+In terms of product, if you sort the spreadsheet by first column N and then column J, you will see that Product2 and Product8 support significant systems (add up the heft scores for the systems they support.) It might be good to prioritize sunsetting those products. Think about what this means in terms of your recommendations. Often, services that add little value are sunset when their supporting products become obsolete.
+
+IMPORTANT: Product is NOT the same as service. Services DEPEND ON products, e.g. your eCommerce Web site depending on the Oracle database. A _product_ might be approaching or past its sunset date, but the _service_ needs to be kept running - you make money off it! A product running past its sunset date is very risky, due to lack of support. Most services depend on multiple products, but we simplify to one for this exercise.
+
 
 == The exercise
 
