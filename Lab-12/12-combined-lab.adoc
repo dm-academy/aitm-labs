@@ -3,8 +3,6 @@
 12/2016 notes
  continuing confusion over late vs early retirement - clarify
 
- fix the double alphabet problem
-
 Version 2, 12/11/2015
 
 In this final lab, you will analyze an IT portfolio and come up with a set of recommendations for presentation to the class.
@@ -67,7 +65,7 @@ Indicators of technical fitness:
 * High SLA adherence (incidents)
 ** _Low would indicate low fitness_
 * Current assets & technology platforms
-** _Older indicates low fitness_
+** _Older indicates low fitness. An earlier sunset date means the product is more outdated; again, lower fitness._
 * NPS from support teams & architects
 ** _High is good_
 * High/increasing customer/user satisfaction score
@@ -94,7 +92,7 @@ The infrastructure systems are by far the most expensive. This is because they s
 
 The "romeo" system is also questionable. Have a look at it and discuss. What depends on it?
 
-On the other hand, the "pi" system has an aging asset base, technology products close to retirement, and is a well regarded revenue producing system with considerable heft and significant dependencies in column P. Its request should be fully supported. It would be in the bottom right quadrant. This is the money quadrant; systems that land here in general should get some love. Notice that there is an inconsistency between the technical team's opinion and the objective reality of the asset and technology base. This might need further investigation.
+On the other hand, the "pi" system has an aging asset base, technology products close to retirement (that is, an _earlier_ retirement year), and is a well regarded revenue producing system with considerable heft and significant dependencies in column P. Its request should be fully supported. It would be in the bottom right quadrant. This is the money quadrant; systems that land here in general should get some love. Notice that there is an inconsistency between the technical team's opinion and the objective reality of the asset and technology base. This might need further investigation.
 
 The "zeta" system is well regarded technically, but has room for improvement in terms of business fit. It would be top left in the quadrant. Some re-evaluation of its mission might be appropriate. It is not clear why they would want significant enhancement dollars as both the asset base and the technology dependencies are current. Note that the SLAs adherence is poor; this might be why.
 
@@ -130,7 +128,7 @@ On a Powerpoint deck, based on the matrix above, the spreadsheet definitions, an
 
 Again, give your reasoning.
 
-5 pts extra credit: prepare a bubble chart for some subset of the data.
+10 pts extra credit: prepare a bubble chart for some subset of the data.
 
 Time permitting, we will review some of these presentations in class.
 
