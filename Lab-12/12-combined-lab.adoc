@@ -1,4 +1,4 @@
-== SEIS660 Lab 12: Enterprise Architecture & IT Portfolio Management
+== Lab 12: Enterprise Architecture & IT Portfolio Management
 
 Version 2, 12/11/2015
 
