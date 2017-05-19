@@ -131,7 +131,14 @@ On a Powerpoint deck, based on the matrix above, the spreadsheet definitions, an
 
 Again, give your reasoning.
 
-10 pts extra credit: prepare a bubble chart for some subset of the data.
+10 pts extra credit: prepare a bubble chart for some subset of the data. Your bubble chart must have the dimensions clearly labeled, including what the meaning of size and color are. Recommend:
+
+* Y-axis - business criticality
+* X-axis - technology soundness
+* Size: request
+* Color: application vs infrastructure
+
+You may need to define some of your own calculations (e.g. adding some factors) to achieve these recommendations. I reserve the right to give partial credit, or send back to you for rework.
 
 Time permitting, we will review some of these presentations in class.
 
