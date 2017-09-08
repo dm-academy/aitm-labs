@@ -1,6 +1,5 @@
 = Lab 00  Course setup
 
- spring 2017 todo: illustrate difference between public/private key
 
 
 In this lab, you will set up the tools and access you need for the rest of the semester.
@@ -383,3 +382,7 @@ Google "Why is SSH key authentication better than password authentication?" and 
 * Failure to actually launch XMing client
 * sies660 vs seis660
 * typing in unnecessary prompt characters the lab instructions say to omit ($, >, etc)
+
+== Notes
+todo: illustrate difference between public/private key
+
