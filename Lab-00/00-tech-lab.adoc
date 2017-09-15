@@ -358,7 +358,7 @@ image::puttyX11.png[]
 
 UPDATED IMPORTANT INFO FOR MAC USERS:
 
-There are issues with XQuartz. The standard Mac console app does not seem to work with Linux in Sierra, you may get display errors.
+There are issues with XQuartz. The standard Mac console app does not seem to work with Quartz in Sierra, you may get display errors.
 
 Launch XQuartz and right-click on its icon in the Dock. Select Applications|Terminal and you will get a slightly different console app, which should work as follows below.
 
