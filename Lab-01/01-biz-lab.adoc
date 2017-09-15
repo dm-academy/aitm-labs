@@ -1,6 +1,5 @@
 = Lab 01 (Business) IT value
 
-(45 minutes)
 
 . Go to any popular online service (Facebook, Netflix, Flickr, Etsy, etc.) How would you describe the http://dm-academy.github.io/aitm/#_it_services_systems_and_applications["moments of truth"] or value experiences these sites offer users? There may be several. Discuss with your team & be prepared to be called on. Who are the user, customer, and sponsor of the app? What are there motivations?
 
