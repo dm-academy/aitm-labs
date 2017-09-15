@@ -330,7 +330,7 @@ Why didn't I automate this? It would have been a simple script to set it all up 
 ====
 *IMPORTANT:*
 
-Protect your private key, especially if you start to use it in significant ways (e.g. as the basis of your work with Github.) Don't leave it where others can access it. 
+Protect your private key, especially if you start to use it in significant ways (e.g. as the basis of your work with Github.) Don't leave it where others can access it.
 ====
 
 === Configuring X windows
@@ -349,9 +349,20 @@ Open the X windows client, http://sourceforge.net/projects/xming/[XMing] (instal
 
 NOTE: At this iteration of the lab, we have not had time to detail installation instructions screen by screen.
 
+=== Using X-windows
+
 If you are on Putty, log out and log back in, this time checking the X11 forwarding in SSH:
 
 image::puttyX11.png[]
+
+
+UPDATED IMPORTANT INFO FOR MAC USERS:
+
+There are issues with XQuartz. The standard Mac console app does not seem to work with Linux in Sierra, you may get display errors.
+
+Launch XQuartz and right-click on its icon in the Dock. Select Applications|Terminal and you will get a slightly different console app, which should work as follows below.
+
+image::XQTerm.png[]
 
 Log out and log back in to the classroom server with the following options if you are on a Mac:
 
@@ -385,4 +396,3 @@ Google "Why is SSH key authentication better than password authentication?" and 
 
 == Notes
 todo: illustrate difference between public/private key
-
