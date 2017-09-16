@@ -14,5 +14,6 @@ Power tips:
 
 * Up arrow: last command
 * Tab: auto-fills file names if the file is uniquely identified in the directory by enough characters
+* The command `history` will show you your recent commands. 
 
 See also http://teohm.com/blog/2012/01/04/shortcuts-to-move-faster-in-bash-command-line/[Shortcuts to Move Faster in Bash Command Line]
