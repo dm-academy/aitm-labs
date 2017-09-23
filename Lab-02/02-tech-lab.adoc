@@ -825,12 +825,20 @@ Discuss:
 - Why can you commit to git on the VM without initializing the repo there? You had to at least set up your name and email. Hint: Think about the virtual directory mapping and execute the comand "ls -al" on the /vagrant directory in the VM.
 - How are git and tree getting installed, since you don't say "sudo vagrant up"?
 
-== Extra credit (20 points): configure a Vagrantfile to install Docker and Node
+== Extra credit
+
+=== Set up public/private key authentication to your Github account (5 points)
+
+Instructions readily available in various places on the internet.
+
+=== Configure a Vagrantfile to install Docker and Node (20 points)
 
 Researching on the internet, update your Vagrantfile (you may want to save your old one, or else create a new directory) so that it creates an Ubuntu machine with Docker installed.
 
 Configure Vagrant to launch Docker so that it spins up a Node.js container with a "hello world" app.
 
 This will not be easy, but some of you need the challenge.
+
+== Conclusion
 
 That is the end of this lab. Congratulations, this was a lot of work. Next week, we will start working on the the continuous integration pipeline with git, Java, JUnit, Tomcat, and Ant.
