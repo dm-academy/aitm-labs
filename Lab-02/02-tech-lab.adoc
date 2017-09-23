@@ -84,6 +84,8 @@ and after it, add the line:
 
 Exit nano, saving the file.
 
+Whether on the server or on your laptop: 
+
 Now, cross your fingers and enter the following command:
 
 	YourStudentID@serverXXX:~/vagrant$ vagrant up
