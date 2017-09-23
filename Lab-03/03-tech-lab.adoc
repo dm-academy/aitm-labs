@@ -715,6 +715,10 @@ Exit nano and run Ant again:
     vagrant@manos:/home/hijo$ sudo ant
     [ same output as before ]
 
+Note: Don't forget to change build.xml back before you run Ant again(Using nano, change line 29) 
+ <pathelement location="/var/lib/tomcat8/lib/servlet-api.jar"/>
+
+
 Now try:
 
     vagrant@manos:/home/hijo$ curl localhost:8080/MainServlet
