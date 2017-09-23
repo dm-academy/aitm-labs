@@ -84,7 +84,7 @@ and after it, add the line:
 
 Exit nano, saving the file.
 
-Whether on the server or on your laptop: 
+Whether on the server or on your laptop:
 
 Now, cross your fingers and enter the following command:
 
@@ -203,7 +203,13 @@ NOTE: The "-y" avoids you having to type "yes" to approve the install. It is cri
 
 If you get any kind of access or permissions error, please be sure you are in YOUR vagrant machine, not the main course server (where you do not have permissions to install things.) Re-read the above material carefully.
 
-Use tree to inspect your directory structure. It should look like:
+If it gives an error indicating tree is not found, type
+
+`sudo apt-get update`
+
+to refresh your package repository.
+
+Once installed, use tree to inspect your directory structure. It should look like:
 
  vagrant@xenial64:~$ tree
 
