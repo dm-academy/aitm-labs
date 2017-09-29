@@ -11,6 +11,27 @@ You will run the official https://docs.docker.com/get-started/[Docker tutorial],
 PLEASE make note of the following and DO NOT JUST TRY TO DO EVERYTHING IN THE TUTORIAL especially if you are doing this on the server.
 
 == If you are doing this on the server
+DO NOT TRY TO INSTALL DOCKER OR DOCKER-MACHINE. *I have already done that.*
 
+Start by going to your home directory (`cd`) and typing:
+
+`docker run hello-world` as per the tutorial instructions. Continue with parts 2-5.
 
 == If you are doing this lab on your laptop
+
+If you are doing this on your laptop, you will need to install Docker per the instructions. Then continue with the labs.
+
+If you complete the lab before 8:30, find another application or application stack to download and experiment with. Notify the instructor when you have it working and we may demo to the class. For 2 points extra credit, download https://github.com/dm-academy/aitm-labs[the labs Github repo] (which contain this page) and submit a pull request below containing the address of the app you downloaded.
+
+== Good Docker applications for simple proof of concept
+
+I am looking for simple proof of concept applications that can be easily modified by people of different skill levels. Let's collect a bunch here.
+
+* https://docs.docker.com/get-started/#setup[Docker Tutorial]
+* https://github.com/dwmkerr/node-docker-microservice[node-docker-microservice]
+* http://jdlm.info/articles/2016/03/06/lessons-building-node-app-docker.html?r=0[socket-io-chat]
+
+== Instructor notes
+All students need to have permissions updated
+
+`sudo usermod -a -G docker $USER`
