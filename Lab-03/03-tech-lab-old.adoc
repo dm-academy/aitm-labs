@@ -648,7 +648,7 @@ to
 
  <pathelement location="/var/libx/tomcat8/lib/servlet-api.jar"/>
 
-Google the error result. What is the problem?
+Run `sudo ant` again. Google the error result. What is the problem?
 
 Examine web.xml. This is a critical file. What do you notice about it, compared to the tree command from /home/hijo?
 
