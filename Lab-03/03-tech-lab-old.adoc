@@ -28,7 +28,7 @@ You must have completed lab 2 and issued pull requests for me.
 
 Log into the main server via ssh in the usual way.
 
-Make sure you are in your home directory *on seis664-01*.
+Make sure you are in your home directory.
 
     cd ~
 
