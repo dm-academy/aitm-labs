@@ -983,5 +983,9 @@ Exit your VM and destroy it:
  vagrant@manos:exit
  YourStudentID@serverXXX:~/Calavera$ vagrant destroy manos1 -f
 
+== Extra credit
+
+Suppose the system fails to build correctly (as a new manos1 instance) and you identify that Class1.java is missing on the newly created machine. Suggest at least two reasons why that might happen and where the issue could be. Identify specific locations in the Chef resources (directories and file contents) that could be the problem. (10 points)
+
 
 Congratulations, you have finished another lab. Next up: an end to end DevOps pipeline.
