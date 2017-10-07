@@ -652,6 +652,8 @@ Run `sudo ant` again. Google the error result. What is the problem?
 
 Examine web.xml. This is a critical file. What do you notice about it, compared to the tree command from /home/hijo?
 
+Fix what you need to fix. 
+
 == Changing the application
 
 Let's play with the Java a little bit. Start by editing the MainServlet.java file:
