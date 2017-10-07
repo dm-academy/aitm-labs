@@ -981,7 +981,7 @@ Rebuild with ant and check that the original functionality is restored. Use Curl
 Exit your VM and destroy it:
 
  vagrant@manos:exit
- YourStudentID@serverXXX:~/Calavera$ vagrant destroy manos -f
+ YourStudentID@serverXXX:~/Calavera$ vagrant destroy manos1 -f
 
 
 Congratulations, you have finished another lab. Next up: an end to end DevOps pipeline.
