@@ -11,7 +11,12 @@ You will run the official https://docs.docker.com/get-started/[Docker tutorial],
 PLEASE make note of the following and DO NOT JUST TRY TO DO EVERYTHING IN THE TUTORIAL especially if you are doing this on the server.
 
 == If you are doing this on the server
-DO NOT TRY TO INSTALL DOCKER OR DOCKER-MACHINE. *I have already done that.*
+
+You will install Docker in your own Vagrant virtual machine.
+
+(step by step instructions)
+
+ *I have already done that.*
 
 Start by going to your home directory (`cd`) and typing:
 

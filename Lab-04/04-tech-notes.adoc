@@ -2,7 +2,7 @@
 
 == Spring 2017
 
-big issues with espina. 
+big issues with espina.
 
 Last fall created a new approach but did not document fully.
 
@@ -13,9 +13,11 @@ Key: everyone is logged in as public1 (any public ID, actually - key is that the
 The key is to have one master pipeline, call it Calavera00, that people can attach their individual manosXX servers to.
 
 * `su public1 && cd ~`
+* `vagrant plugin install vagrant-berkshelf`
 * `git clone https://github.com/dm-academy/Calavera.git`
-* `./template.sh 0`
-
+* `./template.sh 1`
+* ``./startup.sh`   # not sudo
+* `vagrant up cerebro1 brazos1 espina1 hombros1 manos1 cara1`
 
 == Spring 2016 notes
 Was not able to start a public5 pipeline due to Tomcat recipe being upgraded and a fresh Berkshelf cache for public5. Public1-4 have cached v0.17 which defaults to Tomcat 6, but new Berks gives 0.2 which defaults to NO tomcat - you have to specify.

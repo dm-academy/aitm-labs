@@ -1,9 +1,36 @@
-= Lab 04 (Business) Product management
+= Lab 04 (Business) Teaming and Product management
 
-* review http://www.aha.io/
+== Forming teams
 
+We will watch the https://asana.com/[Jeff Gothelf video] as a class.
+
+Then we will form 4 teams. We will order by years of experience, and then count off.
+
+Within each team there will be the following loose roles:
+
+* Product owner
+* Team coach
+* Back end dev(s)
+* UX dev
+
+Gather in your teams. You will be meeting with these people for the remainder of the class, so re-organize as necessary.
+
+Discuss:
+
+* What has been the experience of each of you in working in teams?
+* What do you think of Gothelf's criticism of "silo" teams? Do you understand what he means? If your team is confused, let the instructor know and we will discuss as a class.
+* Assignment (3 slides):
+** Name your team and choose an image, theme, mascot, or logo. Develop a list of 4-6 "expectations" that will govern how you work together as a team.
+** Brainstorm a product or a problem space you are interested in, and document it. Why is it interesting to you? What needs to be solved?
+** What would be an initial hypothesis you could test, to validate your choice of this problem space? Can you test it by doing some simple searching? Or would it take more effort? Document your thoughts.
+** Present to the class.
+
+
+== Optional for the week
+
+Review these product development tools:
+
+* http://www.aha.io/
 * https://asana.com/
 
-* consider impact mapping exercise
-
-* Review Amazon's https://aws.amazon.com/codepipeline/[AWS CodePipeline]
+Review Amazon's https://aws.amazon.com/codepipeline/[AWS CodePipeline]
