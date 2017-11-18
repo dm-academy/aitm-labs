@@ -1,0 +1,7 @@
+== General extra credit
+
+=== Fall 2017
+
+Here are some extra credit assignments:
+
+* Run https://kubernetes.io/docs/getting-started-guides/minikube/[this Kubernetes tutorial] and demonstrate final running system to instructor. (30 points)
