@@ -7,4 +7,5 @@ Here are some extra credit assignments:
 * Run https://kubernetes.io/docs/getting-started-guides/minikube/[this Kubernetes tutorial] and demonstrate final running system to me on your laptop. If your laptop will not support it, see me (30 points).
 * Provide a written analysis to me advising as to whether we should use Kubernetes as a basis for Calavera2 (5-30 points, depending on quality and completeness.) Provide pros and cons.
 * Review the https://github.com/dm-academy/aitm-labs/blob/master/Lab-10/10-combined-lab.adoc[original Lab 10] (an example of security scanning) and develop a detailed approach for the containers-based platform. (5-30 points, depending on quality and completeness.)
+* Freeform. Given that we have now built the platform as a class, what would be a good set of challenges for the next class? (5-30 points, depending on quality and completeness. Preference for actual Git pull requests.)
 * Freeform. Provide for me a well reasoned analysis or critique on any aspect of the lab, text, or course, with specific guidance as to how it might be improved. (5-30 points, depending on quality and completeness. Preference for actual Git pull requests.)
