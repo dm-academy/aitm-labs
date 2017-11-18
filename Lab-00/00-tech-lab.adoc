@@ -393,6 +393,7 @@ Google "Why is SSH key authentication better than password authentication?" and 
 * Failure to actually launch XMing client
 * sies660 vs seis660
 * typing in unnecessary prompt characters the lab instructions say to omit ($, >, etc)
+* Sometimes the system will tolerate mulitiple keys (e.g. from multiple tries) in the .ssh directory. But sometimes it won't. If you are having problems, move all keys but the current one you are trying into a backup directory.
 
 == Notes
 todo: illustrate difference between public/private key
