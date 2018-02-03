@@ -387,7 +387,7 @@ Google "Why is SSH key authentication better than password authentication?" and 
 
 == Common errors
 
-* Instructor creating .ssh directory or authorized_keys as root, with incorrect permissions
+* Instructor creating .ssh directory or authorized_keys as root, with incorrect permissions - must be owned by user, and private keys must be locked down
 * Student copying partial key from PuTTYGen
 * Student failing to load private key into PuTTY every time (either manually or through incorrect use of profiles)
 * Failure to actually launch XMing client
