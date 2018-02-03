@@ -32,7 +32,7 @@ Canvas is relatively new. If you have issues, inform the instructor. Go to Canva
 
 * Slack will be the main communication channel.
 * Navigate to https://seis664.slack.com/[https://seis664.slack.com/].
-** Click "create an account" and remember your password. You need to use your St. Thomas email.
+** Click "create an account" and remember your password. You should use your St. Thomas email. Whether you use it or another email, you will need a SEPARATE and DISTINCT password from any other Slack accounts you have. This is just how Slack works; you have to maintain multiple accounts.
 ** Confirm you can read messages. Try posting to the https://seis664.slack.com/messages/general/[#general] thread.
 ** The channels are not cleared from the previous semester. Have a look, you'll get a feel for the class. SEIS660 & SEIS664 alumni may lurk and assist if they feel like it, as long as they are constructive.
 
@@ -92,6 +92,8 @@ You will be provided usernames, temporary passwords, and the server name in clas
 
 NOTE: Logging in with a password will be only possible for the duration of the lab. The "cleartext login" functionality will be https://help.ubuntu.com/community/SSH/OpenSSH/Configuring[disabled].
 
+NOTE: When you type a password into Linux, the cursor does not move.
+
 ==== Logging in (Windows)
 
 Launch Putty from your Start menu.
@@ -115,13 +117,16 @@ You should get this:
 image::login.png[]
 
 
+
 ==== Logging in (Mac/Linux)
 
 On the Mac, launch your Terminal and type:
 
 > ssh <yourStThomasID>@<servername>
 
-on the Mac OS.
+on the Mac OS. The servername is provided in class.
+
+Your St. Thomas ID here means the first portion of your email address, not your student number.
 
 You should see a result similar to the screen above, with slightly different Mac graphics.
 
@@ -177,7 +182,7 @@ Move the mouse until the key is generated:
 
 image::puttyGen3.png[]
 
-Choose a passphrase (like a password, but often people choose a simple sentence with spaces in it).
+You may choose a passphrase (like a password, but often people choose a simple sentence with spaces in it). If you choose a passphrase, it will always be required when you log in. However, it operates differently than a password (it is integrated with your private key) and should not be confused for a password stored on the server.
 
 Save your public key to a folder on your Desktop called Putty as "pubkey".
 
@@ -269,7 +274,7 @@ If you're not already in it, bring up your Terminal application (under Applicati
 
 It will suggest a name, id_rsa; that is fine.
 
-Choose a passphrase - like a password but usually a sentence with spaces. Now:
+You may choose a passphrase - like a password but usually a sentence with spaces. However, it operates differently than a password (it is integrated with your private key) and should not be confused for a password stored on the server. Now:
 
  $ cat id_rsa.pub
 
