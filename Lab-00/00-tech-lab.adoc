@@ -35,6 +35,7 @@ Canvas is relatively new. If you have issues, inform the instructor. Go to Canva
 ** Click "create an account" and remember your password. You should use your St. Thomas email. Whether you use it or another email, you will need a SEPARATE and DISTINCT password from any other Slack accounts you have. This is just how Slack works; you have to maintain multiple accounts.
 ** Confirm you can read messages. Try posting to the https://seis664.slack.com/messages/general/[#general] thread.
 ** The channels are not cleared from the previous semester. Have a look, you'll get a feel for the class. SEIS660 & SEIS664 alumni may lurk and assist if they feel like it, as long as they are constructive.
+** To find a channel, click on Channels and it will say "Browse All Channels"
 
 === Setting up your terminal emulator on Windows
 
@@ -77,6 +78,8 @@ Finally, click Install.
 image::puttySetup5.png[]
 
 Check the README - always a good idea, although nothing to worry about this time around.
+
+NOTE: It is worth learning how to set up Putty profiles so you can quickly log in with your preferred configuration. Consult the instructions and experiment. 
 
 image::puttySetup6.png[]
 
