@@ -389,9 +389,9 @@ Google "Why is SSH key authentication better than password authentication?" and 
 
 * Instructor creating .ssh directory or authorized_keys as root, with incorrect permissions - must be owned by user, and private keys must be locked down
 * Student copying partial key from PuTTYGen
-* Student failing to load private key into PuTTY every time (either manually or through incorrect use of profiles)
+* Student failing to load private key into PuTTY every time (either manually, via Pageant, or through incorrect use of profiles)
 * Failure to actually launch XMing client
-* sies660 vs seis660
+* sies664 vs seis664
 * typing in unnecessary prompt characters the lab instructions say to omit ($, >, etc)
 * Sometimes the system will tolerate mulitiple keys (e.g. from multiple tries) in the .ssh directory. But sometimes it won't. If you are having problems, move all keys but the current one you are trying into a backup directory.
 

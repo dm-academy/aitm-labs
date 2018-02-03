@@ -12,7 +12,7 @@ open FILE, $filename||die $!;
 $emails=<FILE>;
 close(FILE);
 chomp $emails; #remove newline from EOF
-$emails .= ";";  # delimit last email - kind of lame
+#$emails .= ";";  # delimit last email - kind of lame - didn't need for 2018?
 #remove domain, semincolon, space, add newlines
 #$emails =~ s/@.*?, ?/\n/g;  # could make this more robust
 $emails =~ s/@.*?;/\n/g;  # could make this more robust
