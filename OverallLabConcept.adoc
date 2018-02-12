@@ -32,6 +32,7 @@ image::concept2.png[]
 * The platform team will be in a service relationship to the rest of you. You should communicate with them on Slack.
 * You can choose to work on your own or organize in teams. I expect everyone on a team to participate equally. I leave the option of working alone for those who might find themselves sitting back too far in a team context, especially students with less experience.
 * I am not going to be overly prescriptive about your day to day work. We have a high level objective as a class: build a functioning end to end pipeline that supports a diverse variety of feature-oriented systems. Beyond that, you will self-organize to a large degree, within certain guardrails of platform technology and collaboration mechanisms.
+* I will be meeting with individuals and teams 1:1 in rotation during every class. 
 
 Rough lab outline, which still will track the book:
 
