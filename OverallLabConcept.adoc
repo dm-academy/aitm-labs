@@ -24,3 +24,15 @@ image::concept2.png[]
 * In the second half of the course, we will experiment with coordination, portfolio thinking, and bringing people together into larger working constructs. We will also look at the portfolio from the perspective of governance, security, information management, and architecture.
 ** This will include deeper scrutiny of choices you have made in your downloads and dependencies.
 * The platform team will be in a service relationship to the rest of you. You should communicate with them on Slack.
+
+Rough lab outline, which still will track the book:
+
+Labs 0-3 remain very prescriptive to ensure everyone has basic systems and infrastructure as code understanding, including Ubuntu, git, Vagrant, and Docker.
+
+Labs 4-6 *should* see the initial creation of your deployment project, in both development and production instances. This includes the ability to change your system on an ongoing basis.
+
+We will spend some time thinking about your system as a "product." The pipeline team will start to take work requests for assistance with job creation and monitoring. This flow of work will also provide material for understanding work in progress and visualization.
+
+Labs 7-9 are the least certain at this point. It is likely that they will be fully consumed by automating and monitoring your systems. If possible, it would be ideal to bring in some kind of ticketing or workflow for coordination. This will require you to integrate your systems in some sense, if only for a unified release. This might take the form of simply defining a release dependency, such as "the two of you must release your new feature together."
+
+Labs 10-12 are the "governance" labs where we start to examine the implications of what we have built, developing inventories and some kind of plan for the future.
