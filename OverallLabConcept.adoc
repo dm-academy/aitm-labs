@@ -5,10 +5,11 @@ _Overall philosophy: this course is an exercise in ongoing experimentation. It i
 image::concept2.png[]
 
 * The end state is a diverse collection of digital services, owned by individuals and teams, moving through a common pipeline from development to production
-* The platform team wlll consist of the most experienced students. It owns and coaches people on source control, build management, package management, monitoring, and the core container platform. As of February 2018, the current technical choices are git, Jenkins, Artifactory, Kubernetes, and Nagios (or other monitoring tool TBD). There will be two sub-teams, one to own Jenkins and git, the other to own Artifactory and Kubernetes.
+* The platform team wlll consist of the most experienced students. It owns and coaches people on source control, build management, package management, monitoring, and the core container platform.
+**  As of February 2018, the current technical choices are git, Jenkins, Artifactory, Kubernetes, and Nagios (or other monitoring tool TBD). There will be two sub-teams, one to own Jenkins and git, the other to own Artifactory and Kubernetes.
 * Code is both built and deployed with Jenkins.
 ** How Jenkins relates to Kubernetes has not yet been piloted in this class.
-* Artifactory will store Docker images.
+** Artifactory may store Docker images (still under investigation).
 * If you are a feature team or individual:
 ** You will own something that executes and displays some sort of behavior. It can be as simple as a static web page, or as complex as a complete ecommerce or machine learning system, within the bounds of our server’s capacity.
 ** Development may be performed directly with Docker on the development side, or also with Vagrant. We’ll be assessing the suitability of each.
