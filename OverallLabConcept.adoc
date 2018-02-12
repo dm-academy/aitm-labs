@@ -24,14 +24,14 @@ image::concept2.png[]
 ** Debian apt
 ** Node package manager
 ** Github
-* If you want to use anything else, I must approve it.
+** If you want to use anything else, I must approve it.
 * You are expected to challenge yourself. If you are choosing a system below your experience and capabilities, and therefore completing assignments with undue speed, I may reassign you to the platform team or expect you also to help with supporting your classmates.
 * Your work must be tracked in Trello. Before you engage in a task, you must enter it into your todo list. Both teams and individuals may have Trello boards.
 * In the second half of the course, we will experiment with coordination, portfolio thinking, and bringing people together into larger working constructs. We will also look at the portfolio from the perspective of governance, security, information management, and architecture.
 ** This will include deeper scrutiny of choices you have made in your downloads and dependencies.
 * The platform team will be in a service relationship to the rest of you. You should communicate with them on Slack.
 * You can choose to work on your own or organize in teams. I expect everyone on a team to participate equally. I leave the option of working alone for those who might find themselves sitting back too far in a team context, especially students with less experience.
-* I am not going to be overly prescriptive about your day to day work. We have a high level objective as a class: build a functionining end to end pipeline that supports a diverse variety of feature-oriented systems. Beyond that, you will self-organize to a large degree, within certain guardrails of platform technology and collaboration mechanisms.
+* I am not going to be overly prescriptive about your day to day work. We have a high level objective as a class: build a functioning end to end pipeline that supports a diverse variety of feature-oriented systems. Beyond that, you will self-organize to a large degree, within certain guardrails of platform technology and collaboration mechanisms.
 
 Rough lab outline, which still will track the book:
 
