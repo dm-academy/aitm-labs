@@ -1,5 +1,7 @@
 == Overall Lab Concept (Renewed Feb 2018)
 
+_Overall philosophy: this course is an exercise in ongoing experimentation. It is a safe space for you, the students to familiarize yourselves with cutting edge technologies and practices. Because it is intended to be industry relevant and current, these flipped course lab sessions may include technology unfamiliar to me (your instructor). The most important objectives are collaboration and learning. The specific technical platforms in any given semester are secondary. We will struggle, we will try, fail, and try again, we will pivot, and we will succeed._ 
+
 image::concept2.png[]
 
 * The end state is a diverse collection of digital services, owned by individuals and teams, moving through a common pipeline from development to production
