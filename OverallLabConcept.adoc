@@ -1,11 +1,11 @@
 == Overall Lab Concept (Renewed Feb 2018)
 
-_Overall philosophy: this course is an exercise in ongoing experimentation. It is a safe space for you, the students to familiarize yourselves with cutting edge technologies and practices. Because it is intended to be industry relevant and current, these flipped course lab sessions may include technology unfamiliar to me (your instructor). The most important objectives are collaboration and learning. The specific technical platforms in any given semester are secondary. We will struggle, we will try, fail, and try again, we will pivot, and we will succeed._ 
+_Overall philosophy: this course is an exercise in ongoing experimentation. It is a safe space for you, the students to familiarize yourselves with cutting edge technologies and practices. Because it is intended to be industry relevant and current, these flipped course lab sessions may include technology unfamiliar to me (your instructor). The most important objectives are collaboration and learning. The specific technical platforms in any given semester are secondary. We will struggle, we will try, fail, and try again, we will pivot, and we will succeed._
 
 image::concept2.png[]
 
 * The end state is a diverse collection of digital services, owned by individuals and teams, moving through a common pipeline from development to production
-* The platform team wlll consist of the most experienced students. It owns and coaches people on git, Jenkins, Artifactory, Kubernetes, and Nagios (or other monitoring tool TBD). There will be two sub-teams, one to own Jenkins and git, the other to own Artifactory and Kubernetes.
+* The platform team wlll consist of the most experienced students. It owns and coaches people on source control, build management, package management, monitoring, and the core container platform. As of February 2018, the current technical choices are git, Jenkins, Artifactory, Kubernetes, and Nagios (or other monitoring tool TBD). There will be two sub-teams, one to own Jenkins and git, the other to own Artifactory and Kubernetes.
 * Code is both built and deployed with Jenkins.
 ** How Jenkins relates to Kubernetes has not yet been piloted in this class.
 * Artifactory will store Docker images.
