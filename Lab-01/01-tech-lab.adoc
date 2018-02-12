@@ -7,8 +7,9 @@
 * Review http://www.ee.surrey.ac.uk/Teaching/Unix/unixintro.html
 * Run the first 5 Linux tutorials.
 
-Note, the example file is at /vol/examples/tutorial/science.txt. 
+Note, the example file is at /vol/examples/tutorial/science.txt.
 
+The output of various commands may be somewhat different on our system. 
 
 Post questions to Slack.
 
