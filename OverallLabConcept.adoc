@@ -6,7 +6,7 @@ image::concept2.png[]
 
 * The end state is a diverse collection of digital services, owned by individuals and teams, moving through a common pipeline from development to production
 * The pipeline team wlll consist of the most experienced students. It owns and coaches people on source control, build management, package management, monitoring, and the core container platform.
-**  As of February 2018, the current technical choices are git, Jenkins, Artifactory, Kubernetes, and Nagios (or other monitoring tool TBD). There will be two sub-teams, one to own Jenkins and git, the other to own Artifactory,   Kubernetes, and Nagios.
+**  As of February 2018, the current technical choices are git, Jenkins, Artifactory, Kubernetes, and Nagios (or other monitoring tool TBD). There will be two sub-teams, one to own git, Jenkins and Artifactory, the other to own    Kubernetes and Nagios (or other tool).
 * Code is both built and deployed with Jenkins.
 ** How Jenkins relates to Kubernetes has not yet been piloted in this class.
 ** Artifactory may store Docker images (still under investigation).
