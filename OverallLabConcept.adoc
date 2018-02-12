@@ -43,4 +43,4 @@ We will spend some time thinking about your system as a "product." The pipeline 
 
 Labs 7-9 are the least certain at this point. It is likely that they will be fully consumed by automating and monitoring your systems. If possible, it would be ideal to bring in some kind of ticketing or workflow for coordination. This will require you to integrate your systems in some sense, if only for a unified release. This might take the form of simply defining a release dependency, such as "the two of you must release your new feature together."
 
-Labs 10-12 are the "governance" labs where we start to examine the implications of what we have built, developing inventories and some kind of plan for the future.
+Labs 10-12 are the "governance" labs where we start to examine the implications of what we have built, developing inventories, assessing risk, and making some kind of plan for the future.
