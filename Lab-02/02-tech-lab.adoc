@@ -841,9 +841,9 @@ Instructions readily available in various places on the internet.
 
 === Configure a Vagrantfile to install Docker and Node (20 points)
 
-Researching on the internet, update your Vagrantfile (you may want to save your old one, or else create a new directory) so that it creates an Ubuntu machine with Docker installed.
+Researching on the internet, update your Vagrantfile (you may want to save your old one, or else create a new directory) so that it creates an Vagrant machine based on Docker.
 
-Configure Vagrant to launch Docker so that it spins up a Node.js container with a "hello world" app.
+Configure Vagrant to launch Docker so that it spins up a Node.js container with a "hello world" app. All as code. Check it in to Github.
 
 This will not be easy, but some of you need the challenge.
 
