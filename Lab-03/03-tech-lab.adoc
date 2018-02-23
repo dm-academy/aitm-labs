@@ -1,42 +1,54 @@
 = Lab 03 (Technical) Deploying an application with Docker
 
-_This is an early stage lab. All that is required is that you do your best and present errors to the instructor and your classmates._
+_This is still an early stage lab. All that is required is that you do your best and present errors to the instructor and your classmates._
 
-Reason for the change this quarter: The Vagrant-based pipeline previously used became more and more unpredictable and error-prone. At this point, it is non-functional. (The primary cause were upgrades made by Chef.) Docker promises a more stable, flexible, and simpler way for you to assemble software stacks as building blocks of self-contained functionality.
+Reason for the change this semester: Last year, the Vagrant-based pipeline previously used became more and more unpredictable and error-prone. At this point, it is non-functional. (The primary cause were upgrades made by Chef.) Docker promises a more stable, flexible, and simpler way for you to assemble software stacks as building blocks of self-contained functionality.
 
-The overall goals for this lab are for you to stand up Docker in your home directory, or else on your *own laptop.* (Do not do this on the old server, it does not have the capacity.)
+Learning objectives for this lab:
 
-You will run the official https://docs.docker.com/get-started/[Docker tutorial], through Part 3 (do NOT attempt Part 4 or later; Docker Swarm is already obsolete, having been superseded by Kubernetes). We'll take breaks and discuss how this is going for you all.
+* Gain basic Docker skills
+** Running pre-existing Docker containers
+** Creating a Docker container with a simple application in it
+* Identify a software platform/approach for your project
+
+== Basic Docker skills
+
+Decide whether you going to run Docker on your laptop or on the server. Note: if you are at all in doubt, run it on the server. You will need
 
 PLEASE make note of the following and DO NOT JUST TRY TO DO EVERYTHING IN THE TUTORIAL especially if you are doing this on the server.
 
-== If you are doing this on the server
+You will run the official https://docs.docker.com/get-started/[Docker tutorial], through Part 3 (do NOT attempt Part 4 or later; Docker Swarm is already obsolete, having been superseded by Kubernetes). We'll take breaks and discuss how this is going for you all.
 
-You will install Docker in your own Vagrant virtual machine.
-
-(step by step instructions)
-
- *I have already done that.*
-
-Start by going to your home directory (`cd`) and typing:
+Docker is already installed on the course "dev" server, and you are already added to the Docker group. Review Part 1 and start by going to your home directory (`cd`) and typing:
 
 `docker run hello-world` as per the tutorial instructions. Continue with parts 2-3.
 
-== If you are doing this lab on your laptop
+When you are done with the official Docker tutorial through Part 3, run the https://docker-curriculum.com[Docker Curriculum] tutorial through part 2.4. It covers some of the same material.
 
-If you are doing this on your laptop, you will need to install Docker per the instructions. Then continue with the labs.
+Finally, work your way through the http://www.dwmkerr.com/learn-docker-by-building-a-microservice/[Building a Microservice] tutorial. This is a longer tutorial and I will be looking for feedback as to how useful it is.
 
-If you complete the lab before 8:30, find another application or application stack to download and experiment with. Notify the instructor when you have it working and we may demo to the class. For 2 points extra credit, download https://github.com/dm-academy/aitm-labs[the labs Github repo] (which contain this page) and submit a pull request below containing the address of the app you downloaded.
+IMPORTANT: If you use the same port (for example 8888) as another person running the tutorial, you will get an error. Ports will be assigned in class.
+
+== Optional: run Docker on your laptop
+
+If you are ambitious, you can do this on your laptop. You will need to https://docs.docker.com/install/[install Docker per the instructions]. Then continue with the tutorial through part 3. I do not recommend continuing with the Swarm or Compose material.
+
+There will be less support if you run Docker on your laptop, and it will not be as easy to work together as a team if you do. Your production system will still need to run on the course server.
 
 == Good Docker applications for simple proof of concept
 
+The final part of this lab: find another application or application stack to download and experiment with. Notify the instructor when you have it working and we may demo to the class. For 2 points extra credit, download https://github.com/dm-academy/aitm-labs[the labs Github repo] (which contain this page) and submit a pull request below containing the address of the app you downloaded.
+
 I am looking for simple proof of concept applications that can be easily modified by people of different skill levels. Let's collect a bunch here.
 
-* https://docs.docker.com/get-started/#setup[Docker Tutorial]
-* https://github.com/dwmkerr/node-docker-microservice[node-docker-microservice]
+* The original https://github.com/dm-academy/Calavera2/tree/master/manos["manos" concept from the Calavera platform], ported to Docker.
+* https://github.com/dwmkerr/node-docker-microservice[node-docker-microservice] from the microservice tutorial.
 * http://jdlm.info/articles/2016/03/06/lessons-building-node-app-docker.html?r=0[socket-io-chat]
-
 * Microblogging software such as https://gnu.io/social/[GNU]
+
+I will be calling each team up to discuss their ideas for their application platform.
+
+Looking forward: The most critical priority will be developing some form of automated testing for your application, packaging it, and moving it to the "production" server. Enhancing its features are a *secondary priority* at this time.
 
 == Instructor notes
 All students need to have permissions updated
