@@ -37,11 +37,12 @@ There will be less support if you run Docker on your laptop, and it will not be 
 
 == Good Docker applications for simple proof of concept
 
-The final part of this lab: find another application or application stack to download and experiment with. Notify the instructor when you have it working and we may demo to the class. For 2 points extra credit, download https://github.com/dm-academy/aitm-labs[the labs Github repo] (which contain this page) and submit a pull request below containing the address of the app you downloaded.
+The final part of this lab: find an application or application stack to download and experiment with. Ideally, this will be the basis for your team's project. We only need the most rudimentary "hello world" for this lab. Notify the instructor when you have it working and we may demo to the class. For 2 points extra credit, download https://github.com/dm-academy/aitm-labs[the labs Github repo] (which contain this page) and submit a pull request below containing the address of the app you downloaded.
 
 I am looking for simple proof of concept applications that can be easily modified by people of different skill levels. Let's collect a bunch here.
 
 * The original https://github.com/dm-academy/Calavera2/tree/master/manos["manos" concept from the Calavera platform], ported to Docker.
+* http://mfranc.com/node-js/node-js-simple-web-server-with-express/[simple Node.js server] (there are a lot of these)
 * https://github.com/dwmkerr/node-docker-microservice[node-docker-microservice] from the microservice tutorial.
 * http://jdlm.info/articles/2016/03/06/lessons-building-node-app-docker.html?r=0[socket-io-chat]
 * Microblogging software such as https://gnu.io/social/[GNU]
