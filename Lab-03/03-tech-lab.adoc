@@ -25,13 +25,12 @@ Docker is already installed on the course "dev" server, and you are already adde
 
 When you are done with the official Docker tutorial through Part 3, run the https://docker-curriculum.com[Docker Curriculum] tutorial through part 2.4. It covers some of the same material.
 
-Finally, work your way through the http://www.dwmkerr.com/learn-docker-by-building-a-microservice/[Building a Microservice] tutorial. This is a longer tutorial and I will be looking for feedback as to how useful it is.
 
 IMPORTANT: If you use the same port (for example 8888) as another person running the tutorial, you will get an error. Ports will be assigned in class.
 
 == Optional: run Docker on your laptop
 
-If you are ambitious, you can do this on your laptop. You will need to https://docs.docker.com/install/[install Docker per the instructions]. Then continue with the tutorial through part 3. I do not recommend continuing with the Swarm or Compose material.
+If you are ambitious, you can do this on your laptop. You will need to https://docs.docker.com/install/[install Docker per the instructions]. Then continue with the tutorial through part 3 except for anything having to do with Docker Compose or Swarm. I do not recommend continuing with the Swarm or Compose material.
 
 There will be less support if you run Docker on your laptop, and it will not be as easy to work together as a team if you do. Your production system will still need to run on the course server.
 
@@ -43,7 +42,7 @@ I am looking for simple proof of concept applications that can be easily modifie
 
 * The original https://github.com/dm-academy/Calavera2/tree/master/manos["manos" concept from the Calavera platform], ported to Docker.
 * http://mfranc.com/node-js/node-js-simple-web-server-with-express/[simple Node.js server] (there are a lot of these)
-* https://github.com/dwmkerr/node-docker-microservice[node-docker-microservice] from the microservice tutorial.
+* https://github.com/dwmkerr/node-docker-microservice[node-docker-microservice] from this microservice tutorial. This one has a lot of code you will need to copy and paste. Recommended as a more advanced exercise. Has a database, so it is "full stack."
 * http://jdlm.info/articles/2016/03/06/lessons-building-node-app-docker.html?r=0[socket-io-chat]
 * Microblogging software such as https://gnu.io/social/[GNU]
 
