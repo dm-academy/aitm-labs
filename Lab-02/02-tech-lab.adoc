@@ -587,11 +587,11 @@ total 44
 
 Run the script to confirm you can execute it (it's still empty, and will run fine - it just won't do anything):
 
-    vagrant@XXXXX:~/vagrant$ ./YourStudentID-Lab02.sh  <- notice the "./"
+    vagrant@XXXXX:/vagrant$ ./YourStudentID-Lab02.sh  <- notice the "./"
 
 Create your script by adding the commands to the script file using nano.
 
-    vagrant@XXXXX:~/vagrant$ nano YourStudentID-Lab02.sh
+    vagrant@XXXXX:/vagrant$ nano YourStudentID-Lab02.sh
 
 _Add the necessary commands so that the script does what it needs to do!_
 
