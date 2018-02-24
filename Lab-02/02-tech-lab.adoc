@@ -766,6 +766,7 @@ Edit your Vagrantfile so that it calls your *-Lab02.sh script when you provision
 ....
 Vagrant.configure(2) do |config|
   config.vm.box = .....
+	config.vm.box_url = .....
   config.vm.provision             :shell, path: "./MyStudentID-Lab02.sh"
 end
 ....
@@ -825,7 +826,7 @@ vagrant@precise64:~$ git --version
 git version 1.7.9.5
 ....
 
-Why is your tree showing up under /root? 
+Why is your tree showing up under /root?
 
 Re-commit your Vagrantfile and push it back to origin. Issue a pull request for me to review your work.
 
@@ -854,4 +855,4 @@ This will not be easy, but some of you need the challenge.
 
 == Conclusion
 
-That is the end of this lab. Congratulations, this was a lot of work. Next week, we will start working on the the continuous integration pipeline with git, Java, JUnit, Tomcat, and Ant.
+That is the end of this lab. Congratulations, this was a lot of work.
