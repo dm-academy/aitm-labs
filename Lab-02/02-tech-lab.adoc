@@ -368,10 +368,12 @@ Now, edit the file again.
 
 Add "Hello Again" as a second line and exit nano in the usual way.
 
-You have now made a change, relative to what you committed. You can see that change through issuing the command "git diff":
+You have now made a change, relative to what you committed. You can see that change through issuing the command `git log -p`:
+
+Note: your results may look somewhat different from below, but you should be able to see what changed. 
 
 ....
-YourStudentID@serverXXX:~/examples$ git diff
+YourStudentID@serverXXX:~/examples$ git log -p
 diff --git a/YourStudentID-testfile.adoc b/YourStudentID-testfile.adoc
 index 9801343..fcb9459 100644
 --- a/YourStudentID-testfile.adoc
