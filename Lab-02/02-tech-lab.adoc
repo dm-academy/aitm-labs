@@ -788,7 +788,7 @@ Run 'do-release-upgrade' to upgrade to it.
 
 Welcome to your Vagrant-built virtual machine.
 Last login: Fri Sep 14 06:23:18 2012 from 10.0.2.2
-vagrant@precise64:~$ tree ~/main
+vagrant@precise64:~$ sudo tree /root
 .
 |-- main
 |   |-- A
@@ -824,6 +824,8 @@ vagrant@precise64:~$ tree ~/main
 vagrant@precise64:~$ git --version
 git version 1.7.9.5
 ....
+
+Why is your tree showing up under /root? 
 
 Re-commit your Vagrantfile and push it back to origin. Issue a pull request for me to review your work.
 
