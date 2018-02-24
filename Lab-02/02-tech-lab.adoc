@@ -209,7 +209,7 @@ If it gives an error indicating tree is not found, type
 
 `sudo apt-get update`
 
-to refresh your package repository.
+to refresh your package repository. Then re-execute `sudo apt-get install -y tree`
 
 Once installed, use tree to inspect your directory structure. It should look like:
 
