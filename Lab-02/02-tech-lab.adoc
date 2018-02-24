@@ -370,7 +370,7 @@ Add "Hello Again" as a second line and exit nano in the usual way.
 
 You have now made a change, relative to what you committed. You can see that change through issuing the command `git log -p`:
 
-Note: your results may look somewhat different from below, but you should be able to see what changed. 
+Note: your results may look somewhat different from below, but you should be able to see what changed.
 
 ....
 YourStudentID@serverXXX:~/examples$ git log -p
@@ -394,10 +394,10 @@ Commit it again (you only need to add it once):
 
 Go back into nano and replace "World" with "Mars." Exit nano.
 
-Run git diff again:
+Run `git log -p` again:
 
 ....
- YourStudentID@serverXXX:~/examples$ git diff
+ YourStudentID@serverXXX:~/examples$ git log -p
  diff --git a/YourStudentID-testfile.adoc b/YourStudentID-testfile.adoc
  index fcb9459..dcc7a8e 100644
  --- a/YourStudentID-testfile.adoc
