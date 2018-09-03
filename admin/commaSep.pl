@@ -7,7 +7,8 @@
 # to get starter file: murphy, email class as mac or windows, copy from mailer window
 
 #read in file
-$filename = $ARGV[0]; 
+$filename = $ARGV[0];
+$tempPW = $ARGV[1]; 
 $idFile = "IDs-".$filename;
 $idPWFile = "IDsPWs-".$filename;
 open FILE, $filename||die $!;
@@ -35,7 +36,7 @@ close (FILE);
 open FILE, "> ".$idPWFile||die "can't open".$idPWFile; 
 @userIDsPWs = @arrEmails;
 print "opened ".$idPWFile."\n";
-map ($_ .= ":zfxA1i08\n", @userIDsPWs); # add  newlines & default PW THIS NEEDS RANDOMIZATION
+map ($_ .= ":".$tempPW."\n", @userIDsPWs); # add  newlines & default PW THIS NEEDS RANDOMIZATION
 print @userIDsPWs;
 print FILE @userIDsPWs;
 close (FILE);
