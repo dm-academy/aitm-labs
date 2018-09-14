@@ -40,6 +40,7 @@ The final part of this lab: find an application or application stack to download
 
 I am looking for simple proof of concept applications that can be easily modified by people of different skill levels. Let's collect a bunch here.
 
+* https://nodejs.org/en/docs/guides/nodejs-docker-webapp/[Dockerizing a Node.js web app]
 * https://github.com/dwmkerr/node-docker-microservice[node-docker-microservice] from this microservice tutorial. This one has a lot of code you will need to copy and paste. Recommended as a more advanced exercise. Has a database, so it is "full stack."
 * http://jdlm.info/articles/2016/03/06/lessons-building-node-app-docker.html?r=0[socket-io-chat]
 * Microblogging software such as https://gnu.io/social/[GNU]
