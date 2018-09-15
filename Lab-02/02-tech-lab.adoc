@@ -173,7 +173,9 @@ Lab 02: You must have successfully created your own virtual machine (VM) using V
 
 You will do the exercises in this part on your new Vagrant VM.
 
-Using the skills you learned in the previous lab (in particular, the mkdir, cd, and touch commands),  perform the following steps:
+One additional command you will need is the `touch` command. It creates an empty file of a given name. For example, `touch aa` will create an empty file named `aa`.
+
+Using the skills you learned in the previous lab (in particular, the `mkdir`, `cd`, and `rm` commands), along with `touch`,  perform the following steps:
 
 **Configure a directory structure**
 
