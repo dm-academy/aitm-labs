@@ -368,12 +368,12 @@ Now, edit the file again.
 
 Add "Hello Again" as a second line and exit nano in the usual way.
 
-You have now made a change, relative to what you committed. You can see that change through issuing the command `git log -p`:
+You have now made a change, relative to what you committed. You can see that change through issuing the command `git diff`:
 
 Note: your results may look somewhat different from below, but you should be able to see what changed.
 
 ....
-YourStudentID@serverXXX:~/examples$ git log -p
+YourStudentID@serverXXX:~/examples$ git diff
 diff --git a/YourStudentID-testfile.adoc b/YourStudentID-testfile.adoc
 index 9801343..fcb9459 100644
 --- a/YourStudentID-testfile.adoc
@@ -383,7 +383,7 @@ index 9801343..fcb9459 100644
 +Hello Again
 ....
 
-This clearly shows that Hello Again has been added.
+This clearly shows that Hello Again has been added (notice the `+` symbol).
 
 Commit it again (you only need to add it once):
 ....
@@ -394,10 +394,10 @@ Commit it again (you only need to add it once):
 
 Go back into nano and replace "World" with "Mars." Exit nano.
 
-Run `git log -p` again:
+Run `git diff` again:
 
 ....
- YourStudentID@serverXXX:~/examples$ git log -p
+ YourStudentID@serverXXX:~/examples$ git diff
  diff --git a/YourStudentID-testfile.adoc b/YourStudentID-testfile.adoc
  index fcb9459..dcc7a8e 100644
  --- a/YourStudentID-testfile.adoc
@@ -408,6 +408,7 @@ Run `git log -p` again:
   Hello Again
 ....
 
+(Notice the `-` symbol indicating the deletion of a line.)
 Commit it again:
 
 ....
