@@ -373,7 +373,7 @@ You have now made a change, relative to what you committed. You can see that cha
 Note: your results may look somewhat different from below, but you should be able to see what changed.
 
 ....
-YourStudentID@serverXXX:~/examples$ git diff
+YourStudentID@serverXXX:~/examples$ git log -p
 diff --git a/YourStudentID-testfile.adoc b/YourStudentID-testfile.adoc
 index 9801343..fcb9459 100644
 --- a/YourStudentID-testfile.adoc
@@ -394,7 +394,7 @@ Commit it again (you only need to add it once):
 
 Go back into nano and replace "World" with "Mars." Exit nano.
 
-Run `git diff` again:
+Run `git log -p` again:
 
 ....
  YourStudentID@serverXXX:~/examples$ git log -p
@@ -468,6 +468,8 @@ index 0000000..557db03
 ....
 
 There may be more, reflecting the earlier history of the examples repo. Hit "q" to exit the commit review.
+
+If you do not see changes as you expect: have you committed? `git diff` will show you uncommitted changes.
 
 All of these changes have been locally committed to your git instance. Let's send them back up to your fork at Github. You will need to authenticate (we could set up ssh to github, but not right now):
 
