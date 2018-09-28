@@ -13,7 +13,7 @@ Learning objectives for this lab:
 
 == Basic Docker skills
 
-Decide whether you going to run Docker on your laptop or on the server. Note: if you are at all in doubt, run it on the server. You will need
+Decide whether you going to run Docker on your laptop or on the server. Note: if you are at all in doubt, run it on the server. You will need a reasonably powerful laptop to run it.
 
 PLEASE make note of the following and DO NOT JUST TRY TO DO EVERYTHING IN THE TUTORIAL especially if you are doing this on the server.
 
