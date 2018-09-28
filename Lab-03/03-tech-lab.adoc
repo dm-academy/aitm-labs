@@ -23,7 +23,7 @@ Docker is already installed on the course "dev" server, and you are already adde
 
 `docker run hello-world` as per the tutorial instructions. Continue with parts 2.
 
-When you are done with the official Docker tutorial through Part 3, run the https://docker-curriculum.com[Docker Curriculum] tutorial through part 2.4. It covers some of the same material.
+When you are done with the official Docker tutorial through Part 3, run the https://docker-curriculum.com[Docker Curriculum] tutorial up to the section on Amazon. It covers some of the same material.
 
 
 IMPORTANT: If you use the same port (for example 8888) as another person running the tutorial, you will get an error. Ports will be assigned in class.
