@@ -17,11 +17,11 @@ Decide whether you going to run Docker on your laptop or on the server. Note: if
 
 PLEASE make note of the following and DO NOT JUST TRY TO DO EVERYTHING IN THE TUTORIAL especially if you are doing this on the server.
 
-You will run the official https://docs.docker.com/get-started/[Docker tutorial], through Part 3 (do NOT attempt Part 4 or later; Docker Swarm is already obsolete, having been superseded by Kubernetes). We'll take breaks and discuss how this is going for you all.
+You will run the official https://docs.docker.com/get-started/[Docker tutorial], parts 1 and 2 (do NOT attempt Part 3 or later; Docker Swarm is already obsolete, having been superseded by Kubernetes). We'll take breaks and discuss how this is going for you all.
 
 Docker is already installed on the course "dev" server, and you are already added to the Docker group. Review Part 1 and start by going to your home directory (`cd`) and typing:
 
-`docker run hello-world` as per the tutorial instructions. Continue with parts 2-3.
+`docker run hello-world` as per the tutorial instructions. Continue with parts 2.
 
 When you are done with the official Docker tutorial through Part 3, run the https://docker-curriculum.com[Docker Curriculum] tutorial through part 2.4. It covers some of the same material.
 
@@ -44,8 +44,6 @@ I am looking for simple proof of concept applications that can be easily modifie
 * https://github.com/dwmkerr/node-docker-microservice[node-docker-microservice] from this microservice tutorial. This one has a lot of code you will need to copy and paste. Recommended as a more advanced exercise. Has a database, so it is "full stack."
 * http://jdlm.info/articles/2016/03/06/lessons-building-node-app-docker.html?r=0[socket-io-chat]
 * Microblogging software such as https://gnu.io/social/[GNU]
-
-I will be calling each team up to discuss their ideas for their application platform.
 
 Looking forward: The most critical priority will be developing some form of automated testing for your application, packaging it, and moving it to the "production" server. Enhancing its features are a *secondary priority* at this time.
 
