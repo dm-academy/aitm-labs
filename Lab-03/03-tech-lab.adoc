@@ -23,14 +23,14 @@ Docker is already installed on the course "dev" server, and you are already adde
 
 `docker run hello-world` as per the tutorial instructions. Continue with parts 2.
 
-When you are done with the official Docker tutorial through Part 3, run the https://docker-curriculum.com[Docker Curriculum] tutorial up to the section on Amazon. It covers some of the same material.
+When you are done with the official Docker tutorial through Part 2, run the https://docker-curriculum.com[Docker Curriculum] tutorial up to the section on Amazon. It covers some of the same material.
 
 
 IMPORTANT: If you use the same port (for example 8888) as another person running the tutorial, you will get an error. Ports will be assigned in class.
 
 == Optional: run Docker on your laptop
 
-If you are ambitious, you can do this on your laptop. You will need to https://docs.docker.com/install/[install Docker per the instructions]. Then continue with the tutorial through part 3 except for anything having to do with Docker Compose or Swarm. I do not recommend continuing with the Swarm or Compose material.
+If you are ambitious, you can do this on your laptop. You will need to https://docs.docker.com/install/[install Docker per the instructions]. Then continue with the tutorial except for anything having to do with Docker Compose or Swarm. I do not recommend continuing with the Swarm or Compose material.
 
 There will be less support if you run Docker on your laptop, and it will not be as easy to work together as a team if you do. Your production system will still need to run on the course server.
 
