@@ -8,6 +8,8 @@ Track, with Github, Microsoft Azure and possibly ServiceNow, the course material
 
 . Recommended editor: VSCode
 
+. Install git for Windows if you have not already. Recommend installing the Unix utilities (option towards the end.) Someone please add screen shot. 
+
 . Figure out public/private key for Github. [someone add link]
 
 .. Store your key in .ssh at the root of your Windows home directory. 
