@@ -18,5 +18,6 @@ Track, with Github, Microsoft Azure and possibly ServiceNow, the course material
 
 . Explore the Microsoft work management / Kanban capabilities. Connect them to Github pull requests. Update your software and ensure that the person making the changes does not push to master, but instead issues a pull request of a team mate (basic peer review).
 
+. Connect Azure pipelines with GitHub so that you can automatically deploy on commit from Github. 
 
 
