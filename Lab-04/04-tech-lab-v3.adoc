@@ -10,6 +10,8 @@ Track, with Github, Microsoft Azure and possibly ServiceNow, the course material
 
 . Figure out public/private key for Github. 
 
+.. Store your key in .ssh at the root of your Windows home directory. 
+
 . Form 3 teams.
 
 . Each team member: Get a free student account for Azure. (Not sure if there is an approval cycle.) Do NOT give them a credit card. 
