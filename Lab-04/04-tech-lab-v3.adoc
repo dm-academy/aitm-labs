@@ -8,6 +8,8 @@ Track, with Github, Microsoft Azure and possibly ServiceNow, the course material
 
 . Recommended editor: VSCode
 
+. Figure out public/private key for Github. 
+
 . Form 3 teams.
 
 . Each team member: Get a free student account for Azure. (Not sure if there is an approval cycle.) Do NOT give them a credit card. 
