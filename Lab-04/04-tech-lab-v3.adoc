@@ -10,13 +10,15 @@ Track, with Github, Microsoft Azure and possibly ServiceNow, the course material
 
 . Install git for Windows if you have not already. Recommend installing the Unix utilities (option towards the end.) Someone please add screen shot. 
 
-. Figure out public/private key for Github. [someone add link]
+. Figure out public/private key for Github. 
+Use puttygen already installed with putty: https://www.ssh.com/ssh/putty/windows/puttygen[PuttyGen Instructions]
 
 .. Store your key in .ssh at the root of your Windows home directory. 
 
 . Form 3 teams.
 
-. Each team member: Get a free student account for Azure. (Not sure if there is an approval cycle.) Do NOT give them a credit card. [someone add link]
+. Each team member: Get a free student account for Azure. (Not sure if there is an approval cycle.) Do NOT give them a credit card. 
+https://azure.microsoft.com/en-us/free/students/[Azure for Students Link]
 
 . Spin up a VM and access it there. 
 
