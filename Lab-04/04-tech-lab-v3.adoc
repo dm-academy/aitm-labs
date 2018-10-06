@@ -22,7 +22,7 @@ Track, with Github, Microsoft Azure and possibly ServiceNow, the course material
 
 . Get some software (any of the things we worked on last week) running on it in a way that others can view (preferably a simple curl that returns a string or a number).
 
-. Put that software into version control, in the aitm-labs/svc* repo as appropriate. I control those repos? How do you do this using GitHub?
+. Put that software into version control, in the aitm-labs/svc* repo as appropriate. I control those repos... so how do you do this using GitHub?
 
 . Explore the Microsoft work management / Kanban capabilities. Connect them to Github pull requests. Update your software and ensure that the person making the changes does not push to master, but instead issues a pull request of a team mate (basic peer review).
 
