@@ -20,6 +20,8 @@ Track, with Github, Microsoft Azure and possibly ServiceNow, the course material
 https://azure.microsoft.com/en-us/free/students/[Azure for Students Link]
 
 . Spin up a VM and access it there. 
+.. Ensure to configure automatic shutdown of VM as shown below when creating VM. This will prevent your student account credit from depleting.
+image::azure_auto_shutdown.png[]
 
 . Get some software (any of the things we worked on last week) running on it in a way that others can view (preferably a simple curl that returns a string or a number).
 
