@@ -10,8 +10,7 @@ Track, with Github, Microsoft Azure and possibly ServiceNow, the course material
 
 . Install git for Windows if you have not already. Recommend installing the Unix utilities (option towards the end.) Someone please add screen shot. 
 
-. Figure out public/private key for Github. 
-Use puttygen already installed with putty: https://www.ssh.com/ssh/putty/windows/puttygen[PuttyGen Instructions]
+. Figure out public/private key for Github. https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/[See Github Instructions]
 
 .. Store your key in .ssh at the root of your Windows home directory. 
 
