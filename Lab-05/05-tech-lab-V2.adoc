@@ -18,6 +18,12 @@ Your deliverable in your svc* repo should contain:
 * The source code and configuration files (Python, node, Docker, etc) for your microservice
 * The pipeline definition describing build, test, and deploy steps
 
+Your deliverables should be created and altered ONLY as pull requests, from one to another and then to me when you are ready to release. 
+
+On a functional level, once you have an application working, we need to add some functionality so that it talks to another application. 
+
+We will need to discuss further what our release strategy and pipeline is. 
+
 *The end goal is to be able to destroy and recreate your application in Azure from a command line on your local machine.* 
 
 
