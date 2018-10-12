@@ -10,7 +10,9 @@ However, you will continue this work with an increasing emphasis on team collabo
 
 In general in this lab, we want to avoid speaking to each other. We want to simulate the problem of time and space shifting, and use Slack, Github, and Microsoft Azure to drive our work. 
 
-To this end, all tasks should start as Github tasks. We want them to revolve around structured artifacts in source control. To this end, we want to not be using the Azure GUI to start and stop machines. Instead, we need to use https://docs.microsoft.com/en-us/azure/virtual-machines/linux/terraform-install-configure[Terraform]. This is the missing "as-code" piece we didn't use last week. 
+To this end, all tasks should start as Github tasks. We want them to revolve around structured artifacts in source control. To this end, we want to not be using the Azure GUI to start and stop machines. Instead, we need to use https://docs.microsoft.com/en-us/azure/terraform/[Terraform]. This is the missing "as-code" piece we didn't use last week. 
+
+This week, we will run the Terraform tutorial(s) from the above page and I will facilitate course discussions and lessons learned. Target outcome for the next 2 classes:
 
 Your deliverable in your svc* repo should contain: 
 
