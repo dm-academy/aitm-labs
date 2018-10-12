@@ -1,0 +1,27 @@
+= Lab 05 Work Management: Team collaboration
+
+Version 2 (Fall 2018)
+
+_Question: Did you set your VMs to auto-shutdown?_
+
+In this lab, you will continue the work of https://github.com/dm-academy/aitm-labs/blob/master/Lab-04/04-tech-lab-v3.adoc[Lab 04] to build an Azure-based DevOps pipeline. 
+
+However, you will continue this work with an increasing emphasis on team collaboration tools. 
+
+In general in this lab, we want to avoid speaking to each other. We want to simulate the problem of time and space shifting, and use Slack, Github, and Microsoft Azure to drive our work. 
+
+To this end, all tasks should start as Github tasks. We want them to revolve around structured artifacts in source control. To this end, we want to not be using the Azure GUI to start and stop machines. Instead, we need to use https://docs.microsoft.com/en-us/azure/virtual-machines/linux/terraform-install-configure[Terraform]. This is the missing "as-code" piece we didn't use last week. 
+
+Your deliverable in your svc* repo should contain: 
+
+* The necessary *.tf files to spin up the dev server (if you are experimenting on a dev VM, with or without Docker)
+* The source code and configuration files (Python, node, Docker, etc) for your microservice
+* The pipeline definition describing build, test, and deploy steps
+
+*The end goal is to be able to destroy and recreate your application in Azure from a command line on your local machine.* 
+
+
+
+
+
+
