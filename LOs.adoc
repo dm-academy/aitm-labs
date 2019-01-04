@@ -1,0 +1,38 @@
+SEIS664 "Information Technology Delivery" Learning Objectives
+
+Background: SEIS664 was originally SEIS660, "IT Infrastructure," first taught in the spring of 2012. At that time, it was planned to be based on the IT Infrastructure Library (guidance from the UK). However, even at that time it was clear that industry interest in ITIL was beginning to fade, challenged by Cloud, Agile, and DevOps approaches to delivering IT systems. 
+
+Even in 2012, it was clear that multiple perspectives and communities of practice were influencing IT practices worldwide. ITIL may have represented a large segment of IT professional practice, but it did not cover software development, project management, or architecture in any meaningful sense.
+
+It was also difficult to find a suitable text for the class. All the current major MIS and IT texts were requisitioned from publishers and all were badly out of date with respect to current trends. 
+
+A new structure and learning progression was therefore developed for the class, based on an "emergence model" learning progression. This is a thought experiment that can be summarized as "from startup to enterprise" and introduces the student to material based on its relevance to different levels of organizational scale. 
+
+In response to clear and widespread industry trends, the term "digital" is generally substituted for "IT" throughout the material as well. 
+
+The class is therefore divided into four major sections: 
+
+- Indvidual
+- Team
+- Team of Teams
+- Enterprise (or Institution)
+
+Each of these sections is elaborated into three lectures:
+
+* Individual
+** Digital Value
+** Digital Infrastructure
+** Applications
+* Team
+** Product Management
+** Work Management
+** Operations
+* Team of Teams
+** Coordination and Process
+** Investment and Portfolio
+** Organization and Culture
+* Institution
+** Governance
+** Information Management
+** Enterprise Architecture
+
