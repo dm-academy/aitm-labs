@@ -7,10 +7,11 @@ Even in 2012, it was clear that multiple perspectives and communities of practic
 It was also difficult to find a suitable text for the class. All the current major MIS and IT texts were requisitioned from publishers and all were badly out of date with respect to current trends. 
 
 A new structure and learning progression was therefore developed for the class, based on an "emergence model" learning progression. This is a thought experiment that can be summarized as "from startup to enterprise" and introduces the student to material based on its relevance to different levels of organizational scale. 
+The class has been conceived and structured as a complete, introductory survey to the management of information technology and systems. Curriculum-wise, it aligns to the Information Technology (as opposed to Information Systems) discipline, as recognized by the ACM and IEEE. 
 
 In response to clear and widespread industry trends, the term "digital" is generally substituted for "IT" throughout the material as well. 
 
-The class is therefore divided into four major sections: 
+The learning progression is divided into four major sections: 
 
 - Indvidual
 - Team
@@ -35,4 +36,8 @@ Each of these sections is elaborated into three lectures:
 ** Governance
 ** Information Management
 ** Enterprise Architecture
+
+The twelve lectures plus intro course, in-class labs, and final comprise the class. The class is presented in a flipped model, with video lectures and in-class experiential activities.
+
+Each lecture has 3-6 modules, with distinct learning objectives. The full report, derived from the Digital Practitioner Body of Knowledge draft standard, is attached. 
 
