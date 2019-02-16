@@ -213,7 +213,7 @@ If it gives an error indicating tree is not found, type
 
 to refresh your package repository. Then re-execute `sudo apt-get install -y tree`
 
-Once installed, use tree to inspect your directory structure. It should look like:
+Once installed, use tree to inspect your directory structure. It should look something like:
 
  vagrant@xenial64:~$ tree
 
@@ -232,18 +232,18 @@ Once installed, use tree to inspect your directory structure. It should look lik
 |   `-- F
 |       `-- ff
 |-- D
-|   |-- dd
-|   |-- G
-|   |   `-- gg
-|   |-- H
-|   |   |-- hh
-|   |   |-- J
-|   |   |   `-- jj
-|   |   `-- K
-|   |       `-- kk
-|   `-- I
-|       `-- ii
-`-- postinstall.sh
+    |-- dd
+    |-- G
+    |   `-- gg
+    |-- H
+    |   |-- hh
+    |   |-- J
+    |   |   `-- jj
+    |   `-- K
+    |       `-- kk
+    `-- I
+        `-- ii
+
 
 If you are in PuTTY and getting garbage characters, google "Garbage Characters in PuTTY" and see if you can figure it out.
 
