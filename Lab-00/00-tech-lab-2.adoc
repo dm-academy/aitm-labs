@@ -2,11 +2,38 @@
 
 NOTE: We are in a bootstrapping phase. We need to get you set up on Github and Google Cloud so that you can learn Linux. But that means you need to execute some Linux without knowing much about it. Do your best to follow the instructions. 
 
+Objectives of this lab: 
+
+- Set up Slack
+- Set up Github
+- Set up Google Compute Engine
+- Create a VM
+- Start the Linux tutorial (you may finish it in the week to come)
+
+== A note on accounts
+By the time you are done with this lab, you will have: 
+
+* A St. Thomas email account (actually, you came in with this)
+* A Slack account, that should have the same name as your St. Thomas email but will have a different password
+* A Github account, that should *not* have the same name as your St. Thomas email
+* A Google account, for running Google Compute Engine
+
+This is FOUR different passwords, as well as a public/private key pair, with a passphrase, for Github. It's your responsibility to keep these accounts straight and NOT get confused which has what password. I recommend the use of a password keeper such as 1Pasword or LastPass. 
+
 == Setting up Slack
 
-== Setting up Github account
+* Slack will be the main communication channel.
+* I strongly prefer questions be posted in Slack rather than via calling me over. Leverage your classmates for support. 
+* Navigate to https://seis664.slack.com/[https://seis664.slack.com/].
+** Click "create an account" and remember your password. You should use your St. Thomas email. Whether you use it or another email, you will need a SEPARATE and DISTINCT password from any other Slack accounts you have. This is just how Slack works; you have to maintain multiple accounts.
+** Confirm you can read messages. Try posting to the https://seis664.slack.com/messages/general/[#general] thread.
+** The channels are not cleared from the previous semester. Have a look, you'll get a feel for the class. 
+** To find a channel, click on Channels and it will say "Browse All Channels"
 
-Go to http://github.com and set up a user account (one per individual, even if you are in teams). You probably do NOT want to use your school email account name for this, as your Github account may be an asset throughout your career. *Choose a suitably professional user name.*
+== Setting up Github account
+=== Getting started
+
+Go to http://github.com and set up a user account (one per individual, even if you are in teams). You do NOT want to use your school email account name for this, as your Github account may be an asset throughout your career. *Choose a suitably professional user name that you can use for the rest of your professional career.* 
 
 NOTE: You will have to keep track of TWO IDs and substitute them at appropriate times:
 *YourStudentID* and *YourGithubID*.
@@ -27,7 +54,7 @@ Autoconfigure your Git Bash to launch the ssh-agent every time:
 
 https://help.github.com/en/articles/working-with-ssh-key-passphrases
 
-You can create a .profile file using Notepad+. 
+You can create a .profile file using Visual Studio Code (VSCode). 
 
 Close and re-open Git Bash. 
 
@@ -49,7 +76,7 @@ When you have finished the tutorial, download this repo to your computer. Open G
 
 `git clone git@github.com:dm-academy/aitm-labs.git`
 
-Now, you should have all the lab files locally on your machine. You can open them in Notepad++ or other text editor. In this way you can change them and submit changes back to the central repo as pull requests. Try submitting a minor change to this file via the techniques presented in the tutorial. Note that you will not be able to accept the change, as I am the maintainer of this file. I would have to approve. 
+Now, you should have all the lab files locally on your machine. You can open them in VSCode or other text editor. In this way you can change them and submit changes back to the central repo as pull requests. Try submitting a minor change to this file via the techniques presented in the tutorial. Note that you will not be able to accept the change, as I am the maintainer of this file. I would have to approve. 
 
 IMPORTANT: From this point forward, you are STRONGLY ENCOURAGED to submit issues and enhancements to the course documentation. Extra credit points are readily available for contributing to the class in this manner. Don't allow yourself to "get stuck." Communicate with your classmates in Slack and if you are still stuck then raise a Github issue. If you are stuck, the problem is in the instructions, and we need to fix it. 
 
@@ -59,13 +86,9 @@ For this lab we are going to work with Google Cloud to setup a micro-instance of
 
 As this is your first lab, please read this manual carefully and follow along. It may be difficult or nearly impossible to start over if you make certain key mistakes. 
 
-You can create as many VMs as you want, but keep in mind that your account will be charged for each moment a VM is online. Note that you should never put your personal credit card information into Google Compute Engine. This is 100% free for you.
+=== Account Setup
 
-The reason we’re using a micro-instance is that it is free to your account, as long as you don’t send/receive too much data. More info here on that: http://cloud.google.com/free. We won’t be needing any amount of power behind the scenes, unless if you need it for your term project.
-
-*Account Setup*
-
-You should have received an email forwarded from myself containing information for signing up for Google Cloud. Your St. Thomas email is required for the first form, this is where you will get the coupon (Google requires a valid student account with a university or college).
+In the Canvas announcements there is a copy of an email from Google. Your St. Thomas email is required for the first form, this is where you will get the coupon (Google requires a valid student account with a university or college).
 
 The second email you get will be a coupon code to redeem. Click the link to redeem and then read the following very carefully.
 
@@ -82,7 +105,9 @@ Ok, now you should have a billing account. You can access this at http://cloud.g
 You should be dumped to a screen that looks like this
 
 This is the Billing page. It tells you how much money you have in your account. All of your Projects will be linked to this billing account. This is how cloud computing works.
+
 We now need to create a project for the class. The project will contain all VMs related to the class. Click the Google Cloud Platform logo on the top left to bring you to the home page (also accessible via https://console.cloud.google.com).
+
 You should see a card titled Project info. Click Go to project settings and you should see a similar window to this
 
 Click New Project and name it <USTID>-SEIS664-2019-9, where <USTID> is your university ID (the first part of your email, before the "@", without the angle brackets). Select your newly created billing account and leave the organization alone. It should look like (2019, not 2018 though):
@@ -96,10 +121,18 @@ Now, you will create your VM.
 
 *VM Creation*
 
+
+
+You can create as many VMs as you want, but keep in mind that your account will be charged for each moment a VM is online. Note that you should never put your personal credit card information into Google Compute Engine. This is 100% free for you.
+
+The reason we’re using a micro-instance is that it is free to your account, as long as you don’t send/receive too much data. More info here on that: http://cloud.google.com/free. We won’t be needing any amount of power behind the scenes, unless if you need it for your term project.
+
 First, click the options menu (3 horizontal lines) on the top left and then click Compute Engine.
 
 VM instance creation will take a few minutes.
+
 So now that's the instance is running (green check), open the instance by clicking its name and looking at the details and monitoring tabs.
+
 Remote Access
 It is now time to SSH into your server. Google Cloud makes this ridiculously easy to do in the browser. Go back to the VM instances page and click the SSH button:
 This will pop open an SSH window, similar to this:
