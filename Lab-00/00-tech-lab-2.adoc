@@ -1,5 +1,58 @@
 = SEIS664 Lab 00
 
+NOTE: We are in a bootstrapping phase. We need to get you set up on Github and Google Cloud so that you can learn Linux. But that means you need to execute some Linux without knowing much about it. Do your best to follow the instructions. 
+
+== Setting up Slack
+
+== Setting up Github account
+
+Go to http://github.com and set up a user account (one per individual, even if you are in teams). You probably do NOT want to use your school email account name for this, as your Github account may be an asset throughout your career. *Choose a suitably professional user name.*
+
+NOTE: You will have to keep track of TWO IDs and substitute them at appropriate times:
+*YourStudentID* and *YourGithubID*.
+
+Set up a private/public key pair for your Github credentials. Start by going to Git Bash under your Windows menu. 
+
+Next, review these instructions: 
+
+https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+
+https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account
+
+https://help.github.com/en/articles/testing-your-ssh-connection
+
+and follow them. 
+
+Autoconfigure your Git Bash to launch the ssh-agent every time: 
+
+https://help.github.com/en/articles/working-with-ssh-key-passphrases
+
+You can create a .profile file using Notepad+. 
+
+Close and re-open Git Bash. 
+
+Now, run this tutorial: 
+
+https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners
+
+=== Clone this repository
+
+A key strategy of this course is that the students contribute to the learning materials ongoing. Therefore, these instructions you are reading right now are something that we all collaborate on. You need to know how to change the instructions to help correct errors or add insights you may have developed as you work through them. 
+
+When you have finished the tutorial, download this repo to your computer. Open Git Bash and type: 
+
+`cd`
+
+`mkdir repos`
+
+`cd repos`
+
+`git clone git@github.com:dm-academy/aitm-labs.git`
+
+Now, you should have all the lab files locally on your machine. You can open them in Notepad++ or other text editor. In this way you can change them and submit changes back to the central repo as pull requests. Try submitting a minor change to this file via the techniques presented in the tutorial. Note that you will not be able to accept the change, as I am the maintainer of this file. I would have to approve. 
+
+IMPORTANT: From this point forward, you are STRONGLY ENCOURAGED to submit issues and enhancements to the course documentation. Extra credit points are readily available for contributing to the class in this manner. Don't allow yourself to "get stuck." Communicate with your classmates in Slack and if you are still stuck then raise a Github issue. If you are stuck, the problem is in the instructions, and we need to fix it. 
+
 == Accessing Google Compute Engine
 
 For this lab we are going to work with Google Cloud to setup a micro-instance of a virtual machine.
