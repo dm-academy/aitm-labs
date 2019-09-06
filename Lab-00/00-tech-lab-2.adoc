@@ -88,74 +88,85 @@ As this is your first lab, please read this manual carefully and follow along. I
 
 === Account Setup
 
-In the Canvas announcements there is a copy of an email from Google. Your St. Thomas email is required for the first form, this is where you will get the coupon (Google requires a valid student account with a university or college).
+First, YOU MUST HAVE A PERSONAL GMAIL ACCOUNT. I recommend using Chrome and signing into GMail with it. IF YOU USE YOUR SCHOOL EMAIL THIS WILL NOT ONLY NOT WORK, BUT YOU WILL NOT BE ABLE TO FINISH THE LAB. Go to https://mail.google.com if you don't have a personal GMail account yet. 
 
-The second email you get will be a coupon code to redeem. Click the link to redeem and then read the following very carefully.
+In the Canvas announcements there is a copy of an email from Google. Click the "Student Coupon Retrieval Link" to redeem and then read the following very carefully.
 
-YOU MUST HAVE A PERSONAL GMAIL ACCOUNT. IF YOU USE YOUR SCHOOL EMAIL THIS WILL NOT ONLY NOT WORK, BUT YOU WILL NOT BE ABLE TO FINISH THE LAB. 
+image::GCP-email.png[]
 
-When you go to sign up for coupons, make sure the icon for your personal Gmail account is active. You cannot complete this lab or this course using only your St. Thomas ID (which is managed through Microsoft Office 365).
 
-Click the link in your email to sign up for the free Google Cloud credits, making sure to copy the unique code.
+You will get the following:
 
-Note that my personal Gmail account (email redacted) is active. Also, the code above will not work for you, as I have redeemed it for teaching purposes. You should have a $50 credit in your account. If you run out of money, I can request more for you, however that will require turnaround time for Google to approve it.
+image::GCP-student-webform.png[]
 
-Ok, now you should have a billing account. You can access this at http://cloud.google.com now whenever you want. Google Cloud itself is really outside the scope of this lab, however I’d recommend reading up on its capabilities (hint: there are a lot of cool things you can do with it).
+Your *St. Thomas email* (NOT your Gmail account) is required for the first form, this is where you will get the coupon (Google requires a valid student account with a university or college). 
 
-You should be dumped to a screen that looks like this
+Fill in your name and email. You'll get an email like this: 
+
+image::eml-verify.png[]
+
+Click on the link in the email and you should see this:
+
+image::eml-verified.png[]
+
+Finally you will get this email with your code:
+
+image::eml-w-code.png[]
+
+(Do NOT use the code in the image above. Use the code you got in your email.)
+
+Go to http://cloud.google.com now and enter your code:
+
+
+image::gcp-accept.png[]
+
+You should be dumped to a screen that looks like this:
+
+image::billing-acct.png[]
 
 This is the Billing page. It tells you how much money you have in your account. All of your Projects will be linked to this billing account. This is how cloud computing works.
 
-We now need to create a project for the class. The project will contain all VMs related to the class. Click the Google Cloud Platform logo on the top left to bring you to the home page (also accessible via https://console.cloud.google.com).
-
-You should see a card titled Project info. Click Go to project settings and you should see a similar window to this
-
-Click New Project and name it <USTID>-SEIS664-2019-9, where <USTID> is your university ID (the first part of your email, before the "@", without the angle brackets). Select your newly created billing account and leave the organization alone. It should look like (2019, not 2018 though):
-
-This may take a little while, depending on the speed of Google. At the top right you’ll see an icon like this:
-
-If it is spinning, then Google is working in the background. You can click it for more information.
-Once it’s done, select your newly-created project from the drop down at the top of your cloud console.
+=== Creating a virtual machine (VM)
 
 Now, you will create your VM.
-
-*VM Creation*
-
-
 
 You can create as many VMs as you want, but keep in mind that your account will be charged for each moment a VM is online. Note that you should never put your personal credit card information into Google Compute Engine. This is 100% free for you.
 
 The reason we’re using a micro-instance is that it is free to your account, as long as you don’t send/receive too much data. More info here on that: http://cloud.google.com/free. We won’t be needing any amount of power behind the scenes, unless if you need it for your term project.
 
-First, click the options menu (3 horizontal lines) on the top left and then click Compute Engine.
+First, click the options menu (3 horizontal lines) on the top left and then click Compute Engine. This will take a while. 
 
-VM instance creation will take a few minutes.
+image::GCEinit.png[]
+
+When the "Create" button is enabled, click it:
+
+image::CreateVM.png[]
+
+Leave the defaults, except select the f1-micro type: 
+
+image::micro.png[]
+
+Click Create (scroll down). VM instance creation will take a few minutes.
 
 So now that's the instance is running (green check), open the instance by clicking its name and looking at the details and monitoring tabs.
 
-Remote Access
-It is now time to SSH into your server. Google Cloud makes this ridiculously easy to do in the browser. Go back to the VM instances page and click the SSH button:
+=== Remote Access
+It is now time to SSH into your server. Google Cloud makes this ridiculously easy to do in the browser. Go back to the VM instances page and click the SSH button. 
+
+image::ssh-button.png[]
+
 This will pop open an SSH window, similar to this:
+
+image::vm-gce-shell.png[]
+
 Yay! You are now in your Linux virtual machine. Now we should make sure our machine is up to date and install Apache. This is something that should be done fairly regularly to make sure things like security updates are applied to your software.
+
 In the terminal, run (without the dollar sign, that is an indicator that you should type a command into the shell).
-$ sudo apt-get update $ sudo apt-get upgrade $ sudo apt-get install apache2
-Type y and hit enter to accept.
-This is your microinstance. Take a screenshot of your browser window with the Apache default screen (should just be able to visit your external IP address). This is the one that you leave on all the time.
-Windows VM
-Go through the same process as before, but instead pick Windows Server 2016. Name it <lastname>-csi3670-windows-instance-1. Give it a n1-standard-1 (1 vCPU, 3.75 GB memory) CPU and RAM. Anywhere from 30-50GB should be fine for HDD space.
-Create it, turn it on. This one you should turn off when you are done!.
-Click the RDP icon in Google Cloud to launch a Remote Desktop session (either use the downloaded
-.rdp file or install the Chrome extension). If you're on Mac or Linux, look up how to connect via Remote Desktop.
-Open up Windows Server. Install the Web Server Role. Add the FTP feature. When you are done, take a screenshot of your Server Manager to demonstrate that you installed the role appropriately.
-Turn off the Windows VM when you are done!
-Fill out the report on the last page and turn in ONLY the report page!
-85 points
-Name:
-Date:
-Homework 1:
-1. Paste the two screenshots from above here. (40 points)
-2. Go to https://cloud.google.com/products/ and pick 2 random Google products that are available in their cloud platform (meaning, you have access if you wish). Briefly describe (1) what it is and (2) why it might be helpful. Do not simply just copy and paste the descriptions. (10 points).
-3. Assume you are installing Windows Server 2012. Provide two reasons for selecting one ver-sion over another. For example, why would you want to install the Foundation edition over the Datacenter edition? Why would you want Standard over Essentials? (10 points)
-4. Look over some of the available roles that Windows Server provides. Select two and describe their purpose. (10 points).
-5. What is the difference between Type-0 (full) and Type-1 (para) virtualization? (10 points)
-6. What is the IP address of your Ubuntu virtual machine? (5 points)
+
+$ sudo apt-get update 
+
+$ sudo apt-get upgrade 
+
+== Linux tutorial
+
+Now that you have a functioning Linux instance, run the Linux tutorial. It's fine if you work on this during the week, but you need to have it completed by next week. The quiz will cover it, so do not take the quiz until you are done with the tutorial. 
