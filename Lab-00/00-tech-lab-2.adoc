@@ -37,6 +37,8 @@ Go to http://github.com and set up a user account (one per individual, even if y
 
 Set up a private/public key pair for your Github credentials. Start by going to Git Bash under your Windows menu. 
 
+image::git-bash.png[]
+
 Next, review these instructions: 
 
 https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
