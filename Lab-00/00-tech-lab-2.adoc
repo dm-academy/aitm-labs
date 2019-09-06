@@ -117,7 +117,7 @@ image::eml-w-code.png[]
 Go to http://cloud.google.com now and enter your code:
 
 
-image::gcp-accept.png[]
+image::GCP-accept.png[]
 
 You should be dumped to a screen that looks like this:
 
