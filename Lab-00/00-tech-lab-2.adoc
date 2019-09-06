@@ -35,9 +35,6 @@ This is FOUR different passwords, as well as a public/private key pair, with a p
 
 Go to http://github.com and set up a user account (one per individual, even if you are in teams). You do NOT want to use your school email account name for this, as your Github account may be an asset throughout your career. *Choose a suitably professional user name that you can use for the rest of your professional career.* 
 
-NOTE: You will have to keep track of TWO IDs and substitute them at appropriate times:
-*YourStudentID* and *YourGithubID*.
-
 Set up a private/public key pair for your Github credentials. Start by going to Git Bash under your Windows menu. 
 
 Next, review these instructions: 
