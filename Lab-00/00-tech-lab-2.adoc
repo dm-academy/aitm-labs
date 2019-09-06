@@ -159,14 +159,12 @@ This will pop open an SSH window, similar to this:
 
 image::vm-gce-shell.png[]
 
-Yay! You are now in your Linux virtual machine. Now we should make sure our machine is up to date and install Apache. This is something that should be done fairly regularly to make sure things like security updates are applied to your software.
-
-In the terminal, run (without the dollar sign, that is an indicator that you should type a command into the shell).
-
-$ sudo apt-get update 
-
-$ sudo apt-get upgrade 
+Yay! You are now in your Linux virtual machine.
 
 == Linux tutorial
 
-Now that you have a functioning Linux instance, run the Linux tutorial. It's fine if you work on this during the week, but you need to have it completed by next week. The quiz will cover it, so do not take the quiz until you are done with the tutorial. 
+Now that you have a functioning Linux instance, run this Linux tutorial. 
+
+https://ryanstutorials.net/linuxtutorial/
+
+It's fine if you work on this during the week, but *you need to have it completed by next week.* The quiz will cover it, so do not take the quiz until you are done with the tutorial. 
