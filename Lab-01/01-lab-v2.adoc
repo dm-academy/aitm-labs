@@ -1,0 +1,16 @@
+= Lab 01 Your initial product
+
+== Thinking about digital value
+
+. Go to any popular online service (Facebook, Netflix, Flickr, Etsy, etc.) How would you describe the "moments of truth" or value experiences these sites offer users? There may be several. Discuss with your team & be prepared to be called on. Who are the user, customer, and sponsor of the app? What are their motivations?
+
+. Considering what you read in the DPBoK section on Digital Value, brainstorm an idea for an IT-based product you could take to market. What is the context? Who are the user, customer, and sponsor of your product? Be prepared to discuss in class.
+
+
+
+== Your first product
+
+. It is not the purpose of this class to teach you software development. However, being an IT professonal means that you need to be very comfortable configuring software. Using your idea, think about a very minimal web site that starts to support your idea. It can be as simple as a web server that presents an HTML page with a written description of your product idea. 
+
+
+
