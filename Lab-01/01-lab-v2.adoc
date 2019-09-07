@@ -52,7 +52,7 @@ Another suitable example, a little more challenging, is here:
 
 https://closebrace.com/tutorials/2017-03-02/the-dead-simple-step-by-step-guide-for-front-end-developers-to-getting-up-and-running-with-nodejs-express-and-mongodb
 
-*You will have to re-interpret some things.* For example, where it says "Hit the Node.js website and click the big green Install button...", that won't work. You will have to install Node using appropriate methods for the Linux command line. There are about a million places on the Web that describe that. You'll need NPM as well as Node.
+*As it assumes Windows, you will have to re-interpret some things.* For example, where it says "Hit the Node.js website and click the big green Install button...", that won't work. You will have to install Node using appropriate methods for the Linux command line. There are about a million places on the Web that describe that. You'll need NPM as well as Node.
 
 You are free to look for other comparable examples. 
 
