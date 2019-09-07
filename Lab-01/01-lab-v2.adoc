@@ -2,15 +2,42 @@
 
 == Thinking about digital value
 
-. Go to any popular online service (Facebook, Netflix, Flickr, Etsy, etc.) How would you describe the "moments of truth" or value experiences these sites offer users? There may be several. Discuss with your team & be prepared to be called on. Who are the user, customer, and sponsor of the app? What are their motivations?
+* Go to any popular online service (Facebook, Netflix, Flickr, Etsy, etc.) How would you describe the "moments of truth" or value experiences these sites offer users? There may be several. Discuss with your team & be prepared to be called on. Who are the user, customer, and sponsor of the app? What are their motivations?
 
-. Considering what you read in the DPBoK section on Digital Value, brainstorm an idea for an IT-based product you could take to market. What is the context? Who are the user, customer, and sponsor of your product? Be prepared to discuss in class.
+* Considering what you read in the DPBoK section on Digital Value, brainstorm an idea for an IT-based product you could take to market. What is the context? Who are the user, customer, and sponsor of your product? Be prepared to discuss in class.
 
-
+* You DON'T need to be too elaborate. A webpage showing off pictures of pets, or vacation photos, is fine. Your "customers" might be your family. 
 
 == Your first product
 
-. It is not the purpose of this class to teach you software development. However, being an IT professonal means that you need to be very comfortable configuring software. Using your idea, think about a very minimal web site that starts to support your idea. It can be as simple as a web server that presents an HTML page with a written description of your product idea. 
+It is not the purpose of this class to teach you software development. However, being an IT professonal means that you need to be very comfortable configuring software. Using your idea, think about a very minimal web site that starts to support your idea. It can be as simple as a web server that presents an HTML page with personal interests, or perhaps a written description of your product idea. You also can start with a prebuilt web app (there are many available), with your value proposition being that you are going to "run it as a service" for end users who will pay you. 
 
+There are three options you can take for your first product: beginner, intermediate, and advanced. 
 
+*  *Beginner level*. This project will rely on one virtual machine running a simple Web server. You will configure this server to serve simple Web pages with text and pictures. You may start to experiment with some dynamic behavior using Javascript. 
 
+* *Intermediate level*. This project will feature a simple two-tier application (front and back end). 
+
+* *Advanced level*. This project is at your discrection; you can download any software you find on the Web, e.g. on Github. I would still keep it relatively simple. 
+
+Choose ONE of the following sections and follow the instructions. 
+
+== Beginner
+
+NOTE: These directions are deliberately high level. You may need to refer back to Linux tutorials or other resources to achieve the desired outcomes. This is what IT work is like. 
+
+* Create a GCE micro VM with http enabled.
+* ssh into it. 
+* Install webfsd and configure it to serve pages on the correct port. (You will need to experiment with command line syntax; it defaults to port 8000 which may not work...) Test it in your browser, you should at least see your local file system. Once you have the right command line, put it in a shell script.  
+* Upload any images using "Transferring files using SSH in the browser" here: https://cloud.google.com/compute/docs/instances/transfer-files. 
+* If you need basic HTML syntax (to create pages with images in them, for example), there are many short tutorials and guides on the web. Rather than suggesting one, I ask you to look at several to find what you need.
+* Store your web site and shell script in a Github repo. Create another shell script that installs the files and script in two different locations (e.g. files in /var/www/html, script to run the web server in your home directory.)
+* When you are done, send me a link to the completed Github repo.
+
+== Intermediate 
+
+There are a number of two tier applications available to you. GCE has a tutorial with a simple todo list. 
+
+== Advanced
+
+== Everyone
