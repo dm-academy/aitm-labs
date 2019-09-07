@@ -41,7 +41,7 @@ There are a number of two tier applications available to you. GCE has a tutorial
 
 Another suitable example, a little more challenging, is here: 
 
-https://closebrace.com/tutorials/2017-03-02/creating-a-simple-restful-web-app-with-nodejs-express-and-mongodb
+https://closebrace.com/tutorials/2017-03-02/the-dead-simple-step-by-step-guide-for-front-end-developers-to-getting-up-and-running-with-nodejs-express-and-mongodb
 
 You are free to look for other comparable examples. 
 
