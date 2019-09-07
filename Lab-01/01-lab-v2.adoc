@@ -31,13 +31,25 @@ NOTE: These directions are deliberately high level. You may need to refer back t
 * Install webfsd and configure it to serve pages on the correct port. (You will need to experiment with command line syntax; it defaults to port 8000 which may not work...) Test it in your browser, you should at least see your local file system. Once you have the right command line, put it in a shell script.  
 * Upload any images using "Transferring files using SSH in the browser" here: https://cloud.google.com/compute/docs/instances/transfer-files. 
 * If you need basic HTML syntax (to create pages with images in them, for example), there are many short tutorials and guides on the web. Rather than suggesting one, I ask you to look at several to find what you need.
-* Store your web site and shell script in a Github repo. Create another shell script that installs the files and script in two different locations (e.g. files in /var/www/html, script to run the web server in your home directory.)
-* When you are done, send me a link to the completed Github repo.
+* Send me a screenshot of the working web site in the browser.
+* If you have time, start working towards next week's lab objectives. Store your web files and shell script in a Github repo. Create another shell script that installs the files and script in two different locations (e.g. files in /var/www/html, script to run the web server in your home directory.)
+
 
 == Intermediate 
 
-There are a number of two tier applications available to you. GCE has a tutorial with a simple todo list. 
+There are a number of two tier applications available to you. GCE has a tutorial with a simple todo list. On the right side of your GCP page, see "Quickly learn how to build a two-tier web app." This is a polished tutorial that should give you no problems. 
+
+Another suitable example, a little more challenging, is here: 
+
+https://closebrace.com/tutorials/2017-03-02/creating-a-simple-restful-web-app-with-nodejs-express-and-mongodb
+
+You are free to look for other comparable examples. 
+
+Send me a screen shot when your application is working.
+
+If you have time, start working towards next week's lab objectives. Store your web app and shell script in a Github repo. Create another shell script that installs the files in the correct locations, so that if you delete your VM, you can easily install it. done, send me a link to the completed Github repo and a screenshot of the application working within your browser.
 
 == Advanced
 
-== Everyone
+Fully at your discretion. You may experiment with any multi-tier application you find. Please just work with VMs at this point, not containers. The key objective is to bring up a functioning application that can be accessed via the web.  
+
