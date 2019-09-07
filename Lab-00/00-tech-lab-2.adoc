@@ -114,7 +114,7 @@ image::eml-w-code.png[]
 
 (Do NOT use the code in the image above. Use the code you got in your email.)
 
-Go to http://cloud.google.com now and enter your code:
+Click the link "[here]" under the code, then you will see the following page:
 
 
 image::GCP-accept.png[]
