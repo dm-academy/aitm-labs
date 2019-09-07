@@ -1,5 +1,14 @@
 = Lab 01 Your initial product
 
+Prerequisites: Completion of Linux tutorial, and/or abilities to: 
+
+* Navigate the Linux file system (cd, pwd, mkdir, ., .., ~, etc)
+* Manage Linux files (nano, touch, rm, mv)
+* Manage permissions on files and directories (chmod)
+* Install Linux software (apt-get install)
+* Issue other Linux commands as necessary
+* Create and run bash scripts
+
 == Thinking about digital value
 
 * Go to any popular online service (Facebook, Netflix, Flickr, Etsy, etc.) How would you describe the "moments of truth" or value experiences these sites offer users? There may be several. Discuss with your team & be prepared to be called on. Who are the user, customer, and sponsor of the app? What are their motivations?
