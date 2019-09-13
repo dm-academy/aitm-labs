@@ -30,55 +30,6 @@ This is FOUR different passwords, as well as a public/private key pair, with a p
 ** The channels are not cleared from the previous semester. Have a look, you'll get a feel for the class. 
 ** To find a channel, click on Channels and it will say "Browse All Channels"
 
-== Setting up Github account
-=== Getting started
-
-Go to http://github.com and set up a user account (one per individual, even if you are in teams). You do NOT want to use your school email account name for this, as your Github account may be an asset throughout your career. *Choose a suitably professional user name that you can use for the rest of your professional career.* 
-
-Set up a private/public key pair for your Github credentials. Start by going to Git Bash under your Windows menu. 
-
-image::git-bash.png[]
-
-Next, review these instructions: 
-
-https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
-
-https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account
-
-https://help.github.com/en/articles/testing-your-ssh-connection
-
-and follow them. 
-
-Autoconfigure your Git Bash to launch the ssh-agent every time: 
-
-https://help.github.com/en/articles/working-with-ssh-key-passphrases
-
-You can create a .profile file using Visual Studio Code (VSCode). 
-
-Close and re-open Git Bash. 
-
-Now, run this tutorial: 
-
-https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners
-
-=== Clone this repository
-
-A key strategy of this course is that the students contribute to the learning materials ongoing. Therefore, these instructions you are reading right now are something that we all collaborate on. You need to know how to change the instructions to help correct errors or add insights you may have developed as you work through them. 
-
-When you have finished the tutorial, download this repo to your computer. Open Git Bash and type: 
-
-`cd`
-
-`mkdir repos`
-
-`cd repos`
-
-`git clone git@github.com:dm-academy/aitm-labs.git`
-
-Now, you should have all the lab files locally on your machine. You can open them in VSCode or other text editor. In this way you can change them and submit changes back to the central repo as pull requests. Try submitting a minor change to this file via the techniques presented in the tutorial. Note that you will not be able to accept the change, as I am the maintainer of this file. I would have to approve. 
-
-IMPORTANT: From this point forward, you are STRONGLY ENCOURAGED to submit issues and enhancements to the course documentation. Extra credit points are readily available for contributing to the class in this manner. Don't allow yourself to "get stuck." Communicate with your classmates in Slack and if you are still stuck then raise a Github issue. If you are stuck, the problem is in the instructions, and we need to fix it. 
-
 == Accessing Google Compute Engine
 
 For this lab we are going to work with Google Cloud to setup a micro-instance of a virtual machine.
@@ -167,3 +118,53 @@ Now that you have a functioning Linux instance, run this Linux tutorial.
 https://ryanstutorials.net/linuxtutorial/
 
 It's fine if you work on this during the week, but *you need to have it completed by next week.* The quiz will cover it, so do not take the quiz until you are done with the tutorial. 
+
+
+== Setting up Github account
+=== Getting started
+
+Go to http://github.com and set up a user account (one per individual, even if you are in teams). You do NOT want to use your school email account name for this, as your Github account may be an asset throughout your career. *Choose a suitably professional user name that you can use for the rest of your professional career.* 
+
+Set up a private/public key pair for your Github credentials. Start by going to Git Bash under your Windows menu. 
+
+image::git-bash.png[]
+
+Next, review these instructions: 
+
+https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+
+https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account
+
+https://help.github.com/en/articles/testing-your-ssh-connection
+
+and follow them. 
+
+Autoconfigure your Git Bash to launch the ssh-agent every time: 
+
+https://help.github.com/en/articles/working-with-ssh-key-passphrases
+
+You can create a .profile file using Visual Studio Code (VSCode). 
+
+Close and re-open Git Bash. 
+
+Now, run this tutorial: 
+
+https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners
+
+=== Clone this repository
+
+A key strategy of this course is that the students contribute to the learning materials ongoing. Therefore, these instructions you are reading right now are something that we all collaborate on. You need to know how to change the instructions to help correct errors or add insights you may have developed as you work through them. 
+
+When you have finished the tutorial, download this repo to your computer. Open Git Bash and type: 
+
+`cd`
+
+`mkdir repos`
+
+`cd repos`
+
+`git clone git@github.com:dm-academy/aitm-labs.git`
+
+Now, you should have all the lab files locally on your machine. You can open them in VSCode or other text editor. In this way you can change them and submit changes back to the central repo as pull requests. Try submitting a minor change to this file via the techniques presented in the tutorial. Note that you will not be able to accept the change, as I am the maintainer of this file. I would have to approve. 
+
+IMPORTANT: From this point forward, you are STRONGLY ENCOURAGED to submit issues and enhancements to the course documentation. Extra credit points are readily available for contributing to the class in this manner. Don't allow yourself to "get stuck." Communicate with your classmates in Slack and if you are still stuck then raise a Github issue. If you are stuck, the problem is in the instructions, and we need to fix it. 
