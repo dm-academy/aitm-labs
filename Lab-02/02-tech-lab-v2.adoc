@@ -2,4 +2,12 @@
 
 * Install and verify Terraform on your laptop. https://learn.hashicorp.com/terraform/getting-started/install.html. Terraform does not have an installer. You simply place the file in a directory that is on your $PATH. What is $PATH? It is an environment variable that lists all the directories where applications might be found. I recommend /usr/local/bin on the Mac and C:\Program Files on the PC. You will need administrative privileges to modify either; I expect you to know or figure out how to do this. 
 
+* Create a new Github project titled Lab02-<your St. Thomas ID>. That is, if your St. Thomas email is ande0001@stthomas.edu, name it Lab02-ande0001. 
 
+* Clone the new repo down to your workstation. (Request assistance if you need it with Github.))
+
+* Run the Terraform GCP tutorial https://www.terraform.io/docs/providers/google/getting_started.html and safe your file(s) in the repo. 
+** You will need to create a GCP credential. I suggest storing it in `~/cloud.`
+** You will need to create or edit your `.bash_profile` to create the GOOGLE_CLOUD_KEYFILE_JSON environment variable. 
+
+IMPORTANT: Going forward, you should ONLY provision and deprovision GCP resources with Terraform. Stop using the Google cloud portal unless absolutely necessary. (For now, we need to use it to ssh into the instances.)
