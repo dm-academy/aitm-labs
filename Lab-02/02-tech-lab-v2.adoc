@@ -13,7 +13,7 @@ IMPORTANT: Going forward, you should ONLY provision and deprovision GCP resource
 == Terraform
 
 * Before starting, review [this article on environment variables. https://phoenixts.com/blog/environment-variables-in-linux. If you do not understand, ask. 
-* Create a new Github project on your account titled Lab02-<your St. Thomas ID>. That is, if your St. Thomas email is sala0001@stthomas.edu, name it Lab02-sala0001. 
+* Create a new Github repo on your account titled Lab02-<your St. Thomas ID>. That is, if your St. Thomas email is sala0001@stthomas.edu, name it Lab02-sala0001. 
 * Clone it down to the Google Cloud Shell (Request assistance if you need it with Github). 
 * Using Nano to edit your files, run the Terraform GCP tutorial https://www.terraform.io/docs/providers/google/getting_started.html 
 * You should not need to configure credentials. (Need to confirm.)
