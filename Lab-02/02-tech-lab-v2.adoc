@@ -1,30 +1,32 @@
 = Lab 02 (Technical) IT Infrastructure
 
-* Install and verify Terraform on your laptop. https://learn.hashicorp.com/terraform/getting-started/install.html. Terraform does not have an installer. You simply place the file in a directory that is on your $PATH. What is $PATH? It is an environment variable that lists all the directories where applications might be found. I recommend /usr/local/bin on the Mac and C:\Program Files on the PC. You will need administrative privileges to modify either; I expect you to know or figure out how to do this. 
+== The Google Cloud Shell
+The Google Cloud Shell is a specialized VM, as discussed in class. 
 
-* Create a new Github project titled Lab02-<your St. Thomas ID>. That is, if your St. Thomas email is ande0001@stthomas.edu, name it Lab02-ande0001. 
+Review 
 
-* Clone the new repo down to your workstation. (Request assistance if you need it with Github.))
+* https://cloud.google.com/shell/docs/features. 
+* https://www.hashicorp.com/blog/kickstart-terraform-on-gcp-with-google-cloud-shell 
 
-* Run the Terraform GCP tutorial https://www.terraform.io/docs/providers/google/getting_started.html and save your file(s) in the repo. 
-** You will need to create a GCP credential. I suggest storing it in `~/cloud.`
-** You will need to create or edit your `.bash_profile` to create the GOOGLE_CLOUD_KEYFILE_JSON environment variable. 
+IMPORTANT: Going forward, you should ONLY provision and deprovision GCP resources with Terraform. 
 
-IMPORTANT: Omit double braces from Hashicorp instructions and subsitute quotes. E.g.: 
+== Terraform
 
-`export GOOGLE_CLOUD_KEYFILE_JSON="~/cloud/GCPKeyFile.json"`
+* Create a new Github project on your account titled Lab02-<your St. Thomas ID>. That is, if your St. Thomas email is sala0001@stthomas.edu, name it Lab02-sala0001. 
+* Clone it down to the Google Cloud Shell (Request assistance if you need it with Github). 
+* Using Nano to edit your files, run the Terraform GCP tutorial https://www.terraform.io/docs/providers/google/getting_started.html 
 
-IMPORTANT: Going forward, you should ONLY provision and deprovision GCP resources with Terraform. Stop using the Google cloud portal unless absolutely necessary. (For now, we need to use it to ssh into the instances.)
 
-Using nano in Git Bash by default: 
+
+== Local Terraform (optional)
+
+* The Google Cloud console is flexible and works on the classroom workstations as well as any device of yours. But many run Terraform locally for the greatest flexibility. 
+
+* You can run Terraform on your laptop. https://learn.hashicorp.com/terraform/getting-started/install.html. Terraform does not have an installer. You simply place the file in a directory that is on your $PATH. What is $PATH? It is an environment variable that lists all the directories where applications might be found. I recommend /usr/local/bin on the Mac and C:\Users\<your ID\bin on the PC (assuming you're be using Git Bash; if you are using PowerShell then you'll probably want it in C:\Program Files) You will need administrative privileges to modify either
+
+
+== Using nano in Git Bash for Windows by default (very optional)
 
 * https://coderwall.com/p/ee-law/use-nano-from-git-bash-on-windows-d and then
 * https://github.com/mcandre/nano-win/issues/1. 
 Arrow keys don't work. Alternately, you can type `start nano` and it will open in a separate window. 
-
-https://cloud.google.com/sdk/gcloud/reference/auth/login 
-
-If you'd rather authorize without a web browser but still interact with the command line, use the `-no-launch-browser` flag. 
-
-
-lessons learned - do EVERYTHING though cloud shell. It has git and terraform already installed.
