@@ -21,6 +21,40 @@ IMPORTANT: Going forward, you should ONLY provision and deprovision GCP resource
 == Tonight's major assignment
 Using Terraform and its documentation, figure out how to provision a VM and install your small web server on it. 
 
+At the end, you should have ONE Github repo with all the resources you need. You should be able to open up a clean Google Cloud Shell, clone it down, run it, and get a VM with your website running, every time. 
+
+== Looking forward to next week
+The next goals for the class - feel free to get started, here they are high level: 
+
+* Replatform from webfsd to Node.js, rewriting your Terraformed repo appropriately. 
+
+* Run a Docker tutorial (this would be good to do before class)
+
+* Wrap your replatformed app in a Docker container
+
+== Beyond next week
+
+* Implement some trivial logic in your app, exposed as an API (add 2 numbers, concatenate 2 strings, etc.)
+
+* Implement a CD pipeline that builds and tests your application on a "dev" VM and deploys to a "prod" VM.  
+
+* Deploy the class microservices to a Kubernetes cluster
+
+* Proxies, service mesh, monitoring, Open  Telemetry. 
+
+* Incident management 
+
+* Portfolio management
+
+* Organization
+
+* Security
+
+* Information 
+
+* Architecture
+
+== Beyond next week
 
 
 == Local Terraform (optional)
