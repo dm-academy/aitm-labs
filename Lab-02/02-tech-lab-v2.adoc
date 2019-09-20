@@ -6,8 +6,25 @@
 
 * Clone the new repo down to your workstation. (Request assistance if you need it with Github.))
 
-* Run the Terraform GCP tutorial https://www.terraform.io/docs/providers/google/getting_started.html and safe your file(s) in the repo. 
+* Run the Terraform GCP tutorial https://www.terraform.io/docs/providers/google/getting_started.html and save your file(s) in the repo. 
 ** You will need to create a GCP credential. I suggest storing it in `~/cloud.`
 ** You will need to create or edit your `.bash_profile` to create the GOOGLE_CLOUD_KEYFILE_JSON environment variable. 
 
+IMPORTANT: Omit double braces from Hashicorp instructions and subsitute quotes. E.g.: 
+
+`export GOOGLE_CLOUD_KEYFILE_JSON="~/cloud/GCPKeyFile.json"`
+
 IMPORTANT: Going forward, you should ONLY provision and deprovision GCP resources with Terraform. Stop using the Google cloud portal unless absolutely necessary. (For now, we need to use it to ssh into the instances.)
+
+Using nano in Git Bash by default: 
+
+* https://coderwall.com/p/ee-law/use-nano-from-git-bash-on-windows-d and then
+* https://github.com/mcandre/nano-win/issues/1. 
+Arrow keys don't work. Alternately, you can type `start nano` and it will open in a separate window. 
+
+https://cloud.google.com/sdk/gcloud/reference/auth/login 
+
+If you'd rather authorize without a web browser but still interact with the command line, use the `-no-launch-browser` flag. 
+
+
+lessons learned - do EVERYTHING though cloud shell. It has git and terraform already installed.
