@@ -36,6 +36,18 @@ IMPORTANT: It is ESSENTIAL to create a .gitignore file properly configured for T
 
 ....
 
+=== Troubleshooting 
+
+If you get 
+
+....
+Error refreshing state: state snapshot was created by Terraform v0.12.8, which is newer than current v0.12.2; upgrade to Terraform v0.12.8 or greater to work with this state
+....
+
+execute 
+`rm -rf terraform.tfstate`
+`terraform init`
+
 == Tonight's major assignment
 Using Terraform and its documentation, figure out how to provision a VM and install your small web server on it. 
 
