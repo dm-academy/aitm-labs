@@ -1,0 +1,51 @@
+= Lab 03 (Technical) Deploying an application with Docker
+
+_This is still an early stage lab. All that is required is that you do your best and present errors to the instructor and your classmates._
+
+Learning objectives for this lab:
+
+* Gain basic Docker skills using GCP
+** Running pre-existing Docker containers
+** Creating a Docker container with a simple application in it
+
+
+
+== Basic Docker skills
+* Using the below code as a basis, create a simple Terraform file to create a container-optimized VM. 
+
+....
+provider "google" {
+  project = "INSERT YOUR PROJECT NAME HERE"
+  region  = "us-central1"
+  zone    = "us-central1-c"
+}
+resource "google_compute_instance" "dock-tut" {
+  name         = "dock-tut"
+  machine_type = "f1-micro"
+  zone         = "us-central1-c"
+  boot_disk {
+    initialize_params {
+      image = "cos-cloud/cos-stable"
+    }
+  }
+  network_interface {
+    network = "default"
+    access_config {
+      // Ephemeral IP
+    }
+  }
+}
+
+....
+
+* Log in via the web page (still working on getting ssh to work from command prompt immediately).
+
+* Run https://cloud.google.com/cloud-build/docs/quickstart-docker
+
+* Run https://cloud.google.com/compute/docs/containers/ and https://cloud.google.com/community/tutorials/docker-compose-on-container-optimized-os
+
+* Noting any necessary adaptations, run the full Docker tutorial https://docs.docker.com/get-started/
+
+* move your images and html file over to your new system
+
+* Save your newly configured system as a new Github repo

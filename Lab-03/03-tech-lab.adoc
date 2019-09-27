@@ -13,20 +13,15 @@ Learning objectives for this lab:
 
 == Basic Docker skills
 
-Decide whether you going to run Docker on your laptop or on the server. Note: if you are at all in doubt, run it on the server. You will need a reasonably powerful laptop to run it.
+Decide whether you going to run Docker on your laptop or on Google Cloud. Note: if you are at all in doubt, run it on Google Cloud. You will need a reasonably powerful laptop to run it.
 
 PLEASE make note of the following and DO NOT JUST TRY TO DO EVERYTHING IN THE TUTORIAL especially if you are doing this on the server.
 
-You will run the official https://docs.docker.com/get-started/[Docker tutorial], parts 1 and 2 (do NOT attempt Part 3 or later; Docker Swarm is already obsolete, having been superseded by Kubernetes). We'll take breaks and discuss how this is going for you all.
-
-Docker is already installed on the course "dev" server, and you are already added to the Docker group. Review Part 1 and start by going to your home directory (`cd`) and typing:
+You will run the official https://docs.docker.com/get-started/[Docker tutorial], parts 1 and 2. We'll take breaks and discuss how this is going for you all.
 
 `docker run hello-world` as per the tutorial instructions. Continue with parts 2.
 
 When you are done with the official Docker tutorial through Part 2, run the https://docker-curriculum.com[Docker Curriculum] tutorial up to the section on Amazon. It covers some of the same material.
-
-
-IMPORTANT: If you use the same port (for example 8888) as another person running the tutorial, you will get an error. Ports will be assigned in class.
 
 == Optional: run Docker on your laptop
 
@@ -47,7 +42,3 @@ I am looking for simple proof of concept applications that can be easily modifie
 
 Looking forward: The most critical priority will be developing some form of automated testing for your application, packaging it, and moving it to the "production" server. Enhancing its features are a *secondary priority* at this time.
 
-== Instructor notes
-All students need to have permissions updated
-
-`sudo usermod -a -G docker $USER`
