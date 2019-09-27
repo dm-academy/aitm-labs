@@ -8,10 +8,12 @@ Learning objectives for this lab:
 ** Running pre-existing Docker containers
 ** Creating a Docker container with a simple application in it
 
+== Set up a new empty project on Github
 
+On your Github instance, set up an empty project with the name "YOUREMAIL-dock-tut" (YOUREMAIL is your 8 char email account), and clone it down to your ~/repos directory on Google Cloud Shell. 
 
 == Basic Docker skills
-* Using the below code as a basis, create a simple Terraform file to create a container-optimized VM. 
+* Using the below code as a basis, create a simple Terraform file (`main.tf`) to create a container-optimized VM. 
 
 ....
 provider "google" {
