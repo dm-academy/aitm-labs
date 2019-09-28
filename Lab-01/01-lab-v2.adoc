@@ -37,7 +37,13 @@ NOTE: These directions are deliberately high level. You may need to refer back t
 
 * Create a GCE micro VM with http enabled.
 * ssh into it. 
-* Install webfsd and configure it to serve pages on the correct port. (You will need to experiment with command line syntax; it defaults to port 8000 which may not work...) Test it in your browser, you should at least see your local file system. Once you have the right command line, put it in a shell script.  
+* Install webfsd and configure it to serve pages on the correct port.
+** Installing software requires the `apt-get install` command
+** There are two main ways webfsd is configured. 
+*** Through command line switches
+*** Through a configuration file
+** For this lab, use command line switches. You will need to experiment with command line syntax; it defaults to port 8000 which may not work...) An example: `sudo webfsd -R ~/Documents/www/ -p 80 -f index.html`. This command line specifies directory to be served, port to serve on, and initial file to display. 
+** Try various options (with and without -f flag, for example) and test in your browser; you should at least see your local file system. Once you have the right command line, put it in a shell script.  
 * Upload any images using "Transferring files using SSH in the browser" here: https://cloud.google.com/compute/docs/instances/transfer-files. 
 * If you need basic HTML syntax (to create pages with images in them, for example), there are many short tutorials and guides on the web. Rather than suggesting one, I ask you to look at several to find what you need.
 * Send me a screenshot of the working web site in the browser.
