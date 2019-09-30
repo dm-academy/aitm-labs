@@ -1,3 +1,5 @@
+:linkattrs:
+
 = Lab 03 (Technical) Deploying an application with Docker
 
 _This is still an early stage lab. All that is required is that you do your best and present errors to the instructor and your classmates._
