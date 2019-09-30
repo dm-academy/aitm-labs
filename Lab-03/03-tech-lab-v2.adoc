@@ -44,7 +44,7 @@ resource "google_compute_instance" "dock-tut" {
 
 * Run https://cloud.google.com/cloud-build/docs/quickstart-docker
 
-* Run https://cloud.google.com/compute/docs/containers/ and https://cloud.google.com/community/tutorials/docker-compose-on-container-optimized-os
+* Review https://cloud.google.com/compute/docs/containers/ and https://cloud.google.com/community/tutorials/docker-compose-on-container-optimized-os
 
 * Noting any necessary adaptations, run the full Docker tutorial https://docs.docker.com/get-started/
 
