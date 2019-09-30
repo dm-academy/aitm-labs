@@ -51,6 +51,7 @@ resource "google_compute_instance" "dock-tut" {
 * Run https://cloud.google.com/community/tutorials/docker-compose-on-container-optimized-os
 
 * Noting any necessary adaptations, run the full Docker tutorial https://docs.docker.com/get-started/
+** Part 1: you are running Docker in the cloud so you do not need to install it locally as these directions suggest.
 
 * move your images and html file over to your new system
 
