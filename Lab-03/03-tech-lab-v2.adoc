@@ -42,7 +42,7 @@ resource "google_compute_instance" "dock-tut" {
 
 * Log in via the web page (still working on getting ssh to work from command prompt immediately).
 
-* Run https://cloud.google.com/cloud-build/docs/quickstart-docker
+* Run https://cloud.google.com/cloud-build/docs/quickstart-docker[^]
 
 * Review https://cloud.google.com/compute/docs/containers/ 
 
