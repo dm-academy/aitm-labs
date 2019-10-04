@@ -33,7 +33,7 @@ NOTE: It seems you can run the entire tutorial within the Google Cloud Shell, wi
 
 * On your Github account, set up an empty repo with the name "YOUREMAIL-dock-tut" (YOUREMAIL is your 8 char email account), and clone it down to your ~/repos directory on Google Cloud Shell. 
 
-* Configure a basic static webserver along the lines of the last tutoria.
+* Configure a basic static webserver along the lines of the last tutorial.
 
 * Move your images and html file over to your new system. Run it. 
 
@@ -43,6 +43,7 @@ NOTE: It seems you can run the entire tutorial within the Google Cloud Shell, wi
 == A basic main.tf file
 
 * Using the below code as a basis, you can create a simple Terraform file (`main.tf`) to create a container-optimized VM. 
+* At this time, this is just for reference.
 
 ....
 provider "google" {
