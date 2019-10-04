@@ -11,9 +11,16 @@ Learning objectives for this lab:
 ** Creating a Docker container with a simple application in it
 * Moving your application to Docker
 
+== Priority #1: Destroy all Google VMs. 
+You should never leave anything running on Google. Go to https://console.cloud.google.com/compute and make sure all VMs are destroyed, manually if necessary. 
+
+Get in the habit of running `terraform destroy -auto-approve` at the end of every session. You only should be creating VMs (and networks, firewalls, etc) via Terraform templates. 
+
 == Basic Docker skills
 
-NOTE: It seems you can run the entire tutorial within the Google Cloud Shell, without the additional step of spinning up a VM. We are going to continue investigating this. 
+Prerequisite: In-class discussion of port mapping. 
+
+NOTE: You can run most of tutorial within the Google Cloud Shell. The one thing you can't do there is access a running container from an external Web browser, so to see results in Chrome for example you *must* spin up a VM. However, you can validate that a Web server is functioning locally with the `curl` command, which is a very useful tool you will find yourself relying on. 
 
 * Study https://cloud.google.com/containers/.
 
@@ -27,23 +34,40 @@ NOTE: It seems you can run the entire tutorial within the Google Cloud Shell, wi
 
 * With those preliminaires out of the way, noting any necessary adaptations, run the full Docker tutorial https://docker-curriculum.com/.
 
-** We are using Google, not Amazon, so skip the Amazon-specific sections. 
+** We are using Google, not Amazon. Do the beginning of the Amazon section where it describes pushing to the Docker hub. 
+
+** Then, create your own instance using `cos-cloud/cos-stable` and `fi-micro` and the `main.tf` file suggested below. Using what you have learned so far, log into the new instance and run your container from the Docker Hub. 
+
+** Try pinging your new VM from a local command prompt. Are you able to do this right away? 
+
+** Try accessing your website as the tutorial suggests. What issues might you be having with the address? Why? 
+
+** Does the website seem to hang? Don't be impatient. Time how long it takes to display. 
+
+** How might we make it faster? Think about this. (In class discussion.)
+
+** Be sure to destroy. 
 
 == Replatforming your system
 
 * On your Github account, set up an empty repo with the name "YOUREMAIL-dock-tut" (YOUREMAIL is your 8 char email account), and clone it down to your ~/repos directory on Google Cloud Shell. 
 
-* Configure a basic static webserver along the lines of the last tutorial.
+* Configure a basic static webserver of your choice (either based on the webfsd ex)
 
-* Move your images and html file over to your new system. Run it. 
+* Move your images and html file over to your new repo. 
+
+* Create an appropriate Dockerfile. Is the `ONBUILD` trigger useful? Review how the tutorial worked with this.  
+
+* Build your container image and push to the Docker hub. Run it and show me a screen shot. 
 
 * Push your newly configured system back up to Github. 
+
+* EXTRA CREDIT: Figure out how to automatically deploy your container to your new VM via an appropriate Terraform operation. See https://cloud.google.com/compute/docs/instances/create-start-instance#from-container-image; you will need to research how to do this via a Terraform template. 
 
 
 == A basic main.tf file
 
 * Using the below code as a basis, you can create a simple Terraform file (`main.tf`) to create a container-optimized VM. 
-* At this time, this is just for reference.
 
 ....
 provider "google" {
