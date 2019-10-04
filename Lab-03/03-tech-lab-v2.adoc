@@ -9,13 +9,40 @@ Learning objectives for this lab:
 * Gain basic Docker skills using GCP
 ** Running pre-existing Docker containers
 ** Creating a Docker container with a simple application in it
-
-== Set up a new empty repository on Github
-
-On your Github account, set up an empty repo with the name "YOUREMAIL-dock-tut" (YOUREMAIL is your 8 char email account), and clone it down to your ~/repos directory on Google Cloud Shell. 
+* Moving your application to Docker
 
 == Basic Docker skills
-* Using the below code as a basis, create a simple Terraform file (`main.tf`) to create a container-optimized VM. 
+
+NOTE: It seems you can run the entire tutorial within the Google Cloud Shell, without the additional step of spinning up a VM. We are going to continue investigating this. 
+
+* Study https://cloud.google.com/containers/.
+
+* Log in via the web page (still working on getting ssh to work from command prompt immediately).
+
+* Run https://cloud.google.com/cloud-build/docs/quickstart-docker[Quickstart for Docker^]
+
+* Review https://cloud.google.com/compute/docs/containers/ 
+
+* Run https://cloud.google.com/community/tutorials/docker-compose-on-container-optimized-os
+
+* With those preliminaires out of the way, noting any necessary adaptations, run the full Docker tutorial https://docker-curriculum.com/.
+
+** We are using Google, not Amazon, so skip the Amazon-specific sections. 
+
+== Replatforming your system
+
+* On your Github account, set up an empty repo with the name "YOUREMAIL-dock-tut" (YOUREMAIL is your 8 char email account), and clone it down to your ~/repos directory on Google Cloud Shell. 
+
+* Configure a basic static webserver along the lines of the last tutoria.
+
+* Move your images and html file over to your new system. Run it. 
+
+* Push your newly configured system back up to Github. 
+
+
+== A basic main.tf file
+
+* Using the below code as a basis, you can create a simple Terraform file (`main.tf`) to create a container-optimized VM. 
 
 ....
 provider "google" {
@@ -39,21 +66,21 @@ resource "google_compute_instance" "dock-tut" {
     }
   }
 }
+resource "google_compute_firewall" "default" {
+ name    = "dock-net"
+ network = "default"
 
+ allow {
+    protocol = "icmp"
+  }
+
+  allow {
+    protocol = "tcp"
+    ports    = ["22", "80", "8080", "1000-2000"]
+  }
+}
+
+  output "ip" {
+     value = "${google_compute_instance.dock-tut.network_interface.0.access_config.0.nat_ip}"
+  }
 ....
-
-* Log in via the web page (still working on getting ssh to work from command prompt immediately).
-
-* Run https://cloud.google.com/cloud-build/docs/quickstart-docker[Quickstart for Docker^]
-
-* Review https://cloud.google.com/compute/docs/containers/ 
-
-* Run https://cloud.google.com/community/tutorials/docker-compose-on-container-optimized-os
-
-* Noting any necessary adaptations, run the full Docker tutorial https://docs.docker.com/get-started/
-** Part 1: you are running Docker in the cloud so you do not need to install it locally as these directions suggest.
-** In general you run it *within* your container-optimized VM or VMs, within the Cloud Shell. 
-
-* move your images and html file over to your new system
-
-* Save your newly configured system as a new Github repo
