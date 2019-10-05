@@ -32,7 +32,7 @@ NOTE: You can run most of tutorial within the Google Cloud Shell. The one thing 
 
 * With those preliminaires out of the way, noting any necessary adaptations, run the full Docker tutorial https://docker-curriculum.com/. In particular, you do not need to install Docker. Use the Google Command Shell natively. 
 
-** We are using Google, not Amazon. Do the beginning of the Amazon section where it describes pushing to the Docker hub. 
+** We are using Google, not Amazon. Do the beginning of the Amazon section where it describes pushing to the Docker hub. Stop at Elastic Beanstalk.  
 
 ** Then, create your own instance using `cos-cloud/cos-stable` and `fi-micro` and the `main.tf` file suggested below. Using what you have learned so far, log into the new instance and run your container from the Docker Hub. 
 
