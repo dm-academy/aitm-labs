@@ -24,8 +24,6 @@ NOTE: You can run most of tutorial within the Google Cloud Shell. The one thing 
 
 * Study https://cloud.google.com/containers/.
 
-* Log in via the web page (still working on getting ssh to work from command prompt immediately).
-
 * Run https://cloud.google.com/cloud-build/docs/quickstart-docker[Quickstart for Docker^]
 
 * Review https://cloud.google.com/compute/docs/containers/ 
