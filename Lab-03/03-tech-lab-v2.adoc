@@ -30,7 +30,7 @@ NOTE: You can run most of tutorial within the Google Cloud Shell. The one thing 
 
 * Run https://cloud.google.com/community/tutorials/docker-compose-on-container-optimized-os
 
-* With those preliminaires out of the way, noting any necessary adaptations, run the full Docker tutorial https://docker-curriculum.com/.
+* With those preliminaires out of the way, noting any necessary adaptations, run the full Docker tutorial https://docker-curriculum.com/. In particular, you do not need to install Docker. Use the Google Command Shell natively. 
 
 ** We are using Google, not Amazon. Do the beginning of the Amazon section where it describes pushing to the Docker hub. 
 
