@@ -28,9 +28,22 @@ NOTE: You can run most of tutorial within the Google Cloud Shell. The one thing 
 
 * Review https://cloud.google.com/compute/docs/containers/ 
 
-* Run https://cloud.google.com/community/tutorials/docker-compose-on-container-optimized-os
+* Run https://cloud.google.com/community/tutorials/docker-compose-on-container-optimized-os - just that first page, do not continue with the further links at the end. 
 
 * With those preliminaires out of the way, noting any necessary adaptations, run the full Docker tutorial https://docker-curriculum.com/. In particular, you do not need to install Docker. Use the Google Command Shell natively. 
+
+** You can even navigate to a web page. When you first run your container, the command and its result should look like this: 
+
+
+`<userid>:docker-tutorial$ docker run -p 8080:5000 charlestbetz/catnip`
+
+ `* Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)`
+
+If you click on the suggested link, you will get an error indicating the wrong port. 
+
+image::portError.png[]
+
+If you change the URL 
 
 ** We are using Google, not Amazon. Do the beginning of the Amazon section where it describes pushing to the Docker hub. Stop at Elastic Beanstalk.  
 
