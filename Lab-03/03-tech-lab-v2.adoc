@@ -79,6 +79,7 @@ If you change the URL
 == A basic main.tf file
 
 * Using the below code as a basis, you can create a simple Terraform file (`main.tf`) to create a container-optimized VM. 
+* Reminder: To run Terraform, save this file in a directory, changing variables as appropriate, and run `terraform init` and then `terraform apply`. 
 
 ....
 provider "google" {
