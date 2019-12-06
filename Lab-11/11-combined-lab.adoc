@@ -15,15 +15,17 @@ You can find other examples of conceptual data models by Googling "conceptual da
 
 Remember: the foundation of an enterprise data model is comprised of the basic concepts of interest to a business.
 
-Each team is assigned an industry that requires an enterprise data model to function. For your assigned industry, develop a comparable high level (no attributes) conceptual data model:
+Each team is assigned an industry that requires an enterprise data model to function. Choose an industry and develop a comparable high level (no attributes) conceptual data model. Coordinate via Slack so that you and your partner/team are the only ones working on the domain:
 
-* Team 1: Retail
-* Team 2: Telecommunications
-* Team 3: Healthcare
-* Team 4: Financial Services
-* Alternative: Manufacturing
+* Retail
+* Telecommunications
+* Healthcare
+* Financial Services
+* Manufacturing
+* Education
+* Etc (be creative)
 
-Your data model should have no more than 10-15 major entities. All you need to do is find the major nouns that industry uses. For example, the noun "Patient" should appear in Team 3's data model only, and the noun "Customer" should appear in the models of Team 1, 2, and 4.
+Your data model should have no more than 10-15 major entities. All you need to do is find the major nouns that industry uses. For example, the noun "Patient" should appear in the healthcare data model only, and the noun "Customer" should appear in the models of multiple areas. 
 
 You can document the model with Visio or Powerpoint. Do your best to relate the entities with lines. It's not required to specify the ordinality or cardinality of entity relationships. This is a first cut, not something you need to worry about getting right.
 
