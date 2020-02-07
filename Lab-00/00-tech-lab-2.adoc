@@ -24,7 +24,7 @@ This is THREE different passwords, as well as a public/private key pair, with a 
 * Teams will be the main communication channel.
 * I strongly prefer questions be posted in Teams rather than via calling me over. Leverage your classmates for support. 
 * Open up Microsoft Teams
-* Find the group SEIS664 ...
+* Find the group SEIS664; the class code was sent out via Canvas announcement. 
 
 NOTE: As this is the first class where we are all using Teams these instructions are a work in progress. 
 
