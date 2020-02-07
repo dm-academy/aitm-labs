@@ -4,7 +4,7 @@ NOTE: We are in a bootstrapping phase. We need to get you set up on Github and G
 
 Objectives of this lab: 
 
-- Set up Slack
+- Access MS Teams
 - Set up Github
 - Set up Google Compute Engine
 - Create a VM
@@ -14,21 +14,19 @@ Objectives of this lab:
 By the time you are done with this lab, you will have: 
 
 * A St. Thomas email account (actually, you came in with this)
-* A Slack account, that should have the same name as your St. Thomas email but will have a different password
 * A Github account, that should *not* have the same name as your St. Thomas email
 * A Google account, for running Google Compute Engine
 
 This is FOUR different passwords, as well as a public/private key pair, with a passphrase, for Github. It's your responsibility to keep these accounts straight and NOT get confused which has what password. I recommend the use of a password keeper such as 1Pasword or LastPass. 
 
-== Setting up Slack
+== Setting up Teams
 
-* Slack will be the main communication channel.
-* I strongly prefer questions be posted in Slack rather than via calling me over. Leverage your classmates for support. 
-* Navigate to https://seis664.slack.com/[https://seis664.slack.com/].
-** Click "create an account" and remember your password. You should use your St. Thomas email. Whether you use it or another email, you will need a SEPARATE and DISTINCT password from any other Slack accounts you have. This is just how Slack works; you have to maintain multiple accounts.
-** Confirm you can read messages. Try posting to the https://seis664.slack.com/messages/general/[#general] thread.
-** The channels are not cleared from the previous semester. Have a look, you'll get a feel for the class. 
-** To find a channel, click on Channels and it will say "Browse All Channels"
+* Teams will be the main communication channel.
+* I strongly prefer questions be posted in Teams rather than via calling me over. Leverage your classmates for support. 
+* Open up Microsoft Teams
+* Find the group SEIS664 ...
+
+[As this is the first class where we are all using Teams these instructions are WIP.]
 
 == Accessing Google Compute Engine
 
