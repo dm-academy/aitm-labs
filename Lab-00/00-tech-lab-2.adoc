@@ -17,7 +17,7 @@ By the time you are done with this lab, you will have:
 * A Github account, that should *not* have the same name as your St. Thomas email
 * A Google account, for running Google Compute Engine
 
-This is FOUR different passwords, as well as a public/private key pair, with a passphrase, for Github. It's your responsibility to keep these accounts straight and NOT get confused which has what password. I recommend the use of a password keeper such as 1Pasword or LastPass. 
+This is THREE different passwords, as well as a public/private key pair, with a passphrase, for Github. It's your responsibility to keep these accounts straight and NOT get confused which has what password. I recommend the use of a password keeper such as 1Pasword or LastPass. 
 
 == Setting up Teams
 
@@ -26,7 +26,7 @@ This is FOUR different passwords, as well as a public/private key pair, with a p
 * Open up Microsoft Teams
 * Find the group SEIS664 ...
 
-[As this is the first class where we are all using Teams these instructions are WIP.]
+NOTE: As this is the first class where we are all using Teams these instructions are a work in progress. 
 
 == Accessing Google Compute Engine
 
