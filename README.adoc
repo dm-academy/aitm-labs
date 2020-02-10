@@ -1,4 +1,7 @@
 # aitm-labs
+
+OUTDATED. See https://github.com/dm-academy/dp-course. 
+
 Labs for Agile IT Management
 Prof. Charles T. Betz
 initially developed for SEIS 660/664, University of St. Thomas
