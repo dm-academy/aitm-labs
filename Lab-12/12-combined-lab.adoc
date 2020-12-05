@@ -74,7 +74,7 @@ IMPORTANT: Remember that "services" and "technology products," for the purposes 
 
 == The portfolio spreadsheet
 
-The assignment is based on the spreadsheet titled "portfolioLab.xls." This spreadsheet has 3 tabs:
+The assignment is based on the https://github.com/dm-academy/aitm-labs/blob/master/Lab-12/portfolioLab.xls[portfolioLab.xls] spreadsheet. This spreadsheet has 3 tabs:
 
 *dictionary* - definitions of the fields, including how they are generated.
 
